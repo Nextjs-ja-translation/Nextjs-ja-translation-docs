@@ -1,0 +1,40 @@
+import Layout from '../../../../components/learn/Layout'
+import Link from 'next/link'
+
+export const meta = {
+  title: 'API Routes',
+  courseId: 'basics',
+  lessonId: 'api-routes',
+  stepId: 'creating-api-routes',
+  subtitle: 'Creating API Routes'
+}
+
+API Routes let you create an API endpoint inside a Next.js app. You can do so by creating a **function** inside the `pages/api` directory that has the following format:
+
+```js
+// req = request data, res = response data
+export default (req, res) => {
+  // ...
+}
+```
+
+They can be deployed as Serverless Functions (also known as Lambdas).
+
+### Creating a simple API endpoint
+
+Let’s try it out. Create a file called `hello.js` in `pages/api` with the following code:
+
+```js
+export default (req, res) => {
+  res.status(200).json({ text: 'Hello' })
+}
+```
+
+Try accessing it at [http://localhost:3000/api/hello](http://localhost:3000/api/hello). You should see `{"text":"Hello"}`. Note that:
+
+- `req` is an instance of [http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage), plus some pre-built middlewares you can see <Link href="/docs/[...slug]" as="/docs/api-routes/api-middlewares"><a>here</a></Link>.
+- `res` is an instance of [http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse), plus some helper functions you can see <Link href="/docs/[...slug]" as="/docs/api-routes/response-helpers"><a>here</a></Link>.
+
+That’s it! Before we wrap up this lesson, let’s talk about some tips for using API Routes on the next page.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

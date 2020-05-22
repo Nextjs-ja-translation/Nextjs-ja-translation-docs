@@ -1,0 +1,51 @@
+export const meta = {
+  title: 'Next.js 9.1.7',
+  description: `Next.js 9.1.7 improves upon a solid foundation, improving the enterprise-ready 9.1 release-channel. Upgrade for smaller client-side JavaScript bundles, redesigned CLI output, faster FCP/TTI, and more!`,
+  date: '2020-01-06T15:45:00.000Z',
+  url: 'https://nextjs.org/blog/next-9-1-7',
+  link: '/blog/next-9-1-7',
+  authors: [
+    {
+      name: 'Tim Neutkens',
+      avatar: '/static/team/tim.jpg',
+      twitter: 'timneutkens'
+    },
+    {
+      name: 'Joe Haddad',
+      avatar: '/static/team/timer.jpg',
+      twitter: 'timer150'
+    },
+    {
+      name: 'JJ Kasper',
+      avatar: '/static/team/jj.jpg',
+      twitter: '_ijjk'
+    },
+    {
+      name: 'Luis Alvarez',
+      avatar: '/static/team/lfades.jpg',
+      twitter: 'luis_fades'
+    }
+  ]
+}
+
+[Next.js 9](/blog/next-9) was released six (6) months ago, followed by [Next.js 9.1](/blog/next-9-1) three (3) months ago.
+These two releases added very powerful new features to Next.js, without increasing our baseline client runtime size.
+
+Since then, we've focused heavily on refining and improving the framework as a whole:
+[9.1.1](https://github.com/zeit/next.js/releases/tag/v9.1.1),
+[9.1.2](https://github.com/zeit/next.js/releases/tag/v9.1.2),
+[9.1.3](https://github.com/zeit/next.js/releases/tag/v9.1.3),
+[9.1.4](https://github.com/zeit/next.js/releases/tag/v9.1.4),
+[9.1.5](https://github.com/zeit/next.js/releases/tag/v9.1.5),
+[9.1.6](https://github.com/zeit/next.js/releases/tag/v9.1.6),
+and [9.1.7](https://github.com/zeit/next.js/releases/tag/v9.1.7).
+Let's dive into what these releases have improved!
+
+- [3% – 8%+ Smaller Client-Side JavaScript Size](#3--8-smaller-client-side-javascript-size)
+- [Redesigned Production Build CLI Output](#redesigned-production-build-cli-output)
+- [New Built-In Polyfills: fetch(), URL, and Object.assign](#new-built-in-polyfills-fetch-url-and-objectassign)
+- [Optimized Page Loading: Better FCP and TTI](#optimized-page-loading-better-fcp-and-tti)
+- [Support for the Latest JavaScript Features](#support-for-the-latest-javascript-features)
+- [Zero-Config Deployment Support for `next export` Applications](#zero-config-deployment-support-for-next-export-applications)
+- [React Strict Mode Compliance and Opt-In](#react-strict-mode-compliance-and-opt-in)
+- [Automated Testing against Nightly React Builds](#automated-testing-against-nightly-react-builds)

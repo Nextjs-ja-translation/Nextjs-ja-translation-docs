@@ -1,0 +1,109 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+
+export const meta = {
+  title: 'Dynamic Routes',
+  courseId: 'basics',
+  lessonId: 'dynamic-routes',
+  stepId: 'polishing-post-page',
+  subtitle: 'Polishing the Post Page'
+}
+
+### Adding `title` to the Post Page
+
+In `pages/posts/[id].js`, let’s add the `title` tag using the post data. Import `next/head` and add the `title` tag:
+
+```jsx
+import Head from 'next/head'
+
+export default function Post({ postData }) {
+  return (
+    <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
+      ...
+    </Layout>
+  )
+}
+```
+
+### Formatting the Date
+
+To format the date, we’ll use the `date-fns` library. First, install it:
+
+```shell
+npm install date-fns
+```
+
+Next, create the `Date` component at `components/date.js`:
+
+```jsx
+import { parseISO, format } from 'date-fns'
+
+export default function Date({ dateString }) {
+  const date = parseISO(dateString)
+  return <time dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>
+}
+```
+
+And use it in `pages/posts/[id].js`:
+
+```jsx
+// Add this line to imports
+import Date from '../../components/date'
+
+export default function Post({ postData }) {
+  return (
+    <Layout>
+      ...
+      {/* Replace {postData.date} with this */}
+      <Date dateString={postData.date} />
+      ...
+    </Layout>
+  )
+}
+```
+
+If you access [http://localhost:3000/posts/pre-rendering](http://localhost:3000/posts/pre-rendering), you should now see the date written as **“January 1, 2020”**.
+
+### Adding CSS
+
+Finally, let’s add some CSS. In `pages/posts/[id].js`, put everything under the `article` tag and use CSS modules like below:
+
+```jsx
+// Add this line
+import utilStyles from '../../styles/utils.module.css'
+
+export default function Post({ postData }) {
+  return (
+    <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
+      <article>
+        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+        <div className={utilStyles.lightText}>
+          <Date dateString={postData.date} />
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      </article>
+    </Layout>
+  )
+}
+```
+
+If you access [http://localhost:3000/posts/pre-rendering](http://localhost:3000/posts/pre-rendering), the page should now look a little better:
+
+<Image
+  shadow
+  alt="Example"
+  oversize={false}
+  src="/static/images/learn/dynamic-routes/post-page-css.png"
+  width={1382 / 2}
+  height={661 / 2}
+/>
+
+Great work! We’ll polish the index page next and we’ll be done!
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

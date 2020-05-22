@@ -1,0 +1,69 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+import Link from 'next/link'
+import PlatformLink from '../../../../components/name/platform-link'
+import PlatformCdnLink from '../../../../components/name/platform-cdn-link'
+import PlatformText from '../../../../components/name/platform-text'
+import { PLATFORM_NAME } from '../../../../lib/constants'
+
+export const meta = {
+  title: 'Deploying Your Next.js App',
+  courseId: 'basics',
+  lessonId: 'deploying-nextjs-app',
+  stepId: 'platform-details',
+  subtitle: `Next.js and ${PLATFORM_NAME}`
+}
+
+&#8203;<PlatformLink /> is made by the creators of Next.js and has first-class support for Next.js. When you deploy your Next.js app to <PlatformText />, the following happens by default:
+
+- Pages that use Static Generation and assets (JS, CSS, images, fonts, etc) will automatically be served from the <PlatformCdnLink />, which is blazingly fast.
+- Pages that use Server-Side Rendering and API routes will automatically become isolated <PlatformLink href="/docs/v2/serverless-functions/introduction">Serverless Functions</PlatformLink>. This allows page rendering and API requests to scale infinitely.
+
+&#8203;<PlatformText /> has many more features, such as:
+
+- **Custom Domains:** Once deployed on <PlatformText />, you can assign a custom domain to your Next.js app. Take a look at <PlatformLink href="/docs/v2/custom-domains">our documentation</PlatformLink> here.
+- **Environment Variables:** You can also set environment variables on <PlatformText />. Take a look at <PlatformLink href="/docs/v2/build-step#environment-variables">our documentation</PlatformLink> here. You can then <Link href="/docs/[...slug]" as="/docs/api-reference/next.config.js/environment-variables"><a>use those environment variables</a></Link> in your Next.js app.
+- **Automatic HTTPS:** HTTPS is enabled by default (including custom domains) and doesn't require extra configuration. We auto-renew SSL certificates.
+
+Read <PlatformLink href="/docs">our documentation</PlatformLink> to learn more about the <PlatformText /> platform.
+
+### Preview Deployment for Every Push
+
+> The steps below are **optional** — you can try it or just read it through.
+
+After deploying to <PlatformText />, try doing the following if you can:
+
+- Create a new **branch** on your app.
+- Make some changes and push to GitHub.
+- Create a new **pull request** ([GitHub help page](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)).
+
+You should see a comment by the `now` bot on the pull request page.
+
+<Image
+  shadow
+  alt="Preview Deployment URL"
+  oversize={false}
+  src="/static/images/learn/deploying-nextjs-app/now-bot.png"
+  width={766 / 2}
+  height={122 / 2}
+/>
+
+Try clicking on the **Preview** URL inside this comment. You should see the changes you just made.
+
+When you have a pull request open, <PlatformText /> automatically creates a **preview deployment** for that branch on every push. The preview URL will always point to the latest preview deployment.
+
+You can share this preview URL with your collaborators and get immediate feedback.
+
+If your preview deployment looks good, **merge it to `master`**. When you do this, <PlatformText /> automatically creates a production deployment.
+
+### Develop, Preview, Ship
+
+We’ve just gone through the workflow we call **DPS**: **D**evelop, **P**review, and **S**hip.
+
+- **Develop**: We’ve written code in Next.js and used the Next.js development server running to take advantage of its hot reloading feature.
+- **Preview**: We’ve pushed changes to a branch on GitHub, and <PlatformText /> created a preview deployment that’s available via a URL. We can share this preview URL with others for feedback. In addition to doing _code reviews_, you can do _deployment previews_.
+- **Ship**: We’ve merged the pull request to `master` to ship to production.
+
+We strongly recommend using this workflow when developing Next.js apps — it will help you iterate on your app faster.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

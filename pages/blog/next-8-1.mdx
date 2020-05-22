@@ -1,0 +1,142 @@
+import withPost from '../../components/blog/with-post'
+import Image from '../../components/image'
+import { meta } from '../../blog/next-8-1-preview.mdx'
+import { TerminalInput } from '../../components/text/terminal'
+import Button from '../../components/button'
+
+export default withPost({ ...meta })
+
+Today, we're excited to announce we've extended the Next.js experience to authoring AMP pages.
+
+- [What is AMP](#what-is-amp)
+- [AMP in Next.js](#amp-in-nextjs)
+- [Hybrid AMP pages](#hybrid-amp-pages)
+- [AMP-first pages](#amp-first-pages)
+- [AMP Validation](#amp-validation)
+
+## What is AMP?
+
+AMP is a standard for building high-performance websites that minimizes rendering overhead and can be indexed on well known search engines with enhanced behavior. For example, AMP pages are loaded directly into Google's mobile search results and are marked by a lightning icon.
+
+<Image
+  caption="Next.js Google search result"
+  captionSpacing={0}
+  src="/static/blog/next-8-1/next-amp-result.png"
+  width={1124 / 2.5}
+  height={487 / 2.5}
+/>
+
+AMP HTML is a stricter version of HTML that imposes a few restrictions to achieve more reliable performance and better scalability. Some HTML tags are replaced with AMP-specific HTML tags to provide a better experience than its corresponding HTML tag. For example, the [`amp-img`](https://amp.dev/documentation/components/amp-img) tag provides full `srcset` support even in browsers that don’t support it yet.
+
+AMP pages are automatically discovered by search engines which support it. These search engines generally implement an [AMP Cache](https://amp.dev/documentation/guides-and-tutorials/learn/amp-caches-and-cors/how_amp_pages_are_cached) (e.g. [Google](https://developers.google.com/amp/cache/) and [Bing](https://www.bing.com/webmaster/help/bing-amp-cache-bc1c884c)). AMP Caches help the page to render faster from their search results.
+
+## AMP in Next.js
+
+Today, we're excited to announce we've extended the Next.js experience to authoring AMP pages. This means that you can now leverage the power of React components to create AMP pages. AMP support is defined on a per-page basis, allowing incremental adoption of AMP. There are two ways to enable AMP in Next.js: a Hybrid AMP page or an AMP-first page.
+
+## Hybrid AMP Pages
+
+Hybrid AMP pages allow you to have an accompanying AMP version of a traditional page so search engines can show the AMP version of the page in the mobile search results while maintaining the existing version of the page. This enables the use of AMP into your application while still making use of Next.js features like client-side routing for the main user experience.
+
+To opt-in to a hybrid AMP page use the `withAmp` function while providing the `hybrid: true` option:
+
+```js
+// pages/index.js
+function HomePage() {
+  return <p>Welcome to AMP + Next.js.</p>
+}
+
+export default withAmp(HomePage, { hybrid: true })
+```
+
+One example of the hybrid AMP pattern being used in production is Reddit. Each thread is stored in [Google's AMP Cache](https://developers.google.com/amp/cache/) to provide a fast user experience across the mobile web while still providing the full version of Reddit for desktops and subsequent navigation.
+
+<Image
+  caption="Image of Reddit using AMP to better SEO"
+  captionSpacing={0}
+  src="/static/blog/next-8-1/reddit-amp-results.png"
+  width={1123 / 2.5}
+  height={696 / 2.5}
+/>
+<Image
+  caption="Image of Reddit in AMP viewer"
+  captionSpacing={0}
+  src="/static/blog/next-8-1/amp-viewer.png"
+  width={1122 / 2.5}
+  height={684 / 2.5}
+/>
+
+### AMP-First Pages
+
+AMP-first pages are served to the website's primary traffic as well as search engine traffic. By using AMP-first pages, we bring the fast experience of AMP to the main website, including desktop.
+
+To implement to AMP-first pages, you wrap pages with the `withAmp` function:
+
+```js
+// pages/index.js
+import { withAmp } from 'next/amp'
+function HomePage() {
+  return <p>Welcome to AMP + Next.js.</p>
+}
+
+export default withAmp(HomePage)
+```
+
+If you don't have a need for the Next.js runtime, using AMP-first pages could help speed up development. AMP-First requires you to only use AMP compatible components to build your pages. AMP-First pages are currently in production on [nextjs.org/docs](http://nextjs.org/docs) and [nextjs.org/blog](http://nextjs.org/blog).
+
+### Distinguishing AMP Rendering in Components
+
+Any React component in your project can leverage `useAmp` to distinguish between AMP and non-AMP rendering mode. This allows you to implement an `<Image>` component that shares logic between `<img>` and `<amp-img>`:
+
+```js
+// components/image.js
+import { useAmp } from 'next/amp'
+
+export function Image({ src, width, height }) {
+  const isAmp = useAmp()
+  return isAmp ? (
+    <amp-img src={src} width={width} height={height} />
+  ) : (
+    <img src={src} width={width} height={height} />
+  )
+}
+
+// pages/index.js
+import { withAmp } from 'next/amp'
+import { Image } from '../components/image'
+
+function HomePage() {
+  return (
+    <>
+      <p>Hello! Welcome to AMP + Next.js.</p>
+      <Image src="https://placehold.it/120" width="120" height="120" />
+    </>
+  )
+}
+
+export default withAmp(HomePage, { hybrid: true })
+```
+
+## Automatic Reloading For AMP Development
+
+In development, instead of using hot-module-replacement, we track any changes to the page you are currently on and only reload the page when it has been changed. The reason we use full reloading instead of hot-module-replacement is to make sure you are always seeing a fresh server-side render of your AMP page.
+
+## AMP Validation
+
+To help make sure only valid AMP pages are produced, we automatically validate them with [`amphtml-validator`](https://www.npmjs.com/package/amphtml-validator) during development. Errors and warnings will appear in the terminal where you started Next.js.
+
+Pages are also validated during `next export` and any issues will be printed to the terminal. Any AMP errors will cause `next export` to fail because the export is not valid AMP.
+
+## Learn to use AMP with Next.js
+
+In addition to learning how to use Next.js, we have added a new section to learn how to use AMP in Next.js.
+
+<Button href="/learn/excel/amp" invert>
+  Learn Next.js with AMP
+</Button>
+
+Alternatively get started using the [AMP example](https://github.com/zeit/next.js/tree/canary/examples/amp):
+
+```
+npx create-next-app --example amp amp-app
+```

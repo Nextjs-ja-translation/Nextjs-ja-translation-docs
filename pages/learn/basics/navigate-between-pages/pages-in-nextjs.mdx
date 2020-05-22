@@ -1,0 +1,54 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+
+export const meta = {
+  title: 'Navigate Between Pages',
+  courseId: 'basics',
+  lessonId: 'navigate-between-pages',
+  stepId: 'pages-in-nextjs',
+  subtitle: 'Pages in Next.js'
+}
+
+In Next.js, a page is a React Component exported from a file in the `pages` directory.
+
+Pages are associated with a route based on their **file name**. For example, in development:
+
+- `pages/index.js` is associated with the `/` route.
+- `pages/posts/first-post.js` is associated with the `/posts/first-post` route.
+
+We already have the `pages/index.js` file, so let’s create `pages/posts/first-post.js` to see how it works.
+
+### Create a New Page
+
+Create the `posts` directory under `pages`.
+
+Create a file called `first-post.js` inside the `posts` directory with the following contents:
+
+```jsx
+export default function FirstPost() {
+  return <h1>First Post</h1>
+}
+```
+
+The component can have any name, but you must export it as a `default` export.
+
+Now, make sure that the development server is running and visit [http://localhost:3000/posts/first-post](http://localhost:3000/posts/first-post). You should see the page:
+
+<Image
+  shadow
+  alt="First Post"
+  oversize={false}
+  src="/static/images/learn/navigate-between-pages/first-post.png"
+  width={656 / 2}
+  height={282 / 2}
+/>
+
+This is how you can create different pages in Next.js.
+
+Simply create a JS file under the `pages` directory, and the path to the file becomes the URL path.
+
+In a way, this is similar to building websites using HTML or PHP files. Instead of writing HTML you write JSX and use React Components.
+
+Let's add a link to the newly added page so that we can navigate to it from the homepage.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

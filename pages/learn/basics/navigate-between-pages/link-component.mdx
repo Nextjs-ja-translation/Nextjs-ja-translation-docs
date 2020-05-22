@@ -1,0 +1,68 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+
+export const meta = {
+  title: 'Navigate Between Pages',
+  courseId: 'basics',
+  lessonId: 'navigate-between-pages',
+  stepId: 'link-component',
+  subtitle: 'Link Component'
+}
+
+When linking between pages on websites you generally use the `<a>` HTML tag.
+
+In Next.js, you use the `<Link>` React Component that wraps the `<a>` tag. `<Link>` allows you to do client-side navigation to a different page in the application.
+
+### Using `<Link>`
+
+First, in `pages/index.js`, import the `Link` component from `next/link` by adding this line at the top:
+
+```js
+import Link from 'next/link'
+```
+
+Then modify this line in the `h1` tag:
+
+```jsx
+Learn <a href="https://nextjs.org">Next.js!</a>
+```
+
+To this:
+
+```jsx
+Read <Link href="/posts/first-post"><a>this page!</a></Link>
+```
+
+Next, replace the content of `pages/posts/first-post.js` with the following:
+
+```jsx
+import Link from 'next/link'
+
+export default function FirstPost() {
+  return (
+    <>
+      <h1>First Post</h1>
+      <h2>
+        <Link href="/">
+          <a>Back to home</a>
+        </Link>
+      </h2>
+    </>
+  )
+}
+```
+
+As you can see, the `Link` component is similar to using `<a>` tags, but instead of `<a href="…">`, you use `<Link href="…">` and put an `<a>` tag inside.
+
+Let’s check to see it works. You now should have a link on each page, allowing you to go back and forth:
+
+<Image
+  shadow
+  alt="Links"
+  oversize={false}
+  src="/static/images/learn/navigate-between-pages/links.gif"
+  width={990 / 2}
+  height={344 / 2}
+/>
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

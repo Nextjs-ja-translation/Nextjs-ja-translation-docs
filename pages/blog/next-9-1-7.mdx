@@ -1,0 +1,358 @@
+import withPost from '../../components/blog/with-post'
+import Image from '../../components/image'
+import { meta } from '../../blog/next-9-1-7-preview.mdx'
+import { TerminalInput } from '../../components/text/terminal'
+import Caption from '../../components/text/caption'
+import PlatformLink from '../../components/name/platform-link'
+import PlatformText from '../../components/name/platform-text'
+import PlatformCliLink from '../../components/name/platform-cli-link'
+
+export default withPost({ ...meta })
+
+[Next.js 9](/blog/next-9) was released six (6) months ago, followed by [Next.js 9.1](/blog/next-9-1) three (3) months ago.
+These two releases added very powerful new features to Next.js, without increasing our baseline client runtime size.
+
+Since then, we've focused heavily on refining and improving the framework as a whole:
+[9.1.1](https://github.com/zeit/next.js/releases/tag/v9.1.1),
+[9.1.2](https://github.com/zeit/next.js/releases/tag/v9.1.2),
+[9.1.3](https://github.com/zeit/next.js/releases/tag/v9.1.3),
+[9.1.4](https://github.com/zeit/next.js/releases/tag/v9.1.4),
+[9.1.5](https://github.com/zeit/next.js/releases/tag/v9.1.5),
+[9.1.6](https://github.com/zeit/next.js/releases/tag/v9.1.6),
+and [9.1.7](https://github.com/zeit/next.js/releases/tag/v9.1.7).
+Let's dive into what these releases have improved!
+
+- **[3% – 8%+ Smaller Client-Side JavaScript Size](#3--8-smaller-client-side-javascript-size)**: We've optimized application output even futher, shaving 7.5kB off hello world applications. More complex applications will show a savings up to 8% or more.
+- **[Redesigned Production Build CLI Output](#redesigned-production-build-cli-output)**: The production build output now shows gzipped file sizes in an easier to understand format.
+- **[New Built-In Polyfills: fetch(), URL, and Object.assign](#new-built-in-polyfills-fetch-url-and-objectassign)**: Applications can leverage the `fetch()` API, `URL`, and `Object.assign` in legacy browsers without compatibility concerns.
+- **[Optimized Page Loading: Better FCP and TTI](#optimized-page-loading-better-fcp-and-tti)**: We've collaborated closely with the Google Chrome team to maximize page loading performance. This results in a much better end-user experience.
+- **[Support for the Latest JavaScript Features](#support-for-the-latest-javascript-features)**: We're committed to ensuring you can always use the latest JavaScript features, including [Optional Chaining](https://github.com/tc39/proposal-optional-chaining), [Nullish Coalescing](https://github.com/tc39/proposal-nullish-coalescing), and other stable ES2020 features.
+- **[Zero-Config Deployment Support for `next export` Applications](#zero-config-deployment-support-for-next-export-applications)**: `next export` powered applications can now be deployed to <PlatformLink /> with zero configuration.
+- **[React Strict Mode Compliance and Opt-In](#react-strict-mode-compliance-and-opt-in)**: All of Next.js' client-side runtime is now compatible with React's Strict Mode. We've also added a configuration option to enable this mode for your whole application.
+- **[Automated Testing against Nightly React Builds](#automated-testing-against-nightly-react-builds)**: Next.js is automatically tested against [React's next channel](https://reactjs.org/blog/2019/10/22/react-release-channels.html), ensuring compatibility with future releases.
+
+All of these benefits are non-breaking and fully backwards compatible. All you need to do to update is run:
+
+<TerminalInput
+  prefix
+>{`npm i next@latest react@latest react-dom@latest`}</TerminalInput>
+
+### 3% – 8%+ Smaller Client-Side JavaScript Size
+
+In collaboration with the Google Chrome team, all Next.js applications will
+benefit from a **7.5kB or more** size reduction.
+
+Basic applications should see a 3-4% application size reduction, and more
+advanced applications may see upwards of 6-8% (or more)!
+
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>9.0.x</th>
+      <th>
+        <b>9.1.x</b>
+      </th>
+      <th>delta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Basic Application</td>
+      <td>
+        <b>68.9kB</b>
+      </td>
+      <td>
+        <b>66.1kB</b>
+      </td>
+      <td>
+        <b>4.1%</b>
+        <em>smaller</em>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+These savings are partially attributable to
+[replacing the `url` package's client-side version](https://github.com/GoogleChromeLabs/native-url)
+with one built atop the [URL API](https://developer.mozilla.org/en-US/docs/Web/API/URL).
+
+More size reduction has been accomplished by providing built-in, small
+polyfills for often-used packages. You can
+[read more about those polyfills here](#new-built-in-polyfills-fetch-url-and-objectassign).
+
+Lastly, we've optimized our JSX output which will introduce savings in direct
+correlation to the amount of JSX in your application.
+
+### Redesigned Production Build CLI Output
+
+The CLI's production build output has been redesigned for clarity.
+Because Next.js is a hybrid application framework, each page may have different
+characteristics.
+
+The new output classifies each page as one of the following:
+
+- **Server-Side Rendered (Server)**: the page server-side renders at runtime, meaning it uses `getInitialProps` or [`getServerProps` (proposal)](https://github.com/zeit/next.js/issues/9524)
+- **Automatically Statically Optimized (Static)**: the page was rendered as static HTML at build time, and will be served as a static file (uses no initial props)
+- **Statically Generated Using Computed Data (SSG)**: the page was generated as static HTML/JSON at build time, and will be served as static files (uses [`getStaticProps` (proposal)](https://github.com/zeit/next.js/issues/9524))
+
+Furthermore, the new output displays the Gzipped size of each page — these
+sizes exclude files that are shared by all pages (displayed separately).
+
+Each page's size will be colored in accordance with their perceived user experience:
+
+- **Less than 130kB**: <i>Green</i> — your application should be performant under most network and device conditions.
+- **Between 130kB and 170kB**: <i>Yellow</i> — your application is nearing a 5-6 second load time on [global baseline device + network conditions](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/).
+- **More than 170kB**: <i>Red</i> — your application will likely take more than 6 seconds to load on [the same conditions](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/).
+
+<Image
+  caption={'The New Next.js Production CLI Output'}
+  src="/static/blog/next-9-1-7/next-new-output.png"
+  width={1496 / 2}
+  height={1190 / 2}
+/>
+
+We'd love to hear your feedback about the new build output.
+
+In the near future Next.js will also have size budgets that help you ensure pages are within a certain size bracket.
+
+### New Built-In Polyfills: fetch(), URL, and Object.assign
+
+While examining many users' applications and our examples, we found that most
+shipped with a similar set of polyfills.
+In some cases, applications even had duplicate polyfills for the same feature.
+
+To remedy this, we collaborated with the Google Chrome team to build in
+polyfills for the three most common APIs we observed.
+
+Using differential loading, these polyfills are **not loaded for 83% of web traffic** globally.
+This means that the majority of your users will not download the bytes associated
+with these polyfills—they'll only be downloaded if necessary.
+
+Furthermore, any well-known polyfills that we've now built in will be
+completely eliminated from your production build.
+This means you will not pay the price for one of your dependencies that
+inadvertently import a polyfill for one of these APIs.
+
+The list of built-in APIs and the polyfills they make obsolete are as follows:
+
+- [**fetch()**](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) — Replacing: `whatwg-fetch` and `unfetch`.
+- [**URL**](https://developer.mozilla.org/en-US/docs/Web/API/URL) — Replacing: the [`url` package (Node.js API)](https://nodejs.org/api/url.html).
+- [**Object.assign()**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) — Replacing: `object-assign`, `object.assign`, and `core-js/object/assign`.
+
+You still need to import `isomorphic-fetch` or `isomorphic-unfetch` if you're
+using `fetch()` on the server.
+
+This change is completely non-breaking, and all polyfills are made with the
+most spec-compliant versions available.
+The result is up to **18kB of JavaScript eliminated** from your production bundles on modern browsers.
+
+### Optimized Page Loading: Better FCP and TTI
+
+Next.js has optimized its preloading implementation to reduce FCP and overall TTI.
+
+By working around a browser bug, CSS (when used) is now correctly prioritized
+over JavaScript. This results in a faster First Contentful Paint, resulting in
+a much faster visually complete website for your end-users.
+
+Additionally, we've optimized our page prefetching to use lower-priority
+network requests.
+Furthermore, these requests only happen during browser idle-time, resulting in
+a quicker time-to-interactive. This is because the browser will prioritize
+making your application interactive over optimistic prefetching.
+
+<Image
+  caption={'FCP/TTI Before and After Optimizations'}
+  captionSpacing={30}
+  src="/static/blog/next-9-1-7/nextjs-org-scores.png"
+  width={3440 / 3}
+  height={1704 / 3}
+  oversize
+/>
+
+### Support for the Latest JavaScript Features
+
+Next.js has an advanced, highly optimized compilation pipeline that allows you to use the latest JavaScript features.
+Recent optimizations we have introduced directly contributed to the
+[3-8% reduction](#3--8-smaller-client-side-javascript-size) in application size.
+
+These JavaScript features can be leveraged without worrying about browser compatibility, as we automatically compile
+your code to support all browsers (excluding end-of-life versions).
+This includes ES6+ features, such as
+[async/await (ES2017)](https://github.com/tc39/ecmascript-asyncawait),
+[Object Rest/Spread Properties (ES2018)](https://github.com/tc39/proposal-object-rest-spread),
+[Dynamic `import()` (ES2020)](https://v8.dev/features/dynamic-import),
+and more!
+
+In this release, we're happy to announce support for
+[Optional Chaining (Stage 4)](https://github.com/tc39/proposal-optional-chaining)
+and [Nullish Coalescing (Stage 4)](https://github.com/tc39/proposal-nullish-coalescing).
+
+```jsx
+function Page(props) {
+  return (
+    <p>{props?.deeply?.nested?.value}</p>
+    /* ⬆ If deeply.nested.value is not available it won't render */
+  )
+}
+
+export default Page
+```
+
+<Caption>
+  Optional chaining operator (<Caption.Code>?.</Caption.Code>)
+</Caption>
+
+```jsx
+function Page(props) {
+  return (
+    <p>{props.something ?? 'Default value'}</p>
+    /* ⬆ results in "Default value" */
+  )
+}
+
+export default Page
+```
+
+<Caption>
+  Nullish coalescing operator (<Caption.Code>??</Caption.Code>)
+</Caption>
+
+In the future, we plan to output even more optimized bundles via automatic
+[module / nomodule builds](https://nextjs.org/blog/next-9-1#module--nomodule).
+
+### Zero-Config Deployment Support for `next export` Applications
+
+Next.js' `next export` command now works with <PlatformText />’s <PlatformLink href="/blog/zero-config">Zero Configuration</PlatformLink> out-of-the-box.
+Prior to this change, users who leveraged `next export` were required to create a custom `now.json`.
+
+Leveraging Next.js' export-mode on <PlatformLink /> is as simple as having the following `build` script in `package.json`:
+
+```json
+{
+  "scripts": {
+    "build": "next build && next export"
+  }
+}
+```
+
+Then, you can deploy your Next.js application to <PlatformLink /> with **only a single command**.<br/>
+If you have not yet installed Now, you can do so by installing <PlatformCliLink />.
+
+<TerminalInput prefix>{`now`}</TerminalInput>
+
+### React Strict Mode Compliance and Opt-In
+
+The complete Next.js runtime is now Strict Mode-compliant.
+This included updates to Next.js' head manager (`<Head>`), `next/dynamic`, and other core features.
+This means the runtimes now leverage hooks or have eliminated deprecated lifecycles,
+and are using React's new Context API.
+
+We've also added a convenient opt-in option for you to enable Strict Mode for
+your application.
+
+To do so, configure the following option in your `next.config.js`:
+
+```js
+// next.config.js
+module.exports = {
+  reactStrictMode: true
+}
+```
+
+If you or your team are not ready to use Strict Mode in your entire application,
+that's OK!
+You can incrementally migrate on a page-by-page basis
+[using `<React.StrictMode>`](https://reactjs.org/docs/strict-mode.html).
+
+While **not required**, Strict Mode will unlock a lot of optimizations in the future.
+Because of this, we suggest you look into it sooner rather than later!
+
+### Automated Testing against Nightly React Builds
+
+In [close collaboration](https://github.com/zeit/next.js/pull/9165) with the React Core Team, we're now
+[testing](https://github.com/zeit/next.js/pull/9151) Next.js against React's next channel every 12 hours.
+
+These tests help ensure we're prepared and compatible with the future releases of React.
+Compatibility is something Next.js takes very seriously, and we're committed to the long-term
+API stability of Next.js.
+
+This process [has been documented](https://reactjs.org/blog/2019/10/22/react-release-channels.html)
+by the React Core Team in hopes other projects in the React ecosystem follow suit.
+
+## Community
+
+We are excited about the upcoming changes that will improve size and performance across all Next.js applications.
+
+Furthermore, the Next.js community is still expanding:
+
+- We have had over **865** independent contributors.
+- On GitHub, the project has been starred over **43,700** times.
+- The [examples directory](https://github.com/zeit/next.js/tree/canary/examples) has over **220 examples.**
+
+The Next.js community now has over **13,600** members. [Join us!](https://github.com/zeit/next.js/discussions)
+
+We are thankful to our community and all the external feedback and contributions that helped shape this release.
+
+<style jsx>{`
+  table {
+    margin: 0 auto 30px;
+  }
+  table td,
+  table th {
+    padding: 10px 20px;
+  }
+  table th {
+    font-weight: normal;
+    font-size: 12px;
+    color: #9b9b9b;
+    padding-bottom: 0px;
+  }
+  table td:first-child {
+    width: 55%;
+  }
+  table td {
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  table td:last-child {
+    color: #067df7;
+  }
+  table td:not(:first-child) {
+    text-align: center;
+  }
+  table td em {
+    font-weight: normal;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-style: normal;
+    display: block;
+  }
+  // CSS only media query for mobile
+  @media screen and (max-width: 640px) {
+    table td,
+    table th {
+      padding: 10px 10px;
+    }
+  }
+
+  :global(ul) > :global(li):nth-child(1) > i {
+    color: #28a745;
+    font-style: normal;
+    font-weight: bolder;
+  }
+  :global(ul) > :global(li):nth-child(2) > i {
+    color: #ffc107;
+    font-style: normal;
+    font-weight: bolder;
+  }
+  :global(ul) > :global(li):nth-child(3) > i {
+    color: #dc3545;
+    font-style: normal;
+    font-weight: bolder;
+  }
+
+  h3 {
+    text-align: center;
+  }
+`}</style>

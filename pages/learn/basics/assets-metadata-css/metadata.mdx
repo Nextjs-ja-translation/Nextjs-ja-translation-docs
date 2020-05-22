@@ -1,0 +1,64 @@
+import Layout from '../../../../components/learn/Layout'
+import AnswerBox from '../../../../components/learn/AnswerBox'
+import Image from '../../../../components/image'
+import Link from 'next/link'
+
+export const meta = {
+  title: 'Assets, Metadata, and CSS',
+  courseId: 'basics',
+  lessonId: 'assets-metadata-css',
+  stepId: 'metadata',
+  subtitle: 'Metadata'
+}
+
+What if we wanted to modify the metadata of the page, such as the `<title>` HTML tag?
+
+`<title>` is part of the `<head>` HTML tag, so let's dive into how we can modify the `<head>` tag in a Next.js page.
+
+Open `pages/index.js` in your editor and take a look at the following lines:
+
+```jsx
+<Head>
+  <title>Create Next App</title>
+  <link rel="icon" href="/favicon.ico" />
+</Head>
+```
+
+Notice that `<Head>` is used instead of the lowercase `<head>`. `<Head>` is a React Component that is built into Next.js. It allows you to modify the `<head>` of a page.
+
+You can import the `Head` component from the `next/head` module.
+
+### Adding `<Head>` to `first-post.js`
+
+We haven't added a `<title>` to our `/posts/first-post` route. Let's add one.
+
+Open the `pages/posts/first-post.js` file.
+
+First, import `Head` from `next/head`:
+
+```js
+import Head from 'next/head'
+```
+
+Then, add it to the `FirstPost` component. For now, we‘ll add just the `title` tag:
+
+```jsx
+export default function FirstPost() {
+  return (
+    <>
+      <Head>
+        <title>First Post</title>
+      </Head>
+      …
+    </>
+  )
+}
+```
+
+Try accessing [http://localhost:3000/posts/first-post](http://localhost:3000/posts/first-post). The browser tab should now say “First Post”. By using your browser’s developer tools, you should see that the `title` tag is added to `<head>`.
+
+> To learn more about `next/head`, check out <Link href="/docs/[...slug]" as="/docs/api-reference/next/head"><a>the API reference documentation</a></Link>.
+>
+> If you want to customize the `<html>`, for example to add the `lang` attribute, you can do so by creating a custom `Document` component. Learn more in <Link href="/docs/[...slug]" as="/docs/advanced-features/custom-document"><a>the custom document documentation</a></Link>.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

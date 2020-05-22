@@ -1,0 +1,28 @@
+import Layout from '../../../../components/learn/Layout'
+import Link from 'next/link'
+
+export const meta = {
+  title: 'Assets, Metadata, and CSS',
+  courseId: 'basics',
+  lessonId: 'assets-metadata-css'
+}
+
+The second page we added currently does not have styling. Let's add some CSS to style the page.
+
+Next.js has built-in support for CSS and Sass. For the purposes of this course we will use CSS.
+
+This lesson will also talk about how Next.js handles static assets like images and page metadata like `title` tags.
+
+### What You’ll Learn in This Lesson
+
+In this lesson, you’ll learn:
+
+- How to add static files (images, etc) to Next.js.
+- How to customize what goes inside the `<head>` for each page.
+- How to create a reusable React component which is styled using CSS Modules.
+- How to add global CSS in `pages/_app.js`.
+- Some useful tips for styling in Next.js.
+
+> If you’re looking for detailed documentation on Next.js styling, take a look <Link href="/docs/[...slug]" as="/docs/basic-features/built-in-css-support"><a>at the CSS documentation</a></Link>.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

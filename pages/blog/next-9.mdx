@@ -1,0 +1,660 @@
+import withPost from '../../components/blog/with-post'
+import Image from '../../components/image'
+import { meta } from '../../blog/next-9-preview.mdx'
+import { TerminalInput } from '../../components/text/terminal'
+import PlatformCliLink from '../../components/name/platform-cli-link'
+
+export default withPost({ ...meta })
+
+After 70 canary releases we are pleased to introduce Next.js 9, featuring:
+
+- **[Built-in Zero-Config TypeScript Support](#built-in-zero-config-typescript-support)**: Build your application with increased confidence, thanks to automatic TypeScript support and integrated type-checking.
+- **[File system-Based Dynamic Routing](#dynamic-route-segments)**: Express complex application routing requirements through the file system without the need for a custom server.
+- **[Automatic Static Optimization](#automatic-static-optimization)**: Create ultra-fast websites that leverage _Server-Side Rendering and Static Prerendering_ by default without compromising on features.
+- **[API Routes](#api-routes)**: Quickly build back-end application endpoints, leveraging hot-reloading and a unified build-pipeline.
+- **[More Production Optimizations](#production-optimizations)**: Applications are more responsive than ever thanks to in-viewport prefetching and other optimizations.
+- **[Improved DX](#developer-experience-improvements)**: Unobtrusive, ease-of-use improvements to help you develop at your best.
+
+As always, we have strived to ensure all these benefits are backwards compatible.
+For most Next.js applications, all you need to do is run:
+
+<TerminalInput
+  prefix
+>{`npm i next@latest react@latest react-dom@latest`}</TerminalInput>
+
+There are very few cases where your codebase might require changes. See the
+[upgrade guide](https://github.com/zeit/next.js/blob/canary/UPGRADING.md) for more information.
+
+Since our last release, we’re happy to have seen companies like
+[IGN](https://ign.com/),
+[Bang & Olufsen](https://www.bang-olufsen.com/en/),
+[Intercom](https://www.intercom.com),
+[Buffer](https://buffer.com/),
+and [Ferrari](https://www.ferrari.com/) launch with Next.js.
+Check out the [showcase](https://nextjs.org/showcase) for more!
+
+## Built-In Zero-Config TypeScript Support
+
+One year ago [Next.js 6](https://nextjs.org/blog/next-6) introduced basic TypeScript
+support through a plugin called `@zeit/next-typescript`.
+Users also had to customize their `.babelrc` and enable it in `next.config.js`.
+
+When configured, the plugin would allow `.ts` and `.tsx` files to be built by Next.js.
+However, it did not integrate type-checking, nor were types provided by Next.js core.
+This meant a community package had to be maintained separately in DefinitelyTyped
+that could be out of sync with releases.
+
+While talking with many users, existing and new, it became clear that most were very
+interested in using TypeScript.
+They wanted a more reliable and standard solution for easily integrating TypeScript
+into their existing or new codebase.
+
+For that reason, we set out to integrate TypeScript support into the Next.js core,
+improving developer experience, and making it faster in the process.
+
+##### Automated Setup
+
+Getting started with TypeScript in Next.js is easy: rename any file, page or
+component, from `.js` to `.tsx`. Then, run `next dev`!
+
+This will cause Next.js to detect TypeScript is being used in
+your project.
+The Next.js CLI will guide you through installing the necessary types for React and
+Node.js.
+
+Next.js will also create a default `tsconfig.json` with sensible defaults if not
+already present. This file allows for integrated type-checking in editors like
+[Visual Studio Code](https://code.visualstudio.com/).
+
+<Image
+  caption="Next.js 9 Automated TypeScript Setup"
+  captionSpacing={30}
+  video
+  src="/static/blog/next-9/automated-typescript-setup.mp4"
+  width={1194 / 2}
+  height={520 / 2}
+/>
+
+##### Integrated Type-Checking
+
+Next.js handles type-checking for you in both development and building for production.
+
+While in development Next.js will show you type errors after saving a file.
+Type-checking happens in the background, allowing you to interact with your updated
+application in the browser instantly. Type errors will propagate to the browser as
+they become available.
+
+<Image
+  caption="Next.js 9 Development Type-Checking"
+  captionSpacing={30}
+  video
+  src="/static/blog/next-9/integrated-development-checks.mp4"
+  width={1194 / 2}
+  height={520 / 2}
+/>
+
+Next.js will also automatically fail the production build (i.e. `next build`) if
+type errors are present. This helps prevent shipping broken code to production.
+
+<Image
+  caption="Next.js 9 Production Type-Checking"
+  src="/static/blog/next-9/build-type-error.png"
+  width={1418 / 2}
+  height={744 / 2}
+/>
+
+##### Next.js Core Written in TypeScript
+
+Over the past few months we’ve migrated most of the codebase to TypeScript, this has
+not only reinforced our code quality, it also allows us to provide types for all core
+modules.
+
+For example, when you import `next/link`, editors that support TypeScript will show
+the allowed properties and which values they accept.
+
+<Image
+  caption="Next.js Core Types"
+  src="/static/blog/next-9/next-types.png"
+  width={1414 / 2}
+  height={740 / 2}
+/>
+
+## Dynamic Route Segments
+
+Dynamic routing (also known as URL Slugs or Pretty/Clean URLs) was one of the first
+feature requests on GitHub after Next.js was released 2.5 years ago!
+
+The issue was “solved” in Next.js 2.0 by introducing the custom server API for using
+Next.js programmatically. This allowed using Next.js as a rendering engine, enabling
+abstractions and mapping of incoming URLs to render certain pages.
+
+We spoke with users and examined many of their applications, finding that many of
+them had a custom server. A pattern emerged: the most prominent reason for the custom
+server was dynamic routing.
+
+However, a custom server comes with its own pitfalls: routing is handled at the
+server level instead of the proxy, it is deployed and scaled as a monolith, and
+it is prone to performance issues.
+
+Since a custom server requires the entire application to be available in one
+instance, it is typically difficult to deploy to a Serverless environment that
+solves these issues.
+Serverless requests are routed at the proxy layer and are scaled/executed
+independently to avoid performance bottlenecks.
+
+Additionally, we believe we can offer a better Developer Experience!
+Much of Next.js' magic starts when you create a file named `pages/blog.js` and
+suddenly have a page accessible at `/blog`.
+
+Why should a user need to create their own server and learn about Next.js'
+programmatic API to support a route like `/blog/my-first-post` (`/blog/:id`)?
+
+Based on this feedback and vision, we started investigating route mapping solutions,
+driven by what users already knew: the `pages/` directory.
+
+##### Creating a Dynamically Routed Page
+
+Next.js supports creating routes with basic named parameters, a pattern popularized
+by [`path-to-regexp`](https://www.npmjs.com/package/path-to-regexp) (the library
+that powers [Express](https://expressjs.com)).
+
+Creating a page that matches the route `/post/:pid` can now be achieved by creating
+a file in your `pages` directory named: `pages/post/[pid].js`!
+
+Next.js will automatically match requests like `/post/1`, `/post/hello-nextjs`, etc
+and render the page defined in `pages/post/[pid].js`.
+The matching URL segment will be passed as a query parameter to your page with the
+name specified between the `[square-brackets]`.
+
+For example: given the following page and the request `/post/hello-nextjs`, the
+`query` object will be `{ pid: 'hello-nextjs' }`:
+
+```ts
+static async getInitialProps({ query }) {
+  // pid = 'hello-nextjs'
+  const { pid } = query
+
+  const postContent = await fetch(
+    `https://api.example.com/post/${encodeURIComponent(pid)}`
+  ).then(r => r.text())
+
+  return { postContent }
+}
+```
+
+Multiple dynamic URL segments are also supported!
+
+The `[param]` syntax is supported for directory names and file names, meaning the following examples work:
+
+```
+./pages/blog/[blogId]/comments/[commentId].js
+./pages/posts/[pid]/index.js
+```
+
+You can [read more about this feature in the Next.js Documentation](https://github.com/zeit/next.js#dynamic-routing) or [Next.js Learn section](https://nextjs.org/learn/basics/clean-urls-with-dynamic-routing).
+
+## Automatic Static Optimization
+
+Next.js added support for static website generation in v3, released approximately two
+years ago.
+At the time, this was the most requested feature to be added to Next.js.
+
+And for good reason: there's no denying that static websites are _fast!_ They require
+no server-side computation and can be instantly streamed to the end-user from CDN
+locations.
+
+However, the choice between a server-side rendered or statically generated
+application was binary, you either choose for server-side rendering or for static
+generation.
+There was no middle ground.
+
+In reality applications can have different requirements.
+These requirements require different rendering strategies and trade-offs.
+
+For example, a homepage and marketing pages typically contain static content and are
+great candidates for static optimization.
+
+On the other hand, a product dashboard may benefit from being server-side rendering
+where the data frequently updates.
+
+We started exploring how we could give users the best of both worlds and be
+**fast by default**.
+How could we give users static marketing pages and dynamic server-rendered pages?
+
+Beginning with Next.js 9, users no longer have to make the choice between fully
+server-rendering or statically exporting their application.
+Giving you the best of both worlds on a per-page basis.
+
+#### Automatic Partial Static Export
+
+A heuristic was introduced to automatically determine if a page can be prerendered to
+static HTML.
+
+This determination is made by whether or not the page has blocking data requirements
+through using [`getInitialProps`](https://github.com/zeit/next.js#fetching-data-and-component-lifecycle).
+
+This heuristic allows Next.js to emit hybrid applications that contain
+**both server-rendered and statically generated pages**.
+
+The built-in Next.js server (`next start`) and programmatic API
+(`app.getRequestHandler()`) both support this build output **transparently**.
+There is no configuration or special handling required.
+
+Statically generated pages are still reactive: Next.js will hydrate your application
+client-side to give it full interactivity.
+
+Furthermore, Next.js will update your application after hydration if the page relies
+on query parameters in the URL.
+
+Next.js will visually inform you if a page will be statically generated during
+development.
+This visual artifact can be hidden by clicking it.
+
+<!-- TODO: replace this with closed version -->
+
+<Image
+  caption="Next.js Static Optimization Indicator"
+  captionSpacing={30}
+  src="/static/blog/next-9/prerender-indicator.png"
+  width={1174 / 2}
+  height={386 / 2}
+/>
+
+Statically generated pages will also be displayed in Next.js' build output:
+
+<Image
+  caption="Next.js Build Output Type Indicator"
+  src="/static/blog/next-9/build-types.png"
+  width={1418 / 2}
+  height={744 / 2}
+/>
+
+## API Routes
+
+In many cases when building React applications you end up needing some kind of
+backend.
+Either to retrieve data from a database or to process data provided by your users
+(e.g. a contact form).
+
+We found that many users who needed a backend built their API using a custom server.
+In doing so, they ran into quite a few issues.
+For example, Next.js does not compile custom server code, meaning that you couldn't
+use `import` / `export` or TypeScript.
+
+For this reason, many users ended up implementing their own custom compilation
+pipeline on top of the custom server.
+While this solved their goal, it is prone to many pitfalls: for example, when
+configured incorrectly tree shaking would be disabled for their entire application.
+
+This raised the question: what if we bring the developer experience Next.js provides
+to building API backends?
+
+Today we’re excited to introduce API routes, the best-in-class developer experience
+from Next.js for building your backend.
+
+To start using API routes you create a directory called `api/` inside the `pages/`
+directory.
+
+Any file in this directory will be automatically mapped to `/api/<your route>`, in
+the same way that other page files are mapped to routes.
+
+For example, `pages/api/contact.js` will be mapped to `/api/contact`.
+
+> **Note**: API Routes also support [Dynamic Routes](#dynamic-route-segments)!
+
+All the files inside the `pages/api/` directory export a request handler function
+instead of a React Component:
+
+```js
+export default function handle(req, res) {
+  res.end('Hello World')
+}
+```
+
+- `req` refers to [NextApiRequest](https://github.com/zeit/next.js/blob/v9.0.0/packages/next-server/lib/utils.ts#L143-L158) which extends [http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage)
+- `res` refers to [NextApiResponse](https://github.com/zeit/next.js/blob/v9.0.0/packages/next-server/lib/utils.ts#L168-L178) which extends [http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse)
+
+Generally API endpoints take in some incoming data, for example the querystring,
+request body, or cookies and respond with other data.
+
+When investigating adding API routes support to Next.js we noticed that in many cases
+users didn’t use the Node.js request and response objects directly.
+Instead, they used an abstraction provided by server libraries like [Express](https://expressjs.com).
+
+The reason for doing this is that in many cases the incoming data is some form of
+text that has to be parsed first to be useful.
+So these specific server libraries help remove the burden of manually parsing the
+data, most commonly through middlewares.
+The most commonly used ones provide querystring, body, and cookies parsing, however
+they still require some setup to get started.
+
+API routes in Next.js will provide these middlewares by default so that you can be
+productive creating API endpoints immediately:
+
+```js
+export default function handle(req, res) {
+  console.log(req.body) // The request body
+  console.log(req.query) // The url querystring
+  console.log(req.cookies) // The passed cookies
+  res.end('Hello World')
+}
+```
+
+Besides using incoming data your API endpoint generally also returns data.
+Commonly this response will be JSON.
+Next.js provides `res.json()` by default to make sending data easier:
+
+```js
+export default function handle(req, res) {
+  res.json({ title: 'Hello World' })
+}
+```
+
+When making changes to API endpoints in development the code is automatically
+reloaded, so there is no need to restart the server.
+
+<!-- TODO: gif -->
+
+## Production Optimizations
+
+#### Prefetching in-Viewport `<Link>`s
+
+Next.js 9 will automatically prefetch `<Link>` components as they appear in-viewport.
+
+This feature improves the responsiveness of your application by making navigations to
+new pages quicker.
+
+Next.js uses an [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to
+[prefetch the assets](https://www.w3.org/TR/resource-hints/#prefetch) necessary in
+the background.
+
+These requests have low-priority and yield to `fetch()` or XHR requests.
+Next.js will avoid automatically prefetching if the user has data-saver enabled.
+
+You can opt-out of this feature for rarely visited pages by setting the `prefetch`
+property to `false`:
+
+```jsx
+<Link href="/terms" prefetch={false}>
+  <a>Terms of Service</a>
+</Link>
+```
+
+#### Optimized AMP by Default
+
+Next.js 9 now renders optimized AMP by default for AMP-first and hybrid AMP pages.
+
+While AMP pages are opt-in, Next.js will automatically optimize their output.
+These optimizations can result in up to [50% faster](https://blog.amp.dev/2018/10/08/how-to-make-amp-even-faster/) rendering speed!
+
+This change was made possible by
+[Sebastian Benz](https://twitter.com/sebabenz)'s incredible work on the
+[AMP Optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer).
+
+#### Dead Code Elimination for `typeof window` Branches
+
+Next.js 9 replaces `typeof window` with its appropriate value (`undefined` or
+`object`) during server and client builds.
+This change allows Next.js to remove dead code from your production built
+application automatically.
+
+Users should see their client-side bundle sizes decrease if they have
+server-only code in `getInitialProps` or other parts of their application.
+
+## Developer Experience Improvements
+
+#### Compiling Indicator
+
+In versions before 9, the only way to know that hot code replacement was going to
+happen (and that the Next.js compiler toolchain is doing work) is to look at the
+developer console.
+
+However many times one is looking at the resulting rendering instead, making it hard
+to know if Next.js is still doing compilation work or not.
+For example you might be making changes to styles on the page that are subtle and you
+wouldn't immediately know if they were updated.
+
+For this reason we created a [RFC / "good first issue"](https://github.com/zeit/next.js/issues/4626)
+to discuss potential solutions for the problem of indicating that work is being done.
+
+We received feedback from many designers and engineers on the RFC, for example what
+they prefer and potential directions for the design of the indicator.
+
+[Rafael Almeida](https://github.com/rafaelalmeidatk) took this opportunity to
+collaborate with our team and implement a brand new indicator that is now available
+by default in Next.js 9.
+
+Whenever Next.js is doing compilation work you will see a small triangle show up in
+the bottom right corner of the page!
+
+<Image
+  caption="Next.js Compilation Indicator"
+  captionSpacing={30}
+  video
+  src="/static/blog/next-9/compile-icon.mp4"
+  width={512 / 2}
+  height={262 / 2}
+/>
+
+#### Console Output
+
+Traditionally when making changes in development Next.js would show a compiling
+indicator state with loading state bars filling up and would continuously clear the
+screen as you made changes.
+
+This behavior causes some issues.
+Most notably it would clear console output from both your application code, for
+example when you add `console.log` to your components.
+But also when using external tools that stitch log output together like the <PlatformCliLink /> or `docker-compose`.
+
+Starting from Next.js 9 the log output jumps less and no longer clears the screen.
+The allows for a better overall experience as your terminal window will have more
+relevant information and flicker less while Next.js will integrate better with tools
+that you might already be using.
+
+<Image
+  caption="Next.js Development Console Output"
+  captionSpacing={30}
+  video
+  src="/static/blog/next-9/no-console-clearing.mp4"
+  width={1194 / 2}
+  height={520 / 2}
+/>
+
+Special thanks to [Justin Chase](https://github.com/justinmchase) for collaborating
+on output clearing.
+
+## Build Output Statistics
+
+Building your application for production using `next build` it will now give you a
+detailed view of all pages that were built.
+
+Every page receives a few statistics automatically.
+
+The most prominent one is bundle size.
+As your application grows your JavaScript bundles will also grow, this build-time
+indication will help you indicate growth of your production bundles.
+In the future you will also be able to set [performance budgets](https://addyosmani.com/blog/performance-budgets/)
+for pages that will fail the production build.
+
+<Image
+  caption="Next.js Built Page Size"
+  src="/static/blog/next-9/build-size.png"
+  width={1418 / 2}
+  height={744 / 2}
+/>
+
+Besides bundle sizes we also show how many project components and `node_modules`
+components are being used in every page.
+This gives an indication of the page complexity.
+
+<Image
+  caption="Next.js Page Package Count"
+  src="/static/blog/next-9/build-packages.png"
+  width={1418 / 2}
+  height={744 / 2}
+/>
+
+Every page also has an indication of if it's statically optimized or server-side
+rendered, as every page can behave differently.
+
+<Image
+  caption="Next.js Built Page Type"
+  src="/static/blog/next-9/build-page-type.png"
+  width={1418 / 2}
+  height={744 / 2}
+/>
+
+## Per-Page Configuration Object
+
+Every page can now export a configuration object.
+Initially this configuration allows you to opt-into [AMP](https://nextjs.org/blog/next-8-1),
+but in the future you will be able to configure more page specific options.
+
+```jsx
+// pages/about.js
+export const config = { amp: true }
+
+export default function AboutPage(props) {
+  return <h3>My AMP About Page!</h3>
+}
+```
+
+To opt into hybrid AMP rendering you can use the value `'hybrid'`:
+
+```jsx
+// pages/about.js
+import { useAmp } from 'next/amp'
+
+export const config = { amp: 'hybrid' }
+
+export default function AboutPage(props) {
+  const isAmp = useAmp()
+  return <h3>My About Page!{isAmp ? <> Powered by AMP!</> : ''}</h3>
+}
+```
+
+The `withAmp` higher order component was removed in favor of this new configuration.
+
+We've provided a [codemod](https://github.com/zeit/next-codemod#withamp-to-config)
+that automatically converts usage of `withAmp` to the new configuration object.
+You can read more about this in the [upgrade guide](https://github.com/zeit/next.js/blob/canary/UPGRADING.md).
+
+## Codebase Improvements
+
+We've recently made some changes to our tooling to provide a better experience while
+contributing to the codebase and ensure stability as the codebase grows.
+
+As you've read under the TypeScript section the Next.js core is now written in
+TypeScript and types are automatically generated for Next.js applications to use.
+Besides this being useful for applications built using Next.js, it's also useful when
+working on the core codebase.
+As you get type errors and autocompletion automatically.
+
+Next.js already had quite a large integration test suite that consists of 50+ Next.js
+applications with tests that run against them.
+These tests ensure that when a new version is released upgrading is smooth as the
+features that were available before were tested against the same test suite.
+
+Most of our tests are integration tests because in many cases they replicate "real"
+developers using Next.js in development.
+For example we have tests that replicate making changes to a Next.js application to
+see if hot module replacement works.
+
+Our integration tests are mostly based on Selenium webdriver, which we combined with
+chromedriver to test in headless Chrome.
+However as time passed certain issues would arise in other browsers, especially older
+browsers like Internet Explorer 11.
+
+Because we used Selenium we were able to run our tests automatically on multiple
+browsers.
+
+As of right now we are running our test suite on Chrome, Firefox, Safari and
+Internet Explorer 11.
+
+## Google Chrome Collaboration
+
+The Google Chrome team has been working on improving Next.js by contributing RFCs and
+pull-requests.
+
+The goal of this collaboration is large-scale performance improvements, focused on
+bundle sizes, bootup and hydration time.
+
+For example these changes will improve the experience of small websites, but also
+that of massive applications like
+[Hulu](https://hulu.com),
+[Twitch](https://m.twitch.tv),
+and [Deliveroo](https://deliveroo.co.uk/).
+
+#### Module / Nomodule
+
+The first area of focus is shipping modern JavaScript to browsers that support modern
+JavaScript.
+
+For example currently Next.js has to provide polyfills for [`async`/`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+syntax as code might be executed in browsers that do not support [`async`/`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+which would break.
+
+<Image
+  caption="Next.js Module/Nomodule Collaboration RFC"
+  src="/static/blog/next-9/first-collab-rfc.png"
+  width={3360 / 4.5}
+  height={2100 / 4.5}
+  captionSpacing={30}
+/>
+
+To avoid breaking older browsers while still sending modern JavaScript to browsers
+that support it Next.js will utilize the [module/nomodule pattern](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/).
+The module/nomodule pattern provides a reliable mechanism for serving modern
+JavaScript to modern browsers while still allowing older browsers to fall back to
+polyfilled ES5.
+
+The RFC for module/nomodule in Next.js can be [found here](https://github.com/zeit/next.js/issues/7563).
+
+#### Improved Bundle Splitting
+
+The current bundle splitting strategy in Next.js is based around a ratio-based
+heuristic for including modules in a single "commons" chunk.
+Because there is very little granularity as there is only one bundle, code is either
+downloaded unnecessarily (because the commons chunk could include code that's not
+actually required for a particular route) or the code is duplicated across multiple
+page bundles.
+
+<Image
+  caption="Next.js Chunking Collaboration RFC"
+  src="/static/blog/next-9/chunking-rfc.png"
+  width={3360 / 4.5}
+  height={2100 / 4.5}
+  captionSpacing={30}
+/>
+
+The RFC for improved bundle splitting can be [found here](https://github.com/zeit/next.js/issues/7631).
+
+#### Other Improvements
+
+The Chrome team is also working on many other optimizations and changes that will
+improve Next.js.
+RFCs for these will be shared soon.
+
+These RFCs and pull-requests are [labeled "Collaboration"](https://github.com/zeit/next.js/labels/Type%3A%20Collaboration)
+so that they can be easily found in the Next.js issue tracker.
+
+## Community
+
+We're excited to see the continued growth of the Next.js community.
+
+This release had over 65 pull-request authors contributing core improvements or
+examples.
+
+Talking about examples, we now provide over 200 examples on how to integrate Next.js
+with different libraries and technologies!
+Including most css-in-js and data-fetching libraries.
+
+- We've had over **720 contributors** landing at least 1 commit.
+- On GitHub, the project has been starred over **38,600 times**.
+- Over **3,400 pull requests** were submitted since the first release, that is **over 800** since the last major release!
+
+The Next.js community has doubled since the last major release with over **8,600 members**. [Join us!](https://github.com/zeit/next.js/discussions)
+
+We are thankful to our community and all the external feedback and contributions that
+helped shape this release.

@@ -1,0 +1,108 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+import Link from 'next/link'
+
+export const meta = {
+  title: 'Assets, Metadata, and CSS',
+  courseId: 'basics',
+  lessonId: 'assets-metadata-css',
+  stepId: 'styling-tips',
+  subtitle: 'Styling Tips'
+}
+
+Here are some styling tips that might be helpful.
+
+> You can just **read through** the following sections. No need to make changes to our app!
+
+### Using `classnames` library to toggle classes
+
+[`classnames`](https://github.com/JedWatson/classnames) is a simple library that lets you toggle class names easily. You can install it using `npm install classnames` or `yarn add classnames`.
+
+Please take a look at its [README](https://github.com/JedWatson/classnames) for details, but here’s basic usage:
+
+- Suppose that you want to create an `Alert` component which accepts `type`, which can be `'success'` or `'error'`.
+- If it’s `'success'`, you want the text color to be green. If it’s `'error'`, you want the text color to be red.
+
+You can first write a CSS module (e.g. `alert.module.css`) like this:
+
+```css
+.success {
+  color: green;
+}
+.error {
+  color: red;
+}
+```
+
+And use `classnames` like this:
+
+```jsx
+import styles from './alert.module.css'
+import cn from 'classnames'
+
+export default function Alert({ children, type }) {
+  return (
+    <div
+      className={cn({
+        [styles.success]: type === 'success',
+        [styles.error]: type === 'error'
+      })}
+    >
+      {children}
+    </div>
+  )
+}
+```
+
+### Customizing PostCSS Config
+
+Out of the box, with no configuration, Next.js compiles CSS using [PostCSS](https://postcss.org/).
+
+To customize PostCSS config, you can create a top-level file called `postcss.config.js`. This is useful if you’re using libraries like [Tailwind CSS](https://tailwindcss.com/).
+
+Here’s an example `postcss.config.js` for using [Tailwind CSS](https://tailwindcss.com/) with [`purgecss`](https://github.com/FullHuman/purgecss) which removes unused CSS.
+
+- You need to install `tailwindcss`, `@fullhuman/postcss-purgecss`, and `postcss-preset-env`.
+- You don’t need `autoprefixer` because Next.js includes it by default.
+
+```js
+module.exports = {
+  plugins: [
+    'tailwindcss',
+    ...(process.env.NODE_ENV === 'production'
+      ? [
+          [
+            '@fullhuman/postcss-purgecss',
+            {
+              content: [
+                './pages/**/*.{js,jsx,ts,tsx}',
+                './components/**/*.{js,jsx,ts,tsx}'
+              ],
+              defaultExtractor: content =>
+                content.match(/[\w-/:]+(?<!:)/g) || []
+            }
+          ]
+        ]
+      : []),
+    'postcss-preset-env'
+  ]
+}
+```
+
+> To learn more about custom PostCSS configuration, check out <Link href="/docs/[...slug]" as="/docs/advanced-features/customizing-postcss-config"><a>our documentation</a></Link>.
+
+### Using Sass
+
+Out of the box, Next.js allows you to import [Sass](https://sass-lang.com/) using both the `.scss` and `.sass` extensions. You can use component-level Sass via CSS Modules and the `.module.scss` or `.module.sass` extension.
+
+Before you can use Next.js' built-in Sass support, be sure to install sass:
+
+```shell
+npm install sass
+```
+
+### That’s it for this lesson!
+
+To learn more about Next.js’s built-in CSS Support and CSS Modules, check out <Link href="/docs/[...slug]" as="/docs/basic-features/built-in-css-support"><a>our documentation</a></Link>.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

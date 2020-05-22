@@ -1,0 +1,422 @@
+import withPost from '../../components/blog/with-post'
+import Image from '../../components/image'
+import { meta } from '../../blog/next-8-preview.mdx'
+import { TerminalInput } from '../../components/text/terminal'
+import Head from 'next/head'
+import TweetEmbed from '../../components/blog/tweet-embed.js'
+
+export default withPost({ ...meta })
+
+We are proud today to introduce the production-ready Next.js 8, featuring:
+
+- [Serverless Next.js](#serverless-nextjs)
+- [Massive build-time memory usage reduction](#massive-build-time-memory-usage-reduction)
+- [Build-time environment configuration](#build-time-environment-configuration)
+- [Prefetch performance improvements](#prefetch-performance-improvements)
+- [Smaller initial HTML size](#smaller-initial-html-size)
+- [Improved on-demand entries](#improved-on-demand-entries)
+- [Faster port listening in development](#faster-port-listening-in-development)
+- [Faster Static Export](#faster-static-export)
+- [Head element deduplication](#head-element-deduplication)
+- [New crossOrigin config option](#new-crossorigin-config-option)
+- [Removed inline Javascript](#removed-inline-javascript)
+- [Example of API Authentication](#example-of-api-authentication)
+
+As always, we have strived to ensure all these benefits are **completely backwards compatible**. For most Next.js applications, all you need to do is run:
+
+<TerminalInput
+  prefix
+>{`npm i next@latest react@latest react-dom@latest`}</TerminalInput>
+
+We are thankful to our community and everyone who has bet on our success. Since our last blog post, we have seen companies like [AT&T](https://att.com), [Starbucks](https://www.starbucksreserve.com/en-us) and [Twitch](https://m.twitch.tv/) relaunch their public-facing websites and apps with Next.js.
+
+## Serverless Next.js
+
+<Image
+  caption="The Next.js serverless target outputs Serverless functions from pages"
+  captionSpacing={30}
+  video
+  src="/static/blog/next-8/static-exporting.mp4"
+  width={2102 / 2}
+  height={688 / 2}
+/>
+
+Serverless deployment dramatically improves reliability and scalability by splitting your application into smaller parts (also called **[lambdas](https://zeit.co/docs/v2/deployments/concepts/lambdas/)**). In the case of Next.js, each page in the `pages` directory becomes a serverless lambda.
+
+There are [a number of benefits](https://zeit.co/blog/serverless-express-js-lambdas-with-now-2#benefits-of-serverless-express) to serverless. The referenced link talks about some of them in the context of Express, but the principles apply universally: serverless allows for distributed points of failure, infinite scalability, and is incredibly affordable with a "pay for what you use" model.
+
+To enable **serverless mode** in Next.js, add the `serverless`  build  `target` in  `next.config.js`:
+
+```js
+// next.config.js
+module.exports = {
+  target: 'serverless'
+}
+```
+
+The `serverless` target will output a single lambda per page. This file is completely standalone and does not require any dependencies to run:
+
+- `pages/index.js` => `.next/serverless/pages/index.js`
+- `pages/about.js` => `.next/serverless/pages/about.js`
+
+The signature of the Next.js Serverless function is similar to the Node.js HTTP server callback:
+
+```ts
+export function render(req: http.IncomingMessage, res: http.ServerResponse) => void
+```
+
+- [http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage)
+- [http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse)
+- `void` refers to the function not having a return value and is equivalent to JavaScript's `undefined`. Calling the function will finish the request.
+
+Next.js provides low-level APIs for serverless deployments as hosting platforms have different function signatures. In general you will want to wrap the output of a Next.js serverless build with a compatibility layer.
+
+For example if the platform supports the Node.js [http.Server](https://nodejs.org/api/http.html#http_class_http_server) class:
+
+```js
+const http = require('http')
+const page = require('./.next/serverless/about.js')
+const server = new http.Server((req, res) => page.render(req, res))
+server.listen(3000, () => console.log('Listening on http://localhost:3000'))
+```
+
+### **Summary**
+
+- Low-level API for implementing serverless deployment
+- Every page in the `pages` directory becomes a serverless function (lambda)
+- Creates the smallest possible serverless function (**50 KB** base zip size)
+- Optimized for fast [cold start](https://zeit.co/blog/serverless-ssr#cold-start) of the function
+- The serverless function has 0 dependencies (they are included in the function bundle)
+- Uses the [http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage) and [http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse) from Node.js
+- opt-in using `target: 'serverless'` in `next.config.js`
+- The `server` target is still fully supported and maintained
+- `publicRuntimeConfig` and `serverRuntimeConfig` are not supported in the `serverless` mode. Use build-time configuration instead.
+
+## Massive build-time memory usage reduction
+
+We have contributed to webpack to improve Next.js's (and the rest of the webpack ecosystem's!) build performance and resource utilization.
+
+This effort has resulted in up to **16 times better memory usage with no degradation in performance**.
+
+Memory gets released much more quickly and processes don't crash anymore under lots of stress (many pages).
+
+<TweetEmbed
+  id="1085398982753468416"
+  options={{
+    conversation: 'none',
+    align: 'center'
+  }}
+/>
+
+We will be going in-depth on how we've achieved this optimization soon. Keep an eye out on the [Next.js blog](/blog).
+
+## Build-time environment configuration
+
+While reviewing Next.js applications an often reoccurring pattern we observed was adding `babel-plugin-transform-define` or `webpack.DefinePlugin` to provide configuration values to the application.
+
+With Next.js 8 we are introducing a new key to `next.config.js` named `env` to provide the same functionality in a backward compatible way:
+
+```js
+// next.config.js
+module.exports = {
+  env: {
+    customKey: 'MyValue'
+  }
+}
+```
+
+This will allow you to use `process.env.customKey` in your code. For example:
+
+```js
+// pages/index.js
+export default function IndexPage() {
+  return <h1>The value of customKey is: {process.env.customKey}</h1>
+}
+```
+
+`process.env.customKey` will be replaced with `'MyValue'` at build time.
+
+## Prefetch performance improvements
+
+The Next.js router allows you to prefetch pages for faster navigation:
+
+```jsx
+import Link from 'next/link'
+
+export default function IndexPage() {
+  return (
+    <>
+      <Link href="/about" prefetch>
+        <a>To About Page</a>
+      </Link>
+    </>
+  )
+}
+```
+
+It works by prefetching the Javascript bundle of every link that has a `prefetch` attribute.
+
+In versions before Next.js 8 this would mean injecting a `<script>` tag into the document `<body>`.
+
+However, this introduced some overhead while opening pages, most notably the browser "loading" indication would show longer than you would expect even though the page could be interacted with already.
+
+In Next.js 8 `prefetch` uses `<link rel="preload">` instead of a `<script>` tag. It also only starts prefetching after `onload` to allow the browser to manage resources.
+
+Additionally, Next.js now detects 2G internet and `navigator.connection.saveData` mode to disable prefetch on slower network connections.
+
+## Smaller initial HTML size
+
+As Next.js pre-renders HTML, it wraps pages into a default structure with `<html>`, `<head>`, `<body>` and the JavaScript files needed to render the page.
+
+With [Next.js 7 we optimized the initial payload to 1.50KB](https://nextjs.org/blog/next-7/#smaller-initial-html-payload), which was a 7.4% reduction from the previous version.
+
+We were able to further reduce the initial payload size to 1.16KB a further 23% reduction:
+
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>7.0</th>
+      <th>
+        <b>8.0</b>
+      </th>
+      <th>delta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Document size (server rendered)</td>
+      <td>
+        <b>1.50KB</b>
+      </td>
+      <td>
+        <b>1.16KB</b>
+      </td>
+      <td>
+        <b>23%</b>
+        <em>smaller</em>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+The main ways we have reduced size are:
+
+- The page initialization inline script was removed
+- The `/_error` page is no longer included on every page load
+
+### On-demand loading of /\_error
+
+Whenever an error occurs in production the `/_error` page is rendered to display that an error occurred.
+
+Ever since the first release of Next.js the `/_error` page script tag was part of the initial HTML, meaning it was loaded even though it wouldn't be used if there were no runtime errors.
+
+Starting with Next.js 8 the `/_error` page is loaded on-demand when an error occurs.
+
+Meaning that there is less code to be loaded, parsed, and executed by default.
+
+## DX Improvements
+
+One of Next.js's primary goals is to provide the best production performance with **the best possible developer experience**. This release includes many subtle improvements based on user feedback.
+
+### Improved on-demand entries
+
+Out of the box, Next.js automatically compiles only pages that are _actively_ being developed. Next.js does not compile all pages in the pages directory each time `next dev` is run. Instead, it compiles pages as you access them.
+
+For example, when visiting `http://localhost:3000/my-page`, the `pages/my-page.js` file is compiled on-demand, after which the page is rendered.
+
+This ensures the developer does not have to wait for all pages to compile when launching the development server, which can take quite some time on larger apps. It keeps memory usage low and the compiler fast since the compiler is not required to take all pages into account when bundling.
+
+<Image
+  caption="The on-demand entries flow"
+  captionSpacing={30}
+  src="/static/blog/next-8/flow.jpg"
+  width={966 / 2}
+  height={1061 / 2}
+/>
+
+When a page has not been accessed for 25 seconds, it will be disposed from the compiler's build cache to keep the compiler fast and reduce memory usage.
+
+The way Next.js keeps track of pages being accessed is using a polling mechanism. Every 5 seconds, an "on-demand-entries-ping" is sent to make the Next.js development server aware that a given page is being accessed.
+
+Since the initial release of this feature, the ping was done using a `window.fetch` call, meaning that every time the ping was triggered, it would show up in browser development tools on the `console` and `network` tab.
+
+One of the most requested features is the ability to hide these requests from the browser developer tools since these requests can add unnecessary noise.
+
+We are excited to announce that in Next.js 8, the `fetch` based ping has been replaced by a WebSockets-based approach, meaning that pings still happen but are only visible when inspecting the WebSocket connection.
+
+Special thanks to [JJ Kasper](https://github.com/ijjk) for collaborating on the conversion to WebSockets.
+
+### Faster port listening in development
+
+When starting the Next.js development server, it has to run some initial compilation to be able to serve requests, by default, Next.js would wait for this compilation step to finish before starting the HTTP server, meaning that if you ran `next dev` and then went to your browser it could sometimes happen that you'd get a "This site can’t be reached" message because the HTTP server was not listening for connections yet.
+
+With Next.js 8 the HTTP will be listening for connections before the compilation starts, meaning that if you go to `http://localhost:3000/` before compilation has finished the request will wait for the initial compilation to finish before serving the request, instead of having to refresh the page until it becomes available.
+
+Special thanks to [Brian Beck](https://github.com/exogen) for implementing this feature.
+
+## Faster Static Export
+
+Next.js focuses on the idea of **pre-rendering** as a means to achieve high performance. Pre-rendering comes in two forms:
+
+- **Server rendering**
+  where each request triggers a render. As a result, the end-user doesn't have to wait for any JS to be downloaded to start consuming data
+- **Static rendering**
+  where we output static files that can be served directly without any code execution on the server
+
+Starting from Next.js 8, static rendering through `next export` will have speed improvements if your machine has multiple CPUs.
+
+Based on tests with a 4 CPU cores MacBook the exporting speed went from approximately 25 pages per second to 75 pages per second by taking advantage of all cores to pre-rendering pages.
+
+Next.js will automatically detect the number of CPU cores and distribute the pages accordingly, no need for any code changes.
+
+Special thanks to [Benjamin Kniffler](https://github.com/bkniffler) for implementing this feature.
+
+## Head element deduplication
+
+A common need when building applications is updating the `<head>` element of a page. For example to set the `<title>` or `<meta name="viewport">` for responsive design.
+
+Next.js exposes a built-in component to introduce changes to the `<head>`:
+
+```jsx
+import Head from 'next/head'
+
+export default function IndexPage() {
+  return (
+    <>
+      <Head>
+        <title>My page title</title>
+      </Head>
+    </>
+  )
+}
+```
+
+The `<Head>` component can even be used multiple times in different components, for example your layout component could set some default head tags.
+
+However, you might want to override the default head tags with a different value, in older versions of Next.js this would cause the tag to be duplicated in the output, as there was no way to deduplicate tags.
+
+For this reason, it is now possible to provide a `key` property to every element inside the `<Head>` component which will automatically deduplicate tags with the same `key` value.
+
+When setting `key="viewport"` on two tags only the last one is rendered.
+
+```jsx
+import Head from 'next/head'
+export default function IndexPage() {
+  return (
+    <>
+      <Head>
+        <title>My page title</title>
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width"
+          key="viewport"
+        />
+      </Head>
+      <Head>
+        <meta
+          name="viewport"
+          content="initial-scale=1.2, width=device-width"
+          key="viewport"
+        />
+      </Head>
+    </>
+  )
+}
+```
+
+## Security improvements
+
+### New `crossOrigin` config option
+
+In Next.js 6 we introduced the option to add a `crossOrigin` attribute to `<Head>` and `<NextScript>` in `pages/_document.js`, however this did not cover all use cases for setting `cross-origin`.
+
+Next.js has a client-side router that dynamically injects `<script>` tags, these tags were missing the `cross-origin` attribute when injected.
+
+To ensure all `<script>` tags have the `cross-origin` set, we have introduced a new configuration option in `next.config.js`
+
+```jsx
+// next.config.js
+module.exports = {
+  crossOrigin: 'anonymous'
+}
+```
+
+Another benefit of introducing this option is that a custom `pages/_document.js` is no longer needed to set up `cross-origin` in your application.
+
+The previous behavior is still supported but will emit a warning in development to aid developers in moving to the newly introduced option.
+
+### Removed inline Javascript
+
+When using Next.js 7 and below, to enable [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) the user had to include `script-src 'unsafe-inline'` in their policy because Next.js would create an inline `<script>` tag to pass data, for example, to pass the result of `getInitialProps` to the client side.
+
+With Next.js 8 we have changed this inline script tag to a JSON tag for safe transfer to the client. This means that there are no inline scripts included by Next.js anymore.
+
+With careful consideration `script-src 'self'` can now be used.
+
+### Example of API Authentication
+
+One of the [most requested examples of all time](https://github.com/zeit/next.js/issues/153) has been how to do authentication in Next.js against an external API, any API, in any programming language.
+
+With the introduction of Next.js 8, we are also introducing a newly created example: [with-cookie-auth](https://github.com/zeit/next.js/tree/canary/examples/with-cookie-auth)
+
+This example shows how to authenticate against an external Node.js API, but the concepts applied work for any stateless API.
+
+The example uses a cookie to share the token between the server-side and client-side rendering.
+
+That way if the app is rendered on the server, it can still fetch authenticated data on the user's behalf.
+
+Special thanks to [Juan Olvera](https://github.com/j0lv3r4) who contributed the example.
+
+## Community
+
+Ever since its first release, Next.js has been used in everything from Fortune 500 companies to personal blogs. We're very excited to see the continued growth in Next.js adoption.
+
+- We've had over **600 contributors** landing at least 1 commit.
+- On GitHub, the project has been starred over **34,400 times**.
+- Over **2600 pull requests** were submitted since the first release.
+
+The Next.js community has over **4,570 members**. [Join us!](https://github.com/zeit/next.js/discussions)
+
+<style jsx>{`
+  table {
+    margin: 0 auto 30px;
+  }
+  table td,
+  table th {
+    padding: 10px 20px;
+  }
+  table th {
+    font-weight: normal;
+    font-size: 12px;
+    color: #9b9b9b;
+    padding-bottom: 0px;
+  }
+  table td:first-child {
+    width: 55%;
+  }
+  table td {
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  table td:last-child {
+    color: #067df7;
+  }
+  table td:not(:first-child) {
+    text-align: center;
+  }
+  table td em {
+    font-weight: normal;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-style: normal;
+    display: block;
+  }
+  // CSS only media query for mobile
+  @media screen and (max-width: 640px) {
+    table td,
+    table th {
+      padding: 10px 10px;
+    }
+  }
+`}</style>

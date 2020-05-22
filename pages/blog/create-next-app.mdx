@@ -1,0 +1,35 @@
+import withPost from '../../components/blog/with-post'
+import Image, { Video } from '../../components/image'
+import { meta } from '../../blog/create-next-app-preview.mdx'
+import { TerminalInput } from '../../components/text/terminal'
+
+export default withPost({ ...meta })
+
+We're delighted today to introduce the new Create Next App.
+
+Create Next App sets up a modern React application powered by Next.js in one command.
+
+To get started all you have to do is run:
+
+<TerminalInput prefix>{`npx create-next-app`}</TerminalInput>
+
+Create Next App has been rebuilt from the ground up to provide the best possible developer experience:
+
+- **Interactive Experience**: Running `npx create-next-app` (with no arguments) now launches an interactive experience that guides you through setting up a project.
+- **Zero Dependencies**: Initializing a project is now as quick as **one second**. Create Next App has zero dependencies and installs in **only 604 kB.** Before our optimizations, the previous version was **5.38 MB**. That's a reduction of more than **4.7 MB**!
+- **Offline Support**: Create Next App will automatically detect if you're offline and bootstrap your project using your local package cache.
+- **New Default Project Template**: Create Next App uses a new project template that is designed for a modern Next.js application. Since Create Next App is now maintained alongside Next.js itself, this template will always be up-to-date with the latest Next.js version!
+- **Support for Examples**: Create Next App can bootstrap your application using an example from the [Next.js examples collection](https://github.com/zeit/next.js/tree/canary/examples) (e.g. `npx create-next-app --example api-routes`).
+- **Tested**: The package is part of the Next.js monorepo and tested using the same integration test suite as Next.js itself, ensuring it works as expected with every release.
+
+<Video
+  caption=""
+  captionSpacing={30}
+  src="/static/blog/create-next-app/create-next-app.mp4"
+  width={1926 / 2.5}
+  height={874 / 2.5}
+/>
+
+Create Next App was previously a [community maintained](https://open.segment.com/create-next-app/) project, however, we felt it was important to curate the first impression of Next.js. Especially as we recommend it in the [Next.js examples collection](https://github.com/zeit/next.js/tree/canary/examples).
+
+We worked with [Segment](https://segment.com/) to transfer ownership of the package, and are very grateful for their prior stewardship, especially by [Fouad Matin](https://twitter.com/fouadmatin).

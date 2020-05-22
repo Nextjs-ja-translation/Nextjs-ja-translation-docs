@@ -1,0 +1,25 @@
+import Layout from '../../../../components/learn/Layout'
+import Link from 'next/link'
+import PlataformLink from '../../../../components/name/platform-link'
+
+export const meta = {
+  title: 'Deploying Your Next.js App',
+  courseId: 'basics',
+  lessonId: 'deploying-nextjs-app'
+}
+
+In this final basics lesson, we’ll deploy our Next.js app to production.
+
+We’ll learn how to deploy Next.js to <PlataformLink />, the Jamstack deployment platform built by the creators of Next.js. We’ll also talk about other deployment options.
+
+> **Pre-requisite**: You need to have a [GitHub account](https://github.com/) for this lesson.
+
+### What You’ll Learn in This Lesson
+
+In this lesson, you’ll learn:
+
+- How to deploy your Next.js app to <PlataformLink />.
+- The **DPS** Workflow: **D**evelop, **P**review, and **S**hip.
+- How to deploy your Next.js app to your own hosting provider.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

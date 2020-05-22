@@ -1,0 +1,62 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+
+export const meta = {
+  title: 'Dynamic Routes',
+  courseId: 'basics',
+  lessonId: 'dynamic-routes',
+  stepId: 'polishing-index-page',
+  subtitle: 'Polishing the Index Page'
+}
+
+As the final step, let’s update our index page (`pages/index.js`).
+
+In particular, we need to add links to each post page. We’ll be using the `Link` component, but we need to do something differently this time.
+
+To link to a page with dynamic routes, you need to use the `Link` component differently. In our case, to link to `/posts/ssg-ssr`, you need to write it like this:
+
+```jsx
+<Link href="/posts/[id]" as="/posts/ssg-ssr">
+  <a>...</a>
+</Link>
+```
+
+As you can see, you need to use `[id]` for `href` and the actual path (`ssg-ssr`) for the `as` prop.
+
+Let’s implement it. First, import `Link` and `Date` in `pages/index.js`:
+
+```js
+import Link from 'next/link'
+import Date from '../components/date'
+```
+
+Then, near the bottom of the `Home` component, replace the `li` tag with the following:
+
+```jsx
+<li className={utilStyles.listItem} key={id}>
+  <Link href="/posts/[id]" as={`/posts/${id}`}>
+    <a>{title}</a>
+  </Link>
+  <br />
+  <small className={utilStyles.lightText}>
+    <Date dateString={date} />
+  </small>
+</li>
+```
+
+It should now have the links to each article:
+
+<Image
+  shadow
+  alt="Links"
+  oversize={false}
+  src="/static/images/learn/dynamic-routes/links.png"
+  width={1152 / 2}
+  height={472 / 2}
+/>
+
+> If something is not working, make sure that your code [looks like this](https://github.com/zeit/next-learn-starter/tree/master/api-routes-starter).
+
+That’s it! Before we wrap up this lesson, let’s talk about some tips for using dynamic routes on the next page.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

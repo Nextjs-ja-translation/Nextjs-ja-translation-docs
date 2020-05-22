@@ -1,0 +1,81 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+
+export const meta = {
+  title: 'Dynamic Routes',
+  courseId: 'basics',
+  lessonId: 'dynamic-routes',
+  stepId: 'implement-getstaticpaths',
+  subtitle: 'Implement getStaticPaths'
+}
+
+First, let’s set up the files:
+
+- Create a file called **`[id].js`** inside the `pages/posts` directory.
+- Also, **remove `first-post.js`** inside the `pages/posts` directory — we’ll no longer use this.
+
+Then, add this to `pages/posts/[id].js`. We’ll fill in `...` later.
+
+```jsx
+import Layout from '../../components/layout'
+
+export default function Post() {
+  return <Layout>...</Layout>
+}
+```
+
+Then, open `lib/posts.js` and add this function. This will return the list of file names (excluding `.md`) in the `posts` directory:
+
+```jsx
+export function getAllPostIds() {
+  const fileNames = fs.readdirSync(postsDirectory)
+
+  // Returns an array that looks like this:
+  // [
+  //   {
+  //     params: {
+  //       id: 'ssg-ssr'
+  //     }
+  //   },
+  //   {
+  //     params: {
+  //       id: 'pre-rendering'
+  //     }
+  //   }
+  // ]
+  return fileNames.map(fileName => {
+    return {
+      params: {
+        id: fileName.replace(/\.md$/, '')
+      }
+    }
+  })
+}
+```
+
+**Important**: The returned list is _not_ just an array of strings — it **must** be an array of objects that look like the comment above. Each object must have the `params` key and contain an object with the `id` key (because we’re using `[id]` in the file name). Otherwise, `getStaticPaths` will fail.
+
+Finally, in `pages/posts/[id].js`, we’ll import this function:
+
+```js
+import { getAllPostIds } from '../../lib/posts'
+```
+
+And create `getStaticPaths` which calls this function:
+
+```jsx
+export async function getStaticPaths() {
+  const paths = getAllPostIds()
+  return {
+    paths,
+    fallback: false
+  }
+}
+```
+
+- The array of possible values for `id` must be the value of the `paths` key of the returned object. This is exactly what `getAllPostIds()` returns.
+- Ignore `fallback: false` for now — we’ll explain that later.
+
+We’re almost done — but we still need to implement `getStaticProps`. Let’s do that on the next page!
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

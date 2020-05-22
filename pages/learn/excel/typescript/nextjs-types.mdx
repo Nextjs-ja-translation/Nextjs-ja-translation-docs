@@ -1,0 +1,85 @@
+import Layout from '../../../../components/learn/Layout'
+import Link from 'next/link'
+
+export const meta = {
+  title: 'TypeScript',
+  courseId: 'excel',
+  lessonId: 'typescript',
+  stepId: 'nextjs-types',
+  subtitle: 'Next.js Specific Types'
+}
+
+Here are some Next.js specific types you can use.
+
+### Static Generation and Server-side Rendering
+
+For `getStaticProps`, `getStaticPaths`, and `getServerSideProps`, you can use the `GetStaticProps`, `GetStaticPaths`, and `GetServerSideProps` types respectively:
+
+```ts
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+
+export const getStaticProps: GetStaticProps = async context => {
+  // ...
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  // ...
+}
+
+export const getServerSideProps: GetServerSideProps = async context => {
+  // ...
+}
+```
+
+## API Routes
+
+The following is an example of how to use the built-in types for API routes:
+
+```ts
+import { NextApiRequest, NextApiResponse } from 'next'
+
+export default (req: NextApiRequest, res: NextApiResponse) => {
+  // ...
+}
+```
+
+## Custom `App`
+
+You can convert `pages/_app.js` into `pages/_app.tsx` and use the built-in type `AppProps`, like so:
+
+```tsx
+import { AppProps } from 'next/app'
+
+function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
+
+export default App
+```
+
+### Converting Your App
+
+To convert the blog app we created in the basics lessons into TypeScript, update the following files:
+
+- `components/date.js`: Update to `date.tsx` using [this code](https://github.com/zeit/next-learn-starter/blob/master/typescript-final/components/date.tsx)
+- `components/layout.js`: Update to `layout.tsx` using [this code](https://github.com/zeit/next-learn-starter/blob/master/typescript-final/components/layout.tsx)
+- `lib/posts.js`: Update to `posts.ts` using [this code](https://github.com/zeit/next-learn-starter/blob/master/typescript-final/lib/posts.ts)
+- `pages/posts/[id].js`: Update to `[id].tsx` using [this code](https://github.com/zeit/next-learn-starter/blob/master/typescript-final/pages/posts/[id].tsx)
+- `pages/index.js`: Update to `index.tsx` using [this code](https://github.com/zeit/next-learn-starter/blob/master/typescript-final/pages/index.tsx)
+- `pages/_app.js`: Update to `_app.tsx` using [this code](https://github.com/zeit/next-learn-starter/blob/master/typescript-final/pages/_app.tsx)
+- `pages/api/hello.js`: Update to `hello.ts` using [this code](https://github.com/zeit/next-learn-starter/blob/master/typescript-final/pages/api/hello.ts)
+
+Also, since `remark-html` doesn’t have type definitions within the package or in [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), create a top-level `global.d.ts` file to add a type declaration.
+
+```ts
+declare module 'remark-html' {
+  const html: any
+  export default html
+}
+```
+
+That’s it! Your app is now powered by TypeScript.
+
+> To learn more about using Next.js in TypeScript, take a look at <Link href="/docs/[...slug]" as="/docs/basic-features/typescript"><a>our documentation</a></Link>.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

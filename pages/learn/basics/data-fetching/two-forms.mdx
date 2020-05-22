@@ -1,0 +1,71 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+import Link from 'next/link'
+
+export const meta = {
+  title: 'Pre-rendering and Data Fetching',
+  courseId: 'basics',
+  lessonId: 'data-fetching',
+  stepId: 'two-forms',
+  subtitle: 'Two Forms of Pre-rendering'
+}
+
+Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
+
+- **Static Generation** is the pre-rendering method that generates the HTML at **build time**. The pre-rendered HTML is then _reused_ on each request.
+- **Server-side Rendering** is the pre-rendering method that generates the HTML on **each request**.
+
+<Image
+  shadow
+  alt="Static Generation"
+  oversize={false}
+  src="/static/images/learn/data-fetching/static-generation.png"
+  width={1386 / 2}
+  height={744 / 2}
+/>
+<Image
+  shadow
+  alt="Server-side Rendering"
+  oversize={false}
+  src="/static/images/learn/data-fetching/server-side-rendering.png"
+  width={1386 / 2}
+  height={800 / 2}
+/>
+
+> In development mode (when you run `npm run dev` or `yarn dev`), every page is pre-rendered on each request — even for pages that use Static Generation.
+
+### Per-page Basis
+
+Importantly, Next.js lets you **choose** which pre-rendering form to use for each page. You can create a "hybrid" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.
+
+<Image
+  shadow
+  alt="Per-page Basis"
+  oversize={false}
+  src="/static/images/learn/data-fetching/per-page-basis.png"
+  width={1156 / 2}
+  height={902 / 2}
+/>
+
+### When to Use Static Generation v.s. Server-side Rendering
+
+We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
+
+You can use Static Generation for many types of pages, including:
+
+- Marketing pages
+- Blog posts
+- E-commerce product listings
+- Help and documentation
+
+You should ask yourself: "Can I pre-render this page **ahead** of a user's request?" If the answer is yes, then you should choose Static Generation.
+
+On the other hand, Static Generation is **not** a good idea if you cannot pre-render a page ahead of a user's request. Maybe your page shows frequently updated data, and the page content changes on every request.
+
+In that case, you can use **Server-Side Rendering**. It will be slower, but the pre-rendered page will always be up-to-date. Or you can skip pre-rendering and use client-side JavaScript to populate data.
+
+### We’ll Focus on Static Generation
+
+In this lesson, we’ll focus on Static Generation. On the next page, we’ll talk about Static Generation **with and without data**.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

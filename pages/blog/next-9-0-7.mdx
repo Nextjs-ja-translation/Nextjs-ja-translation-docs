@@ -1,0 +1,253 @@
+import withPost from '../../components/blog/with-post'
+import Image from '../../components/image'
+import { meta } from '../../blog/next-9-0-7-preview.mdx'
+import { TerminalInput } from '../../components/text/terminal'
+import PlatformLink from '../../components/name/platform-link'
+import OrgText from '../../components/name/org-text'
+
+export default withPost({ ...meta })
+
+Next.js 9.0 was released approximately two months ago. Since then, we’ve been busy with 7 smaller but quite important releases: [9.0.1](https://github.com/zeit/next.js/releases/tag/v9.0.1), [9.0.2](https://github.com/zeit/next.js/releases/tag/v9.0.2), [9.0.3](https://github.com/zeit/next.js/releases/tag/v9.0.3), [9.0.4](https://github.com/zeit/next.js/releases/tag/v9.0.4), [9.0.5](https://github.com/zeit/next.js/releases/tag/v9.0.5), [9.0.6](https://github.com/zeit/next.js/releases/tag/v9.0.6), and [9.0.7](https://github.com/zeit/next.js/releases/tag/v9.0.7).
+
+Let’s dive into what these releases have brought to your websites and applications, with absolutely no breaking changes.
+
+- **[Improved Concurrency in Windows Environments](#improved-concurrency-in-windows-environments)**: The `next build` process is now more reliable on Windows and can parallelize work better.
+- **[Gzip Compression by Default](#gzip-compression-by-default)**: Gzip compression is now added by default to reduce optimization steps needed.
+- **[TypeScript Report on Active Pages Only](#typescript-report-on-active-pages-only)**: The built-in TypeScript support was extended to only watch changes on active pages making it faster and more reliable.
+- **[Telemetry](#telemetry)**: Will help us focus on what parts of Next.js to optimize and validate optimizations have the intended effect.
+- **[Improved `next/head` Element Tracking](#improved-nexthead-element-tracking)**: The `next-head` class has been removed which makes it easier to implement certain tooling that verifies their implementation.
+- **[Preventing Non-Pages in the Pages Directory](#preventing-non-pages-in-the-pages-directory)**: Optimizing your application security and `next build` time by preventing accidental publishing of non-pages.
+- **[Runtime Improvements](#runtime-improvements)**: When certain parts of Next.js are not used, for example, `next/dynamic`, they will no longer be required at runtime, making bundle sizes smaller.
+
+### Improved Concurrency in Windows Environments
+
+Next.js does concurrent work in many places during the `next build` process. The main usage is to minify build output with Terser in parallel.
+
+Previously, this work was handled across many CPUs using a package called `worker-farm`. However, we noticed many Windows users had disabled minification with custom webpack configuration. Upon further inspection, we found `worker-farm` did not work consistently on Windows machines.
+
+To solve this issue, we migrated from `worker-farm` to `jest-worker`. This ensures builds are reliable and consistent on macOS, Linux, and Windows machines alike.
+
+`jest-worker`, as its name implies, is part of the Jest test runner. It's the package Jest uses to parallelize test cases. This means this package is very battle-tested, reliable, and maintained.
+
+`jest-worker` also supports [`worker_threads`](https://github.com/facebook/jest/tree/master/packages/jest-worker#experimental-worker), a new feature in Node 12. Unlike `child_process`, `worker_threads` can share memory — this means faster build times on new Node versions.
+
+By switching to `jest-worker`, we were able to re-enable build concurrency for Windows users.
+
+### Gzip Compression by Default
+
+While investigating why companies use a custom server, we found it was most often for compression. Companies would add an Express Middleware called `compression`, which handles Gzip compression of HTTP responses.
+
+This middleware compresses responses so fewer bytes are sent over-the-wire to your users. Normally, this should be handled by a reverse proxy like Nginx. Reverse proxies remove the CPU-heavy work from the single-threaded Node process.
+
+However, when inspecting Next.js usage on the web, we found that a large percentage of companies did not have any compression configured.
+
+On platforms like <PlatformLink />, `gzip` and `brotli` are handled automatically on the proxy level.
+
+When self-hosting, companies have to add in gzip (via `compression` or a reverse proxy) themselves.
+
+Starting in Next.js 9.0.4, `gzip` compression is included by default when using `next start` or a custom `server.js`.
+
+`brotli` support is [coming soon](https://github.com/expressjs/compression/pull/150) as Node.js now natively supports Brotli.
+
+If compression is already enabled in your application via a custom server, Next.js will not add its own compressor.
+
+Next.js does not include compression for the serverless target by default because when using the serverless target assets are uploaded separately and not served through Node.js.
+
+If you're deploying on a platform that handles compression such as <PlatformLink /> no changes are needed.
+
+### TypeScript Report on Active Pages Only
+
+Next.js 9 included built-in support for TypeScript. All that's necessary is to rename a single page from `.js` to `.tsx`. Next.js will automatically handle or guide you through any remaining setup.
+
+Next.js also handles type-checking by running `tsc --watch` in parallel to the development process. During development, Next.js has a concept called on-demand entries. This feature only compiles pages that you are actively working on — you can read more about it [here](https://nextjs.org/blog/next-8#improved-on-demand-entries).
+
+<Image
+  caption="The on-demand entries flow"
+  captionSpacing={30}
+  src="/static/blog/next-8/flow.jpg"
+  width={966 / 2}
+  height={1061 / 2}
+/>
+
+As of 9.0.4, Next.js now only reports type errors for pages that are being actively compiled by on-demand entries. This reduces a lot of type-checking noise while focusing on a specific set of pages.
+
+Full application type-checking is still run during `next build` or can be handled in/by your editor.
+
+### Telemetry
+
+Next.js was released almost 3 years ago, and the framework has grown considerably in these 3 years, from new features to better defaults for all users.
+
+The way that we've been approaching this improvement process has been very much a manual one.
+
+&#8203;<OrgText /> has a few large Next.js applications. For example, <PlatformLink href='/' />, <PlatformLink href='/docs' />, and [https://nextjs.org](https://nextjs.org). We've been [dogfooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) Next.js internally at <OrgText /> and improved Next.js based on our experiences.
+
+On top of that, we actively engage with the community to gather feedback. Chances are that you have talked to Tim before to provide feedback on how you're using Next.js at your company.
+
+For example, if you use a custom server, if you have custom webpack configuration, and more. This feedback is extremely valuable in steering feature development for Next.js.
+
+However, there is a problem with this approach, which is that we can only collect feedback from a subset of users. This subset may have different needs and use-cases than you / your company.
+
+One example of this would be importing CSS files, which is non-standard, but quite a chunk of users seem to be using this, either through `next-css` (or Sass/Less), or a custom configuration. If we know what percentage of users are using that specific approach we can prioritize improving it.
+
+For this reason, we've introduced an anonymous, more automated, approach to collecting these points of feedback so that we can improve Next.js even more in the near future.
+
+This will also allow us to verify if improvements made to the framework are improving the baseline of all applications.
+
+You can read more about telemetry on [nextjs.org/telemetry](https://nextjs.org/telemetry). There you will also find how to optionally opt-out if you don’t want to participate.
+
+### Build Feedback with Dots Indicating Activity
+
+While talking to users of Next.js, one small feedback item was that it sometimes looked like `next build` wasn't doing anything, mostly visually.
+
+To solve this, we've added a loading indicator to the console output while running `next build`. This output gives a visual indication that the command is still running, and that the process is not frozen.
+
+We plan to expand on this build output to show more stages of the build when possible.
+
+<Image
+  caption="The new build indication dots"
+  captionSpacing={30}
+  video
+  src="/static/blog/next-9-0-7/build-indicator.mp4"
+  width={1336 / 2.2}
+  height={772 / 2.2}
+/>
+
+### Improved `next/head` Element Tracking
+
+Next.js provides a built-in way to manage `<head>` elements because its responsible for rendering the HTML of your application. This API is exposed through the `next/head` module.
+
+For example, to add a title to the page:
+
+```jsx
+import Head from 'next/head'
+
+export default function MyPage() {
+  return (
+    <>
+      <Head>
+        <title>My Title</title>
+      </Head>
+      <h1>Hello World</h1>
+    </>
+  )
+}
+```
+
+When rendering to HTML, Next.js will collect all components rendered within `<Head>` and render the tags into the `<head>` of your page.
+
+However, Next.js allows single page application (SPA) type route transitions using the `<Link>` component.
+
+When you click on a `<Link>`, Next.js will fetch the required JavaScript file to render the page on the client-side. Then, it will render the React component associated with the file.
+
+Because this transition happens client-side, we have to clean up the `<head>` elements injected from the previous page, otherwise outdated elements could be present on another page.
+
+Previously, Next.js kept track of these elements by adding a class name to every `<Head>`-provided element.
+
+Taking the above example, the `<head>` would look like:
+
+```jsx
+<head>
+  <title class="next-head">My Title</title>
+</head>
+```
+
+This solution works well as every element that got injected through `next/head` was clearly marked and easy to clean up.
+
+However, a small subset of users reported issues that the extra `class` attribute on the elements would sometimes make scripts being added from external services not validate.
+
+[Gerald Monaco](https://github.com/devknoll), from the Google Chrome team, [came up with a way](https://github.com/zeit/next.js/pull/8020) to preserve the cleanup behavior without the need for a class name on the elements.
+
+The new behavior is that Next.js will insert an additional `<meta>` tag holding the number of elements it (`next/head`) rendered. With this, Next.js can use the count to clean up the existing elements.
+
+As a result, this approach reduces the initial HTML payload size when multiple elements are injected into the `<head>` of a page.
+
+### Preventing Non-Pages in the Pages Directory
+
+When getting started with Next.js, the first thing you do is create a `pages` directory.
+
+The convention is that every file in the `pages` directory becomes a route in the application. A simple example is that `pages/about.js` becomes `/about`.
+
+As time progressed, we received occasional reports that users' applications, both large and small, had poor build performance.
+
+Upon further investigation, it was revealed that these users had created their entire component structure in the `pages` directory.
+
+As every file in the `pages` directory is treated as a page, every component was being compiled as a page in the application. This causes a lot of build-time overhead, generating 2+ JavaScript files for invalid pages.
+
+Furthermore, this would partially affect how Next.js decides to generate code-split chunks. This is because Next.js uses heuristics about library usage across pages.
+
+Because of this, we must ensure users don't introduce this pitfall into their Next.js application.
+
+Next.js 9 now validates that files within the `pages` directory export a React Component.
+
+In action, this means Next.js will show you a message alerting you that a potential non-page was found in the `pages` directory.
+
+This encourages the user to move the file that is not a page into another directory. In turn, the development, production, and code-splitting are faster and more accurate.
+
+### Runtime Improvements
+
+The Next.js Framework consists of many parts. One of them is the client-side runtime. This runtime handles hydration, client-side routing, and more.
+
+Hydration, which is what this improvement focused on, is what's necessary to make the server-rendered or prerendered HTML interactive. Hydration adds event handlers and calls lifecycle methods like `useEffect()` or `componentDidMount` — making your application ready for the end-user.
+
+Furthermore, Next.js handles more than basic hydration — for example, setting up a client-side router, configuring `next/head`, and loading additional application logic through `next/dynamic`.
+
+Each of these responsibilities have their own specific runtime part, too.
+
+In the case of `next/dynamic`, Next.js has to ensure that lazily loaded components that were rendered on the server are ready on the client-side. Every usage of `next/dynamic` generates an additional JavaScript bundle, and these files must be loaded before hydration to avoid a hydration mismatch.
+
+Previously, this runtime would be included in the Next.js runtime bundle always. Now, it is only included when you use `next/dynamic` in your application. This means less JavaScript is downloaded, parsed, and executed for applications not using `next/dynamic`.
+
+### AppTree Support
+
+Some libraries in the React ecosystem implement server-side rendering in a very specific way. Most notably, Apollo's server-side rendering solution, called `getDataFromTree`, works by rendering the React tree and for every `Query` that is found it will await the result and then rerender the React tree again.
+
+By default, Next.js adds some context values into the React tree, for example, the router that can be read using `useRouter`.
+
+The way the `with-apollo` example used to render the React tree was through rendering `<App>` and trying to fill in the missing properties manually. With the addition of React Context this was no longer possible because the context provider is a separate element.
+
+Starting from Next.js 9.0.4 a new property called `AppTree` was added to the context object in `getInitialProps`. It was specifically added for cases where external libraries have to traverse the whole React tree like with Apollo's `getDataFromTree`.
+
+The `with-apollo` example has been [updated to reflect the changes](https://github.com/zeit/next.js/blob/v9.0.4/examples/with-apollo/lib/with-apollo-client.js#L20-L34). If you already have Apollo implemented in your app it's recommended to update to the `AppTree` approach so that `useRouter` and other APIs added in the future will work correctly in your Next.js application.
+
+If you're not using Apollo or a similar library we recommend to try and avoid using AppTree, as Next.js team does not recommend traversing the React tree in general. It adds quite a lot of performance overhead because the React tree is rendered multiple times instead of just once.
+
+### Removal of the `next-server` Package
+
+When we started optimizing Next.js for serverless deployments over a year ago, we created a package called `next-server`. This package was experimental and published alongside the `next` package. It was never documented publicly but was an experiment to create the smallest possible Next.js server runtime.
+
+Eventually, the package was a success and did make the production server runtime smaller. However, we came up with an innovative new way to make the runtime even smaller with the Next.js compiler and [static analysis](https://github.com/zeit/node-file-trace).
+
+In doing so, the `next-server` became obsolete and was replaced by the [serverless target](https://nextjs.org/docs#serverless-deployment). This target has a far more optimized output than using the `next-server` package as a replacement for `next`.
+
+While this package was obsolete and could not be used directly, we kept it around. This was because it had internals that were shared between packages and moving the code would require a non-trivial amount of effort.
+
+We've recently made this effort and moved the code from `next-server` back into the `next` package. Meaning that all code for the Next.js framework now lives in the `next` package.
+
+This makes it easier for beginners and seasoned contributors alike to contribute to Next.js. There is now a single compilation process and unified build configuration. Previously, there were separate settings for `next` and `next-server`, along with arbitrary constraints on what code belonged in each package.
+
+### Upgrading Next.js
+
+If your project is running on an older version of Next.js, we recommend upgrading to Next.js 9.
+
+In most cases, no changes are required to upgrade. You can follow the [upgrade guide](https://github.com/zeit/next.js/blob/canary/UPGRADING.md#migrating-from-v8-to-v9) to ensure a smooth upgrade experience.
+
+We'd like to thank all community contributors that updated the guide since it's release.
+
+### What's Coming in the Future?
+
+The new optimizations outlined in this blog post are just the start of broader optimizations and features we've been working on.
+
+We'll share an update on ongoing RFCs very soon. Until then, you can get a small sneak peek through the [RFC label on GitHub](https://github.com/zeit/next.js/labels/RFC).
+
+This shows some of the features we've been investigating like [built-in CSS support](https://github.com/zeit/next.js/issues/8626), [public directory support](https://github.com/zeit/next.js/issues/7177), and [src directory support](https://github.com/zeit/next.js/issues/8451).
+
+### Community
+
+We're excited to see the continued growth of the Next.js community.
+
+- We've had over **800** contributors landing at least 1 commit.
+- On GitHub, the project has been starred over **41,100** times.
+
+The Next.js community has doubled since the last major release with over 10,900 members. [Join us!](https://github.com/zeit/next.js/discussions)
+
+We are excited about the continued community contributions and external feedback from companies and users that help shape releases.

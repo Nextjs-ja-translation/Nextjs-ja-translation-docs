@@ -1,0 +1,103 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+
+export const meta = {
+  title: 'Assets, Metadata, and CSS',
+  courseId: 'basics',
+  lessonId: 'assets-metadata-css',
+  stepId: 'global-styles',
+  subtitle: 'Global Styles'
+}
+
+CSS Modules are useful for component-level styles. But if you want to load some CSS to be loaded by **every page**, Next.js has support for that as well.
+
+To load global CSS files, **create a file called `_app.js`** under `pages` and add the following content:
+
+```jsx
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+```
+
+This `App` component is the top-level component which will be common across all the different pages. You can use this `App` component to keep state when navigating between pages, for example.
+
+### Restart the Development Server
+
+**Important:** You need to restart the development server when you add `_app.js`. Press <kbd>Ctrl + c</kbd> to stop the server and run:
+
+```shell
+npm run dev
+```
+
+### Adding Global CSS
+
+In Next.js, you can add global CSS files by importing them from `_app.js`. You **cannot** import global CSS anywhere else.
+
+The reason that global CSS can't be imported outside of `_app.js` is that global CSS affects all elements on the page.
+
+If you would navigate from the homepage to the `/posts/first-post` page, global styles from the homepage would affect `/posts/first-post` unintentionally.
+
+You can place the global CSS file anywhere and use any name. So let’s do the following:
+
+- Create a top-level `styles` directory and create `global.css` inside.
+- Add the following content. It resets some styles and changes the color of the `a` tag.
+
+```css
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+```
+
+Finally, import it from `_app.js`:
+
+```jsx
+import '../styles/global.css'
+
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+```
+
+Now, if you access [http://localhost:3000/posts/first-post](http://localhost:3000/posts/first-post), you’ll see that the styles are applied:
+
+<Image
+  shadow
+  alt="Global Styles"
+  oversize={false}
+  src="/static/images/learn/assets-metadata-css/global-styles.png"
+  width={484 / 2}
+  height={316 / 2}
+/>
+
+> **If it didn’t work**: Make sure you restart the development server when you add `_app.js`.
+
+To summarize what we’ve learned so far:
+
+- To use CSS Modules, import a CSS file named `*.module.css` from any component.
+- To use global CSS, import a CSS file in `pages/_app.js`.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

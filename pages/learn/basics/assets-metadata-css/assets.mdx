@@ -1,0 +1,27 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+import Link from 'next/link'
+
+export const meta = {
+  title: 'Assets, Metadata, and CSS',
+  courseId: 'basics',
+  lessonId: 'assets-metadata-css',
+  stepId: 'assets',
+  subtitle: 'Assets'
+}
+
+First, let’s talk about how Next.js handles **static assets** such as images.
+
+Next.js can serve static files, like images, under **the top-level `public` directory**. Files inside `public` can be referenced from the root of the application similar to `pages`.
+
+If you open `pages/index.js` in your application and take a look at the `<footer>`, we refer to the logo image like so:
+
+```jsx
+<img src="/vercel.svg" alt="Vercel Logo" className="logo" />
+```
+
+The logo image exists inside the `public` directory at the top level of your application.
+
+The `public` directory is also useful for `robots.txt`, Google Site Verification, and any other static assets. Check out the <Link href="/docs/[...slug]" as="/docs/basic-features/static-file-serving"><a>static file serving documentation</a></Link> to learn more.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

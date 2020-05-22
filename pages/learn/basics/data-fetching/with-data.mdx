@@ -1,0 +1,66 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+
+export const meta = {
+  title: 'Pre-rendering and Data Fetching',
+  courseId: 'basics',
+  lessonId: 'data-fetching',
+  stepId: 'with-data',
+  subtitle: 'Static Generation with and without Data'
+}
+
+Static Generation can be done with and without **data**.
+
+So far, all the pages we’ve created do not require fetching external data. Those pages will automatically be statically generated when the app is built for production.
+
+<Image
+  shadow
+  alt="Static Generation without Data"
+  oversize={false}
+  src="/static/images/learn/data-fetching/static-generation-without-data.png"
+  width={1246 / 2}
+  height={784 / 2}
+/>
+
+However, for some pages, you might not be able to render the HTML without first fetching some external data. Maybe you need to access the file system, fetch external API, or query your database at build time. Next.js supports this case — Static Generation **with data** — out of the box.
+
+<Image
+  shadow
+  alt="Static Generation with Data"
+  oversize={false}
+  src="/static/images/learn/data-fetching/static-generation-with-data.png"
+  width={1246 / 2}
+  height={1050 / 2}
+/>
+
+### Static Generation with Data using `getStaticProps`
+
+How does it work? Well, in Next.js, when you export a page component, you can also export an `async` function called `getStaticProps`. If you do this, then:
+
+- `getStaticProps` runs at build time in production, and…
+- Inside the function, you can fetch external data and pass that as the props of the page.
+
+```jsx
+export default function Home(props) { ... }
+
+export async function getStaticProps() {
+  // Get external data from the file system, API, DB, etc.
+  const data = ...
+
+  // The value of the `props` key will be
+  //  passed to the `Home` component
+  return {
+    props: ...
+  }
+}
+```
+
+Essentially, `getStaticProps` allows you to tell Next.js: _“Hey, this page has some data dependencies — so when you pre-render this page at build time, make sure to resolve them first!”_
+
+> **Note**: In development mode, `getStaticProps` runs on each request instead.
+
+### Let’s Use `getStaticProps`
+
+It’s easier to learn by doing, so starting from the next page, we’ll use `getStaticProps` to implement our blog.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

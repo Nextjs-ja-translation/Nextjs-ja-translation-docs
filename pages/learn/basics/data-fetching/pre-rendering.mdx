@@ -1,0 +1,58 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+
+export const meta = {
+  title: 'Pre-rendering and Data Fetching',
+  courseId: 'basics',
+  lessonId: 'data-fetching',
+  stepId: 'pre-rendering',
+  subtitle: 'Pre-rendering'
+}
+
+Before we talk about data fetching, let’s talk about one of the most important concepts in Next.js: **Pre-rendering**.
+
+By default, Next.js pre-renders every page. This means that Next.js _generates HTML for each page in advance_, instead of having it all done by client-side JavaScript. Pre-rendering can result in better performance and SEO.
+
+Each generated HTML is associated with minimal JavaScript code necessary for that page. When a page is loaded by the browser, its JavaScript code runs and makes the page fully interactive. (This process is called **hydration**.)
+
+### Check That Pre-rendering Is Happening
+
+You can check that pre-rendering is happening by taking the following steps:
+
+- Disable JavaScript in your browser (here’s how in [Chrome](https://developers.google.com/web/tools/chrome-devtools/javascript/disable)) and…
+- [Try accessing this page](https://next-learn-starter.now.sh/) (the final result of this tutorial).
+
+You should see that your app is rendered without JavaScript. That’s because Next.js has pre-rendered the app into static HTML, allowing you to see the app UI without running JavaScript.
+
+> **Note**: You can also try the above steps on `localhost`, but CSS won’t be loaded if you disable JavaScript.
+
+If your app is a plain React.js app (without Next.js), there’s no pre-rendering, so you won’t be able to see the app if you disable JavaScript. For example:
+
+- Enable JavaScript in your browser and [check out this page](https://create-react-app.now-examples.now.sh/). This is a plain React.js app built with [Create React App](https://create-react-app.dev/).
+- Now, disable JavaScript and access [the same page](https://create-react-app.now-examples.now.sh/) again.
+- You won’t see the app anymore — instead, it’ll say “You need to enable JavaScript to run this app.” This is because the app is not pre-rendered into static HTML.
+
+### Summary: Pre-rendering vs No Pre-rendering
+
+Here’s a quick graphical summary:
+
+<Image
+  shadow
+  alt="Pre-rendering"
+  oversize={false}
+  src="/static/images/learn/data-fetching/pre-rendering.png"
+  width={1386 / 2}
+  height={824 / 2}
+/>
+<Image
+  shadow
+  alt="No pre-rendering"
+  oversize={false}
+  src="/static/images/learn/data-fetching/no-pre-rendering.png"
+  width={1386 / 2}
+  height={688 / 2}
+/>
+
+Next, let’s talk about **two forms** of pre-rendering in Next.js.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

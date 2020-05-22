@@ -1,0 +1,85 @@
+import OrgText from '../components/name/org-text.js';
+import PlatformLink from '../components/name/platform-link';
+
+## Telemetry
+
+Next.js collects **completely anonymous** telemetry data about general usage.
+Participation in this anonymous program is optional, and you may opt-out if you'd not like to share any information.
+
+### Why Is Telemetry Collected?
+
+Next.js has grown considerably since its release, becoming the de-facto React Framework for developers.<br/>
+Prior to telemetry collection, our improvement process has been very much a manual one.
+
+For example, <OrgText /> [dogfoods](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) many large React applications (e.g. <PlatformLink href='/' />, <PlatformLink href='/docs' />, [https://nextjs.org](https://nextjs.org)). Additionally, we actively engage with the community to gather feedback.<br/>
+However, this approach only allows us to collect feedback from a subset of users. This subset may have different needs and use-cases than you.
+
+Telemetry allows us to accurately gauge Next.js feature usage, pain points, and customization across all users.<br/>
+This data will let us better tailor Next.js to the masses, ensuring its continued growth, relevance, and best-in-class developer experience.<br/>
+Furthermore, this will allow us to verify if improvements made to the framework are improving the baseline of all applications.
+
+### What Is Being Collected?
+
+We track general usage information, such as Next.js plugins and build performance.
+Specifically, we track the following anonymously:
+
+- Command invoked (`next build`, `next dev`, or `next export`)
+- Version of Next.js
+- General machine information (e.g. number of CPUs, macOS/Windows/Linux, whether or not the command was run within CI)
+- What Next.js plugins are present in your project
+- Duration of `next build` and size of application (total number of pages)
+
+> **Note**: This list is regularly audited to ensure its accuracy.
+
+You can view exactly what is being collected by setting the following environment variable: `NEXT_TELEMETRY_DEBUG=1`.<br/>
+When this environment variable is set, data will **not be sent to us**.
+The data will only be printed out to the [_stderr_ stream](https://en.wikipedia.org/wiki/Standard_streams), prefixed with `[telemetry]`.
+
+An example telemetry event looks like this:
+
+```json
+{
+  "eventName": "NEXT_VERSION",
+  "payload": {
+    "version": "9.0.5-canary.2",
+    "isDevelopment": false
+  }
+}
+```
+
+### What about Sensitive Data (e.g. Secrets)?
+
+We **do not** collect any metrics which may contain sensitive data.<br/>
+This includes, but is not limited to: environment variables, file paths, contents of files, logs, or serialized JavaScript errors.
+
+We take your privacy and our security very seriously.
+Next.js telemetry falls under the [security disclosure policy](https://zeit.co/security#policy).
+
+### Will This Data Be Shared?
+
+The data we collect is completely anonymous, not traceable to the source, and only meaningful in aggregate form.<br/>
+No data we collect is personally identifiable.
+
+In the future, we plan to share relevant data with the community through public dashboards (or similar data representation formats).
+
+### How Do I Opt-Out?
+
+You may opt out-by running `next telemetry disable` in the root of your project directory:
+
+```bash
+npx next telemetry disable
+```
+
+You may check the status of telemetry collection at any time by running `next telemetry status` in the root of your project directory:
+
+```bash
+npx next telemetry status
+```
+
+You may re-enable telemetry if you'd like to re-join the program by running the following in the root of your project directory:
+
+```bash
+npx next telemetry enable
+```
+
+You may also opt-out by setting an environment variable: `NEXT_TELEMETRY_DISABLED=1`.

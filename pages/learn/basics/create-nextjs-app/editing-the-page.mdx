@@ -1,0 +1,40 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+
+export const meta = {
+  title: 'Create a Next.js App',
+  courseId: 'basics',
+  lessonId: 'create-nextjs-app',
+  stepId: 'editing-the-page',
+  subtitle: 'Editing the page'
+}
+
+Let’s try editing the starter page.
+
+- Make sure the Next.js development server is still running.
+- Open `pages/index.js` with your text editor.
+- Find the text that says **“Welcome to”** under the `<h1>` tag and change it to **“Learn”**.
+- Save the file.
+
+As soon as you save the file, the browser automatically reloads and updates the page with the new text:
+
+<Image
+  shadow
+  alt="Learn Next.js"
+  oversize={false}
+  src="/static/images/learn/create-nextjs-app/learn-nextjs.png"
+  width={1030 / 2}
+  height={384 / 2}
+/>
+
+The Next.js development server has the **Hot Reloading** feature. When you make changes to files Next.js automatically applies the changes in the browser. No refresh needed! This will help you iterate on your app quickly.
+
+### Next Up: Creating Pages
+
+Great job! That’s it for the first lesson.
+
+In the next lesson, we’ll talk about _creating more pages and navigating between pages_.
+
+> You should keep the development server running, but if you want to restart it, hit <kbd>Ctrl + c</kbd> to stop the server.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

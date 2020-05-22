@@ -1,0 +1,61 @@
+import Layout from '../../../../components/learn/Layout'
+import TwitterLink from '../../../../components/name/twitter-link'
+import Link from 'next/link'
+
+export const meta = {
+  title: 'Deploying Your Next.js App',
+  courseId: 'basics',
+  lessonId: 'deploying-nextjs-app',
+  stepId: 'finally',
+  subtitle: 'Finally'
+}
+
+Congratulations on finishing all the basics lessons! Here are some recommended steps:
+
+### Share Your Next.js App
+
+We encourage you to share the app you built in this tutorial on Twitter. If you do, please mention our team at <TwitterLink /> so that we can take a look! We’d love to get your feedback on this tutorial as well.
+
+### Use TypeScript with Next.js
+
+If you prefer using [TypeScript](https://www.typescriptlang.org/), you can learn <Link href="/learn/excel/typescript"><a>how to use TypeScript with Next.js from here</a></Link>.
+
+### What to Learn Next
+
+Take a look at <Link href="/docs/[...slug]" as="/docs"><a>our documentation</a></Link> to learn more. In particular, the following pages might be interesting:
+
+- <Link href="/docs/[...slug]" as="/docs/basic-features/data-fetching">
+    <a>
+      <strong>Data Fetching</strong>
+    </a>
+  </Link>
+  : Learn in depth about data fetching.
+- <Link
+    href="/docs/[...slug]"
+    as="/docs/api-reference/next.config.js/introduction"
+  >
+    <a>
+      <strong>Next.js Configuration</strong>
+    </a>
+  </Link>
+  : In particular, the <Link
+    href="/docs/[...slug]"
+    as="/docs/api-reference/next.config.js/environment-variables"
+  >
+    <a>Environment Variables</a>
+  </Link> documentation might be helpful.
+- <Link
+    href="/docs/[...slug]"
+    as="/docs/advanced-features/amp-support/introduction"
+  >
+    <a>
+      <strong>AMP Support</strong>
+    </a>
+  </Link>
+  : Next.js lets you easily create an AMP page.
+
+### Join the Conversation
+
+If you have questions about anything related to Next.js, you're always welcome to ask our community on [GitHub Discussions](https://github.com/zeit/next.js/discussions).
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

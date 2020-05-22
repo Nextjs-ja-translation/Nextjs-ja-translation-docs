@@ -1,0 +1,35 @@
+import Layout from '../../../../components/learn/Layout'
+import Link from 'next/link'
+import { PLATFORM_NAME } from '../../../../lib/constants'
+import PlatformLink from '../../../../components/name/platform-link'
+import PlatformText from '../../../../components/name/platform-text'
+
+export const meta = {
+  title: 'Deploying Your Next.js App',
+  courseId: 'basics',
+  lessonId: 'deploying-nextjs-app',
+  stepId: 'github',
+  subtitle: 'Push to GitHub'
+}
+
+Before we deploy, let’s push our Next.js app to [GitHub](https://github.com/zeit/next.js) if you haven’t done so already. This will make deployment easier.
+
+- On your personal GitHub account, create a new repository called `nextjs-blog`.
+- The repository can be public or private. You do **not** need to initialize it with a README or other files.
+- If you need help, take a look at [this guide on GitHub](https://help.github.com/en/github/getting-started-with-github/create-a-repo).
+
+Then:
+
+- If you haven’t initialized the git repository locally for your Next.js app, do so now.
+- Push the Next.js app to this GitHub repository.
+
+To push to GitHub, you can run the following commands (replace `<username>` with your GitHub username):
+
+```bash
+git remote add origin https://github.com/<username>/nextjs-blog.git
+git push -u origin master
+```
+
+Once your GitHub repository is ready, continue to the next page.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

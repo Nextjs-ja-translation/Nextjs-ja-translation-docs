@@ -1,0 +1,322 @@
+import withPost from '../../components/blog/with-post'
+import { Video } from '../../components/image'
+import { meta } from '../../blog/next-9-4-preview.mdx'
+import { TerminalInput } from '../../components/text/terminal'
+import Caption from '../../components/text/caption'
+import PlatformCdnLink from '../../components/name/platform-cdn-link'
+import Image from '../../components/image'
+import TweetEmbed from '../../components/blog/tweet-embed-enhanced'
+
+export default withPost({ ...meta })
+
+We are excited today to introduce Next.js 9.4, featuring:
+
+- **[Fast Refresh](#fast-refresh)**: fast and reliable live-editing experience, as proven [at Facebook scale](https://twitter.com/dan_abramov/status/1152689338553131008)
+- **[Incremental Static Regeneration (beta)](#incremental-static-regeneration-beta)**: re-build static pages after you've deployed, in milliseconds
+- **[CMS Examples](#cms-examples)**: examples for [Contentful](https://github.com/zeit/next.js/tree/canary/examples/cms-contentful), [DatoCMS](https://github.com/zeit/next.js/tree/canary/examples/cms-datocms), [Prismic](https://github.com/zeit/next.js/tree/canary/examples/cms-prismic), [Sanity](https://github.com/zeit/next.js/tree/canary/examples/cms-sanity), and [TakeShape](https://github.com/zeit/next.js/tree/canary/examples/cms-takeshape) using our new [next-gen static site generation](/blog/next-9-3)
+- **[New Environment Variables Support](#new-environment-variables-support)**: built-in support for `.env` and a `NEXT_PUBLIC_` prefix, as seen in CRA
+- **[Improved Built-in Fetch Support](#improved-built-in-fetch-support)**: ditch your `node-fetch` and `isomorphic-fetch` imports in favor of a built-in `fetch` polyfill, for Node.js and all browsers (build and runtime)
+- **[Integrated Web Vitals Reporting](#integrated-web-vitals-reporting)**: capture the [metrics](https://web.dev/vitals/) that drive Lighthouse scores, but from your real traffic
+- **[Absolute Imports and Aliases](#absolute-imports-and-aliases)**: clearer and shorter imports, avoiding `../../../` spaghetti
+- **[Configurable Sass Support](#configurable-sass-support)**: [configure `includePaths`](https://sass-lang.com/documentation/js-api#includepaths) and other options of our [built-in Sass support](/docs/basic-features/built-in-css-support#sass-support)
+- **[Improved Log Output](#improved-log-output)**: console output that's easier to read, consistently formatted, and less repetitive
+
+## Fast Refresh
+
+Fast Refresh is a new hot reloading experience that gives you instantaneous feedback on edits made to your React components. It is now **enabled by default** for all projects on Next.js 9.4 or newer.
+
+Hot reloading has [existed for a long time](https://github.com/gaearon/react-hot-loader) but has [historically been](https://github.com/gaearon/react-hot-loader/blob/master/docs/Troubleshooting.md) [too fragile](https://github.com/gaearon/react-hot-loader/issues?q=is%3Aissue) to enable by default in your workflow. Because of this, Next.js previously implemented a coarse form of hot reloading that would reset the entire state of your application.
+
+The old hot reloading implementation was not resilient to compilation or runtime errors and would perform a full reload of your application if you made a typo while editing your CSS or JavaScript. This was suboptimal and interrupted your train of thought.
+
+Fast Refresh deeply integrates into React itself ([via React Refresh](https://github.com/facebook/react/tree/master/packages/react-refresh)), allowing Next.js to perform predictable precision updates to your React component tree.
+
+This means Next.js will only update code in the file you edited, and only re-render that component, **without losing component state**. This includes styles (inline, CSS-in-JS, or CSS/Sass Modules), markup, event handlers, and effects (via `useEffect`).
+
+<Image
+  video
+  caption="An editing session featuring compiler and runtime errors (with quick recovery), and edits that preserve state."
+  captionSpacing={30}
+  src="/static/blog/next-9-4/react-refresh.mp4"
+  width={1299 / 2}
+  height={794 / 2}
+/>
+
+As part of this experience, we completely redesigned the error overlay to be more helpful and to make your application resilient to typos or runtime errors. This includes, but is not limited to:
+
+- **Accurate error locations**, resolved to the **original line and column** of your code, before compilation
+- Contextually relevant **source code snippets**, with the ability **click-to-open in your editor**
+- Development **session resumption** after a syntax error is fixed, **without losing application state**
+- **Automatic dismissal** of unhandled runtime errors when you fix the error
+
+We would like to thank [Dan Abramov](https://twitter.com/dan_abramov) for his invaluable contributions and assistance implementing this feature.
+
+## Incremental Static Regeneration (beta)
+
+Next.js introduced Static Site Generation methods in 9.3 with a clear goal in mind: we should get [the benefits of static](https://rauchg.com/2020/2019-in-review#static-is-the-new-dynamic) (always fast, always online, [globally distributed](https://rauchg.com/2020/static-hoisting#hoist-to-the-edge)), but with excellent support for dynamic data, which Next.js is known for.
+
+To get the best of both worlds, Next.js supports **Incremental Static Generation**, updating static content after you have already built your site. For example, in 9.3 we’ve introduced the `fallback: true` option in `getStaticPaths`, which allows you to add **new pages** at runtime.
+
+We recently put together an example showcasing how Next.js can statically pre-render an infinite number of pages this way:
+
+<TweetEmbed
+  width={500}
+  height={611}
+  src="1253478798286151680"
+  options={{
+    conversation: 'none',
+    align: 'center'
+  }}
+  style={{
+    paddingTop: 'calc(500px - 100vw)'
+  }}
+/>
+
+Today, we are also introducing **Incremental Static Regeneration (beta)**, which is a mechanism to **update existing pages**, by re-rendering them in the background as traffic comes in. Inspired by [stale-while-revalidate](https://tools.ietf.org/html/rfc5861), this ensures traffic is served uninterrupted, always statically, and the newly built page is pushed only after it's done generating.
+
+```jsx
+export async function getStaticProps() {
+  return {
+    props: await getDataFromCMS(),
+    // we will attempt to re-generate the page:
+    // - when a request comes in
+    // - at most once every second
+    unstable_revalidate: 1
+  }
+}
+```
+
+Unlike SSR, Incremental Static Regeneration ensures you retain the benefits of static:
+
+- No spikes in latency. Pages are served consistently fast.
+- Pages never go offline. If the background page re-generation fails, the old page remains unaltered.
+- Low database and backend load. Pages are re-computed at most once concurrently.
+
+Both incremental features (adding pages and lazily updating them), as well as [preview mode](/docs/advanced-features/preview-mode), are already fully supported by both `next start` and the [Vercel edge platform](https://vercel.com) out of the box.
+
+Up next, we will be working on a supplemental RFC to address two additional incremental static generation capabilities:
+
+- Re-generating and invalidating multiple pages at once (like your blog index and a certain blog post)
+- Re-generating by listening to events (like CMS webhooks), ahead of user traffic
+
+## CMS Examples
+
+On the heels of our announcement of [next-gen static site generation](/blog/next-9-3#next-gen-static-site-generation-ssg-support), we wanted to share real-world scenarios of fetching content from Headless CMS APIs and rendering it as Next.js HTML.
+
+We partnered with the creators of some of the best CMS systems in the world: [Contentful](https://github.com/zeit/next.js/tree/canary/examples/cms-contentful), [DatoCMS](https://github.com/zeit/next.js/tree/canary/examples/cms-datocms), [Prismic](https://github.com/zeit/next.js/tree/canary/examples/cms-prismic), [Sanity](https://github.com/zeit/next.js/tree/canary/examples/cms-sanity), and [TakeShape](https://github.com/zeit/next.js/tree/canary/examples/cms-takeshape), with more on the way.
+
+<Image
+  src="/static/blog/next-9-4/blog.png"
+  width={1682 / 2}
+  height={1160 / 2}
+/>
+
+These examples are not only ready to be used and 100% open source and MIT licensed, but they incorporate the best practices available:
+
+<Image
+  caption="DatoCMS achieves impeccable results due to their built-in image optimization support."
+  captionSpacing={30}
+  src="/static/blog/next-9-4/lighthouse.png"
+  width={1682 / 2}
+  height={1162 / 2}
+/>
+
+DatoCMS achieves impeccable results due to their built-in image optimization support
+
+We also have collaborated with TinaCMS on an exciting new direction for CMS: **in-page editing of content**. [Check out their guide](https://tinacms.org/guides/nextjs/github-open-authoring/initial-setup) to learn how to implement it for your project.
+
+## New Environment Variables Support
+
+A common piece of feedback that we got from companies using Next.js is that it was unclear when an environment variable is inlined into the browser bundle and when it is only available in the Node.js environment.
+
+Today we're announcing two fully backward-compatible features that will help streamline this process.
+
+First, you can now prefix the environment variable with `NEXT_PUBLIC_` to expose an environment variable to the browser. When that environment variable is used it will then be inlined into the browser JavaScript bundle.
+
+You no longer have to add a `next.config.js` and add the `env` key to expose these variables.
+
+```jsx
+// pages/index.js
+
+// The environment variable will be exposed to the browser
+console.log('My Application Version', process.env.NEXT_PUBLIC_VERSION)
+
+export default function HomePage() {
+  return <h1>Hello World</h1>
+}
+```
+
+The second change is that Next.js now supports `.env` loading by default. Allowing you to easily define development and production environment variables.
+
+You can read more about the `.env` loading in the [Environment Variables documentation](https://nextjs.org/docs/basic-features/environment-variables).
+
+These new features will simplify using environment variables by following these conventions:
+
+- Environment variables are only available in the Node.js environment by default
+- Environment variables prefixed with `NEXT_PUBLIC_` are exposed to the browser
+
+## Improved Built-in Fetch Support
+
+In [Next.js 9.1.7](https://nextjs.org/blog/next-9-1-7#new-built-in-polyfills-fetch-url-and-objectassign) we announced polyfilling of the [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API in the browser. Today this polyfilling has been extended to the Node.js environment too.
+
+In practice, you no longer have to use any type of server-side fetch polyfill (for example `isomorphic-unfetch` or `node-fetch`) as Next.js will automatically provide `fetch()` in all environments.
+
+For example, when using `getStaticProps`, which gets executed using Next.js at build time:
+
+```jsx
+export async function getStaticProps() {
+  // fetch no longer needs to be imported from isomorphic-unfetch
+  const res = await fetch('https://.../posts')
+  const posts = await res.json()
+
+  return {
+    props: {
+      posts
+    }
+  }
+}
+
+function Blog({ posts }) {
+  // Render posts...
+}
+
+export default Blog
+```
+
+## Integrated Web Vitals Reporting
+
+Last week the Google Chrome team introduced [Core Web Vitals](https://web.dev/vitals/). Core Web Vitals are the quality signals key to delivering great UX on the web, on top of which the [famous Lighthouse reports](https://twitter.com/rauchg/status/1259701306387656704) are built.
+
+Keeping track of these metrics is extremely useful if you want your website or web application to be as fast as possible, which is one of the core goals of Next.js.
+
+<Image
+  captionSpacing={30}
+  src="/static/blog/next-9-4/core-web-vitals.jpg"
+  width={3840 / 5}
+  height={2205 / 5}
+/>
+
+The Chrome team has released a [Core Web Vitals Chrome extension](https://twitter.com/addyosmani/status/1258416376433131520) that allows you as a developer to get visual feedback on how your pages are performing.
+
+When building production web applications you also want to know how your site is performing for your visitors and (potential) customers. You might even want to track the improvement or regression of these metrics over time in order to see if your changes have the intended impact on your audience.
+
+In order to aid reporting Core Web Vitals to your analytics service we have introduced, [in collaboration with Google](https://www.techrepublic.com/article/insiders-look-at-googles-web-framework-contributions-to-next-js-and-more/), a new method called `reportWebVitals` which can be exported from `pages/_app.js`:
+
+```jsx
+// Will be called once for every metric that has to be reported.
+export function reportWebVitals(metric) {
+  // These metrics can be sent to any analytics service
+  console.log(metric)
+}
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+
+export default MyApp
+```
+
+To use this method in combination with your analytics service refer to the ["Sending result to Analytics"](https://nextjs.org/docs/advanced-features/measuring-performance#sending-results-to-analytics) section of the docs. If you want to learn more about Core Web Vitals you can refer to [web.dev/vitals](https://web.dev/vitals/).
+
+## Absolute Imports and Aliases
+
+If you’re working on a large project, some of your `import` statements might suffer from the `../../../` spaghetti:
+
+```jsx
+import Button from '../../../../components/button'
+```
+
+In such cases, instead of relative imports, we might want to use **absolute imports**. Assuming that the `components` directory exists at the root, we might want `import` statements to look like:
+
+```jsx
+import Button from 'components/button'
+```
+
+We're excited to announce that Next.js 9.4 makes setting up absolute imports super simple for both JavaScript and TypeScript projects. All you need to do is to add the `baseUrl` config to [`jsconfig.json` (JS projects)](https://code.visualstudio.com/docs/languages/jsconfig#_jsconfig-options) or [`tsconfig.json` (TS projects)](https://www.typescriptlang.org/docs/handbook/module-resolution.html#base-url).
+
+```jsx
+// jsconfig.json or tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": "."
+  }
+}
+```
+
+This will allow absolute imports from `.` (the root directory). It also integrates with VSCode and other editors, supporting code navigation and other editor features.
+
+**Note:** If you’ve previously modified your [Webpack module alias configuration](https://webpack.js.org/configuration/resolve/#resolvealias) to enable absolute imports, that configuration can now be removed.
+
+Furthermore, Next.js 9.4 also supports the `paths` option, which allows you to create custom module aliases. For example, the following allows you to use `@/design-system` instead of `components/design-system`:
+
+```jsx
+// tsconfig.json or jsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/design-system/*": ["components/design-system/*"]
+    }
+  }
+}
+```
+
+You can then use your alias like so:
+
+```jsx
+// Imports 'components/design-system/button'
+import Button from '@/design-system/button'
+```
+
+You must specify `baseUrl` if you specify `paths`. You can learn more about the `paths` option [in the TypeScript documentation](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping).
+
+## Configurable Sass Support
+
+When built-in Sass support was launched in [Next.js 9.3](https://nextjs.org/blog/next-9-3#built-in-sass-support-for-global-stylesheets) we got the feedback that a subset of users wanted to configure the sass compiler. For example to configure `includePaths`.
+
+This is now possible by using the `sassOptions` key in `next.config.js`:
+
+```jsx
+const path = require('path')
+
+module.exports = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')]
+  }
+}
+```
+
+## Improved Log Output
+
+We have redesigned the command line output to be more consistent and output less duplicate data like the deployment URL, waiting on the development server to start and more. We've also changed the spacing of the message type to be consistent across messages, meaning they no longer jump from line to line.
+
+Running `next dev` on versions before 9.4
+
+<Image
+  captionSpacing={30}
+  src="/static/blog/next-9-4/log-output-previous.png"
+  width={1348 / 2}
+  height={878 / 2}
+/>
+
+Running `next dev` on 9.4
+
+<Image
+  captionSpacing={30}
+  src="/static/blog/next-9-4/log-output-new.png"
+  width={1348 / 2}
+  height={878 / 2}
+/>
+
+## Community
+
+We're excited to see the continued growth in Next.js adoption:
+
+- We have had over **1066** independent contributors.
+- On GitHub, the project has been starred over **48,000** times.
+
+Join the Next.js community on [GitHub Discussions](https://github.com/zeit/next.js/discussions). Discussions is a community space that allows you to connect with other Next.js users and ask questions.
+
+If you are using Next.js feel free to [share your project url](https://github.com/zeit/next.js/discussions/10640) with the community.
+
+We are thankful to our community and all the external feedback and contributions that helped shape this release.

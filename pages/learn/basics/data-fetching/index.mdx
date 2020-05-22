@@ -1,0 +1,22 @@
+import Layout from '../../../../components/learn/Layout'
+import Link from 'next/link'
+
+export const meta = {
+  title: 'Pre-rendering and Data Fetching',
+  courseId: 'basics',
+  lessonId: 'data-fetching'
+}
+
+We’d like to create a blog (here’s the [the desired result](https://next-learn-starter.now.sh/)), but so far we’ve added no blog content. In this lesson, we’ll learn how to fetch external blog data into our app. We’ll store the blog content in the file system, but it’ll work if the content is stored elsewhere (e.g. database or Headless CMS) .
+
+### What You’ll Learn in This Lesson
+
+In this lesson, you’ll learn about:
+
+- Next.js’s pre-rendering feature.
+- The two forms of pre-rendering: Static Generation and Server-side Rendering.
+- Static Generation with and without data.
+- `getStaticProps` and how to use it to import external blog data into the index page.
+- Some useful information on `getStaticProps`.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

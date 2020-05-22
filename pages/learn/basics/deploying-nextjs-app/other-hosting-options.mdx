@@ -1,0 +1,41 @@
+import Layout from '../../../../components/learn/Layout'
+
+export const meta = {
+  title: 'Deploying Your Next.js App',
+  courseId: 'basics',
+  lessonId: 'deploying-nextjs-app',
+  stepId: 'other-hosting-options',
+  subtitle: 'Other Hosting Options'
+}
+
+Next.js can be deployed to any hosting provider that supports Node.js.
+
+If you’ve followed the instructions so far, your `package.json` should have `build` and `start` scripts:
+
+```json
+{
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
+```
+
+In your own hosting provider, run the `build` script once, which builds the production application in the `.next` folder.
+
+```shell
+npm run build
+```
+
+After building, the `start` script starts a Node.js server that supports hybrid pages, serving both statically generated and server-side rendered pages. The server also supports API Routes as well.
+
+```shell
+npm run start
+```
+
+> **Tip**: You can customize the `start` script in `package.json` to accept a `PORT` parameter by updating it as: `"start": "next start -p $PORT"`.
+
+That’s it! If you have questions about deploying Next.js, you can ask our community on [GitHub Discussions](https://github.com/zeit/next.js/discussions).
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

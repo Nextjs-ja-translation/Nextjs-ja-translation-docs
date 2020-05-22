@@ -1,0 +1,27 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+
+export const meta = {
+  title: 'Create a Next.js App',
+  courseId: 'basics',
+  lessonId: 'create-nextjs-app',
+  stepId: 'welcome-to-nextjs',
+  subtitle: 'Welcome to Next.js'
+}
+
+You should see a page like this when you access [http://localhost:3000](http://localhost:3000). This is the starter template page which shows some helpful information about Next.js.
+
+<Image
+  shadow
+  alt="Welcome to Next.js"
+  oversize={false}
+  src="/static/images/learn/create-nextjs-app/welcome-to-nextjs.png"
+  width={1576 / 2}
+  height={1019 / 2}
+/>
+
+> **Help is available**: If you get stuck, you can reach out to the community on [GitHub Discussions](https://github.com/zeit/next.js/discussions).
+
+Let’s try to edit this page next!
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

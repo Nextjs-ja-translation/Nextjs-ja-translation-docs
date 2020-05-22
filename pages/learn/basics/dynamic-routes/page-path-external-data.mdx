@@ -1,0 +1,93 @@
+import Layout from '../../../../components/learn/Layout'
+import Image from '../../../../components/image'
+
+export const meta = {
+  title: 'Dynamic Routes',
+  courseId: 'basics',
+  lessonId: 'dynamic-routes',
+  stepId: 'page-path-external-data',
+  subtitle: 'Page Path Depends on External Data'
+}
+
+In the previous lesson, we covered the case where the **page content** depends on external data. We used `getStaticProps` to fetch required data to render the index page.
+
+In this lesson, we’ll talk about the case where each **page path** depends on external data. Next.js allows you to statically generate pages with paths that depend on external data. This enables **dynamic URLs** in Next.js.
+
+<Image
+  shadow
+  alt="Page Path Depends on External Data"
+  oversize={false}
+  src="/static/images/learn/dynamic-routes/page-path-external-data.png"
+  width={1246 / 2}
+  height={1050 / 2}
+/>
+
+### How to Statically Generate Pages with Dynamic Routes
+
+In our case, we want to create dynamic pages for blog posts:
+
+- We want each post to have the path `/posts/<id>`, where `<id>` is the name of the markdown file under the top-level `posts` directory.
+- Since we have `ssg-ssr.md` and `pre-rendering.md`, we’d like the paths to be `/posts/ssg-ssr` and `/posts/pre-rendering`.
+
+### Overview of the Steps
+
+We can do this by taking the following steps. **You don’t have to make these changes yet** — we’ll do it all on the next page.
+
+First, we’ll create a page called **`[id].js`** under `pages/posts`. Pages that begin with `[` and end with `]` are dynamic pages in Next.js.
+
+In `pages/posts/[id].js`, we’ll write code that will render a post page — just like other pages we’ve created.
+
+```jsx
+import Layout from '../../components/layout'
+
+export default function Post() {
+  return <Layout>...</Layout>
+}
+```
+
+Now, here’s what’s new: We’ll export an async function called `getStaticPaths` from this page. In this function, we need to return a list of **possible values** for `id`.
+
+```jsx
+import Layout from '../../components/layout'
+
+export default function Post() {
+  return <Layout>...</Layout>
+}
+
+export async function getStaticPaths() {
+  // Return a list of possible value for id
+}
+```
+
+Finally, we need to implement `getStaticProps` again - this time, to fetch necessary data for the blog post with a given `id`. `getStaticProps` is given `params`, which contains `id`.
+
+```jsx
+import Layout from '../../components/layout'
+
+export default function Post() {
+  return <Layout>...</Layout>
+}
+
+export async function getStaticPaths() {
+  // Return a list of possible value for id
+}
+
+export async function getStaticProps({ params }) {
+  // Fetch necessary data for the blog post using params.id
+}
+```
+
+Here’s a graphic summary of what we just talked about:
+
+<Image
+  shadow
+  alt="How to Statically Generate Pages with Dynamic Routes"
+  oversize={false}
+  src="/static/images/learn/dynamic-routes/how-to-dynamic-routes.png"
+  width={1246 / 2}
+  height={1054 / 2}
+/>
+
+Let’s try this on the next page!
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

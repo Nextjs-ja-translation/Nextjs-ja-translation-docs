@@ -1,0 +1,33 @@
+import Layout from '../../../../components/learn/Layout'
+import SkipPageButton from '../../../../components/learn/SkipPageButton.js'
+
+export const meta = {
+  title: 'Dynamic Routes',
+  courseId: 'basics',
+  lessonId: 'dynamic-routes',
+  stepId: 'setup'
+}
+
+**If you’re continuing from the previous lesson,** you can skip this page. Click the button below to go to the next page.
+
+<SkipPageButton meta={meta} />
+
+### Download Starter Code (Optional)
+
+If you’re NOT continuing from the previous lesson, you can download, install, and run the starter code for this lesson below. This sets up a `nextjs-blog` directory such that it’s identical to the result of the previous lesson.
+
+Again, this is NOT necessary if you’ve just finished the previous lesson.
+
+```shell
+npm init next-app nextjs-blog --example "https://github.com/zeit/next-learn-starter/tree/master/dynamic-routes-starter"
+```
+
+Then follow the instructions from the command output (`cd` into the directory and start the development server).
+
+You should also update the following files:
+
+- `public/images/profile.jpg` with your photo (Recommended: 400px width/height).
+- `const name = '[Your Name]'` in `components/layout.js` with your name.
+- `<p>[Your Self Introduction]</p>` in `pages/index.js` with your self introduction.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

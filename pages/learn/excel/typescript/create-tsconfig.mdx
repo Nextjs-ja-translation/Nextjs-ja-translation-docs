@@ -1,0 +1,39 @@
+import Layout from '../../../../components/learn/Layout'
+import Link from 'next/link'
+
+export const meta = {
+  title: 'TypeScript',
+  courseId: 'excel',
+  lessonId: 'typescript',
+  stepId: 'create-tsconfig',
+  subtitle: 'Create tsconfig.json'
+}
+
+To get started, create an **empty** `tsconfig.json` file in the root of your project:
+
+```shell
+touch tsconfig.json
+```
+
+Now, try **starting/restarting** the development server (`npm run dev` or `yarn dev`). It will give you a warning that says something like below:
+
+> It looks like you're trying to use TypeScript but do not have the required package(s) installed.
+
+Follow the instructions to install TypeScript:
+
+```bash
+# If you’re using npm
+npm install --save-dev typescript @types/react @types/node
+
+# If you’re using Yarn
+yarn add --dev typescript @types/react @types/node
+```
+
+Now, try **starting** the development server again. After starting the server, Next.js will:
+
+- Populate the `tsconfig.json` file for you. You may customize this file.
+- Create the `next-env.d.ts` file, which ensures Next.js types are picked up by the TypeScript compiler. You should **not** touch this file.
+
+You can now use TypeScript for your Next.js app. Let’s talk about how to convert your Next.js app into TypeScript.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
