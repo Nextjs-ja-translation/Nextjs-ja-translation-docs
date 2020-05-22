@@ -1,0 +1,7 @@
+.DS_Store
+.next
+node_modules
+.vscode
+yarn-error.log
+.env
+.github-latest-tag
