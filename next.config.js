@@ -16,7 +16,7 @@ const withGitHubMDX = nextMDX({
       [
         rehypeReadme,
         {
-          repo: 'zeit/next.js',
+          repo: 'Nextjs-ja-translation/Nextjs-ja-translation-docs',
           branch: 'master',
           level: 4
         }
@@ -112,6 +112,9 @@ const excelLessonsRedirect = [].concat(
 const nextConfig = {
   target: 'experimental-serverless-trace', // Not required for Now, but used by GitHub Actions
   pageExtensions: ['jsx', 'js', 'ts', 'tsx', 'mdx'],
+  env: {
+    isProd: process.env.NODE_ENV === 'production'
+  },
   experimental: {
     modern: true,
     rewrites() {
