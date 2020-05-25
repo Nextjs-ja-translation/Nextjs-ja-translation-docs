@@ -6,7 +6,7 @@ import matter from 'gray-matter';
 import hashMap from '../../lib/docs/hash-map.json';
 import { getSlug, removeFromLast, addTagToSlug } from '../../lib/docs/utils';
 import { getPaths, getCurrentTag, findRouteByPath, fetchDocsManifest } from '../../lib/docs/page';
-import { getRawFileFromRepo } from '../../lib/github/raw';
+import { getRawFileFromRepo, getRawFileFromLocalProject } from '../../lib/github/raw';
 import markdownToHtml from '../../lib/docs/markdown-to-html';
 import getRouteContext from '../../lib/get-route-context';
 import PageContent from '../../components/page-content';
@@ -180,9 +180,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { tag, slug } = getSlug(params);
-  const currentTag = await getCurrentTag(tag);
-  const manifest = await fetchDocsManifest(currentTag).catch(error => {
+  const { slug } = getSlug(params);
+  const manifest = await fetchDocsManifest().catch(error => {
     // If a manifest wasn't found for a custom tag, show a 404 instead
     if (error.status === 404) return;
     throw error;
@@ -191,9 +190,11 @@ export async function getStaticProps({ params }) {
 
   if (!route) return { props: {} };
 
-  const md = await getRawFileFromRepo(route.path, currentTag);
+  const md = process.env.isProd
+    ? await getRawFileFromRepo(route.path)
+    : await getRawFileFromLocalProject(route.path);
   const { content, data } = matter(md);
-  const html = await markdownToHtml(route.path, tag, content);
+  const html = await markdownToHtml(route.path, content);
 
   return { props: { routes: manifest.routes, data, route, html } };
 }
