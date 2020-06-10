@@ -1,0 +1,16 @@
+{
+  "projectName": "Nextjs-ja-translation-docs",
+  "projectOwner": "Nextjs-ja-translation",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "badgeTemplate": "<a aria-label=\"All Contributors\" href=\"#contributors-\"><img alt=\"\" src=\"https://img.shields.io/badge/all_contributors-<%= contributors.length %>-17BB8A.svg?style=for-the-badge&labelColor=000000\"></a>",
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "contributors": []
+}
