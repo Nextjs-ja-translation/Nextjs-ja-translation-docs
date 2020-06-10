@@ -9,9 +9,8 @@
   "scripts": {
     "dev": "next",
     "start": "next start",
-    "build": "next build && yarn build:rss",
+    "build": "next build",
     "analyze": "ANALYZE=true next build",
-    "build:rss": "node ./.next/serverless/scripts/build-rss.js",
     "index-docs": "node ./.next/serverless/scripts/index-docs.js",
     "lint": "eslint ."
   },
