@@ -62,17 +62,6 @@ function Navbar() {
             </a>
           </Link>
 
-          <Link href="/learn/basics/create-nextjs-app">
-            <a
-              className={cn('mute', {
-                selected: route.startsWith('/learn')
-              })}
-              title="Learn"
-            >
-              Learn
-            </a>
-          </Link>
-
           <Link href="/docs/[...slug]" as="/docs/getting-started">
             <a
               className={cn('mute', {
@@ -84,32 +73,6 @@ function Navbar() {
             </a>
           </Link>
 
-          <Link href="/showcase">
-            <a
-              className={cn('mute', {
-                selected: route.startsWith('/showcase')
-              })}
-              title="Showcase"
-            >
-              Showcase
-            </a>
-          </Link>
-
-          <Link href="/blog">
-            <a
-              className={cn('mute', {
-                selected: route.startsWith('/blog')
-              })}
-            >
-              Blog
-            </a>
-          </Link>
-
-          {!isAmp && (
-            <div className="header-feedback">
-              <HeaderFeedback />
-            </div>
-          )}
           <a
             href="https://github.com/zeit/next.js"
             aria-label="Next.js on GitHub"
