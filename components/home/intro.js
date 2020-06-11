@@ -132,7 +132,19 @@ export default class extends React.PureComponent {
               <h2 className={classNames('title-2', 'fw7')}>
                 <Campaign />
               </h2>
-              <div className="main-button">Next.js ドキュメント日本語翻訳サイト</div>
+              <div className="main-button">
+                <div className="button-spacer">
+                  <Button href="/docs" invert>
+                    ドキュメントへ
+                  </Button>
+                </div>
+
+                <div className="button-spacer">
+                  <Button href="/contributors" invert outline>
+                    コントリビューター
+                  </Button>
+                </div>
+              </div>
             </div>
             <div>
               <div className="links">
@@ -140,8 +152,8 @@ export default class extends React.PureComponent {
                   <span className="mute">License: MIT</span>
                 </a>
                 <div>
-                  <Button href="/docs" amp>
-                    View Docs
+                  <Button href="https://nextjs.org/docs/" amp>
+                    Origin Docs
                   </Button>
                 </div>
                 <div>
