@@ -5,11 +5,6 @@ import Page from '../components/page';
 import Footer from '../components/footer';
 
 import Intro from '../components/home/intro';
-import Demo from '../components/home/demo';
-import Features from '../components/home/features';
-import Customers from '../components/home/customers';
-import Newsletter from '../components/home/newsletter';
-import Learn from '../components/home/learn';
 import SocialMeta from '../components/social-meta';
 import { ORG_NAME } from '../lib/constants';
 
@@ -26,11 +21,6 @@ export default () => {
       />
       <SkipNavContent />
       <Intro isAmp={isAmp} />
-      <Demo />
-      <Features />
-      <Customers />
-      <Learn />
-      <Newsletter />
       <Footer />
     </Page>
   );

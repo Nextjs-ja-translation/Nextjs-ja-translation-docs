@@ -132,22 +132,7 @@ export default class extends React.PureComponent {
               <h2 className={classNames('title-2', 'fw7')}>
                 <Campaign />
               </h2>
-              <div className="main-button">
-                <div className="button-spacer">
-                  <Button
-                    href="/learn/basics/create-nextjs-app?utm_source=next-site&utm_medium=homepage-cta&utm_campaign=next-website"
-                    invert
-                  >
-                    Start Learning
-                  </Button>
-                </div>
-
-                <div className="button-spacer">
-                  <Button href="#showcases" invert outline>
-                    View Showcase
-                  </Button>
-                </div>
-              </div>
+              <div className="main-button">Next.js ドキュメント日本語翻訳サイト</div>
             </div>
             <div>
               <div className="links">
