@@ -131,7 +131,7 @@ export default class extends React.PureComponent {
               <h1 className={classNames('title-1', 'fw6')}>ドキュメント日本語翻訳サイト</h1>
               <div className="main-button">
                 <div className="button-spacer">
-                  <Button href="/docs" invert>
+                  <Button href="/docs/[...slug]" as="/docs/getting-started" invert>
                     ドキュメントへ
                   </Button>
                 </div>
