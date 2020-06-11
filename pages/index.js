@@ -3,7 +3,6 @@ import { useAmp } from 'next/amp';
 
 import Page from '../components/page';
 import Footer from '../components/footer';
-import Notification from '../components/notification';
 
 import Intro from '../components/home/intro';
 import Demo from '../components/home/demo';
@@ -26,11 +25,6 @@ export default () => {
         description={`Production grade React applications that scale. The world’s leading companies use Next.js by ${ORG_NAME} to build static and dynamic websites and web applications.`}
       />
       <SkipNavContent />
-      <Notification href="/blog/next-9-4" title="Next 9.4 is out!" titleMobile="Next 9.4 is out!">
-        <b>Next 9.4 is out!</b> — React Fast Refresh, Incremental Static Regeneration, New
-        Environment Support, Built-in Fetch, and more!
-        <span className="highlight">Learn More →</span>
-      </Notification>
       <Intro isAmp={isAmp} />
       <Demo />
       <Features />
