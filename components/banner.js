@@ -6,7 +6,7 @@ const Banner = () => {
     <div className="banner">
       <div className="inner">
         <a
-          href={`${PLATFORM_URL}?utm_source=next-site&utm_medium=banner&utm_campaign=next-website`}
+          href="https://github.com/Nextjs-ja-translation"
           target="_blank"
           rel="noopener noreferrer"
         >
