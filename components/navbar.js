@@ -51,17 +51,6 @@ function Navbar() {
             </a>
           </Link>
 
-          <Link href="/#features">
-            <a
-              className={cn('mute', {
-                selected: route.startsWith('/features')
-              })}
-              title="Features"
-            >
-              Features
-            </a>
-          </Link>
-
           <Link href="/docs/[...slug]" as="/docs/getting-started">
             <a
               className={cn('mute', {
