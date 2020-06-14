@@ -6,7 +6,7 @@ const Banner = () => {
     <div className="banner">
       <div className="inner">
         <a
-          href={`${PLATFORM_URL}?utm_source=next-site&utm_medium=banner&utm_campaign=next-website`}
+          href="https://github.com/Nextjs-ja-translation"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -19,11 +19,11 @@ const Banner = () => {
           rel="noopener noreferrer"
         >
           <p>
-            Deploy <b>Next.js</b> on the platform it was made for →
+            <b>Next.js</b> を最適な環境でデプロイ →
           </p>
 
           <p className="mobile">
-            Deploy <b>Next.js</b> in seconds →
+            <b>Next.js</b> のデプロイを手軽に →
           </p>
         </a>
       </div>
