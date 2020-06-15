@@ -114,7 +114,7 @@ export default withPure(() => (
             </p>
             <p>
               <a
-                href="https://join.slack.com/t/nextjs-ja/shared_invite/zt-eiwyhcgl-rG2~sjPLQRhcPSht4LbZ8A"
+                href="https://join.slack.com/t/nextjs-ja/shared_invite/zt-f9knbi69-AjTZqNZpYv7knG30jPwHcQ"
                 rel="noopener noreferrer"
                 target="_blank"
               >
