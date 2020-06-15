@@ -2,19 +2,15 @@
 
 Next.jsのドキュメントを翻訳する非公式プロジェクトです。
 
-Next.js公式ドキュメント
+本家公式ドキュメント
 
 [https://nextjs.org/docs/getting-started](https://nextjs.org/docs/getting-started)
-
-Next.js日本語ドキュメント
-
-[https://nextjs-ja-translation-docs.now.sh/docs/getting-started](https://nextjs-ja-translation-docs.now.sh/docs/getting-started)
 
 ## 翻訳手順
 
 翻訳の状況は、[翻訳の概要と進捗状況](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/issues/3)のissueを確認してください。
 
-また、翻訳作業が被らないようにこのissueのコメントで翻訳場所の宣言をしてください。
+また、翻訳作業が被らないように、このissueのコメントで翻訳場所の宣言をしてください。
 
 ### 手順1:翻訳を始める準備
 
@@ -41,7 +37,7 @@ $ git switch -c docs/getting-started.md
 
 これで、翻訳を始める準備は完了です。エディタを使って、翻訳箇所のマークダウンを編集します。
 
-#### 手順 2 翻訳完了からプルリクエスト
+### 手順2:翻訳完了からプルリクエスト
 
 翻訳作業が完了したら、textlintを使って文章のチェックを行います。text-lintの後に自分が翻訳作業したマークダウンファイルを指定してください。
 
@@ -64,7 +60,7 @@ $ git push
 
 最後に、GitHub からプルリクエストを作成してください。その後、メンテナーがレビューをして、問題がなければマージされます。
 
-## 質問や分からないことがある場合
+## Q&A
 
 もし、翻訳作業をしていて質問や分からないことがある場合は、[Slack](https://join.slack.com/t/nextjs-ja/shared_invite/zt-f9knbi69-AjTZqNZpYv7knG30jPwHcQ)に参加して、#questions までお願いします。
 
