@@ -12,11 +12,11 @@ export default function PageContainer({ title, description, children }) {
   return (
     <div>
       <Head>
-        <title>{title || `Next.js by ${ORG_NAME} - The React Framework`}</title>
+        <title>{title || `Next.js 非公式日本語翻訳ドキュメント`}</title>
         {description !== false && (
           <meta
             name="description"
-            content={description || `Next.js by ${ORG_NAME} is the React framework for production`}
+            content={description || 'Next.js のドキュメントの非公式日本語翻訳サイト'}
           />
         )}
       </Head>

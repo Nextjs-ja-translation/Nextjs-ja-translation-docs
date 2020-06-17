@@ -12,7 +12,7 @@ export default () => {
   const isAmp = useAmp();
 
   return (
-    <Page title={`Next.js by ${ORG_NAME} - The React Framework`}>
+    <Page>
       <SocialMeta
         image="/static/twitter-cards/home.jpg"
         title={`Next.js by ${ORG_NAME} - The React Framework`}
