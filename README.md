@@ -10,7 +10,7 @@ Next.jsのドキュメントを翻訳する非公式プロジェクトです。
 
 翻訳の状況は、[翻訳の概要と進捗状況](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/issues/3)のissueを確認してください。
 
-また、翻訳作業が被らないように、このissueのコメントで翻訳場所の宣言をしてください。
+また、翻訳箇所が被らないように、このissueのコメントで翻訳箇所の宣言をしてください。
 
 ### 手順1:翻訳を始める準備
 
@@ -29,17 +29,17 @@ depencency のインストールをしてください。必ず`yarn`で行って
 $ yarn install
 ```
 
-翻訳作業を行うためのブランチを作成します。ここでは、例として`docs/getting-started.md`を翻訳するためのブランチを作成します。
+翻訳作業を行うためのブランチを作成します。ここでは、例として`docs/example.md`を翻訳するためのブランチを作成します。
 
 ```
-$ git switch -c docs/getting-started.md
+$ git switch -c docs/example.md
 ```
 
-これで、翻訳を始める準備は完了です。エディタを使って、翻訳箇所のマークダウンを編集します。
+これで、翻訳を始める準備は完了です。エディタを使って、翻訳箇所のファイルを編集します。
 
 ### 手順2:翻訳完了からプルリクエスト
 
-翻訳作業が完了したら、textlintを使って文章のチェックを行います。text-lintの後に自分が翻訳作業したマークダウンファイルを指定してください。
+翻訳作業が完了したら、textlintを使って文章のチェックを行います。text-lintの後に自分が翻訳作業したファイルを指定してください。
 
 ```
 $ yarn text-lint ./docs/example.md
@@ -54,15 +54,15 @@ $ yarn text-lint:fix ./docs/example.md
 翻訳箇所をコミットしてプッシュします。
 ```
 $ git add .
-$ git commit -m "docs/getting-started.md"
-$ git push
+$ git commit -m "docs/example.md"
+$ git push -u origin docs/example.md
 ```
 
 最後に、GitHub からプルリクエストを作成してください。その後、メンテナーがレビューをして、問題がなければマージされます。
 
 ## Q&A
 
-もし、翻訳作業をしていて質問や分からないことがある場合は、[Slack](https://join.slack.com/t/nextjs-ja/shared_invite/zt-f9knbi69-AjTZqNZpYv7knG30jPwHcQ)に参加して、#questions までお願いします。
+質問がある場合は、[Slack](https://join.slack.com/t/nextjs-ja/shared_invite/zt-f9knbi69-AjTZqNZpYv7knG30jPwHcQ)に参加して、#questions までお願いします。
 
 ## メンテナー
 
