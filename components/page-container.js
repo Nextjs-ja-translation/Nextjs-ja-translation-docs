@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Router from 'next/router';
 import { trackPageview } from '../lib/analytics';
-import { ORG_NAME } from '../lib/constants';
 import { FONT_FAMILY_SANS } from './css-config';
 
 Router.events.on('routeChangeComplete', url => {
