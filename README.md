@@ -51,14 +51,14 @@ $ yarn text-lint ./docs/example.md
 $ yarn text-lint:fix ./docs/example.md
 ```
 
-翻訳箇所をコミットしてプッシュします。
+翻訳箇所をコミットしてプッシュします。コミットメッセージには、翻訳した箇所を含めてください。
 ```
 $ git add .
-$ git commit -m "docs/example.md"
+$ git commit -m "docs: translate docs/example.md"
 $ git push -u origin docs/example.md
 ```
 
-最後に、GitHub からプルリクエストを作成してください。その後、メンテナーがレビューをして、問題がなければマージされます。
+最後に、GitHub からプルリクエストを作成してください。その後、メンテナーがレビューをして問題がなければマージされます。
 
 ## Q&A
 
