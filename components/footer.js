@@ -63,23 +63,15 @@ export default withPure(() => (
         </style>
         <div className="grid f5">
           <div>
-            <h4 className="fw5">General resources</h4>
+            <h4 className="fw5">サイトコンテンツ</h4>
             <p>
-              <a href="/docs">Docs</a>
-            </p>
-            <p>
-              <Link href="/learn/basics/create-nextjs-app" prefetch={false}>
-                <a>Learn</a>
+              <Link href="/docs/[...slug]" as="/docs/getting-started">
+                <a>ドキュメント</a>
               </Link>
             </p>
             <p>
-              <Link href="/showcase" prefetch={false}>
-                <a>Showcase</a>
-              </Link>
-            </p>
-            <p>
-              <Link href="/blog" prefetch={false}>
-                <a>Blog</a>
+              <Link href="/contributors">
+                <a>コントリビューター</a>
               </Link>
             </p>
           </div>
@@ -87,7 +79,16 @@ export default withPure(() => (
             <h4 className="fw5">More</h4>
             <p>
               <a href="https://github.com/zeit/next.js" rel="noopener noreferrer" target="_blank">
-                GitHub
+                Next.js GitHub
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://nextjs.org/docs/getting-started"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Origin Docs
               </a>
             </p>
             <p>
@@ -99,51 +100,33 @@ export default withPure(() => (
                 Releases
               </a>
             </p>
-            <p>
-              <Link href="/telemetry" prefetch={false}>
-                <a>Telemetry</a>
-              </Link>
-            </p>
           </div>
           <div>
-            <h4 className="fw5">About {ORG_NAME}</h4>
+            <h4 className="fw5">翻訳プロジェクトについて</h4>
             <p>
               <a
-                href={`${PLATFORM_URL}/oss?utm_source=next-site&utm_medium=footer&utm_campaign=next-website`}
+                href="https://github.com/Nextjs-ja-translation"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Open Source Software
-              </a>
-            </p>
-            <p>
-              <a href="https://github.com/zeit" rel="noopener noreferrer" target="_blank">
                 GitHub
               </a>
             </p>
             <p>
               <a
-                href={`https://twitter.com/${TWITTER_USER_NAME}`}
+                href="https://join.slack.com/t/nextjs-ja/shared_invite/zt-f9knbi69-AjTZqNZpYv7knG30jPwHcQ"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Twitter
+                Join our slack !!
               </a>
             </p>
           </div>
         </div>
         <div className="copyright f6">
-          <a
-            href={`${PLATFORM_URL}?utm_source=next-site&utm_medium=footer&utm_campaign=next-website`}
-            title="Go to the Vercel website"
-            rel="noopener noreferrer"
-            target="_blank"
-            aria-label={ORG_NAME}
-          >
-            <Logo />
-          </a>
+          <Logo />
           <div>
-            Copyright © {`${new Date().getFullYear()}`} {ORG_NAME}, Inc. All rights reserved.
+            Copyright © Next.js ドキュメント日本語翻訳プロジェクト, Inc. All rights reserved.
           </div>
         </div>
       </footer>
