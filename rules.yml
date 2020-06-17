@@ -1,0 +1,26 @@
+version: 1
+
+rules:
+  - expected: Next.js
+    pattern:
+      - nextjs
+      - next.js
+      - Nextjs
+
+  - expected: はじめに
+    pattern:
+      - イントロダクション
+
+  - expected: 貢献
+    pattern:
+      - コントリビュート
+      - コントリビューション
+
+  - expected: リポジトリ
+    pattern: レポジトリ
+
+  - expected: ブログ記事
+    pattern: ブログポスト
+
+  - expected: Markdown
+    pattern: マークダウン

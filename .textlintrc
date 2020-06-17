@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "preset-ja-technical-writing": {
+      "no-exclamation-question-mark": { 
+        "allowFullWidthExclamation": true,
+        "allowFullWidthQuestion": true,
+      }
+    },
+    "prh": {
+      "rulePaths" :[
+        "rules.yml"
+      ]
+    }
+  }
+}

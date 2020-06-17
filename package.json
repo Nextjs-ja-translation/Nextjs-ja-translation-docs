@@ -12,7 +12,10 @@
     "build": "next build",
     "analyze": "ANALYZE=true next build",
     "index-docs": "node ./.next/serverless/scripts/index-docs.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "text-lint": "eslint .",
+    "text-lint": "textlint",
+    "text-lint:fix": "textlint --fix"
   },
   "husky": {
     "hooks": {
@@ -54,6 +57,9 @@
     "rehype-stringify": "6.0.0",
     "remark-parse": "7.0.1",
     "remark-rehype": "5.0.0",
+    "textlint": "11.6.3",
+    "textlint-rule-preset-ja-technical-writing": "4.0.0",
+    "textlint-rule-prh": "5.3.0",
     "twemoji": "13.0.0",
     "unified": "8.4.1",
     "unist-util-visit": "2.0.0"
