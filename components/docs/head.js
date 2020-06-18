@@ -1,11 +1,9 @@
 import Head from 'next/head';
-import { TWITTER_USER_NAME } from '../../lib/constants';
 
 export default ({ children, ...props }) => (
   <Head>
-    <title>{`Documentation - ${props.title} | Next.js`}</title>
+    <title>{`ドキュメント - ${props.title} | Next.js`}</title>
     <meta name="twitter:card" content={props.image ? 'summary_large_image' : 'summary'} />
-    <meta name="twitter:site" content={`@${TWITTER_USER_NAME}`} />
     <meta name="og:title" content={props.ogTitle || props.title} />
     {props.description ? <meta name="description" content={props.description} /> : null}
     {props.ogDescription ? (

@@ -6,18 +6,18 @@ import Footer from '../components/footer';
 
 import Intro from '../components/home/intro';
 import SocialMeta from '../components/social-meta';
-import { ORG_NAME } from '../lib/constants';
+import { ORG_NAME, DOCUMENT_URL } from '../lib/constants';
 
 export default () => {
   const isAmp = useAmp();
 
   return (
-    <Page title={`Next.js by ${ORG_NAME} - The React Framework`}>
+    <Page>
       <SocialMeta
         image="/static/twitter-cards/home.jpg"
-        title={`Next.js by ${ORG_NAME} - The React Framework`}
-        url="https://nextjs.org"
-        description={`Production grade React applications that scale. The world’s leading companies use Next.js by ${ORG_NAME} to build static and dynamic websites and web applications.`}
+        title="Next.js非公式日本語翻訳ドキュメント"
+        url={DOCUMENT_URL}
+        description="Next.js ドキュメント非公式日本語翻訳サイト"
       />
       <SkipNavContent />
       <Intro isAmp={isAmp} />
