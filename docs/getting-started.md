@@ -1,43 +1,43 @@
 ---
-description: Get started with Next.js in the official documentation, and learn more about all our features!
+description: 公式ドキュメントでNext.jsを始めてみましょう！ 
 ---
 
-# Getting Started
+# はじめに
 
-Welcome to the Next.js documentation!
+Next.jsのドキュメントへようこそ！
 
-If you're new to Next.js we recommend that you start with the [learn course](https://nextjs.org/learn/basics/getting-started).
+Next.jsを初めて使用する場合は、[学習コース](https://nextjs.org/learn/basics/getting-started)から始めることをおすすめします。
 
-The interactive course with quizzes will guide you through everything you need to know to use Next.js.
+クイズ付きの学習コースでは、Next.jsを使うために必要なすべての知識を習得できます。
 
-If you have questions about anything related to Next.js, you're always welcome to ask our community on [GitHub Discussions](https://github.com/zeit/next.js/discussions).
+Next.jsに関連する質問がある場合は、[GitHub Dissussions](https://github.com/zeit/next.js/discussions)でコミュニティーに質問してください。
 
-#### System Requirements
+#### システム要件
 
-- [Node.js 10.13](https://nodejs.org/) or later
-- MacOS, Windows (including WSL), and Linux are supported
+- [Node.js 10.13](https://nodejs.org/) または、それ以降
+- MacOS, Windows(WSL を含む)、そして Linux をサポート
 
-## Setup
+## セットアップ
 
-We recommend creating a new Next.js app using `create-next-app`, which sets up everything automatically for you. To create a project, run:
+すべてを自動的にセットアップする`create-next-app`を使って、Next.js アプリを作成することをおすすめします。プロジェクトを作成するために、次を実行します:
 
 ```bash
 npx create-next-app
-# or
+# または
 yarn create next-app
 ```
 
-After the installation is complete, follow the instructions to start the development server. Try editing `pages/index.js` and see the result on your browser.
+インストールの完了後、指示に従って開発サーバーを起動してみましょう。`pages/index.js`を編集して、ブラウザで確認してください。
 
-## Manual Setup
+## マニュアル設定
 
-Install `next`, `react` and `react-dom` in your project:
+あなたのプロジェクトに、`next`,`react`そして`react-dom`をインストールしてください。
 
 ```bash
 npm install next react react-dom
 ```
 
-Open `package.json` and add the following `scripts`:
+`package.json`を開いて、`scripts`に追加してください:
 
 ```json
 "scripts": {
@@ -47,19 +47,19 @@ Open `package.json` and add the following `scripts`:
 }
 ```
 
-These scripts refer to the different stages of developing an application:
+これらのスクリプトは、アプリケーション開発のさまざまな段階を参照しています。
 
-- `dev` - Runs `next` which starts Next.js in development mode
-- `build` - Runs `next build` which builds the application for production usage
-- `start` - Runs `next start` which starts a Next.js production server
+- `dev` - `next`はNext.jsを開発モードで実行します。
+- `build` - `next build`は本番用にアプリケーションをビルドします。
+- `start` - `next start`はNext.jsの本番サーバーを起動します。
 
-Next.js is built around the concept of pages. A page is a [React Component](https://reactjs.org/docs/components-and-props.html) exported from a `.js`, `.jsx`, `.ts`, or `.tsx` file in the `pages` directory.
+Next.jsはpagesの概念を中心に構築されます。pagesディレクトリの`.js`、`.jsx`、`.ts`、または`.tsx`ファイルからエクスポートされた[React コンポーネント](https://ja.reactjs.org/docs/components-and-props.html)です。
 
-Pages are associated with a route based on their file name. For example `pages/about.js` is mapped to `/about`. You can even add dynamic route parameters with the filename.
+ページはファイル名に基づいてルートに関連付けられています。例えば、`pages/about.js`は`/about`にマップされます。 ファイル名を使用して動的ルートパラメータを追加できます。
 
-Create a `pages` directory inside your project.
+プロジェクトの`pages`ディレクトリの中に作成してください。
 
-Populate `./pages/index.js` with the following contents:
+`./pages/index.js`の中に次の内容を記載します:
 
 ```jsx
 function HomePage() {
@@ -69,40 +69,40 @@ function HomePage() {
 export default HomePage;
 ```
 
-To start developing your application run `npm run dev`. This starts the development server on `http://localhost:3000`.
+アプリケーションの開発を始めるために、`npm run dev`を実行します。これで、`http://localhost:3000`で開発サーバーが起動します。
 
-Visit `http://localhost:3000` to view your application.
+アプリケーションを表示するために、`http://localhost:3000`にアクセスしてください。
 
-So far, we get:
+これまでのところ:
 
-- Automatic compilation and bundling (with webpack and babel)
+- 自動コンパイルとバンドル(webpackとbabelを使用)
 - [React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh)
-- [Static generation and server-side rendering](/docs/basic-features/data-fetching.md) of [`./pages/`](/docs/basic-features/pages.md)
-- [Static file serving](/docs/basic-features/static-file-serving.md). `./public/` is mapped to `/`
+- [`./pages/`](/docs/basic-features/pages.md)の[静的生成とサーバーサイドレンダリング](/docs/basic-features/data-fetching.md)
+- [静的ファイルサービス](/docs/basic-features/static-file-serving.md). `./public/`は`/`にマッピングされます。
 
-In addition, any Next.js application is ready for production from the start, read more in our [Deployment documentation](/docs/deployment.md).
+さらに、すべてのNext.jsアプリケーションは最初から本番環境で使用できます。詳細は、[デプロイメントのドキュメント](/docs/deployment.md)をご覧ください。
 
-## Related
+## 関連
 
-For more information on what to do next, we recommend the following sections:
+次に行う詳細は、以下のセクションをおすすめします。
 
 <div class="card">
   <a href="/docs/basic-features/pages.md">
     <b>Pages:</b>
-    <small>Learn more about what pages are in Next.js.</small>
+    <small>Next.jsのpagesについての詳細はこちら。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/basic-features/built-in-css-support.md">
-    <b>CSS Support:</b>
-    <small>Use the built-in CSS support to add custom styles to your app.</small>
+    <b>CSSサポート:</b>
+    <small>内蔵のCSSサポートを使用して、アプリにカスタムスタイルを追加します。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/api-reference/cli.md">
     <b>CLI:</b>
-    <small>Learn more about the Next.js CLI.</small>
+    <small>Next.js CLIの詳細についてはこちら。</small>
   </a>
 </div>
