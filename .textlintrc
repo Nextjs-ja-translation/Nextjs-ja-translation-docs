@@ -6,6 +6,9 @@
         "allowFullWidthQuestion": true,
       }
     },
+    "ja-technical-writing/ja-no-mixed-period": {
+      "allowPeriodMarks": [":"],
+    },
     "prh": {
       "rulePaths" :[
         "rules.yml"
