@@ -8,9 +8,11 @@ Next.jsのドキュメントへようこそ！
 
 Next.jsを初めて使用する場合は、[学習コース](https://nextjs.org/learn/basics/getting-started)から始めることをおすすめします。
 
-クイズ付きの学習コースでは、Next.jsを使うために必要なすべての知識を習得できます。
+`学習コースは翻訳されていません。`
 
-Next.jsに関連する質問がある場合は、[GitHub Dissussions](https://github.com/zeit/next.js/discussions)でコミュニティーに質問してください。
+インタラクティブなクイズによる学習コースでは、Next.jsを使うために必要なすべての知識を習得できます。
+
+Next.jsに関連する質問がある場合は、[GitHub Dissussions](https://github.com/zeit/next.js/discussions)のコミュニティーでなんでも質問してください。
 
 #### システム要件
 
@@ -47,15 +49,15 @@ npm install next react react-dom
 }
 ```
 
-これらのスクリプトは、アプリケーション開発のさまざまな段階を参照しています。
+これらのスクリプトは、アプリケーション開発のさまざまな段階に当てはまります。
 
 - `dev` - `next`はNext.jsを開発モードで実行します。
 - `build` - `next build`は本番用にアプリケーションをビルドします。
 - `start` - `next start`はNext.jsの本番サーバーを起動します。
 
-Next.jsはpagesの概念を中心に構築されます。pagesディレクトリの`.js`、`.jsx`、`.ts`、または`.tsx`ファイルからエクスポートされた[React コンポーネント](https://ja.reactjs.org/docs/components-and-props.html)です。
+Next.jsはpagesの概念を中心に構築されます。`page`とはpagesディレクトリの`.js`、`.jsx`、`.ts`、または`.tsx`ファイルからエクスポートされた[React コンポーネント](https://ja.reactjs.org/docs/components-and-props.html)です。
 
-ページはファイル名に基づいてルートに関連付けられています。例えば、`pages/about.js`は`/about`にマップされます。 ファイル名を使用して動的ルートパラメータを追加できます。
+ページはファイル名に基づいて、ルーティングに紐づけられます。例えば、`pages/about.js`は`/about`にマップされます。ファイル名によって動的パラメータを追加できます。
 
 プロジェクトの`pages`ディレクトリの中に作成してください。
 
@@ -78,7 +80,7 @@ export default HomePage;
 - 自動コンパイルとバンドル(webpackとbabelを使用)
 - [React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh)
 - [`./pages/`](/docs/basic-features/pages.md)の[静的生成とサーバーサイドレンダリング](/docs/basic-features/data-fetching.md)
-- [静的ファイルサービス](/docs/basic-features/static-file-serving.md). `./public/`は`/`にマッピングされます。
+- [静的ファイル配信](/docs/basic-features/static-file-serving.md). `./public/`は`/`にマッピングされます。
 
 さらに、すべてのNext.jsアプリケーションは最初から本番環境で使用できます。詳細は、[デプロイメントのドキュメント](/docs/deployment.md)をご覧ください。
 
@@ -96,7 +98,7 @@ export default HomePage;
 <div class="card">
   <a href="/docs/basic-features/built-in-css-support.md">
     <b>CSSサポート:</b>
-    <small>内蔵のCSSサポートを使用して、アプリにカスタムスタイルを追加します。</small>
+    <small>内蔵のサポートされたCSSを使用して、アプリにカスタムスタイルを追加します。</small>
   </a>
 </div>
 
