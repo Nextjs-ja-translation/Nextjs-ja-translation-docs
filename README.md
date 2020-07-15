@@ -6,7 +6,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Next.jsのドキュメントを翻訳する非公式プロジェクトです。
+Next.js のドキュメントを翻訳する非公式プロジェクトです。
 
 本家公式ドキュメント
 
@@ -14,11 +14,11 @@ Next.jsのドキュメントを翻訳する非公式プロジェクトです。
 
 ## 翻訳手順
 
-翻訳の状況は、[翻訳の概要と進捗状況](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/issues/3)のissusを確認してください。
+翻訳の状況は、[翻訳の概要と進捗状況](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/issues/3)の issues を確認してください。
 
-### 手順1:翻訳を始める準備
+### 手順 1:翻訳を始める準備
 
-まずは、このリポジトリを右上からForkしてください。
+まずは、このリポジトリを右上から Fork してください。
 
 そして、リポジトリをクローンします。
 
@@ -27,10 +27,16 @@ $ git clone https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs
 $ cd Nextjs-ja-translation-docs
 ```
 
-depencencyのインストールをしてください。必ず`yarn`で行ってください。
+depencency のインストールをしてください。必ず`yarn`で行ってください。
 
 ```
 $ yarn install
+```
+
+開発サーバーが無事に起動するか確認してください。
+
+```
+$ yarn dev
 ```
 
 翻訳作業を行うためのブランチを作成します。ここでは、例として`docs/example.md`を翻訳するためのブランチを作成します。
@@ -41,9 +47,17 @@ $ git switch -c docs/example.md
 
 これで、翻訳を始める準備は完了です。エディタを使って、翻訳箇所のファイルを編集します。
 
-### 手順2:翻訳完了からプルリクエスト
+また、docs/manifest.json の各セクションのタイトルが設定されています。自分の担当箇所のタイトルを翻訳してください。
 
-翻訳作業が完了したら、textlintを使って文章のチェックを行います。text-lintの後に自分が翻訳作業したファイルを指定してください。
+getting-stared を翻訳する例:
+
+```
+{ "title": "はじめに", "path": "/docs/getting-started.md" },
+```
+
+### 手順 2:翻訳完了からプルリクエスト
+
+翻訳作業が完了したら、textlint を使って文章のチェックを行います。text-lint の後に自分が翻訳作業したファイルを指定してください。
 
 ```
 $ yarn text-lint ./docs/example.md
@@ -63,13 +77,11 @@ $ git commit -m "docs: translate docs/example.md"
 $ git push -u origin docs/example.md
 ```
 
-最後に、GitHub上からプルリクエストを作成してください。その後、メンテナーがレビューをして問題がなければマージされます。
+最後に、GitHub 上からプルリクエストを作成してください。その後、メンテナーがレビューをして問題がなければマージされます。
 
 ## Q&A
 
 質問がある場合は、[Slack](https://join.slack.com/t/nextjs-ja/shared_invite/zt-f9knbi69-AjTZqNZpYv7knG30jPwHcQ)に参加して、#questions チャンネル までお願いします。
-
-
 
 ## Contributors ✨
 
