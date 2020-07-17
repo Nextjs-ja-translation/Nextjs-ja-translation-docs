@@ -55,13 +55,7 @@ getting-staredを翻訳する例:
 
 ### 手順2:翻訳完了からプルリクエスト
 
-翻訳作業が完了したら、textlintを使って文章のチェックを行います。text-lintの後に自分が翻訳作業したファイルを指定してください。
-
-```
-$ yarn text-lint ./docs/example.md
-```
-
-エラーを修正する場合は、`text-lint:fix`を使います。
+precommit時に翻訳の対象ファイルに対してtextlintが走ります。textlintが通らない限りcommitできません。エラーを修正する場合は、`text-lint:fix`を使います。
 
 ```
 $ yarn text-lint:fix ./docs/example.md
