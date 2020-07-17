@@ -6,7 +6,7 @@ description: 公式ドキュメントでNext.jsを始めてみましょう！
 
 Next.jsのドキュメントへようこそ！
 
-Next.jsを初めて使用する場合は、[学習コース](https://nextjs.org/learn/basics/getting-started)から始めることをおすすめします。
+Next.jsを初めて使用する場合は、[学習コース](https://nextjs.org/learn/basics/getting-started)から始めることをお勧めします。
 
 `学習コースは翻訳されていません。`
 
@@ -21,7 +21,7 @@ Next.jsに関連する質問がある場合は、[GitHub Discussions](https://gi
 
 ## セットアップ
 
-すべてを自動的にセットアップする`create-next-app`を使って、Next.js アプリを作成することをおすすめします。プロジェクトを作成するために、次を実行します:
+すべてを自動的にセットアップする`create-next-app`を使って、Next.js アプリを作成することをお勧めします。プロジェクトを作成するために、次を実行します:
 
 ```bash
 npx create-next-app

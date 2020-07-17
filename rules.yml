@@ -24,3 +24,8 @@ rules:
 
   - expected: Markdown
     pattern: マークダウン
+
+  - expected: お勧め
+    pattern:
+      - おすすめ
+      - オススメ
