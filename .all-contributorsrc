@@ -46,6 +46,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "yokinist",
+      "name": "yokinist",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/19779874?v=4",
+      "profile": "https://about.me/yokinist",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
