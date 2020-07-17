@@ -1,34 +1,34 @@
 ---
-description: Next.js supports TypeScript by default and has built-in types for pages and the API. You can get started with TypeScript in Next.js here.
+description: Next.jsはデフォルトでTypeScriptをサポートし、ページとAPIの型を備えています。ここではTypeScriptでNext.jsを使い始めることができます。
 ---
 
 # TypeScript
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
     <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-typescript">TypeScript</a></li>
   </ul>
 </details>
 
-Next.js provides an integrated [TypeScript](https://www.typescriptlang.org/) experience out of the box, similar to an IDE.
+Next.jsは、IDEのように統合された[TypeScript](https://www.typescriptlang.org/)体験を提供します。
 
-To get started, create an empty `tsconfig.json` file in the root of your project:
+はじめに、プロジェクトルートに空ファイル`tsconfig.json`を作成します。
 
 ```bash
 touch tsconfig.json
 ```
 
-Next.js will automatically configure this file with default values. Providing your own `tsconfig.json` with custom [compiler options](https://www.typescriptlang.org/docs/handbook/compiler-options.html) is also supported.
+Next.jsはこのファイルをデフォルト値で自動的に構成します。独自の`tsconfig.json`カスタム[コンパイラオプション](https://www.typescriptlang.org/docs/handbook/compiler-options.html)を提供することもサポートされています。
 
-> Next.js uses Babel to handle TypeScript, which has some [caveats](https://babeljs.io/docs/en/babel-plugin-transform-typescript#caveats), and some [compiler options are handled differently](https://babeljs.io/docs/en/babel-plugin-transform-typescript#typescript-compiler-options).
+> Next.jsはBabelを使用してTypeScriptを処理しますがいくつかの注意点があり、一部のコンパイラオプションは異なる方法で処理されます。
 
-Then, run `next` (normally `npm run dev`) and Next.js will guide you through the installation of the required packages to finish the setup:
+次に、`next`（通常は`npm run dev`）を実行すると、Next.jsが必要なパッケージのインストールを案内し、セットアップを完了します。
 
 ```bash
 npm run dev
 
-# You'll see instructions like these:
+# 次のような手順が表示されます。
 #
 # Please install typescript, @types/react, and @types/node by running:
 #
@@ -37,19 +37,20 @@ npm run dev
 # ...
 ```
 
-You're now ready to start converting files from `.js` to `.tsx` and leveraging the benefits of TypeScript!.
+これで、ファイルを`.js`から`.tsx`に変換し、TypeScriptの利点を活用する準備が整いました。
 
-> A file named `next-env.d.ts` will be created in the root of your project. This file ensures Next.js types are picked up by the TypeScript compiler. **You cannot remove it**, however, you can edit it (but you don't need to).
+> `next-env.d.ts`という名前のファイルがプロジェクトのルートに作成されます。
+> このファイルにより、TypeScriptコンパイラによってNext.jsが確実に取得されます。**削除することはできません**が、編集することはできます（ただし、必須ではありません）。
 
-> Next.js `strict` mode is turned off by default. When you feel comfortable with TypeScript, it's recommended to turn it on in your `tsconfig.json`.
+> Next.jsでは`strict`モードはデフォルトでオフになっています。TypeScriptに慣れてきたら`tsconfig.json`でオンにすることをお勧めします。
 
-By default, Next.js reports TypeScript errors during development for pages you are actively working on. TypeScript errors for inactive pages **do not** block the development process.
 
-If you want to silence the error reports, refer to the documentation for [Ignoring TypeScript errors](/docs/api-reference/next.config.js/ignoring-typescript-errors.md).
+エラーを無視にする場合は、[TypeScriptのエラーを無視する](/docs/api-reference/next.config.js/ignoring-typescript-errors.md)に関するドキュメントを参照してください。
 
-## Static Generation and Server-side Rendering
+## 静的生成とサーバーサイドレンダリング
 
-For `getStaticProps`, `getStaticPaths`, and `getServerSideProps`, you can use the `GetStaticProps`, `GetStaticPaths`, and `GetServerSideProps` types respectively:
+`getStaticProps`、`getStaticPaths`、`getServerSideProps`のために、
+それぞれ`GetStaticProps`、`GetStaticPaths`、`GetServerSideProps`型を使用できます。
 
 ```ts
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
@@ -67,11 +68,11 @@ export const getServerSideProps: GetServerSideProps = async context => {
 };
 ```
 
-> If you're using `getInitialProps`, you can [follow the directions on this page](/docs/api-reference/data-fetching/getInitialProps.md#typescript).
+> `getInitialProps`を使用している場合は、[このページ](/docs/api-reference/data-fetching/getInitialProps.md#typescript)の指示に従ってください。
 
-## API Routes
+## APIのルーティング
 
-The following is an example of how to use the built-in types for API routes:
+以下は、APIルーティングに型を使用する方法の例です。
 
 ```ts
 import { NextApiRequest, NextApiResponse } from 'next';
@@ -81,7 +82,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 };
 ```
 
-You can also type the response data:
+レスポンスデータに型を指定できます。
 
 ```ts
 import { NextApiRequest, NextApiResponse } from 'next';
@@ -95,9 +96,9 @@ export default (req: NextApiRequest, res: NextApiResponse<Data>) => {
 };
 ```
 
-## Custom `App`
+## カスタム`App`
 
-If you have a [custom `App` ](/docs/advanced-features/custom-app), you can use the built-in type `AppProps` and change file name to `./pages/_app.tsx` like so:
+[カスタム`App`](/docs/advanced-features/custom-app)がある場合は、`AppProps`型を使用して、ファイル名を`./pages/_app.tsx`に変更できます。
 
 ```ts
 import { AppProps } from 'next/app';
@@ -109,8 +110,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 ```
 
-## Path aliases and baseUrl
+## PathエイリアスとbaseUrl
 
-Next.js automatically supports the `tsconfig.json` `"paths"` and `"baseUrl"` options.
+Next.jsは、`tsconfig.json`の`"paths"`および`"baseUrl"`オプションを自動的にサポートします。
 
-You can learn more about this feature on the [Module Path aliases documentation](/docs/advanced-features/module-path-aliases.md).
+この機能の詳細については、[モジュールパスエイリアスのドキュメント](/docs/advanced-features/module-path-aliases.md)をご覧ください。
+
