@@ -1,28 +1,28 @@
 ---
-description: Learn to add and access environment variables in your Next.js application.
+description: Next.jsアプリケーションに環境変数を追加してアクセスする方法を学びます。
 ---
 
-# Environment Variables
+# 環境変数
 
-> This document is for Next.js versions 9.4 and up. If you’re using an older version of Next.js, upgrade or refer to [Environment Variables in next.config.js](/docs/api-reference/next.config.js/environment-variables.md).
+> このドキュメントは、Next.jsバージョン9.4以上を対象としています。古いバージョンのNext.jsを使用している場合は、アップグレードするか、[next.config.jsの環境変数](/docs/api-reference/next.config.js/environment-variables.md)を参照してください。
 
 <details open>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/environment-variables">Environment Variables</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/environment-variables">環境変数</a></li>
   </ul>
 </details>
 
-Next.js comes with built-in support for environment variables, which allows you to do the following:
+Next.jsには、環境変数のビルトインサポートがあり、次のことが可能です:
 
-- [Use `.env.local` to load environment variables](#loading-environment-variables)
-- [Expose environment variables to the browser](#exposing-environment-variables-to-the-browser)
+- [`.env.local`を使用して環境変数をロードする](#loading-environment-variables)
+- [ブラウザに環境変数を公開する](#exposing-environment-variables-to-the-browser)
 
-## Loading Environment Variables
+## 環境変数のロード
 
-Next.js has built-in support for loading environment variables from `.env.local` into `process.env`.
+Next.jsには、環境変数を`.env.local`ファイルから`process.env`にロードするためのビルトインサポートがあります。
 
-An example `.env.local`:
+`.env.local`ファイルの例:
 
 ```bash
 DB_HOST=localhost
@@ -30,9 +30,9 @@ DB_USER=myuser
 DB_PASS=mypassword
 ```
 
-This loads `process.env.DB_HOST`, `process.env.DB_USER`, and `process.env.DB_PASS` into the Node.js environment automatically allowing you to use them in [Next.js data fetching methods](/docs/basic-features/data-fetching) and [API routes](/docs/api-routes/introduction).
+この例では、Node.js環境の環境変数として`process.env.DB_HOST`、`process.env.DB_USER`、`process.env.DB_PASS`が自動的にロードされます。環境変数は[データフェッチ](/docs/basic-features/data-fetching)と[API ルート](/docs/api-routes/introduction)で使用できます。
 
-For example, using [`getStaticProps`](/docs/basic-features/data-fetching#getstaticprops-static-generation):
+例えば、[`getStaticProps`](/docs/basic-features/data-fetching#getstaticprops-static-generation)で次のように使用できます:
 
 ```js
 // pages/index.js
@@ -46,23 +46,23 @@ export async function getStaticProps() {
 }
 ```
 
-## Exposing Environment Variables to the Browser
+## ブラウザに環境変数を公開する
 
-By default all environment variables loaded through `.env.local` are only available in the Node.js environment, meaning they won't be exposed to the browser.
+デフォルトでは、`.env.local`からロードされた環境変数は、Node.js環境でのみ使用できます。つまり、ブラウザには公開されません。
 
-In order to expose a variable to the browser you have to prefix the variable with `NEXT_PUBLIC_`. For example:
+変数をブラウザに公開するには、変数の前に`NEXT_PUBLIC_`を付ける必要があります。例えば:
 
 ```bash
 NEXT_PUBLIC_ANALYTICS_ID=abcdefghijk
 ```
 
-This loads `process.env.NEXT_PUBLIC_ANALYTICS_ID` into the Node.js environment automatically. Allowing you to use it anywhere in your code. The value will be inlined into JavaScript sent to the browser because of the `NEXT_PUBLIC_` prefix.
+こうすることで、`process.env.NEXT_PUBLIC_ANALYTICS_ID`がNode.js環境に自動で読み込まれ、コードの任意の場所で使用できるようになります。`NEXT_PUBLIC_`を付けることで、ブラウザへ送信されるJavaScriptに値がインライン化されます。
 
 ```js
 // pages/index.js
 import setupAnalyticsService from '../lib/my-analytics-service'
 
-// NEXT_PUBLIC_ANALYTICS_ID can be used here as it's prefixed by NEXT_PUBLIC_
+// NEXT_PUBLIC_ を付けることで、 NEXT_PUBLIC_ANALYTICS_ID は、この場所で使用可能になります
 setupAnalyticsService(process.env.NEXT_PUBLIC_ANALYTICS_ID)
 
 function HomePage() {
@@ -72,34 +72,34 @@ function HomePage() {
 export default HomePage
 ```
 
-## Default Environment Variables
+## デフォルトの環境変数
 
-In general only one `.env.local` file is needed. However, sometimes you might want to add some defaults for the `development` (`next dev`) or `production` (`next start`) environment.
+通常、必要なのは`.env.local`ファイルだけです。しかし、`development` (`next dev`) や `production` (`next start`) 環境で、デフォルト値を追加したい場合があります。
 
-Next.js allows you to set defaults in `.env` (all environments), `.env.development` (development environment), and `.env.production` (production environment).
+Next.jsでは、`.env`(すべての環境)、`.env.development`(開発環境)、および`.env.production`(本番環境)でデフォルト値を設定できます。
 
-`.env.local` always overrides the defaults set.
+`.env.local` は常にデフォルト値を上書きします。
 
-> **Note**: `.env`, `.env.development`, and `.env.production` files should be included in your repository as they define defaults. **`.env*.local` should be added to `.gitignore`**, as those files are intended to be ignored. `.env.local` is where secrets can be stored.
+> **備考**: `.env`、`.env.development`、`.env.production`ファイルは、デフォルト値を定義する場合にはリポジトリに含めるべきです。無視されることが意図されている**`.env*.local`ファイルは`.gitignore`に追加するべき**です。`.env.local`ファイルはシークレット値を保存できる場所です。
 
-## Environment Variables on Vercel
+## Vercelの環境変数
 
-When deploying on [Vercel](https://vercel.com) you can configure secrets in the [Environment Variables](https://vercel.com/docs/v2/build-step#environment-variables) section of the project in the Vercel dashboard.
+[Vercel](https://vercel.com)にデプロイする場合、Vercelのダッシュボードのプロジェクトの[Environment Variables](https://vercel.com/docs/v2/build-step#environment-variables)セクションでシークレット値を設定できます。
 
-You can still use `.env`, `.env.development` and `.env.production` to add defaults.
+デフォルト値を追加するのに`.env`、`.env.development`、`.env.production`も使用できます。
 
-If you've configured [Development Environment Variables](https://vercel.com/docs/v2/build-step#development-environment-variables) you can pull them into a `.env.local` for usage on your local machine using the following command:
+[Development Environment Variables](https://vercel.com/docs/v2/build-step#development-environment-variables)を設定している場合、それらをローカルマシンで使用するには、次のコマンドで`.env.local`にプルできます:
 
 ```bash
 vercel env pull .env.local
 ```
 
-## Test Environment Variables
+## テスト環境変数
 
-Apart from `development` and `production` environments, there is a 3rd option available: `test`. In the same way you can set defaults for development or production environments, you can do the same with `.env.test` file for testing environment (though this one is not so common as the previous two).
+`development`環境と`production`環境とは別に、3番目のオプションとして`test`環境を利用できます。開発環境や本番環境でデフォルト値を設定できるのと同じ方法で、テスト環境の`.env.test`ファイルでも同じことができます(ただし、前の2つほど一般的ではありません)。
 
-This one is useful when running tests with tools like `jest` or `cypress` where you need to set specific environment vars only for testing purposes. Test default values will be loaded if `NODE_ENV` is set to `test`, though you usually don't need to do this manually as testing tools will address it for you.
+これは、テスト目的のために特定の環境変数を設定する必要がある`jest`や`cypress`などのツールを使用してテストを実行する場合に便利です。`NODE_ENV`に`test`が設定されている場合にテストのデフォルト値が読み込まれますが、通常はテストツールが自動で読み込むため、手動で設定する必要はありません。
 
-There is a small difference between `test` environment, and both `development` and `production` that you need to bear in mind: `.env.local` won't be loaded, as you expect tests to produce the same results for everyone. This way every test execution will use same env defaults across different executions by ignoring your `.env.local` (which is intended to override the default set).
+`test`環境と、`development``production`環境の間には覚えておくべき小さな違いがあります。テストはすべての人に同じ結果をもたらすことが期待されるため、テスト環境では`.env.local`はロードされません。(デフォルト値のセットを上書きすることを目的としている)`.env.local`を無視することで、すべてのテスト実行は異なる実行においても同じデフォルト値が使用されることになります。
 
-> **Note**: similar to Default Environment Variables, `.env.test` file should be included in your repository, but `.env.test.local` shouldn't, as `.env*.local` are intended to be ignored through `.gitignore`.
+> **備考**: デフォルトの環境変数と同様に、`.env.test`ファイルはリポジトリに含めるべきですが、`.env.test.local`は含めないでください。`.env*.local`は`.gitignore`によって無視されることが意図されています。
