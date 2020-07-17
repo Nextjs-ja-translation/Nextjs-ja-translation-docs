@@ -1,20 +1,20 @@
 ---
-description: Configure module path aliases that allow you to remap certain import paths.
+description: 特定のモジュール読み込みパスをコンパイル時にエイリアスとして解釈するよう設定できます
 ---
 
-# Absolute Imports and Module path aliases
+# 絶対パスによるインポートとモジュールパスエイリアス
 
-Next.js automatically supports the `tsconfig.json` and `jsconfig.json` `"paths"` and `"baseUrl"` options.
+Next.jsでは`tsconfig.json`や`jsconfig.json`の`"paths"`と`"baseUrl"`オプションに自動的に対応します。
 
-> Note: `jsconfig.json` can be used when you don't use TypeScript
+> 注意：TypeScriptを使っている場合は`jsconfig.json`を利用できません
 
-These option allow you to configure module aliases, for example a common pattern is aliasing certain directories to use absolute paths.
+これらのオプションを設定するだけで、自動的にモジュール読み込みパスのエイリアス設定を利用できます。よくあるパターンとしては、特定のディレクトリパスへエイリアスを設定し、そこに存在するモジュールを相対パスではなく絶対パスでインポートするような使い方です。
 
-One useful feature of these options is that they integrate automatically into certain editors, for example vscode.
+これらのオプションを設定すると、VSCodeなど特定のエディタは自動的に読み取り、補完を受けられるなど使い勝手が良くなります。
 
-The `baseUrl` configuration option allows you to import directly from the root of the project.
+`baseUrl`オプションを設定すると、プロジェクトのルートディレクトリからのパスで直接インポート可能になります。
 
-An example of this configuration:
+この場合のサンプルコードは以下の通りです。
 
 ```json
 // tsconfig.json or jsconfig.json
@@ -34,7 +34,7 @@ export default function Button() {
 
 ```jsx
 // pages/index.js
-import Button from 'components/button';
+import Button from 'components/button'; // <- not '../components/button';
 
 export default function HomePage() {
   return (
@@ -46,11 +46,11 @@ export default function HomePage() {
 }
 ```
 
-While `baseUrl` is useful you might want to add other aliases that don't match 1 on 1. For this TypeScript has the `"paths"` option.
+`baseUrl`だけでも便利ですが、1対1の対応ではなく複数のモジュールに一致するエイリアスを追加したいこともあるでしょう。このような場合のために、TypeScriptでは`"paths"`オプションがあります。
 
-Using `"paths"` allows you to configure module aliases. For example `@/components/*` to `components/*`.
+`"paths"`オプションを設定すると、複数ファイルへ対応するモジュールパスエイリアスを設定できます。たとえば、`@/components/*`を`components/*`と解釈するようマッピングできます。
 
-An example of this configuration:
+この場合のサンプルコードは以下の通りです。
 
 ```json
 // tsconfig.json or jsconfig.json
@@ -73,7 +73,7 @@ export default function Button() {
 
 ```jsx
 // pages/index.js
-import Button from '@/components/button';
+import Button from '@/components/button'; // <- not '../components/button';
 
 export default function HomePage() {
   return (
