@@ -12,16 +12,16 @@ Next.jsのドキュメントを翻訳する非公式プロジェクトです。
 
 ## 翻訳手順
 
-翻訳の状況は、[翻訳の概要と進捗状況](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/issues/3)のissusを確認してください。
+翻訳の状況は、[翻訳の概要と進捗状況](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/issues/3)のissuesを確認してください。
 
 ### 手順1:翻訳を始める準備
 
 まずは、このリポジトリを右上からForkしてください。
 
-そして、リポジトリをクローンします。
+そして、リポジトリをクローンします。`your`には、あなたのGitHubのユーザーネームを入れてください。
 
 ```
-$ git clone https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs
+$ git clone https://github.com/your/Nextjs-ja-translation-docs
 $ cd Nextjs-ja-translation-docs
 ```
 
@@ -31,6 +31,12 @@ depencencyのインストールをしてください。必ず`yarn`で行って�
 $ yarn install
 ```
 
+開発サーバーが無事に起動するか確認してください。
+
+```
+$ yarn dev
+```
+
 翻訳作業を行うためのブランチを作成します。ここでは、例として`docs/example.md`を翻訳するためのブランチを作成します。
 
 ```
@@ -38,6 +44,14 @@ $ git switch -c docs/example.md
 ```
 
 これで、翻訳を始める準備は完了です。エディタを使って、翻訳箇所のファイルを編集します。
+
+また、docs/manifest.jsonの各セクションのタイトルが設定されています。自分の担当箇所のタイトルを翻訳してください。
+
+getting-staredを翻訳する例:
+
+```
+{ "title": "はじめに", "path": "/docs/getting-started.md" },
+```
 
 ### 手順2:翻訳完了からプルリクエスト
 
@@ -65,9 +79,7 @@ $ git push -u origin docs/example.md
 
 ## Q&A
 
-質問がある場合は、[Slack](https://join.slack.com/t/nextjs-ja/shared_invite/zt-f9knbi69-AjTZqNZpYv7knG30jPwHcQ)に参加して、#questions チャンネル までお願いします。
-
-
+質問がある場合は、[Slack](https://join.slack.com/t/nextjs-ja/shared_invite/zt-f9knbi69-AjTZqNZpYv7knG30jPwHcQ)に参加して、#questionsチャンネルまでお願いします。
 
 ## Contributors ✨
 
