@@ -1,4 +1,6 @@
+<!-- textlint-disable -->
 # Nextjs-ja-translation-docs
+<!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
@@ -6,9 +8,7 @@
 
 Next.jsのドキュメントを翻訳する非公式プロジェクトです。
 
-本家公式ドキュメント
-
-[https://nextjs.org/docs/getting-started](https://nextjs.org/docs/getting-started)
+[本家公式ドキュメント)](https://nextjs.org/docs/getting-started)
 
 ## 翻訳手順
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/your/Nextjs-ja-translation-docs
 $ cd Nextjs-ja-translation-docs
 ```
 
-depencencyのインストールをしてください。必ず`yarn`で行ってください。
+dependencyのインストールをしてください。必ず`yarn`で行ってください。
 
 ```
 $ yarn install
