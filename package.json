@@ -80,6 +80,7 @@
     "prettier": "^2.0.5",
     "pretty-quick": "2.0.1",
     "rss": "1.2.2",
+    "textlint-filter-rule-comments": "1.2.2",
     "typescript": "3.8.3"
   },
   "license": "MIT"
