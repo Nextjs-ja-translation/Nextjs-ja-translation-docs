@@ -13,7 +13,7 @@ description: Next.jsは標準でTypeScriptをサポートし、ページとAPI�
 
 Next.jsは、IDEのように統合された革新的な[TypeScript](https://www.typescriptlang.org/)体験を提供します。
 
-はじめに、プロジェクトのルートに空の`tsconfig.json`ファイルを作成します。
+はじめに、プロジェクトのルートに空の`tsconfig.json`ファイルを作成します:
 
 ```bash
 touch tsconfig.json
@@ -23,12 +23,12 @@ Next.jsはこのファイルをデフォルト値で自動的に構成します�
 
 > Next.jsはTypeScriptを処理するためにBabelを用いますが、いくつかの[注意点](https://babeljs.io/docs/en/babel-plugin-transform-typescript#caveats)があり、一部の[コンパイラオプションの挙動が異なります](https://babeljs.io/docs/en/babel-plugin-transform-typescript#typescript-compiler-options)。
 
-次に、`next`（通常は`npm run dev`）を実行すると、セットアップのためにNext.jsが必要なパッケージのインストールを案内します。
+次に、`next`（通常は`npm run dev`）を実行すると、セットアップのためにNext.jsが必要なパッケージのインストールを案内します:
 
 ```bash
 npm run dev
 
-# 次のような指示が表示されます。
+# 次のような指示が表示されます:
 #
 # Please install typescript, @types/react, and @types/node by running:
 #
@@ -73,7 +73,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 ## APIのルート
 
-以下は、APIルートにビルトインの型を使用する方法の例です。
+以下は、APIルートにビルトインの型を使用する方法の例です:
 
 ```ts
 import { NextApiRequest, NextApiResponse } from 'next';
@@ -83,7 +83,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 };
 ```
 
-レスポンスデータにも型を指定できます。
+レスポンスデータにも型を指定できます:
 
 ```ts
 import { NextApiRequest, NextApiResponse } from 'next';
@@ -99,7 +99,7 @@ export default (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
 ## カスタム`App`
 
-[カスタム`App`](/docs/advanced-features/custom-app)がある場合は、ビルトインの`AppProps`型を使用して、ファイル名を`./pages/_app.tsx`に変更できます。
+[カスタム`App`](/docs/advanced-features/custom-app)がある場合は、ビルトインの`AppProps`型を使用して、ファイル名を`./pages/_app.tsx`に変更できます:
 
 ```ts
 import { AppProps } from 'next/app';
