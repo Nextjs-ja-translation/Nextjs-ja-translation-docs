@@ -1,42 +1,44 @@
 ---
-description: Next.js automatically optimizes your app to be static HTML whenever possible. Learn how it works here.
+description: Next.jsは可能であれば静的なHTMLへとアプリケーションを自動で最適化します。どのように動作するか学んでいきましょう。
 ---
 
 # Automatic Static Optimization
 
-Next.js automatically determines that a page is static (can be prerendered) if it has no blocking data requirements. This determination is made by the absence of `getServerSideProps` and `getInitialProps` in the page.
+ページがノンブロッキングなデータを必要としなければ、Next.jsはそのページが静的（プリレンダリングが可能）であると自動的に判断します。
+この判断は`getServerSideProps`と`getInitialProps`がページに含まれていないことが根拠になります。
 
-This feature allows Next.js to emit hybrid applications that contain **both server-rendered and statically generated pages**.
+この機能により、**サーバーでレンダリングされたページと静的に生成されたページの両方**を含むハイブリッドなアプリケーションを提供することが可能になります。
 
-> Statically generated pages are still reactive: Next.js will hydrate your application client-side to give it full interactivity.
+> 静的に生成されたページは依然リアクティブです: Next.jsはクライアントサイドをハイドレートしてアプリケーションに完全なインタラクティブ性を与えます。
 
-One of the main benefits of this feature is that optimized pages require no server-side computation, and can be instantly streamed to the end-user from multiple CDN locations. The result is an _ultra fast_ loading experience for your users.
+この機能の主な利点の1つは、最適化されたページがサーバーサイドの処理を必要としないことです。これにより、複数のCDNサーバーからエンドユーザーへと瞬時に配信されます。その結果はユーザーの_超高速な_ローディング体験です。
 
-## How it works
+## どのように動作するか
 
-If `getServerSideProps` or `getInitialProps` is present in a page, Next.js will switch to render the page on-demand, per-request (meaning [Server-Side Rendering](/docs/basic-features/pages.md#server-side-rendering)).
+`getServerSideProps`か`getInitialProps`がページに存在すれば、Next.jsはリクエストごとの要求に応じたレンダリング（[サーバーサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering)）へと切り替えます。
 
-If the above is not the case, Next.js will **statically optimize** your page automatically by prerendering the page to static HTML.
+上記のケースでなければ、Next.jsはページを静的なHTMLへとプリレンダリングすることで、ページの**静的な最適化**を自動で行います。
 
-During prerendering, the router's `query` object will be empty since we do not have `query` information to provide during this phase. After hydration, Next.js will trigger an update to your application to provide the route parameters in the `query` object.
+プリレンダリング中は、この段階で使用できる`query`の情報がないため、`query`は空オブジェクトになります。ハイドレーション後は、`query`オブジェクト内のルートパラメータをアプリケーションに与えるように、Next.jsがアプリケーションを更新します。
 
-> **Note:** Parameters added with [dynamic routes](/docs/routing/dynamic-routes.md) to a page that's using [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) will always be available inside the `query` object.
+> **備考:** [動的なルーティング](/docs/routing/dynamic-routes.md)と共に[`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation)を用いたページに与えられたパラメータは、いつでも`query`オブジェクト内で使用可能です。
 
-`next build` will emit `.html` files for statically optimized pages. For example, the result for the page `pages/about.js` would be:
+`next build`は静的最適化がされたページに対して`.html`ファイルを出力します。例えば、`pages/about.js`のページに対するビルド結果は以下のようになります:
 
 ```bash
 .next/server/static/${BUILD_ID}/about.html
 ```
 
-And if you add `getServerSideProps` to the page, it will then be JavaScript, like so:
+`getServerSideProps`をページに加えると、今度はビルド結果が以下のようなJavaScriptファイルになります:
 
 ```bash
 .next/server/static/${BUILD_ID}/about.js
 ```
 
-In development you'll know if `pages/about.js` is optimized or not thanks to the included [static optimization indicator](/docs/api-reference/next.config.js/static-optimization-indicator.md).
+開発中は`pages/about.js`が最適化されているかどうかを内部の[静的最適化インディケーター](/docs/api-reference/next.config.js/static-optimization-indicator.md)によって知ることができます。
 
-## Caveats
+## 警告
 
-- If you have a [custom `App`](/docs/advanced-features/custom-app.md) with `getInitialProps` then this optimization will be turned off in pages without [Static Generation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation).
-- If you have a [custom `Document`](/docs/advanced-features/custom-document.md) with `getInitialProps` be sure you check if `ctx.req` is defined before assuming the page is server-side rendered. `ctx.req` will be `undefined` for pages that are prerendered.
+- `getInitialProps`を用いた[カスタム`App`](/docs/advanced-features/custom-app.md)の場合は、[静的生成](/docs/basic-features/data-fetching.md#getstaticprops-static-generation)なしのページではこの最適化はオフになります。
+
+- `getInitialProps`を用いた[カスタム`Document`](/docs/advanced-features/custom-document.md)の場合は、ページがサーバーサイドでレンダリングされると仮定する前に`ctx.req`が定義されているかどうかを確認してください。`ctx.req`はプリレンダリングされるページでは`undefined`になります。
