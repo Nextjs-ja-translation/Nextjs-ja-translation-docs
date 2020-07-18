@@ -1,10 +1,10 @@
 ---
-description: ルートの `pages` ディレクトリの代わりに `src` ディレクトリにページを格納します。
+description: ルートの `pages` ディレクトリの代わりに `src` ディレクトリにpagesを格納します。
 ---
 
 # `src` ディレクトリ
 
-ページはルートの `pages` ディレクトリの代わりに `src/pages` 配下にも追加できます。
+Pagesはルートの `pages` ディレクトリの代わりに `src/pages` 配下にも追加できます。
 
 `src` ディレクトリは多くのアプリで一般的で、Next.jsはデフォルトでサポートしています。
 
@@ -20,6 +20,6 @@ description: ルートの `pages` ディレクトリの代わりに `src` ディ
 <div class="card">
   <a href="/docs/basic-features/pages.md">
     <b>Pages:</b>
-    <small>Next.jsのページについて詳しく学ぶ</small>
+    <small>Next.jsのpagesについて詳しく学ぶ</small>
   </a>
 </div>
