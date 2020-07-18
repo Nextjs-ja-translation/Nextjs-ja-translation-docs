@@ -72,7 +72,7 @@
               "path": "/docs/api-routes/api-middlewares.md"
             },
             {
-              "title": "Response Helpers",
+              "title": "レスポンスヘルパー",
               "path": "/docs/api-routes/response-helpers.md"
             }
           ]

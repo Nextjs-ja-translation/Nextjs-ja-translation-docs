@@ -1,18 +1,18 @@
 ---
-description: API Routes include a set of Express.js-like methods for the response to help you creating new API endpoints. Learn how it works here.
+description: APIルートには、レスポンスのためのExpress.jsライクなメソッドが用意されており、新しいAPIエンドポイントの作成に役立ちます。どのように動作するか学んでいきましょう。
 ---
 
-# Response Helpers
+# レスポンスヘルパー
 
 <details open>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes">Basic API Routes</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-rest">API Routes with REST</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes">基本的なAPIルート</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-rest">RESTによるAPIルート</a></li>
   </ul>
 </details>
 
-The response (`res`) includes a set of Express.js-like methods to improve the developer experience and increase the speed of creating new API endpoints, take a look at the following example:
+レスポンス (`res`) には、Express.jsライクなメソッドのセットが用意されています。これらは、より良い開発者体験を提供し、より手早くAPIエンドポイントを作成できます。次の例を見てみましょう。
 
 ```js
 export default (req, res) => {
@@ -20,8 +20,8 @@ export default (req, res) => {
 };
 ```
 
-The included helpers are:
+用意されているメソッドは以下の通りです。
 
-- `res.status(code)` - A function to set the status code. `code` must be a valid [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
-- `res.json(json)` - Sends a JSON response. `json` must be a valid JSON object
-- `res.send(body)` - Sends the HTTP response. `body` can be a `string`, an `object` or a `Buffer`
+- `res.status(code)` -  ステータスコードを設定するための関数です。 `code` は正しい[HTTPステータスコード](https://ja.wikipedia.org/wiki/HTTP%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89)である必要があります。
+- `res.json(json)` - JSONレスポンスを送信します。`json` は正しい JSON オブジェクトである必要があります。
+- `res.send(body)` - HTTPレスポンスを送信します。 `body` は `string` か `object` 、または `Buffer` である必要があります。
