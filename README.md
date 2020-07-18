@@ -96,6 +96,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
     <td align="center"><a href="https://twitter.com/okumura_daiki"><img src="https://avatars3.githubusercontent.com/u/4679138?v=4" width="100px;" alt=""/><br /><sub><b>Daiki Okumura</b></sub></a><br /><a href="#translation-okmr-d" title="Translation">🌍</a></td>
     <td align="center"><a href="https://about.me/yokinist"><img src="https://avatars2.githubusercontent.com/u/19779874?v=4" width="100px;" alt=""/><br /><sub><b>yokinist</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=yokinist" title="Documentation">📖</a> <a href="#translation-yokinist" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/96-38"><img src="https://avatars1.githubusercontent.com/u/48713768?v=4" width="100px;" alt=""/><br /><sub><b>kurosawa</b></sub></a><br /><a href="#translation-96-38" title="Translation">🌍</a></td>
+    <td align="center"><a href="http://www.facebook.com/noriaki.uchiyama"><img src="https://avatars3.githubusercontent.com/u/44050?v=4" width="100px;" alt=""/><br /><sub><b>Noriaki UCHIYAMA</b></sub></a><br /><a href="#translation-noriaki" title="Translation">🌍</a></td>
     <td align="center"><a href="https://ria-blog.org"><img src="https://avatars2.githubusercontent.com/u/11747541?v=4" width="100px;" alt=""/><br /><sub><b>ria</b></sub></a><br /><a href="#translation-ria3100" title="Translation">🌍</a></td>
   </tr>
 </table>
