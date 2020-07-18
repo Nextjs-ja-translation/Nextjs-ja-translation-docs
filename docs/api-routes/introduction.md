@@ -17,7 +17,7 @@ description: Next.jsはAPIルートをサポートしており、Next.jsアプ�
 
 API ルートはNext.jsで**API**を構築する簡単な方法を提供しています。
 
-すべての`pages/api`フォルダ内にあるファイルは`/api/*`にマッピングされ、`page`の代わりにAPI エンドポイントとして扱われます。
+`pages/api`フォルダ内にあるすべてのファイルは`/api/*`にマッピングされ、`page`の代わりにAPI エンドポイントとして扱われます。
 
 例えば、以下のAPI ルート`pages/api/user.js`は`json`レスポンスを扱います:
 
