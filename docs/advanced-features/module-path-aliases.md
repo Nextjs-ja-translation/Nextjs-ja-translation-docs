@@ -1,5 +1,5 @@
 ---
-description: 特定のモジュール読み込みパスをコンパイル時にエイリアスとして解釈するよう設定できます
+description: 特定のモジュール読み込みパスをコンパイル時にエイリアスとして解釈するよう設定できます。
 ---
 
 # 絶対パスによるインポートとモジュールパスエイリアス
@@ -8,16 +8,16 @@ Next.jsでは`tsconfig.json`や`jsconfig.json`の`"paths"`と`"baseUrl"`オプ�
 
 > 注意：TypeScriptを使っている場合は`jsconfig.json`を利用できません
 
-これらのオプションを設定するだけで、自動的にモジュール読み込みパスのエイリアス設定を利用できます。よくあるパターンとしては、特定のディレクトリパスへエイリアスを設定し、そこに存在するモジュールを相対パスではなく絶対パスでインポートするような使い方です。
+これらのオプションによって、モジュール読み込みパスのエイリアスを設定できます。よくあるパターンとしては、特定のディレクトリパスへエイリアスを設定し、そこに存在するモジュールを相対パスではなく絶対パスでインポートするような使い方です。
 
-これらのオプションを設定すると、VSCodeなど特定のエディタは自動的に読み取り、補完を受けられるなど使い勝手が良くなります。
+これらのオプションを設定すると、vscodeなど特定のエディタは自動的に読み取り、補完を受けられるなど使い勝手が良くなります。
 
 `baseUrl`オプションを設定すると、プロジェクトのルートディレクトリからのパスで直接インポート可能になります。
 
 この場合のサンプルコードは以下の通りです。
 
 ```json
-// tsconfig.json or jsconfig.json
+// tsconfig.json または jsconfig.json
 {
   "compilerOptions": {
     "baseUrl": "."
@@ -34,7 +34,7 @@ export default function Button() {
 
 ```jsx
 // pages/index.js
-import Button from 'components/button'; // <- not '../components/button';
+import Button from 'components/button';
 
 export default function HomePage() {
   return (
@@ -53,7 +53,7 @@ export default function HomePage() {
 この場合のサンプルコードは以下の通りです。
 
 ```json
-// tsconfig.json or jsconfig.json
+// tsconfig.json または jsconfig.json
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -73,7 +73,7 @@ export default function Button() {
 
 ```jsx
 // pages/index.js
-import Button from '@/components/button'; // <- not '../components/button';
+import Button from '@/components/button';
 
 export default function HomePage() {
   return (
