@@ -55,7 +55,8 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/19779874?v=4",
       "profile": "https://about.me/yokinist",
       "contributions": [
-        "doc"
+        "doc",
+        "translation"
       ]
     },
     {
@@ -72,6 +73,15 @@
       "name": "Noriaki UCHIYAMA",
       "avatar_url": "https://avatars3.githubusercontent.com/u/44050?v=4",
       "profile": "http://www.facebook.com/noriaki.uchiyama",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "ria3100",
+      "name": "ria",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/11747541?v=4",
+      "profile": "https://ria-blog.org",
       "contributions": [
         "translation"
       ]
