@@ -1,7 +1,7 @@
 # Nextjs-ja-translation-docs
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Next.jsのドキュメントを翻訳する非公式プロジェクトです。
@@ -100,6 +100,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
   </tr>
   <tr>
     <td align="center"><a href="https://ria-blog.org"><img src="https://avatars2.githubusercontent.com/u/11747541?v=4" width="100px;" alt=""/><br /><sub><b>ria</b></sub></a><br /><a href="#translation-ria3100" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://peaceful-mcclintock-c87ee2.netlify.app/"><img src="https://avatars0.githubusercontent.com/u/36391432?v=4" width="100px;" alt=""/><br /><sub><b>ryuckel</b></sub></a><br /><a href="#translation-ryuckel" title="Translation">🌍</a></td>
   </tr>
 </table>
 
