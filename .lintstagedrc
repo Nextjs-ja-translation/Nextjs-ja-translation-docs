@@ -1,0 +1,4 @@
+{
+  "*": ["pretty-quick --staged"],
+  "*.md": ["textlint"],
+}

@@ -1,4 +1,6 @@
+<!-- textlint-disable -->
 # Nextjs-ja-translation-docs
+<!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors)
@@ -6,9 +8,7 @@
 
 Next.jsのドキュメントを翻訳する非公式プロジェクトです。
 
-本家公式ドキュメント
-
-[https://nextjs.org/docs/getting-started](https://nextjs.org/docs/getting-started)
+[本家公式ドキュメント)](https://nextjs.org/docs/getting-started)
 
 ## 翻訳手順
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/your/Nextjs-ja-translation-docs
 $ cd Nextjs-ja-translation-docs
 ```
 
-depencencyのインストールをしてください。必ず`yarn`で行ってください。
+dependencyのインストールをしてください。必ず`yarn`で行ってください。
 
 ```
 $ yarn install
@@ -55,13 +55,7 @@ getting-staredを翻訳する例:
 
 ### 手順2:翻訳完了からプルリクエスト
 
-翻訳作業が完了したら、textlintを使って文章のチェックを行います。text-lintの後に自分が翻訳作業したファイルを指定してください。
-
-```
-$ yarn text-lint ./docs/example.md
-```
-
-エラーを修正する場合は、`text-lint:fix`を使います。
+precommit時に翻訳の対象ファイルに対してtextlintが走ります。textlintが通らない限りcommitできません。エラーを修正する場合は、`text-lint:fix`を使います。
 
 ```
 $ yarn text-lint:fix ./docs/example.md
