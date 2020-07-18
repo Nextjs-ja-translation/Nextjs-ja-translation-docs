@@ -1,19 +1,19 @@
 ---
-description: Client-side navigations are also possible using the Router API instead of the Link component. Learn more here.
+description: クライアント側のナビゲーションは、Link コンポーネントの代わりに Router API を使用することができます。このページで学んでいきましょう。
 ---
 
 # Imperatively
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/using-router">Using Router</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/using-router">Routerを使用する</a></li>
   </ul>
 </details>
 
-[`next/link`](/docs/api-reference/next/link.md) should be able to cover most of your routing needs, but you can also do client-side navigations without it, take a look at the [Router API documentation](/docs/api-reference/next/router.md#router-api).
+[`next/link`](/docs/api-reference/next/link.md) は必要なルーティングをほとんどカバーできるはずですが、 使用せずにクライアントサイドのナビゲーションを行うこともできます。詳しくは [Router API ドキュメント](/docs/api-reference/next/router.md#router-api)を参照してください。
 
-The following example shows the basic usage of the Router API:
+以下の例がRouter APIの基本的な使用方法です:
 
 ```jsx
 import Router from 'next/router';
