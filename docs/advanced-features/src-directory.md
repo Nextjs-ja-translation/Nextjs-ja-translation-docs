@@ -8,7 +8,7 @@ Pagesはルートの `pages` ディレクトリの代わりに `src/pages` 配�
 
 `src` ディレクトリは多くのアプリで一般的です。Next.jsはデフォルトでサポートしています。
 
-## 注意点
+## 注意事項
 
 - `src/pages` は、ルートディレクトリに `pages` がある場合は無視されます。
 - `next.config.js` や `tsconfig.json` のような設定ファイルはルートディレクトリに配置して下さい。これらは `src` に配置しても動作しません。[`public` ディレクトリ](/docs/basic-features/static-file-serving.md)についても同様です。
