@@ -40,7 +40,7 @@ $ yarn dev
 翻訳作業を行うためのブランチを作成します。ここでは、例として`docs/example.md`を翻訳するためのブランチを作成します。
 
 ```
-$ git checkout -b docs/example
+$ git checkout -b docs/example.md
 ```
 
 これで、翻訳を始める準備は完了です。エディタを使って、翻訳箇所のファイルを編集します。
