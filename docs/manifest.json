@@ -60,7 +60,7 @@
           "title": "API Routes",
           "routes": [
             {
-              "title": "Introduction",
+              "title": "はじめに",
               "path": "/docs/api-routes/introduction.md"
             },
             {
