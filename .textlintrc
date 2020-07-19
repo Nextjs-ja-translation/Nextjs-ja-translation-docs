@@ -6,6 +6,7 @@
         "allowFullWidthQuestion": true,
       }
     },
+    "preset-ja-spacing": true,
     "ja-technical-writing/ja-no-mixed-period": {
       "allowPeriodMarks": [":"],
     },
