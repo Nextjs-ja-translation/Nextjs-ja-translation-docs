@@ -6,6 +6,8 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
+
 Next.jsのドキュメントを翻訳する非公式プロジェクトです。
 
 [本家公式ドキュメント](https://nextjs.org/docs/getting-started)
