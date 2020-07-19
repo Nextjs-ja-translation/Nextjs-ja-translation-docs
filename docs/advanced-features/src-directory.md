@@ -15,7 +15,7 @@ Pagesはルートの `pages` ディレクトリの代わりに `src/pages` 配�
 
 ## 関連事項
 
-次に何をすればいいのかについては、以下の項目をご覧になることをお勧めします:
+次にやるべきこととして、以下のセクションを読むことをお勧めします:
 
 <div class="card">
   <a href="/docs/basic-features/pages.md">
