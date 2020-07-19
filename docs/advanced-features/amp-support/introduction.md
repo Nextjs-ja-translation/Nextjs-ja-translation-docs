@@ -1,42 +1,42 @@
 ---
-description: With minimal config, and without leaving React, you can start adding AMP and improve the performance and speed of your pages.
+description: 最小限の設定で、Reactから離れることなくAMPを導入し、ページのパフォーマンスとスピードを向上させることができます。
 ---
 
-# AMP Support
+# AMPのサポート
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
     <li><a href="https://github.com/zeit/next.js/tree/canary/examples/amp">AMP</a></li>
   </ul>
 </details>
 
-With Next.js you can turn any React page into an AMP page, with minimal config, and without leaving React.
+Next.jsを使えば最小限の設定で、Reactから離れることなく、どんなReactページからでもAMPページを作成できます。
 
-You can read more about AMP in the official [amp.dev](https://amp.dev/) site.
+詳しくは、AMPのオフィシャルサイト [amp.dev](https://amp.dev/) をご覧ください。
 
-## Enabling AMP
+## AMPサポートの有効化
 
-To enable AMP support for a page, and to learn more about the different AMP configs, read the [API documentation for `next/amp`](/docs/api-reference/next/amp.md).
+ページのAMPサポートを有効化する方法や、その他の詳細なAMPの設定については [ `next/amp` に関するAPIドキュメント](/docs/api-reference/next/amp.md)をお読み下さい。
 
-## Caveats
+## 注意事項
 
-- Only CSS-in-JS is supported. [CSS Modules](/docs/basic-features/built-in-css-support.md) aren't supported by AMP pages at the moment. You can [contribute CSS Modules support to Next.js](https://github.com/zeit/next.js/issues/10549).
+- CSS-in-JS のみサポートしています。 AMPページでは [CSS Modules](/docs/basic-features/built-in-css-support.md) は現在サポートされていません。 [Next.jsのCSS Modulesのサポートについて貢献できます。](https://github.com/zeit/next.js/issues/10549)
 
-## Related
+## 関連事項
 
-For more information on what to do next, we recommend the following sections:
+次にやるべきこととして、以下のセクションを読むことをお勧めします:
 
 <div class="card">
   <a href="/docs/advanced-features/amp-support/adding-amp-components.md">
-    <b>AMP Components:</b>
-    <small>Make your pages more interactive with AMP components.</small>
+    <b>AMPコンポーネント:</b>
+    <small>AMPコンポーネントを使ってよりインタラクティブなページにする。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/advanced-features/amp-support/amp-validation.md">
-    <b>AMP Validation:</b>
-    <small>Learn about how Next.js validates AMP pages.</small>
+    <b>AMPの検証:</b>
+    <small>Next.jsがAMPページを検証する方法について学びましょう。</small>
   </a>
 </div>
