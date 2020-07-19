@@ -49,7 +49,7 @@ export function Hello() {
 }
 ```
 
-`Hello` コンポーネントを動的にインポートするには、次のように、[`import()`](https://github.com/tc39/proposal-dynamic-import#example) によって返される [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) から `Hello` コンポーネントを返します:
+`Hello` コンポーネントを動的にインポートするには、次のように、[`import()`](https://github.com/tc39/proposal-dynamic-import#example) によって返される [Promise](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise) から `Hello` コンポーネントを返します:
 
 ```jsx
 import dynamic from 'next/dynamic';
