@@ -12,7 +12,7 @@ Next.js CLIを使用すると、アプリケーションの起動やビルド、
 npx next -h
 ```
 
-_([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) はnpm 5.2+ 以上が組み込まれています。)_
+_([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) はnpm 5.2+ 以上に組み込まれています。)_
 
 以下のように出力されます:
 
