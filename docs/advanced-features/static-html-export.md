@@ -18,7 +18,7 @@ description: Next.jsアプリを静的なHTMLにエクスポートして、Node.
 
 > `next export` は、サーバサイドやインクリメンタルデータを**必要としない**ページのシナリオを想定しています（ただし、静的にレンダリングされたページは[クライアントサイドでデータを取得する](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side)ことができます）。
 >
-> _一部の_ ページのみを静的 HTML にプリレンダするハイブリッドサイトを作りたい場合、Next.js はすでに自動で静的最適化を行っています。詳しくは[自動静的最適化](/docs/advanced-features/automatic-static-optimization.md)をお読みください。
+> _一部の_ ページのみを静的 HTML にプリレンダするハイブリッドサイトを作りたい場合、Next.js はすでに自動で静的最適化を行っています。詳しくは[Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)をお読みください。
 >
 > `next export`では、`next start` またはサーバーレスデプロイが機能するために必要な、インクリメンタル静的ジェネレートやリジェネレーションのような機能も無効になります。
 
