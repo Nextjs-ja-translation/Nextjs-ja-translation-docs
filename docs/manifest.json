@@ -224,7 +224,7 @@
               "path": "/docs/api-reference/next.config.js/cdn-support-with-asset-prefix.md"
             },
             {
-              "title": "Build Target",
+              "title": "ビルドターゲット",
               "path": "/docs/api-reference/next.config.js/build-target.md"
             },
             {
