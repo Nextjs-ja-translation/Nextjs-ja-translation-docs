@@ -17,7 +17,7 @@ Next.js はJavaScriptのES2020 [dynamic `import()`](https://github.com/tc39/prop
 
 ## 基本的な使用方法
 
-次の例では、`../components/hello`モジュールがページで動的に読み込まれています。
+次の例では、`../components/hello`モジュールがページで動的に読み込まれています:
 
 ```jsx
 import dynamic from 'next/dynamic';
@@ -41,7 +41,7 @@ export default Home;
 
 ## 名前付きエクスポート
 
-動的コンポーネントがデフォルトのエクスポートでない場合は、名前付きエクスポートも使用できます。名前付きエクスポートの`Hello`を持つ`../components/hello.js` モジュールについて考えてみましょう。
+動的コンポーネントがデフォルトのエクスポートでない場合は、名前付きエクスポートも使用できます。名前付きエクスポートの`Hello`を持つ`../components/hello.js` モジュールについて考えてみましょう:
 
 ```jsx
 export function Hello() {
@@ -49,7 +49,7 @@ export function Hello() {
 }
 ```
 
-`Hello` コンポーネントを動的にインポートするには、次のように、[`import()`](https://github.com/tc39/proposal-dynamic-import#example) によって返される [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) から `Hello` コンポーネントを返します。
+`Hello` コンポーネントを動的にインポートするには、次のように、[`import()`](https://github.com/tc39/proposal-dynamic-import#example) によって返される [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) から `Hello` コンポーネントを返します:
 
 ```jsx
 import dynamic from 'next/dynamic';
@@ -71,7 +71,7 @@ export default Home;
 
 ## カスタムローディングコンポーネント
 
-オプションの `loading` コンポーネントを追加して、動的コンポーネントの読み込み中に読み込み状態をレンダリングできます。以下は例です。
+オプションの `loading` コンポーネントを追加して、動的コンポーネントの読み込み中に読み込み状態をレンダリングできます。例:
 
 ```jsx
 import dynamic from 'next/dynamic';
@@ -97,7 +97,7 @@ export default Home;
 
 常にサーバー側にモジュールを含める必要はありません。たとえば、ブラウザのみで動作するライブラリがモジュールに含まれている場合です。
 
-次の例を見てください。
+次の例を見てください:
 
 ```jsx
 import dynamic from 'next/dynamic';
