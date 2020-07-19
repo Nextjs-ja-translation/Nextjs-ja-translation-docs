@@ -1,25 +1,25 @@
 ---
-description: Save pages under the `src` directory as an alternative to the root `pages` directory.
+description: ルートの `pages` ディレクトリの代わりに `src` ディレクトリにpagesを格納します。
 ---
 
-# `src` Directory
+# `src` ディレクトリ
 
-Pages can also be added under `src/pages` as an alternative to the root `pages` directory.
+Pagesはルートの `pages` ディレクトリの代わりに `src/pages` 配下にも追加できます。
 
-The `src` directory is very common in many apps and Next.js supports it by default.
+`src` ディレクトリは多くのアプリで一般的です。Next.jsはデフォルトでサポートしています。
 
-## Caveats
+## 注意事項
 
-- `src/pages` will be ignored if `pages` is present in the root directory
-- Config files like `next.config.js` and `tsconfig.json` should be inside the root directory, moving them to `src` won't work. Same goes for the [`public` directory](/docs/basic-features/static-file-serving.md)
+- `src/pages` は、ルートディレクトリに `pages` がある場合は無視されます。
+- `next.config.js` や `tsconfig.json` のような設定ファイルはルートディレクトリに配置して下さい。これらは `src` に配置しても動作しません。[`public` ディレクトリ](/docs/basic-features/static-file-serving.md)についても同様です。
 
-## Related
+## 関連事項
 
-For more information on what to do next, we recommend the following sections:
+次にやるべきこととして、以下のセクションを読むことをお勧めします:
 
 <div class="card">
   <a href="/docs/basic-features/pages.md">
     <b>Pages:</b>
-    <small>Learn more about what pages are in Next.js</small>
+    <small>Next.jsのpagesについて詳しく学ぶ</small>
   </a>
 </div>
