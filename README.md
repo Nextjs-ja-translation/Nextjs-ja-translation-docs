@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Next.jsのドキュメントを翻訳する非公式プロジェクトです。
@@ -97,6 +97,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
     <td align="center"><a href="https://peaceful-mcclintock-c87ee2.netlify.app/"><img src="https://avatars0.githubusercontent.com/u/36391432?v=4" width="100px;" alt=""/><br /><sub><b>ryuckel</b></sub></a><br /><a href="#translation-ryuckel" title="Translation">🌍</a></td>
     <td align="center"><a href="https://yamanoku.net"><img src="https://avatars1.githubusercontent.com/u/1996642?v=4" width="100px;" alt=""/><br /><sub><b>Okuto Oyama</b></sub></a><br /><a href="#translation-yamanoku" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/syakoo"><img src="https://avatars1.githubusercontent.com/u/12678450?v=4" width="100px;" alt=""/><br /><sub><b>syakoo</b></sub></a><br /><a href="#translation-syakoo" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://thesugar.me"><img src="https://avatars1.githubusercontent.com/u/53966025?v=4" width="100px;" alt=""/><br /><sub><b>thesugar / Ryohei Sato</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3Athesugar" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
