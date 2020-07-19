@@ -1,20 +1,20 @@
 ---
-description: The Next.js CLI allows you to start, build, and export your application. Learn more about it here.
+概要: Next.js CLIを使用すると、アプリケーションの起動やビルド、エクスポートを行うことができます。詳細はこちらをご覧ください。
 ---
 
 # Next.js CLI
 
-The Next.js CLI allows you to start, build, and export your application.
+Next.js CLIを使用すると、アプリケーションの起動やビルド、エクスポートを行うことができます。
 
-To get a list of the available CLI commands, run the following command inside your project directory:
+利用可能なCLIコマンドのリストを取得するには、プロジェクトのディレクトリ内で以下のコマンドを実行してください:
 
 ```bash
 npx next -h
 ```
 
-_([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher)_
+_([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) はnpm 5.2+ 以上が組み込まれています。)_
 
-The output should look like this:
+以下のように出力されます:
 
 ```bash
 Usage
@@ -31,7 +31,7 @@ For more information run a command with the --help flag
   $ next build --help
 ```
 
-You can pass any [node arguments](https://nodejs.org/api/cli.html#cli_node_options_options) to `next` commands:
+`next` コマンドには、任意の [node arguments](https://nodejs.org/api/cli.html#cli_node_options_options) を引数として渡すことができます:
 
 ```bash
 NODE_OPTIONS='--throw-deprecation' next
@@ -39,38 +39,38 @@ NODE_OPTIONS='-r esm' next
 NODE_OPTIONS='--inspect' next
 ```
 
-## Build
+## ビルド
 
-`next build` creates an optimized production build of your application. The output displays information about each route.
+`next build` は、アプリケーションに最適化された本番のビルドを作成します。出力にはそれぞれのルーティングに関する情報が表示されます。
 
-- **Size** – The number of assets downloaded when navigating to the page client-side. The size for each route only includes its dependencies.
-- **First Load JS** – The number of assets downloaded when visiting the page from the server. The amount of JS shared by all is shown as a separate metric.
+- **Size** – クライアントサイドのページへ移動する際にダウンロードされるアセットの数。各ルーティングのサイズには、依存関係のみが含まれます。
+- **First Load JS** – サーバーからページへアクセスしたときにダウンロードされたアセットの数。すべてのアプリケーションで共有されるJSの量は、別の指標として表示されます。
 
-The first load is colored green, yellow, or red. Aim for green for performant applications.
+最初のロードは、緑色か黄色、あるいは赤色のいずれかで表示されます。緑色を目指すことは、パフォーマンスの高いアプリケーションを開発することに繋がります。
 
-## Development
+## 開発環境
 
-`next dev` starts the application in development mode with hot-code reloading, error reporting, and more:
+`next dev` は開発モードでアプリケーションを起動し、ホットコードのリロードやエラーの報告などを行います。
 
-The application will start at `http://localhost:3000` by default. The default port can be changed with `-p`, like so:
+アプリケーションはデフォルトで `http://localhost:3000` で起動します. デフォルトのポートは、以下のように `-p` で変更できます:
 
 ```bash
 npx next dev -p 4000
 ```
 
-## Production
+## 本番環境
 
-`next start` starts the application in production mode. The application should be compiled with [`next build`](#build) first.
+`next start` は本番モードでアプリケーションを起動します。 アプリケーションはまず最初に、 [`next build`](#build) でコンパイルされる必要があります。
 
-The application will start at `http://localhost:3000` by default. The default port can be changed with `-p`, like so:
+アプリケーションはデフォルトで `http://localhost:3000` で起動します. デフォルトのポートは、以下のように `-p` で変更できます:
 
 ```bash
 npx next start -p 4000
 ```
 
-## Telemetry
+## 遠隔測定データ
 
-Next.js collects **completely anonymous** telemetry data about general usage.
-Participation in this anonymous program is optional, and you may opt-out if you'd not like to share any information.
+Next.jsは通常、利用状況に関する**完全匿名**の遠隔測定データを収集しています。
+匿名であるこのプログラムへの参加は任意であり、情報を共有したくない場合にはオプトアウトできます。
 
-To learn more about Telemetry, [please read this document](https://nextjs.org/telemetry/).
+詳細については、 [こちらのドキュメントをお読みください](https://nextjs.org/telemetry/)。
