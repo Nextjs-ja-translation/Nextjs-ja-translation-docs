@@ -212,7 +212,7 @@
               "path": "/docs/api-reference/next.config.js/introduction.md"
             },
             {
-              "title": "Environment Variables",
+              "title": "環境変数",
               "path": "/docs/api-reference/next.config.js/environment-variables.md"
             },
             {
