@@ -17,7 +17,7 @@ Next.jsを使えば最小限の設定で、Reactから離れることなく、�
 
 ## AMPサポートの有効化
 
-ページのAMPサポートを有効化する方法や、その他の詳細なAMPの設定については [ `next/amp` に関するAPIドキュメント](/docs/api-reference/next/amp.md)をお読み下さい。
+ページのAMPサポートを有効化する方法や、その他の詳細なAMPの設定については [ `next/amp` に関するAPIドキュメント](/docs/api-reference/next/amp.md)をご覧ください。
 
 ## 注意事項
 
