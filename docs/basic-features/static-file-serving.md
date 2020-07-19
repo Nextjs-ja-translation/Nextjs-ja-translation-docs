@@ -1,12 +1,12 @@
 ---
-description: Next.js allows you to serve static files, like images, in the public directory. You can learn how it works here.
+description: Next.jsでは、画像のような静的なファイルをpublicディレクトリ内で提供することができます。どのように動作するのかをここで学びましょう。
 ---
 
 # Static File Serving
 
-Next.js can serve static files, like images, under a folder called `public` in the root directory. Files inside `public` can then be referenced by your code starting from the base URL (`/`).
+Next.jsでは画像の様な静的なファイルを、`public`と呼ばれるルートディレクトリの中のフォルダーに置くことで提供できます。`public`内にあるファイルは、ベースURL(`/`)から始まるコードで参照できます。
 
-For example, if you add an image to `public/my-image.png`, the following code will access the image:
+例えば、もしあなたが画像を`public/my-image.png`に追加した場合、以下のコードからその画像にアクセスできます:
 
 ```jsx
 function MyImage() {
@@ -16,10 +16,10 @@ function MyImage() {
 export default MyImage;
 ```
 
-This folder is also useful for `robots.txt`, Google Site Verification, and any other static files (including `.html`)!
+このフォルダーは、`robots.txt`や、Google Site Verification、その他全ての静的ファイルの提供にも役に立ちます。(`.html`ファイルも含みます)
 
-> **Note**: Don't name the `public` directory anything else. The name cannot be changed and is the only directory used to serve static assets.
+> ****: `public`ディレクトリにはその他の名前を付けないようにしてください。この名前は変更不可であり、静的ファイルを提供するのに使用される唯一のディレクトリです。
 
-> **Note**: Be sure to not have a static file with the same name as a file in the `pages/` directory, as this will result in an error.
+> **注**:`pages/`にあるファイルと同じ名前の静的ファイルが存在しないことを確認してください。エラーが発生します。
 >
-> Read more: <http://err.sh/next.js/conflicting-public-file-page>
+>さらに読む: <http://err.sh/next.js/conflicting-public-file-page>
