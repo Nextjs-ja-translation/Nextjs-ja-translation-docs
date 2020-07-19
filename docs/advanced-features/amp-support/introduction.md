@@ -21,7 +21,7 @@ Next.jsを使えば最小限の設定で、Reactから離れることなく、�
 
 ## 注意事項
 
-- CSS-in-JS のみサポートしています。 AMPページでは [CSS Modules](/docs/basic-features/built-in-css-support.md) は現在サポートされていません。 [Next.jsのCSS Modulesのサポートについて貢献できます。](https://github.com/zeit/next.js/issues/10549)
+- CSS-in-JS のみサポートしています。 AMPページでは [CSS Modules](/docs/basic-features/built-in-css-support.md) は現在サポートされていません。 [Next.jsのCSS Modulesのサポートについて貢献できます](https://github.com/zeit/next.js/issues/10549)。
 
 ## 関連事項
 
