@@ -1,19 +1,19 @@
 ---
-description: You can add the dynamic routes used for pages to API Routes too. Learn how it works here.
+description: ページに使用される動的ルーティングはAPIのルーティングにおいても使用できます。ここではそれがどのように機能するかを学びます。
 ---
 
-# Dynamic API Routes
+# 動的APIルーティング
 
 <details open>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes">Basic API Routes</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes">基本的なAPIのルーティング</a></li>
   </ul>
 </details>
 
-API routes support [dynamic routes](/docs/routing/dynamic-routes.md), and follow the same file naming rules used for `pages`.
+APIのルーティングは[動的ルーティング](/docs/routing/dynamic-routes.md)をサポートし、`pages`に使用されるものと同じファイル命名規則に従います。
 
-For example, the API route `pages/api/post/[pid].js` has the following code:
+例えば、APIルート`pages/api/post/[pid].js`に以下のコードがあるとします:
 
 ```js
 export default (req, res) => {
@@ -25,51 +25,51 @@ export default (req, res) => {
 }
 ```
 
-Now, a request to `/api/post/abc` will respond with the text: `Post: abc`.
+このとき、`/api/post/abc`へのリクエストは次のテキストを返します: `Post: abc`
 
-### Index routes and Dynamic API routes
+### インデックスのルーティングと動的APIルーティング
 
-A very common RESTful pattern is to set up routes like this:
+非常に一般的なRESTfulパターンは、次のようなルートを設定します:
 
-- `GET api/posts/` - gets a list of posts, probably paginated
-- `GET api/posts/12345` - gets post id 12345
+- `GET api/posts/` - 投稿の一覧を取得します。おそらくページネーションがあります。
+- `GET api/posts/12345` - 投稿ID 12345 を取得します。
 
-We can model this in two ways:
+これは2つの方法でモデル化できます:
 
-- Option 1:
+- オプション 1:
   - `/api/posts.js`
   - `/api/posts/[postId].js`
-- Option 2:
+- オプション 2:
 
   - `/api/posts/index.js`
   - `/api/posts/[postId].js`
 
-Both are equivalent. A third option of only using `/api/posts/[postId].js` is not valid because Dynamic Routes (including Catch-all routes - see below) do not have an `undefined` state and `GET api/posts/` will not match `/api/posts/[postId].js` under any circumstances.
+どちらも同等です。3つ目のオプションとして`/api/posts/[postId].js`のみを使うことは正しくありません。なぜなら、どんな状況でも動的ルーティング（すべてのルートのキャッチを含む-下記を参照）には`未定義`な状態はなく、`GET api/posts/`は`/api/posts/[postId].js`に一致しないためです。
 
-### Catch all API routes
+### すべてのAPIルートをキャッチ
 
-API Routes can be extended to catch all paths by adding three dots (`...`) inside the brackets. For example:
+括弧`[]`内に3つのドット（`...`）を追加することで、APIルートを拡張してすべてのパスをキャッチできます。例えば:
 
-- `pages/api/post/[...slug].js` matches `/api/post/a`, but also `/api/post/a/b`, `/api/post/a/b/c` and so on.
+- `pages/api/post/[...slug].js`は`/api/post/a`と一致しますが、`/api/post/a/b`、`/api/post/a/b/c`なども一致します。
 
-> **Note**: You can use names other than `slug`, such as: `[...param]`
+> **備考**: `slug`以外の名前も使用できます。例えば: `[...param]`
 
-Matched parameters will be sent as a query parameter (`slug` in the example) to the page, and it will always be an array, so, the path `/api/post/a` will have the following `query` object:
+一致したパラメータはクエリパラメータ（例では`slug`）としてページに送信され、常に配列になり、パス`/api/post/a`には次の`query`オブジェクトが含まれます:
 
 ```json
 { "slug": ["a"] }
 ```
 
-And in the case of `/api/post/a/b`, and any other matching path, new parameters will be added to the array, like so:
+そして、`/api/post/a/b`やその他の一致するパスである場合、次のように新しいパラメータが配列に追加されます:
 
 ```json
 { "slug": ["a", "b"] }
 ```
 
-An API route for `pages/api/post/[...slug].js` could look like this:
+`pages/api/post/[...slug].js`のAPIルートは、次のようになります:
 
 ```js
-export default (req, res) => {
+export default (req, res） => {
   const {
     query: { slug },
   } = req
@@ -78,36 +78,36 @@ export default (req, res) => {
 }
 ```
 
-Now, a request to `/api/post/a/b/c` will respond with the text: `Post: a, b, c`.
+このとき、`/api/post/a/b/c`へのリクエストは次のテキストを返します: `Post: a, b, c`
 
-### Optional catch all API routes
+### オプショナルにすべてのAPIルートをキャッチ
 
-Catch all routes can be made optional by including the parameter in double brackets (`[[...slug]]`).
+すべてのルートをキャッチすることは、`[[...slug]]`のようにパラメータを二重括弧内に含めることでオプショナルにできます。
 
-For example, `pages/api/post/[[...slug]].js` will match `/api/post`, `/api/post/a`, `/api/post/a/b`, and so on.
+例えば、`pages/api/post/[[...slug]].js`は`/api/post`、`/api/post/a`、`/api/post/a/b`などにマッチします。
 
-The `query` objects are as follows:
+`query`オブジェクトは次のようになります:
 
 ```json
-{ } // GET `/api/post` (empty object)
-{ "slug": ["a"] } // `GET /api/post/a` (single-element array)
-{ "slug": ["a", "b"] } // `GET /api/post/a/b` (multi-element array)
+{ } // GET `/api/post` (空のオブジェクト)
+{ "slug": ["a"] } // `GET /api/post/a` (要素が1つの配列)
+{ "slug": ["a", "b"] } // `GET /api/post/a/b` (要素が複数の配列)
 ```
 
-## Caveats
+## 注意事項
 
-- Predefined API routes take precedence over dynamic API routes, and dynamic API routes over catch all API routes. Take a look at the following examples:
-  - `pages/api/post/create.js` - Will match `/api/post/create`
-  - `pages/api/post/[pid].js` - Will match `/api/post/1`, `/api/post/abc`, etc. But not `/api/post/create`
-  - `pages/api/post/[...slug].js` - Will match `/api/post/1/2`, `/api/post/a/b/c`, etc. But not `/api/post/create`, `/api/post/abc`
+- 事前定義されたAPIのルーティングは動的APIルーティングよりも優先され、動的APIルーティングはすべてのAPIルートのキャッチよりも優先されます。次の例を見てください:
+  - `pages/api/post/create.js` - `/api/post/create`にマッチします
+  - `pages/api/post/[pid].js` - `/api/post/1`、`/api/post/abc`などにマッチします。しかし、`/api/post/create`にはマッチしません。
+  - `pages/api/post/[...slug].js` - `/api/post/1/2`、`/api/post/a/b/c`などにマッチします。しかし、`/api/post/create`、`/api/post/abc`などにはマッチしません。
 
-## Related
+## 関連
 
-For more information on what to do next, we recommend the following sections:
+さらに詳細については、以下のセクションをお勧めします:
 
 <div class="card">
   <a href="/docs/routing/dynamic-routes.md">
-    <b>Dynamic Routes:</b>
-    <small>Learn more about the built-in dynamic routes.</small>
+    <b>動的ルーティング:</b>
+    <small>ビルトインの動的ルーティングについて学びましょう。</small>
   </a>
 </div>
