@@ -27,7 +27,8 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/39504660?v=4",
       "profile": "https://code-log.hatenablog.com/",
       "contributions": [
-        "code"
+        "code",
+        "review"
       ]
     },
     {
@@ -93,6 +94,15 @@
       "name": "ryuckel",
       "avatar_url": "https://avatars0.githubusercontent.com/u/36391432?v=4",
       "profile": "https://peaceful-mcclintock-c87ee2.netlify.app/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "yamanoku",
+      "name": "Okuto Oyama",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1996642?v=4",
+      "profile": "https://yamanoku.net",
       "contributions": [
         "translation"
       ]

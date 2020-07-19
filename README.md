@@ -40,7 +40,7 @@ $ yarn dev
 翻訳作業を行うためのブランチを作成します。ここでは、例として`docs/example.md`を翻訳するためのブランチを作成します。
 
 ```
-$ git checkout -b docs/example.md
+$ git checkout -b docs/example
 ```
 
 これで、翻訳を始める準備は完了です。エディタを使って、翻訳箇所のファイルを編集します。
@@ -85,7 +85,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
 <table>
   <tr>
     <td align="center"><a href="https://shinyaigeek.dev/"><img src="https://avatars1.githubusercontent.com/u/42742053?v=4" width="100px;" alt=""/><br /><sub><b>Shinobu Hayashi</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=Shinyaigeek" title="Code">💻</a> <a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3AShinyaigeek" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://code-log.hatenablog.com/"><img src="https://avatars0.githubusercontent.com/u/39504660?v=4" width="100px;" alt=""/><br /><sub><b>かみむら</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=hiro08gh" title="Code">💻</a></td>
+    <td align="center"><a href="https://code-log.hatenablog.com/"><img src="https://avatars0.githubusercontent.com/u/39504660?v=4" width="100px;" alt=""/><br /><sub><b>かみむら</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=hiro08gh" title="Code">💻</a> <a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3Ahiro08gh" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/hoosan"><img src="https://avatars3.githubusercontent.com/u/40290137?v=4" width="100px;" alt=""/><br /><sub><b>hoosan</b></sub></a><br /><a href="#translation-hoosan" title="Translation">🌍</a> <a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=hoosan" title="Documentation">📖</a> <a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3Ahoosan" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://twitter.com/okumura_daiki"><img src="https://avatars3.githubusercontent.com/u/4679138?v=4" width="100px;" alt=""/><br /><sub><b>Daiki Okumura</b></sub></a><br /><a href="#translation-okmr-d" title="Translation">🌍</a></td>
     <td align="center"><a href="https://about.me/yokinist"><img src="https://avatars2.githubusercontent.com/u/19779874?v=4" width="100px;" alt=""/><br /><sub><b>yokinist</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=yokinist" title="Documentation">📖</a> <a href="#translation-yokinist" title="Translation">🌍</a> <a href="#tool-yokinist" title="Tools">🔧</a></td>
@@ -95,6 +95,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
   <tr>
     <td align="center"><a href="https://ria-blog.org"><img src="https://avatars2.githubusercontent.com/u/11747541?v=4" width="100px;" alt=""/><br /><sub><b>ria</b></sub></a><br /><a href="#translation-ria3100" title="Translation">🌍</a></td>
     <td align="center"><a href="https://peaceful-mcclintock-c87ee2.netlify.app/"><img src="https://avatars0.githubusercontent.com/u/36391432?v=4" width="100px;" alt=""/><br /><sub><b>ryuckel</b></sub></a><br /><a href="#translation-ryuckel" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://yamanoku.net"><img src="https://avatars1.githubusercontent.com/u/1996642?v=4" width="100px;" alt=""/><br /><sub><b>Okuto Oyama</b></sub></a><br /><a href="#translation-yamanoku" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/syakoo"><img src="https://avatars1.githubusercontent.com/u/12678450?v=4" width="100px;" alt=""/><br /><sub><b>syakoo</b></sub></a><br /><a href="#translation-syakoo" title="Translation">🌍</a></td>
   </tr>
 </table>
