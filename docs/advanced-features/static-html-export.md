@@ -1,37 +1,36 @@
 ---
-description: Export your Next.js app to static HTML, and run it standalone without the need of a Node.js server.
+description: Next.jsアプリを静的なHTMLにエクスポートして、Node.jsサーバーを必要とせずともスタンドアロンで実行することができます。
 ---
-<!-- textlint-disable -->
-# Static HTML Export
+# 静的HTMLのエクスポート
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-static-export">Static Export</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-static-export">静的エクスポート</a></li>
   </ul>
 </details>
 
-`next export` allows you to export your app to static HTML, which can be run standalone without the need of a Node.js server.
+`next export` では、アプリを静的なHTMLにエクスポートできて、Node.jsサーバを必要とせずともスタンドアロンで実行できます。
 
-The exported app supports almost every feature of Next.js, including dynamic routes, prefetching, preloading and dynamic imports.
+エクスポートされたアプリは、動的ルーティング、プリフェッチ、プリロード、動的インポートなど、Next.jsのほぼすべての機能をサポートしています。
 
-`next export` works by prerendering all pages to HTML. For [dynamic routes](/docs/routing/dynamic-routes.md), your page can export a [`getStaticPaths`](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation) function to let the exporter know which HTML pages to generate for that route.
+`next export` は、すべてのページを HTML にプレレンダリングすることで動作します。[動的ルーティング](/docs/routing/dynamic-routes.md)の場合、ページはそのルーティング用に生成する HTML ページをエクスポータに知らせる [`getStaticPaths`](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation) 関数をエクスポートできます。
 
-> `next export` is intended for scenarios where **none** of your pages have server-side or incremental data requirements (though statically-rendered pages can still [fetch data on the client side](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side) just fine).
+> `next export` は、サーバサイドやインクリメンタルデータを**必要としない**ページのシナリオを想定しています（ただし、静的にレンダリングされたページは[クライアントサイドでデータを取得する](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side)ことができます）。
 >
-> If you're looking to make a hybrid site where only _some_ pages are prerendered to static HTML, Next.js already does that automatically for you! Read up on [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) for details.
+> _一部の_ ページのみを静的 HTML にプリレンダするハイブリッドサイトを作りたい場合、Next.js はすでに自動で静的最適化を行っています。詳しくは[自動静的最適化](/docs/advanced-features/automatic-static-optimization.md)をお読みください。
 >
-> `next export` also causes features like Incremental Static Generation and Regeneration to be disabled, as they require `next start` or a serverless deployment to function.
+> `next export`では、`next start` またはサーバーレスデプロイが機能するために必要な、インクリメンタル静的ジェネレートやリジェネレーションのような機能も無効になります。
 
-## How to use it
+## 使い方
 
-Develop your app as you normally do with Next.js. Then run:
+Next.jsを使って通常通りにアプリを開発します。その後、次のコマンドを実行します:
 
 ```bash
 next build && next export
 ```
 
-For that you may want to update the scripts in your `package.json` like this:
+`package.json` の scripts を以下のように更新するとよいでしょう:
 
 ```json
 "scripts": {
@@ -39,34 +38,34 @@ For that you may want to update the scripts in your `package.json` like this:
 }
 ```
 
-And run it with:
+次のコマンドで実行できます:
 
 ```bash
 npm run build
 ```
 
-Then you'll have a static version of your app in the `out` directory.
+そうすると、`out` ディレクトリに静的バージョンのアプリが作成されます。
 
-By default `next export` doesn't require any configuration.
-It will output a static HTML file for each page in your `pages` directory (or more for [dynamic routes](/docs/routing/dynamic-routes.md), where it will call [`getStaticPaths`](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation) and generate pages based on the result).
-For more advanced scenarios, you can define a parameter called [`exportPathMap`](/docs/api-reference/next.config.js/exportPathMap.md) in your [`next.config.js`](/docs/api-reference/next.config.js/introduction.md) file to configure exactly which pages will be generated.
+デフォルトでは `next export` の設定は必要ありません。`pages` ディレクトリ内のページごとに静的なHTMLファイルが出力されます([動的ルーティング](/docs/routing/dynamic-routes.md)の場合は、`getStaticPaths` を呼び出し、結果に基づいてページを生成します)。
+より高度なシナリオでは、[`exportPathMap`](/docs/api-reference/next.config.js/exportPathMap.md) というパラメータを [`next.config.js`](/docs/api-reference/next.config.js/introduction.md) ファイルに定義して、どのページが生成されるかを正確に設定できます。
 
-## Deployment
+## デプロイ
 
-You can read about deploying your Next.js application in the [deployment section](/docs/deployment.md).
+Next.jsのアプリケーションをデプロイするには[デプロイのセクション](/docs/deployment.md)を参照してください。
 
-## Caveats
+## 注意事項
 
-- With `next export`, we build an HTML version of your app. At export time, we call [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) for each page that exports it, and pass the result to the page's component. It's also possible to use the older [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md) API instead of `getStaticProps`, but it comes with a few caveats:
+- `next export` では、アプリのHTML版を作成します。エクスポート時には、エクスポートしたページごとに [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) を呼び出し、その結果をそのページのコンポーネントに渡します。また、`getStaticProps` の代わりに古い [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md) API の使用は可能ですが、いくつかの注意点があります:
 
-  - `getInitialProps` cannot be used alongside `getStaticProps` or `getStaticPaths` on any given page. If you have dynamic routes, instead of using `getStaticPaths` you'll need to configure the [`exportPathMap`](/docs/api-reference/next.config.js/exportPathMap.md) parameter in your [`next.config.js`](/docs/api-reference/next.config.js/introduction.md) file to let the exporter know which HTML files it should output.
-  - When `getInitialProps` is called during export, the `req` and `res` fields of its [`context`](/docs/api-reference/data-fetching/getInitialProps.md#context-object) parameter will be empty objects, since during export there is no server running.
-  - `getInitialProps` **will be called on every client-side navigation**, if you'd like to only fetch data at build-time, switch to `getStaticProps`.
-  - `getInitialProps` cannot use Node.js-specific libraries or the file system like `getStaticProps` can. `getInitialProps` must fetch from an API.
+  - `getInitialProps` は、任意のページで `getStaticProps` や `getStaticPaths` と一緒に使うことはできません。動的ルーティングがある場合は、`getStaticPaths` を使用する代わりに、[`next.config.js`](/docs/api-reference/next.config.js/introduction.md) ファイルの [`exportPathMap`](/docs/api-reference/next.config.js/exportPathMap.md) パラメータを設定して、出力すべきHTMLファイルをエクスポータに知らせる必要があります。
+  - エクスポート中に `getInitialProps` が呼び出された場合、エクスポート中はサーバが動作していないため、[`context`](/docs/api-reference/data-fetching/getInitialProps.md#context-object) パラメータの `req` と `res` フィールドは空のオブジェクトになります。
+  - `getInitialProps` **はすべてのクライアント側のナビゲーションに対して呼び出されるので**、もしビルド時のみデータを取得したい場合は `getStaticProps` に切り替えてください。
+  - `getInitialProps` は `getStaticProps` のように Node.js 固有のライブラリやファイルシステムを利用できません。`getInitialProps` は API から取得しなければなりません。
 
-  For static export, the `getStaticProps` API is always preferred over `getInitialProps`: it's recommended you convert your pages to use the `getStaticProps` if possible.
+  静的なエクスポートでは、`getInitialProps` よりも `getStaticProps` APIの方が常に優先されます: 可能であれば、`getStaticProps` を使用してページを変換することをお勧めします。
 
-- The `fallback: true` mode of `getStaticPaths` is not supported when using `next export`.
-- You won't be able to render HTML dynamically when static exporting, as the HTML files are pre-build. Your application can be a hybrid of [Static Generation](/docs/basic-features/pages.md#static-generation) and [Server-Side Rendering](/docs/basic-features/pages.md#server-side-rendering) when you don't use `next export`. You can learn more about it in the [pages section](/docs/basic-features/pages.md).
-- [API Routes](/docs/api-routes/introduction.md) are not supported by this method because they can't be prerendered to HTML.
-- [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering) cannot be used within pages because the method requires a server. Consider using [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) instead.
+- `next export`を使っているときは、`getStaticPaths` の `fallback: true` モードはサポートされていません。
+- HTML ファイルは事前にビルドされているため、静的エクスポート時に HTML を動的にレンダリングできません。`next export` を使用しない場合、アプリケーションは[静的生成](/docs/basic-features/pages.md#static-generation)と[サーバーサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering)の混合になる可能性があります。[ページのセクション](/docs/basic-features/pages.md)で詳しく説明しています。
+
+- [API ルーティング](/docs/api-routes/introduction.md) は HTML にプリレンダリングできないため、このメソッドではサポートされていません。
+- [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering) はサーバーを必要とするメソッドのため、ページ内では使用できません。代わりに [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) を使用することを検討してください。
