@@ -108,7 +108,7 @@
               "title": "AMP Support",
               "routes": [
                 {
-                  "title": "Introduction",
+                  "title": "はじめに",
                   "path": "/docs/advanced-features/amp-support/introduction.md"
                 },
                 {
