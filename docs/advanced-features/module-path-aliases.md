@@ -50,7 +50,7 @@ export default function HomePage() {
 
 `"paths"`オプションを設定すると、複数ファイルへ対応するモジュールパスエイリアスを設定できます。たとえば、`@/components/*`を`components/*`と解釈するようマッピングできます。
 
-この場合のサンプルコードは以下の通りです。
+この場合のサンプルコードは以下の通りです:
 
 ```json
 // tsconfig.json または jsconfig.json
