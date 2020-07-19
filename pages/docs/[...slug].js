@@ -19,6 +19,7 @@ import Sticky from '../../components/sticky';
 import { useIsMobile } from '../../components/media-query';
 import FeedbackContext from '../../components/feedback-context';
 import Skeleton from '../../components/skeleton';
+import { DOCUMENT_URL } from '../../lib/constants';
 
 function getCategoryPath(routes) {
   const route = routes.find(r => r.path);
@@ -138,7 +139,7 @@ const Docs = ({ routes, route: _route, data, html }) => {
             </Container>
             <SocialMeta
               title={title}
-              url={`https://nextjs.org${asPath}`}
+              url={`${DOCUMENT_URL}${asPath}`}
               image="/static/twitter-cards/documentation.png"
               description={data.description}
             />

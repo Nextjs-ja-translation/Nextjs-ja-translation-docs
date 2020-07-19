@@ -1,9 +1,7 @@
 import Head from 'next/head';
-import { TWITTER_USER_NAME } from '../lib/constants';
 
 export default ({ title, description, image, url, keywords }) => (
   <Head>
-    <meta name="twitter:site" content={`@${TWITTER_USER_NAME}`} />
     <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
     {title && <meta name="og:title" content={title} />}
     {url && <meta name="og:url" content={url} />}

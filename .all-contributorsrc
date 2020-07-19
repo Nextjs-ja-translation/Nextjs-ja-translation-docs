@@ -7,12 +7,9 @@
     "README.md"
   ],
   "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
-  "contributorTemplate": "<a href=\"<%= contributor.profile %>\"><img src=\"<%= contributor.avatar_url %>\" width=\"<%= options.imageSize %>px;\" alt=\"\"/><br /><sub><b><%= contributor.name %></b></sub></a>",
   "imageSize": 100,
   "commit": true,
   "commitConvention": "none",
-  "contributorsPerLine": 7,
-  "skipCi": true,
   "contributors": [
     {
       "login": "Shinyaigeek",
@@ -23,6 +20,93 @@
         "code",
         "review"
       ]
+    },
+    {
+      "login": "hiro08gh",
+      "name": "かみむら",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/39504660?v=4",
+      "profile": "https://code-log.hatenablog.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "hoosan",
+      "name": "hoosan",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/40290137?v=4",
+      "profile": "https://github.com/hoosan",
+      "contributions": [
+        "translation",
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "okmr-d",
+      "name": "Daiki Okumura",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4679138?v=4",
+      "profile": "https://twitter.com/okumura_daiki",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "yokinist",
+      "name": "yokinist",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/19779874?v=4",
+      "profile": "https://about.me/yokinist",
+      "contributions": [
+        "doc",
+        "translation",
+        "tool"
+      ]
+    },
+    {
+      "login": "96-38",
+      "name": "kurosawa",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/48713768?v=4",
+      "profile": "https://github.com/96-38",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "noriaki",
+      "name": "Noriaki UCHIYAMA",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/44050?v=4",
+      "profile": "http://www.facebook.com/noriaki.uchiyama",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "ria3100",
+      "name": "ria",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/11747541?v=4",
+      "profile": "https://ria-blog.org",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "ryuckel",
+      "name": "ryuckel",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/36391432?v=4",
+      "profile": "https://peaceful-mcclintock-c87ee2.netlify.app/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "syakoo",
+      "name": "syakoo",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/12678450?v=4",
+      "profile": "https://github.com/syakoo",
+      "contributions": [
+        "translation"
+      ]
     }
-  ]
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true
 }

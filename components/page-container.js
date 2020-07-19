@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Router from 'next/router';
 import { trackPageview } from '../lib/analytics';
-import { ORG_NAME } from '../lib/constants';
 import { FONT_FAMILY_SANS } from './css-config';
 
 Router.events.on('routeChangeComplete', url => {
@@ -12,11 +11,11 @@ export default function PageContainer({ title, description, children }) {
   return (
     <div>
       <Head>
-        <title>{title || `Next.js by ${ORG_NAME} - The React Framework`}</title>
+        <title>{title || `Next.js 非公式日本語翻訳ドキュメント`}</title>
         {description !== false && (
           <meta
             name="description"
-            content={description || `Next.js by ${ORG_NAME} is the React framework for production`}
+            content={description || 'Next.js のドキュメントの非公式日本語翻訳サイト'}
           />
         )}
       </Head>

@@ -1,25 +1,25 @@
 ---
-description: Next.js supports API Routes, which allow you to build your API without leaving your Next.js app. Learn how it works here.
+description: Next.jsはAPIルートをサポートしており、Next.jsアプリから離れずにAPIを構築することができます。 どのように動作するか学んでいきましょう。
 ---
 
-# API Routes
+# API ルート
 
 <details open>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes">Basic API Routes</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-middleware">API Routes with middleware</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-graphql">API Routes with GraphQL</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-rest">API Routes with REST</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-cors">API Routes with CORS</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes">基本的なAPI ルート</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-middleware">ミドルウェアを用いたAPI ルート</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-graphql">GraphQLを用いたAPI ルート</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-rest">RESTを用いたAPI ルート</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-cors">CORSを用いたAPI ルート</a></li>
   </ul>
 </details>
 
-API routes provide a straightforward solution to build your **API** with Next.js.
+API ルートはNext.jsで**API**を構築する簡単な方法を提供しています。
 
-Any file inside the folder `pages/api` is mapped to `/api/*` and will be treated as an API endpoint instead of a `page`.
+`pages/api`フォルダ内にあるすべてのファイルは`/api/*`にマッピングされ、`page`の代わりにAPI エンドポイントとして扱われます。
 
-For example, the following API route `pages/api/user.js` handles a `json` response:
+例えば、以下のAPI ルート`pages/api/user.js`は`json`レスポンスを扱います:
 
 ```js
 export default (req, res) => {
@@ -29,50 +29,50 @@ export default (req, res) => {
 };
 ```
 
-For an API route to work, you need to export as default a function (a.k.a **request handler**), which then receives the following parameters:
+API ルートを使用するためには、関数(**リクエストハンドラ**)をデフォルトとしてエクスポートする必要があり、この関数は以下の2つのパラメータを受け取ります:
 
-- `req`: An instance of [http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage), plus some pre-built middlewares you can see [here](/docs/api-routes/api-middlewares.md)
-- `res`: An instance of [http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse), plus some helper functions you can see [here](/docs/api-routes/response-helpers.md)
+- `req`: [http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage)のインスタンスと、[こちら](/docs/api-routes/api-middlewares.md)にある組み込みミドルウェア。
+- `res`: [http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse)のインスタンスと、[こちら](/docs/api-routes/response-helpers.md)にあるヘルパー関数。
 
-To handle different HTTP methods in an API route, you can use `req.method` in your request handler, like so:
+API ルートで異なるHTTPメソッドを処理するには、次のようにリクエストハンドラの`req.method`を使うことができます:
 
 ```js
 export default (req, res) => {
   if (req.method === 'POST') {
-    // Process a POST request
+    // POSTリクエストを処理します
   } else {
-    // Handle any other HTTP method
+    // その他のHTTPメソッドを処理します
   }
 };
 ```
 
-To fetch API endpoints, take a look into any of the examples at the start of this section.
+API エンドポイントを取得するには、このセクションの最初にある例のどれかをご覧ください。
 
-> API Routes [do not specify CORS headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), meaning they are **same-origin only** by default. You can customize such behavior by wrapping the request handler with the [cors middleware](/docs/api-routes/api-middlewares.md#connectexpress-middleware-support).
+> API ルートは[CORSヘッダーを指定しません](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)。つまり、標準では**同一オリジンのみ**となります。[cors ミドルウェア](/docs/api-routes/api-middlewares.md#connectexpress-middleware-support)でリクエストハンドラをラップすることで挙動をカスタマイズすることができます。
 
-> API Routes do not increase your client-side bundle size. They are server-side only bundles.
+> API ルートを使用しても、クライアントサイドのバンドルサイズが大きくなることはありません。これらはサーバーサイドのみのバンドルです。
 
-## Related
+## 関連
 
-For more information on what to do next, we recommend the following sections:
+以下のセクションを次に読むことをお勧めします:
 
 <div class="card">
   <a href="/docs/api-routes/api-middlewares.md">
-    <b>API Middlewares:</b>
-    <small>learn about the built-in middlewares for the request.</small>
+    <b>API ミドルウェア:</b>
+    <small>リクエストのための組み込みミドルウェアについて学ぶ。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/api-routes/response-helpers.md">
-    <b>Response Helpers:</b>
-    <small>learn about the built-in methods for the response.</small>
+    <b>レスポンスヘルパー:</b>
+    <small>レスポンスのための組み込みメソッドについて学ぶ。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/basic-features/typescript.md#api-routes">
     <b>TypeScript:</b>
-    <small>Add TypeScript to your API Routes.</small>
+    <small>API ルートにTypeScriptを追加する。</small>
   </a>
 </div>

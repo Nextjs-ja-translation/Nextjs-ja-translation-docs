@@ -42,7 +42,7 @@ class LogoContainer extends React.PureComponent {
     // const LOGO_TOP = isMobile ? 126 : 170;
     const LOGO_TOP = 170 + 50; // 170 + height of banner
     return (
-      <div className={classNames('logo-main f4 fw6', { unmounted: !mounted })}>
+      <div className={classNames('logo-main f0 fw9', { unmounted: !mounted })}>
         <Link href="/">
           <a className={scroll >= LOGO_TOP ? null : 'disable'} aria-label="Next.js">
             <Logo size={80} />
@@ -128,23 +128,17 @@ export default class extends React.PureComponent {
           <div className="intro-container">
             <LogoContainer isAmp={isAmp} />
             <div className="campaign no-drag no-tap-highlight">
-              <h1 className={classNames('title-1', 'fw6')}>The React Framework for</h1>
-              <h2 className={classNames('title-2', 'fw7')}>
-                <Campaign />
-              </h2>
+              <h1 className={classNames('title-1', 'fw6')}>ドキュメント日本語翻訳サイト</h1>
               <div className="main-button">
                 <div className="button-spacer">
-                  <Button
-                    href="/learn/basics/create-nextjs-app?utm_source=next-site&utm_medium=homepage-cta&utm_campaign=next-website"
-                    invert
-                  >
-                    Start Learning
+                  <Button href="/docs/[...slug]" as="/docs/getting-started" invert>
+                    ドキュメントへ
                   </Button>
                 </div>
 
                 <div className="button-spacer">
-                  <Button href="#showcases" invert outline>
-                    View Showcase
+                  <Button href="/contributors" invert outline>
+                    コントリビューター
                   </Button>
                 </div>
               </div>
@@ -155,8 +149,8 @@ export default class extends React.PureComponent {
                   <span className="mute">License: MIT</span>
                 </a>
                 <div>
-                  <Button href="/docs" amp>
-                    View Docs
+                  <Button href="https://nextjs.org/docs/" amp>
+                    Origin Docs
                   </Button>
                 </div>
                 <div>

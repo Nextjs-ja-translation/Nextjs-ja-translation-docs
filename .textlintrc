@@ -1,0 +1,21 @@
+{
+  "rules": {
+    "preset-ja-technical-writing": {
+      "no-exclamation-question-mark": {
+        "allowFullWidthExclamation": true,
+        "allowFullWidthQuestion": true,
+      }
+    },
+    "ja-technical-writing/ja-no-mixed-period": {
+      "allowPeriodMarks": [":"],
+    },
+    "prh": {
+      "rulePaths" :[
+        "rules.yml"
+      ]
+    }
+  },
+  "filters": {
+    "comments": true
+  }
+}

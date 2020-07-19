@@ -4,7 +4,7 @@
       "title": "Documentation",
       "heading": true,
       "routes": [
-        { "title": "Getting Started", "path": "/docs/getting-started.md" },
+        { "title": "はじめに", "path": "/docs/getting-started.md" },
         {
           "title": "Basic Features",
           "open": true,
@@ -30,7 +30,7 @@
               "path": "/docs/basic-features/typescript.md"
             },
             {
-              "title": "Environment Variables",
+              "title": "環境変数",
               "path": "/docs/basic-features/environment-variables.md"
             }
           ]
@@ -60,7 +60,7 @@
           "title": "API Routes",
           "routes": [
             {
-              "title": "Introduction",
+              "title": "はじめに",
               "path": "/docs/api-routes/introduction.md"
             },
             {
@@ -72,7 +72,7 @@
               "path": "/docs/api-routes/api-middlewares.md"
             },
             {
-              "title": "Response Helpers",
+              "title": "レスポンスヘルパー",
               "path": "/docs/api-routes/response-helpers.md"
             }
           ]
@@ -89,7 +89,7 @@
               "path": "/docs/advanced-features/preview-mode.md"
             },
             {
-              "title": "Dynamic Import",
+              "title": "動的インポート",
               "path": "/docs/advanced-features/dynamic-import.md"
             },
             {

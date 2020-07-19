@@ -9,16 +9,12 @@
   "scripts": {
     "dev": "next",
     "start": "next start",
-    "build": "next build && yarn build:rss",
+    "build": "next build",
     "analyze": "ANALYZE=true next build",
-    "build:rss": "node ./.next/serverless/scripts/build-rss.js",
     "index-docs": "node ./.next/serverless/scripts/index-docs.js",
-    "lint": "eslint ."
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
+    "lint": "eslint .",
+    "text-lint": "textlint",
+    "text-lint:fix": "textlint --fix"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "0.3.1",
@@ -55,6 +51,9 @@
     "rehype-stringify": "6.0.0",
     "remark-parse": "7.0.1",
     "remark-rehype": "5.0.0",
+    "textlint": "11.6.3",
+    "textlint-rule-preset-ja-technical-writing": "4.0.0",
+    "textlint-rule-prh": "5.3.0",
     "twemoji": "13.0.0",
     "unified": "8.4.1",
     "unist-util-visit": "2.0.0"
@@ -65,6 +64,7 @@
     "@types/react": "16.9.34",
     "@typescript-eslint/eslint-plugin": "2.31.0",
     "@typescript-eslint/parser": "2.31.0",
+    "all-contributors-cli": "6.16.0",
     "babel-eslint": "^10.1.0",
     "eslint": "6.8.0",
     "eslint-config-airbnb": "18.1.0",
@@ -76,9 +76,11 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "4.0.0",
     "husky": "4.2.5",
+    "lint-staged": "10.2.11",
     "prettier": "^2.0.5",
     "pretty-quick": "2.0.1",
     "rss": "1.2.2",
+    "textlint-filter-rule-comments": "1.2.2",
     "typescript": "3.8.3"
   },
   "license": "MIT"
