@@ -14,7 +14,7 @@ Next.jsでは`tsconfig.json`や`jsconfig.json`の`"paths"`と`"baseUrl"`オプ�
 
 `baseUrl`オプションを設定すると、プロジェクトのルートディレクトリからのパスで直接インポート可能になります。
 
-この場合のサンプルコードは以下の通りです。
+この場合のサンプルコードは以下の通りです:
 
 ```json
 // tsconfig.json または jsconfig.json
