@@ -8,7 +8,7 @@
 
 Next.jsのドキュメントを翻訳する非公式プロジェクトです。
 
-[本家公式ドキュメント)](https://nextjs.org/docs/getting-started)
+[本家公式ドキュメント](https://nextjs.org/docs/getting-started)
 
 ## 翻訳手順
 
