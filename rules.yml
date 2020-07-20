@@ -29,3 +29,22 @@ rules:
     pattern:
       - おすすめ
       - オススメ
+
+  - expected: 注意事項
+    pattern:
+      - 注意点
+      - 警告
+
+  - expected: 例
+    pattern:
+      - 使用例
+      - サンプル
+
+  - expected: 関連事項
+    pattern:
+      - 関連
+      - 関連ページ
+
+  - expected: 備考
+    pattern:
+      - ノート
