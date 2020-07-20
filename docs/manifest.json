@@ -22,7 +22,7 @@
               "path": "/docs/basic-features/built-in-css-support.md"
             },
             {
-              "title": "Static File Serving",
+              "title": "静的ファイルの配信",
               "path": "/docs/basic-features/static-file-serving.md"
             },
             {
@@ -97,22 +97,22 @@
               "path": "/docs/advanced-features/automatic-static-optimization.md"
             },
             {
-              "title": "Static HTML Export",
+              "title": "静的HTMLのエクスポート",
               "path": "/docs/advanced-features/static-html-export.md"
             },
             {
-              "title": "Absolute Imports and Module Path Aliases",
+              "title": "絶対パスインポートとモジュールパスエイリアス",
               "path": "/docs/advanced-features/module-path-aliases.md"
             },
             {
               "title": "AMP Support",
               "routes": [
                 {
-                  "title": "Introduction",
+                  "title": "はじめに",
                   "path": "/docs/advanced-features/amp-support/introduction.md"
                 },
                 {
-                  "title": "Adding AMP Components",
+                  "title": "AMPコンポーネントの追加",
                   "path": "/docs/advanced-features/amp-support/adding-amp-components.md"
                 },
                 {

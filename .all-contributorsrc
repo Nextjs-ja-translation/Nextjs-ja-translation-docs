@@ -17,7 +17,8 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/42742053?v=4",
       "profile": "https://shinyaigeek.dev/",
       "contributions": [
-        "code"
+        "code",
+        "review"
       ]
     },
     {
@@ -58,7 +59,8 @@
       "contributions": [
         "doc",
         "translation",
-        "tool"
+        "tool",
+        "review"
       ]
     },
     {
@@ -113,6 +115,15 @@
       "profile": "https://github.com/syakoo",
       "contributions": [
         "translation"
+      ]
+    },
+    {
+      "login": "thesugar",
+      "name": "thesugar / Ryohei Sato",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/53966025?v=4",
+      "profile": "https://thesugar.me",
+      "contributions": [
+        "review"
       ]
     }
   ],
