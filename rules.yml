@@ -36,9 +36,14 @@ rules:
       - 警告
 
   - expected: 例
+    pattern: /サンプル(?!コード)/
+    specs:
+      - from: サンプル
+        to: 例
+
+  - expected: 例
     pattern:
       - 使用例
-      - サンプル
 
   - expected: 関連事項
     pattern: /関連(?!事項)/
