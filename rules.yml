@@ -40,11 +40,6 @@ rules:
       - 使用例
       - サンプル
 
-  - expected: 関連事項
-    pattern:
-      - 関連
-      - 関連ページ
-
   - expected: 備考
     pattern:
       - ノート
