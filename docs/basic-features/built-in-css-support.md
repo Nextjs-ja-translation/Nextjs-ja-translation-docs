@@ -5,7 +5,7 @@ description: Next.js は、グローバル CSS もしくは CSS Modules の読�
 # CSS のビルトインサポート
 
 Next.js では、 JavaScript ファイルから CSS をインポートできます。  
-これは、 Next.js が JavaScript の範囲を越えて [`import`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/import) の概念を拡張することで実現しています。
+これは、 Next.js が JavaScript の [`import`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/import) の概念を拡張することで実現しています。
 
 ## グローバルスタイルシートの追加
 
