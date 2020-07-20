@@ -4,10 +4,10 @@ description: ビルド時に、Next.jsアプリケーションに環境変数を
 
 # 環境変数
 
-> Next.js 9.4のリリース以降、[環境変数の追加](/docs/basic-features/environment-variables.md)がより直感的かつ人間工学に基づいて行えるようになりました。 試してみてください！
+> Next.js 9.4のリリース以降、[環境変数の追加](/docs/basic-features/environment-variables.md)がより直感的で、自然に行えるようになりました。試してみてください！
 
 <details>
-  <summary><b>使用例</b></summary>
+  <summary><b>例</b></summary>
   <ul>
     <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-env-from-next-config-js">envのみ</a></li>
     <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-now-env">Nowとenv</a></li>
@@ -35,7 +35,7 @@ export default Page;
 ```
 Next.jsはビルド時に`process.env.customKey`を`'my-value'`に置き換えます。 Webpack [DefinePlugin](https://webpack.js.org/plugins/define-plugin/)の性質上、`process.env` の変数を上書きしようとしてもうまくいきません。
 
-例として、下記のような環境変数は:
+例えば、下記のような環境変数は:
 
 ```jsx
 return <h1>カスタムキーの値は: {process.env.customKey}</h1>;
@@ -47,7 +47,7 @@ return <h1>カスタムキーの値は: {process.env.customKey}</h1>;
 return <h1>カスタムキーの値は: {'my-value'}</h1>;
 ```
 
-## 関連
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
