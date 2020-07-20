@@ -1,33 +1,33 @@
-# Multi Zones
+# マルチゾーン
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="/examples/with-zones">With Zones</a></li>
+    <li><a href="/examples/with-zones">マルチゾーン</a></li>
   </ul>
 </details>
 
-A zone is a single deployment of a Next.js app. You can have multiple zones and merge them as a single app.
+ゾーンとは Next.js アプリケーションの単一のデプロイメントのことです。複数のゾーンを単一のアプリケーションに統合もできます。
 
-For example, let's say you have the following apps:
+例えば、以下のアプリケーションがあるとします:
 
-- An app for serving `/blog/**`
-- Another app for serving all other pages
+- `/blog/**` を配信するためのアプリケーション
+- 他のすべてのページを配信するための別のアプリケーション
 
-With multi zones support, you can merge both these apps into a single one allowing your customers to browse it using a single URL, but you can develop and deploy both apps independently.
+マルチゾーンのサポートにより、これら両方のアプリケーションを 1 つに統合して単一の URL から閲覧できるようにしながらも、両方のアプリケーションを独立して開発・デプロイできます。
 
-## How to define a zone
+## ゾーンを定義する方法
 
-There are no special zones related APIs. You only need to do following:
+ゾーンに関係した特別な API はありません。必要な作業は以下だけです:
 
-- Make sure to keep only the pages you need in your app, meaning that an app can't have pages from another app, if app `A` has `/blog` then app `B` shouldn't have it too.
-- Make sure to add an [assetPrefix](/docs/api-reference/next.config.js/cdn-support-with-asset-prefix.md) to avoid conflicts with static files.
+- アプリケーションに必要なページのみを保持するようにしてください。これは、あるアプリケーションが別のアプリケーションのページを保持できないことを意味します。もしもアプリケーション `A` に `/blog` が存在している場合は、アプリケーション `B` はそれを持つべきではありません。
+- 静的ファイルのコンフリクトを避けるために、[assetPrefix](/docs/api-reference/next.config.js/cdn-support-with-asset-prefix.md) を追加してください。
 
-## How to merge zones
+## ゾーンを統合する方法
 
-You can merge zones using any HTTP proxy.
+任意の HTTP プロキシを使用してゾーンを統合できます。
 
-For [Vercel](https://vercel.com/now), you can use a single `now.json` to deploy both apps. It allows you to define routing routes for multiple apps like below:
+[Vercel](https://vercel.com/now) の場合、 単一の `now.json` 両方のアプリケーションのデプロイに使用できます。複数のアプリケーションのルーティングは以下のように定義できます:
 
 ```json
 {
@@ -44,4 +44,4 @@ For [Vercel](https://vercel.com/now), you can use a single `now.json` to deploy 
 }
 ```
 
-You can also configure a proxy server to route using a set of routes like the ones above, e.g deploy the blog app to `https://blog.example.com` and the home app to `https://home.example.com` and then add a proxy server for both apps in `https://example.com`.
+また、上記のような一連のルートを使用してルーティングするように、プロキシサーバを設定してもよいでしょう。例. ブログアプリケーションを `https://blog.example.com` に、ホームアプリケーションを `https://home.example.com` にそれぞれデプロイし、 `https://example.com` に両方のアプリケーションのプロキシサーバを追加する。
