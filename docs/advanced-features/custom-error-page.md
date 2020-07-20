@@ -1,16 +1,16 @@
 ---
-description: Override and extend the built-in Error page to handle custom errors.
+description: カスタムエラーを処理するために組み込みのエラーページを上書きして拡張しましょう。
 ---
 
-## 404 Page
+## 404 ページ
 
-A 404 page may be accessed very often. Server-rendering an error page for every visit increases the load of the Next.js server. This can result in increased costs and slow experiences.
+404ページは頻繁にアクセスされます。アクセスのたびにエラーページをサーバーサイドレンダリングすると、Next.jsサーバーの負荷が高くなってしまいます。その結果、コストが増加したり、体験が遅くなったりすることがあります。
 
-To avoid the above pitfalls, Next.js provides a static 404 page by default without having to add any additional files.
+これを避けるために、Next.jsではファイルを追加することなく標準で静的な404ページを提供しています。
 
-### Customizing The 404 Page
+### 404 ページのカスタマイズ
 
-To create a custom 404 page you can create a `pages/404.js` file. This file is statically generated at build time.
+`pages/404.js`ファイルを作成することで、カスタムの404ページを作ることができます。このファイルはビルド時に静的に生成されます。
 
 ```jsx
 // pages/404.js
@@ -19,13 +19,13 @@ export default function Custom404() {
 }
 ```
 
-## 500 Page
+## 500 ページ
 
-By default Next.js provides a 500 error page that matches the default 404 page’s style. This page is not statically optimized as it allows server-side errors to be reported. This is why 404 and 500 (other errors) are separated.
+標準では、Next.jsは標準の404ページのスタイルと同じ500エラーページを提供しています。このページはサーバーサイドのエラーを報告させるため、静的に最適化されません。そのため、404と500(その他のエラー)は分けられています。
 
-### Customizing The Error Page
+### エラーページのカスタマイズ
 
-500 errors are handled both client-side and server-side by the `Error` component. If you wish to override it, define the file `pages/_error.js` and add the following code:
+500エラーは`Error`コンポーネントによって、クライアントサイドとサーバーサイドの両方で処理されます。上書きしたいのであれば`pages/_error.js`ファイルを作成し、以下のコードを追加します:
 
 ```jsx
 function Error({ statusCode }) {
@@ -44,11 +44,11 @@ Error.getInitialProps = ({ res, err }) => {
 export default Error;
 ```
 
-> `pages/_error.js` is only used in production. In development you’ll get an error with the call stack to know where the error originated from.
+> `pages/_error.js`は運用時でのみ使われます。開発時ではエラーがどこから発生したのかを知るためのコールスタックでエラーを取得します。
 
-### Reusing the built-in error page
+### 組み込みエラーページの再利用
 
-If you want to render the built-in error page you can by importing the `Error` component:
+組み込みエラーページをレンダリングしたい場合は、`Error`コンポーネントをインポートします:
 
 ```jsx
 import Error from 'next/error';
@@ -72,4 +72,4 @@ export default function Page({ errorCode, stars }) {
 }
 ```
 
-The `Error` component also takes `title` as a property if you want to pass in a text message along with a `statusCode`.
+また、`statusCode`と一緒にテキストメッセージを渡したい場合、`Error`コンポーネントは`title`もプロパティとして受け取ります。
