@@ -21,7 +21,7 @@ Next.jsは、HTMLページにAMPページへのリンクを自動的に挿入す
 <link rel="amphtml" href="/about.amp.html" />
 ```
 
-また、AMPページにHTMLページへのリンクを挿入します:
+そして、AMPページにHTMLページへのリンクが挿入されます:
 
 ```jsx
 <link rel="canonical" href="/about" />
