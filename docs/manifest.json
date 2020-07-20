@@ -101,7 +101,7 @@
               "path": "/docs/advanced-features/static-html-export.md"
             },
             {
-              "title": "Absolute Imports and Module Path Aliases",
+              "title": "絶対パスインポートとモジュールパスエイリアス",
               "path": "/docs/advanced-features/module-path-aliases.md"
             },
             {
@@ -158,7 +158,7 @@
               "path": "/docs/advanced-features/src-directory.md"
             },
             {
-              "title": "Multi Zones",
+              "title": "マルチゾーン",
               "path": "/docs/advanced-features/multi-zones.md"
             },
             {
@@ -212,7 +212,7 @@
               "path": "/docs/api-reference/next.config.js/introduction.md"
             },
             {
-              "title": "Environment Variables",
+              "title": "環境変数",
               "path": "/docs/api-reference/next.config.js/environment-variables.md"
             },
             {

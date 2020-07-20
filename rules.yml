@@ -41,9 +41,10 @@ rules:
       - サンプル
 
   - expected: 関連事項
-    pattern:
-      - 関連
-      - 関連ページ
+    pattern: /関連(?!事項)/
+    specs:
+      - from: 関連
+        to: 関連事項
 
   - expected: 備考
     pattern:
