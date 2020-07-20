@@ -1,18 +1,18 @@
 ---
-description: Control page initialization and add a layout that persists for all pages by overriding the default App component used by Next.js.
+description: Next.jsが使用する標準のAppコンポーネントを上書きすることで、ページの初期化を制御し、すべてのページで存在するレイアウトを追加します。
 ---
 
 # Custom `App`
 
-Next.js uses the `App` component to initialize pages. You can override it and control the page initialization. Which allows you to do amazing things like:
+Next.jsはAppコンポーネントを使ってページの初期化を行います。Appコンポーネントを上書きして、ページ初期化の制御を行えます。これによって次のようなことが実現できます。
 
-- Persisting layout between page changes
-- Keeping state when navigating pages
-- Custom error handling using `componentDidCatch`
-- Inject additional data into pages
-- [Add global CSS](/docs/basic-features/built-in-css-support#adding-a-global-stylesheet)
+- ページ変化の間でレイアウトを保持する
+- ページ遷移時にstateを保持する
+- componentDidCatchを使って独自のエラーハンドリングを行う
+- ページに追加の情報を注入する
+- [グローバルCSSを追加する](/docs/basic-features/built-in-css-support#adding-a-global-stylesheet)
 
-To override the default `App`, create the file `./pages/_app.js` as shown below:
+標準の`App`を上書きするには、次に示すような`./pages/_app.js`を作成します。
 
 ```jsx
 // import App from 'next/app'
@@ -21,13 +21,11 @@ function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
 
-// Only uncomment this method if you have blocking data requirements for
-// every single page in your application. This disables the ability to
-// perform automatic static optimization, causing every page in your app to
-// be server-side rendered.
+// もし、アプリケーション内のすべてのページでブロックするデータを必要とする場合のみ、このメソッドのコメントを外してください。
+// Automatic Static Optimizationを無効にし、アプリケーション内の各ページはサーバーサイドでレンダリングされます。
 //
 // MyApp.getInitialProps = async (appContext) => {
-//   // calls page's `getInitialProps` and fills `appProps.pageProps`
+//   // ページの`getInitialProps`を呼び、`appProps.pageProps`を満たします。
 //   const appProps = await App.getInitialProps(appContext);
 //
 //   return { ...appProps }
@@ -36,22 +34,22 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 ```
 
-The `Component` prop is the active `page`, so whenever you navigate between routes, `Component` will change to the new `page`. Therefore, any props you send to `Component` will be received by the `page`.
+- `Component` propはアクティブな`page`です。なので、ルート間で遷移するたびに`Component`は新しい`page`に変化します。そのため、`Component`に渡したpropはすべてその`page`で受け取ることができます。
 
-`pageProps` is an object with the initial props that were preloaded for your page by one of our [data fetching methods](/docs/basic-features/data-fetching.md), otherwise it's an empty object.
+- `pageProps`は[データ取得メソッド](/docs/basic-features/data-fetching.md)の1つによってプリロードされた初期propsを持つオブジェクトです。そうでなければ空のオブジェクトになります。
 
-### Caveats
+### 注意事項
 
-- If your app is running and you just added a custom `App`, you'll need to restart the development server. Only required if `pages/_app.js` didn't exist before.
-- Adding a custom `getInitialProps` in your `App` will disable [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) in pages without [Static Generation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation).
+- もしアプリが起動していて、独自の`App`を追加しただけの場合は、開発サーバーを再起動する必要があります。もし、`pages/_app.js`が存在しなかったときのみ必要です。
+- あなたの`App`で独自のgetInitialPropsを追加した場合、[Static Generation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation)を行わないページで[Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)が無効になります。
 
 ### TypeScript
 
-If you’re using TypeScript, take a look at [our TypeScript documentation](/docs/basic-features/typescript#custom-app).
+もしTypeScriptを利用する場合は、[TypeScriptのドキュメント](/docs/basic-features/typescript#custom-app)をご覧ください。
 
-## Related
+## 関連
 
-For more information on what to do next, we recommend the following sections:
+次にすべきことの情報については、次のセクションをお勧めします。
 
 <div class="card">
   <a href="/docs/advanced-features/automatic-static-optimization.md">
