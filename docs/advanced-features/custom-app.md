@@ -4,15 +4,15 @@ description: Next.jsが使用する標準のAppコンポーネントを上書き
 
 # Custom `App`
 
-Next.jsはAppコンポーネントを使ってページの初期化を行います。Appコンポーネントを上書きして、ページ初期化の制御を行えます。これによって次のようなことが実現できます。
+Next.js は App コンポーネントを使ってページの初期化を行います。App コンポーネントを上書きして、ページ初期化の制御を行えます。これによって次のようなことが実現できます。
 
 - ページ変化の間でレイアウトを保持する
-- ページ遷移時にstateを保持する
-- componentDidCatchを使って独自のエラーハンドリングを行う
+- ページ遷移時に state を保持する
+- componentDidCatch を使って独自のエラーハンドリングを行う
 - ページに追加の情報を注入する
 - [グローバルCSSを追加する](/docs/basic-features/built-in-css-support#adding-a-global-stylesheet)
 
-標準の`App`を上書きするには、次に示すような`./pages/_app.js`を作成します。
+標準の `App` を上書きするには、次に示すような `./pages/_app.js` を作成します。
 
 ```jsx
 // import App from 'next/app'
@@ -34,20 +34,20 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 ```
 
-- `Component` propはアクティブな`page`です。なので、ルート間で遷移するたびに`Component`は新しい`page`に変化します。そのため、`Component`に渡したpropはすべてその`page`で受け取ることができます。
+- `Component` prop はアクティブな `page` です。なので、ルート間で遷移するたびに `Component` は新しい `page` に変化します。そのため、`Component`に渡した prop はすべてその `page` で受け取ることができます。
 
-- `pageProps`は[データ取得メソッド](/docs/basic-features/data-fetching.md)の1つによってプリロードされた初期propsを持つオブジェクトです。そうでなければ空のオブジェクトになります。
+- `pageProps`は[データ取得メソッド](/docs/basic-features/data-fetching.md)の 1 つによってプリロードされた初期 props を持つオブジェクトです。そうでなければ空のオブジェクトになります。
 
 ### 注意事項
 
-- もしアプリが起動していて、独自の`App`を追加しただけの場合は、開発サーバーを再起動する必要があります。もし、`pages/_app.js`が存在しなかったときのみ必要です。
-- あなたの`App`で独自のgetInitialPropsを追加した場合、[Static Generation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation)を行わないページで[Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)が無効になります。
+- もしアプリが起動していて、独自の `App` を追加しただけの場合は、開発サーバーを再起動する必要があります。もし、`pages/_app.js`が存在しなかったときのみ必要です。
+- あなたの `App` で独自の getInitialProps を追加した場合、[Static Generation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation)を行わないページで[Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)が無効になります。
 
 ### TypeScript
 
-もしTypeScriptを利用する場合は、[TypeScriptのドキュメント](/docs/basic-features/typescript#custom-app)をご覧ください。
+もし TypeScript を利用する場合は、[TypeScriptのドキュメント](/docs/basic-features/typescript#custom-app)をご覧ください。
 
-## 関連
+## 関連事項
 
 次にすべきことの情報については、次のセクションをお勧めします。
 
