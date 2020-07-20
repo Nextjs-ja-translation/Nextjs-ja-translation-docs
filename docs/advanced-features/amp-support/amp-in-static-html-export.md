@@ -6,7 +6,7 @@ description: `next export`を使用してAMPページを作成する方法を学
 
  `next export` でページの [静的HTMLエクスポート](/docs/advanced-features/static-html-export.md) を行う（静的にプリレンダリングする）場合、 Next.jsはページがAMPをサポートしているかどうかを検出し、それに応じて挙動を変更します。
 
-ハイブリッドAMPページ `pages/about.js` の出力例は以下の通りです:
+例えば、ハイブリッドなAMPページ `pages/about.js` は次のようにエクスポートされます:
 
 - `out/about.html` - クライアントサイドのReactランタイムを使用したHTMLページ
 - `out/about.amp.html` - AMPページ
