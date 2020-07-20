@@ -1,33 +1,33 @@
 ---
-description: Learn how AMP pages are created when used together with `next export`.
+description: `next export`を使用してAMPページを作成する方法を学んでいきましょう。
 ---
 
-# AMP in Static HTML export
+# AMPの静的HTMLエクスポート
 
-When using `next export` to do [Static HTML export](/docs/advanced-features/static-html-export.md) statically prerender pages, Next.js will detect if the page supports AMP and change the exporting behavior based on that.
+ `next export` でページの [静的HTMLエクスポート](/docs/advanced-features/static-html-export.md) を行う（静的にプリレンダリングする）場合、 Next.jsはページがAMPをサポートしているかどうかを検出し、それに応じて挙動を変更します。
 
-For example, the hybrid AMP page `pages/about.js` would output:
+ハイブリッドAMPページ `pages/about.js` の出力例は以下の通りです:
 
-- `out/about.html` - HTML page with client-side React runtime
-- `out/about.amp.html` - AMP page
+- `out/about.html` - クライアントサイドのReactランタイムを使用したHTMLページ
+- `out/about.amp.html` - AMPページ
 
-And if `pages/about.js` is an AMP-only page, then it would output:
+AMP-onlyのページ `pages/about.js` の出力例は以下の通りです:
 
-- `out/about.html` - Optimized AMP page
+- `out/about.html` - 最適化されたAMPページ
 
-Next.js will automatically insert a link to the AMP version of your page in the HTML version, so you don't have to, like so:
+Next.jsは、HTMLページにAMPページへのリンクを自動的に挿入するので、以下を手動で記述する必要はありません:
 
 ```jsx
 <link rel="amphtml" href="/about.amp.html" />
 ```
 
-And the AMP version of your page will include a link to the HTML page:
+また、AMPページにHTMLページへのリンクを挿入します:
 
 ```jsx
 <link rel="canonical" href="/about" />
 ```
 
-When [`exportTrailingSlash`](/docs/api-reference/next.config.js/exportPathMap.md#0cf7d6666b394c5d8d08a16a933e86ea) is enabled the exported pages for `pages/about.js` would be:
+[`exportTrailingSlash`](/docs/api-reference/next.config.js/exportPathMap.md#0cf7d6666b394c5d8d08a16a933e86ea) を有効にすると、 `pages/about.js` は以下のようにエクスポートされます:
 
-- `out/about/index.html` - HTML page
-- `out/about.amp/index.html` - AMP page
+- `out/about/index.html` - HTMLページ
+- `out/about.amp/index.html` - AMPページ
