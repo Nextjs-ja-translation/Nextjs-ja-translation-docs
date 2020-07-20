@@ -85,7 +85,7 @@ export function Button() {
 }
 ```
 
-CSS Modules は、 **`.module.css` 拡張子ファイルに対してのみ有効**となるオプション機能です。  
+CSS Modules は、 **`.module.css` 拡張子ファイルに対してのみ有効**となる_オプション機能_です。  
 なお、通常の `<link>` スタイルシートやグローバルCSSファイルもサポートされています。
 
 本番環境では、すべての CSS Module ファイルは、 code-split した上で minify された複数の `.css` ファイルへと統合されます。  
