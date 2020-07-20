@@ -11,7 +11,7 @@ description: `next export`を使用してAMPページを作成する方法を学
 - `out/about.html` - クライアントサイドのReactランタイムを使用したHTMLページ
 - `out/about.amp.html` - AMPページ
 
-AMP-onlyのページ `pages/about.js` の出力例は以下の通りです:
+また、AMP-onlyのページ `pages/about.js` の場合は:
 
 - `out/about.html` - 最適化されたAMPページ
 
