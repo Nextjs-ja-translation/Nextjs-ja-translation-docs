@@ -9,7 +9,7 @@ Next.js では、 JavaScript ファイルから CSS をインポートできま�
 
 ## グローバルスタイルシートの追加
 
-スタイルシートを追加するために、 `pages/_app.js` 内で CSS をインポートしてみましょう。
+スタイルシートをアプリケーションに追加するために、 `pages/_app.js` 内で CSS ファイルをインポートしてみましょう。
 
 例として、 `styles.css` という次のようなスタイルシートを考えます:
 
@@ -22,7 +22,7 @@ body {
 }
 ```
 
-もし、まだ作成していない場合は、 [`pages/_app.js` ファイル](/docs/advanced-features/custom-app) を作成してください。  
+もし、まだ作成していない場合は、 [`pages/_app.js`](/docs/advanced-features/custom-app) を作成してください。  
 そして、 `styles.css` を [`import`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/import) してみましょう。
 
 ```jsx
@@ -66,7 +66,7 @@ CSS Module ファイルは、**アプリケーション内のいかなる場所�
 }
 ```
 
-そして、 上記のCSSファイルをインポートして利用し、 `components/Button.js` を作成します:
+そして、 上記の CSS ファイルをインポートして利用し、 `components/Button.js` を作成します:
 
 ```jsx
 import styles from './Button.module.css';
@@ -86,15 +86,15 @@ export function Button() {
 ```
 
 CSS Modules は、 **`.module.css` 拡張子ファイルに対してのみ有効**となる_オプション機能_です。  
-なお、通常の `<link>` スタイルシートやグローバルCSSファイルもサポートされています。
+なお、通常の `<link>` スタイルシートやグローバル CSS ファイルもサポートされています。
 
-本番環境では、すべての CSS Module ファイルは、 code-split した上で minify された複数の `.css` ファイルへと統合されます。  
+本番環境では、すべての CSS Module ファイルは**コード分割した上で minify された複数の** `.css` ファイルへと自動的に統合されます。  
 これらの `.css` ファイルは、アプリケーション内のホット実行パスを表しており、アプリケーションが描画のために読み込む CSS を最小限にすることを保証します。
 
 ## Sassのサポート
 
-Next.js では、 `.scss` あるいは `.sass` といったどちらの拡張子を用いた Sass ファイルでも、インポートできます。  
-CSS Modules によるコンポーネントレベルな Sass は、 `.module.scss` あるいは `.module.sass` といった拡張子で利用できます。
+Next.js では、 `.scss` または `.sass` のどちらの拡張子を用いた Sass ファイルでもインポートできます。  
+CSS Modules によるコンポーネントレベルの Sass を、 `.module.scss` または `.module.sass` の拡張子で利用できます。
 
 Sass のビルトインサポートを利用する前に、必ず [`sass`](https://github.com/sass/sass) をインストールしてください:
 
@@ -102,7 +102,7 @@ Sass のビルトインサポートを利用する前に、必ず [`sass`](https
 npm install sass
 ```
 
-Sass サポートには、前節で詳説した CSS ビルトインサポートと同様な恩恵および制限があります。
+Sass サポートには、前節で詳説した CSS ビルトインサポートと同様の恩恵と制限があります。
 
 ### Sass 設定のカスタマイズ
 
@@ -150,7 +150,7 @@ Error: Cannot find module 'less'
 </details>
 
 既存のいかなる CSS-in-JS も利用できます。  
-単純なインラインスタイルの一例としては、次のようになります:
+最も単純なのは、インラインスタイルを用いる方法です:
 
 ```jsx
 function HiThere() {
@@ -161,7 +161,7 @@ export default HiThere;
 ```
 
 分離された scoped CSS を提供するために、 Next.js では [styled-jsx](https://github.com/zeit/styled-jsx) を付属しています。  
-その目的は、不幸なことに [JSのみでサーバーレンダリングはサポートしていなかった](https://github.com/w3c/webcomponents/issues/71) Web Components によく似た、 "shadow CSS" をサポートすることにあります。
+その目的は、残念ながら [サーバーレンダリングをサポートしていない](https://github.com/w3c/webcomponents/issues/71) Web Components に似ている "shadow CSS" をサポートすることにあります。
 
 その他の CSS-in-JS (Styled Components など ) については、上記の例をご覧ください。
 
