@@ -30,7 +30,7 @@ module.exports = {
 };
 ```
 
-## 関連事項:
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
