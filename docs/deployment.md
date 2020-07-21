@@ -23,7 +23,7 @@ Next.jsを本番環境にデプロイする最も簡単な方法は、Next.jsの
 
 > [カスタムサーバー](/docs/advanced-features/custom-server.md)を使用している場合は、代替手法への移行を強くお勧めします(例えば、[動的ルーティング](/docs/routing/dynamic-routes.md)を使用するなど)。移行できない場合は、[他のホスティング方法](#other-hosting-options)を検討してください。
 
-### DPS: 開発（Develop）、プレビュー（Preview）、出荷（Ship）
+### DPS: 開発（Develop）、プレビュー（Preview）、公開（Ship）
 
 ここでは、[Vercel](https://vercel.com)が推奨するワークフローについて説明します。[Vercel](https://vercel.com)では、**DPS**ワークフローと呼ばれるものをサポートしています。**DPS**とは、開発（**D**evelop）・プレビュー（**P**review）・出荷（**S**hip）のことです。
 
