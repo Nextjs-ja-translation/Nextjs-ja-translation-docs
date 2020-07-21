@@ -76,6 +76,6 @@ Next.jsはNode.jsに対応しているホスティング環境であれば、ど
 
 ### 静的サイト生成
 
-Next.jsアプリの静的サイト生成を用いたい場合は、[ドキュメント](/docs/advanced-features/static-html-export.md)の指示に従ってください。デフォルトでは、`next export`によりは`out`ディレクトリに、CDN や静的サイトホスティングサービスで用いることができる静的サイトを生成します。
+Next.js アプリを静的 HTML へと出力したい場合は、[ドキュメント](/docs/advanced-features/static-html-export.md)の指示に従ってください。デフォルトでは、`next export`によって`out`ディレクトリが生成され、 CDN や静的サイトホスティングサービスで配信することができます。
 
 > ご利用のNext.jsアプリが完全に静的サイトの場合でも、[Vercel](https://vercel.com/)を使用することを強くお勧めします。[Vercel](https://vercel.com/) は、静的な Next.js アプリが非常に高速に動作するように最適化されています。`next export`で生成された静的サイトは、Vercel では設定を一切行わずにデプロイすることでも動作します。
