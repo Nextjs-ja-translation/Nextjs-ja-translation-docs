@@ -9,7 +9,7 @@ Next.js では、 JavaScript ファイルから CSS をインポートできま�
 
 ## グローバルスタイルシートの追加
 
-スタイルシートをアプリケーションに追加するために、 `pages/_app.js` 内で CSS ファイルをインポートしてみましょう。
+スタイルシートをアプリケーションへ追加するために、 `pages/_app.js` 内で CSS ファイルをインポートしてみましょう。
 
 例として、 `styles.css` という次のようなスタイルシートを考えます:
 
@@ -49,7 +49,7 @@ Next.js では、`[name].module.css` という命名規則に則ることで、 
 CSS Modules は、一意なクラス名を自動生成することで、 CSS をローカルなスコープにします。  
 これによって、クラス名の衝突を心配することなく、異なるファイルに同一の CSS クラス名を用いることができます。
 
-CSS Modules が、コンポーネントレベル CSS を導入する理想的な方法である理由は、こういった特徴のおかげなのです。  
+こういった特徴のおかげで、CSS Modules はコンポーネントレベルの CSS を導入するための理想的な方法となっています。
 CSS Module ファイルは、**アプリケーション内のいかなる場所でもインポートできます**。
 
 例として、 `components/` フォルダ内の再利用可能な `Button` コンポーネントを考えます:
@@ -160,7 +160,7 @@ function HiThere() {
 export default HiThere;
 ```
 
-分離された scoped CSS を提供するために、 Next.js では [styled-jsx](https://github.com/zeit/styled-jsx) を付属しています。  
+分離された scoped CSS へのサポートを提供するために、 Next.js では [styled-jsx](https://github.com/zeit/styled-jsx) を付属しています。  
 その目的は、残念ながら [サーバーレンダリングをサポートしていない](https://github.com/w3c/webcomponents/issues/71) Web Components に似ている "shadow CSS" をサポートすることにあります。
 
 その他の CSS-in-JS (Styled Components など ) については、上記の例をご覧ください。
