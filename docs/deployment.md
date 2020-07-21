@@ -71,7 +71,7 @@ Next.jsはNode.jsに対応しているホスティング環境であれば、ど
 ```
 
 `next build`スクリプトは `.next` フォルダ内に本番用アプリケーションをビルドします。
-ビルド後、`next start`スクリプトにより [Pagesにおける動的なルーティング](/docs/basic-features/pages.md) をサポートする Node.js サーバを起動します。
+ビルド後に実行する `next start` により、静的に生成されたページとサーバサイドでレンダリングされたページ の[ハイブリッドページ](/docs/basic-features/pages.md) をサポートする Node.js サーバを起動します。
 
 ### 静的 HTML の出力
 
