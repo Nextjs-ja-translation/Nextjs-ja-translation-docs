@@ -25,7 +25,7 @@ export default function Custom404() {
 
 ### エラーページのカスタマイズ
 
-500エラーは`Error`コンポーネントによって、クライアントサイドとサーバーサイドの両方で処理されます。上書きしたいのであれば`pages/_error.js`ファイルを作成し、以下のコードを追加します:
+500 エラーは `Error` コンポーネントによって、クライアントサイドとサーバーサイドの両方で処理されます。上書きしたいのであれば `pages/_error.js` ファイルを作成し、以下のコードを追加します:
 
 ```jsx
 function Error({ statusCode }) {
@@ -72,4 +72,4 @@ export default function Page({ errorCode, stars }) {
 }
 ```
 
-また、`statusCode`と一緒にテキストメッセージを渡したい場合、`Error`コンポーネントは`title`もプロパティとして受け取ります。
+また、`statusCode` と一緒にテキストメッセージを渡したい場合、`Error` コンポーネントは `title` もプロパティとして受け取ります。
