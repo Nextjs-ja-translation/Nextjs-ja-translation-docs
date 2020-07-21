@@ -49,7 +49,7 @@ DPS ワークフローを使用することで、_コードレビュー_ に加�
 - **カスタムドメイン:** [Vercel](https://vercel.com) にデプロイするNext.jsアプリはカスタムドメインを割り当て可能です。[こちらのドキュメントを参照してください](https://vercel.com/docs/v2/custom-domains)。
 - **環境変数:** Vercelでは環境変数を設定できます。詳細は、[ここにあるドキュメント](https://vercel.com/docs/v2/build-step#using-environment-variables-and-secrets) を参照してください。そして、Next.jsアプリ内で[これらの環境変数](/docs/api-reference/next.config.js/environment-variables.md)を使用できます。
 - **自動HTTPS（SSL化）:** HTTPSはデフォルトで有効になっており（カスタムドメインを含む）、余分な設定は必要ありません。SSL証明書は自動で更新されます。
-- **上記以外:** Vervelというプラットフォームを知るために[ドキュメント](https://vercel.com/docs)を読んでいただければ幸いです。
+- **その他:** Vervel というプラットフォームをさらに知るために[ドキュメント](https://vercel.com/docs)をご覧ください。
 
 ## その他のホスティング方法
 
