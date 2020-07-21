@@ -21,7 +21,7 @@ Next.jsを本番環境にデプロイする最も簡単な方法は、Next.jsの
 
 おめでとうございます！Next.jsアプリのデプロイが完了しました。疑問点がある場合は、[Vercel documentation](https://vercel.com/docs) を参照してください。
 
-> [Next.js においてカスタマイズされたサーバー設定](/docs/advanced-features/custom-server.md)を使用したい場合は、他への移行を強くお勧めします(例えば、[ダイナミックルーティング](/docs/routing/dynamic-routes.md)を使用するなど)。移行できない場合は、[他のホスティングオプション](#other-hosting-options)を検討してください。
+> [カスタムサーバー](/docs/advanced-features/custom-server.md)を使用している場合は、代替手法への移行を強くお勧めします(例えば、[動的ルーティング](/docs/routing/dynamic-routes.md)を使用するなど)。移行できない場合は、[他のホスティング方法](#other-hosting-options)を検討してください。
 
 ### DPS: 開発（Develop）、プレビュー（Preview）、出荷（Ship）
 
