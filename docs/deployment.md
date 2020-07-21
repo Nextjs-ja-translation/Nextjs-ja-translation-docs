@@ -42,7 +42,7 @@ DPS ワークフローを使用することで、_コードレビュー_ に加�
 
 - 各ページについて[静的サイト生成]（/docs/basic-features/pages.md#static-generation）または[サーバサイドレンダリング]（/docs/basic-features/pages.md#server-side-rendering）を使用できます。
 - [静的サイト生成]（/docs/basic-features/pages.md#static-generation）により生成される各種アセット（JS、CSS、画像、フォントなど）を使用したページは、自動的に[Vercel Smart CDN](https://vercel.com/smart-cdn)から配信されます。
-- [サーバサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering) と [APIルート](/docs/api-routes/introduction.md) を使用しているページは、自動的にページと分離されたサーバレスなファンクションとしてデプロイされます。これにより、レンダリングとAPIリクエストを無限にスケールさせることができます。
+- [サーバサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering) と [APIルート](/docs/api-routes/introduction.md) を使用しているページは、独立したサーバレス関数へと自動的に変換してデプロイします。これにより、レンダリングとAPIリクエストを無限にスケールさせることができます。
 
 ### カスタムドメイン、環境変数、自動HTTPS（SSL化） など
 
