@@ -208,7 +208,7 @@
           "title": "next.config.js",
           "routes": [
             {
-              "title": "Introduction",
+              "title": "はじめに",
               "path": "/docs/api-reference/next.config.js/introduction.md"
             },
             {
