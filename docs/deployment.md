@@ -74,7 +74,7 @@ Next.jsはNode.jsに対応しているホスティング環境であれば、ど
 ビルド後、`next start`スクリプトにより [Pagesにおける動的なルーティング](/docs/basic-features/pages.md) をサポートする Node.js サーバを起動します。
 静的に生成されたページとサーバサイドでレンダリングされたページの両方をサポートします。
 
-### 静的サイト生成
+### 静的 HTML の出力
 
 Next.js アプリを静的 HTML へと出力したい場合は、[ドキュメント](/docs/advanced-features/static-html-export.md)の指示に従ってください。デフォルトでは、`next export`によって`out`ディレクトリが生成され、 CDN や静的サイトホスティングサービスで配信することができます。
 
