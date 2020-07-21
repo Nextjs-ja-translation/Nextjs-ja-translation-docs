@@ -19,7 +19,7 @@ Next.jsを本番環境にデプロイする最も簡単な方法は、Next.jsの
 3. 設定が完了したら、「Import Project From ...」をクリックしてNext.jsアプリをVercelにインポートします。アプリがNext.jsを使用していることが自動検出され、ビルド設定が設定されます。何も変更する必要はありません。
 4. インポート後、Next.jsアプリはデプロイされ、デプロイ用URLが提供されます。「Visit」をクリックして、デプロイされたアプリを確認しましょう。
 
-おめでとうございます！Next.jsアプリのデプロイが完了しました。質問がある場合は、[Vercel documentation](https://vercel.com/docs) を参照してください。
+おめでとうございます！Next.jsアプリのデプロイが完了しました。疑問点がある場合は、[Vercel documentation](https://vercel.com/docs) を参照してください。
 
 > [Next.js においてカスタマイズされたサーバー設定](/docs/advanced-features/custom-server.md)を使用したい場合は、他への移行を強くお勧めします(例えば、[ダイナミックルーティング](/docs/routing/dynamic-routes.md)を使用するなど)。移行できない場合は、[他のホスティングオプション](#other-hosting-options)を検討してください。
 
