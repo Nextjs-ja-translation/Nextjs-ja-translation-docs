@@ -6,7 +6,7 @@ description: Next.js アプリを Vercel やその他のホスティング方法
 
 ## Vercel (推奨)
 
-Next.jsを本番環境にデプロイする最も簡単な方法は、Next.jsの開発者が提供する**[Vercel platform](https://vercel.com)**を利用することです。[Vercel](https://vercel.com)は、静的サイト・JAMstackなアーキテクチャでのデプロイ、サーバーレスファンクション機能をサポートするグローバルCDNを備えたオールインワンプラットフォームです。
+Next.js を本番環境にデプロイする最も簡単な方法は、Next.js の開発者が提供する **[Vercel platform](https://vercel.com)** を利用することです。[Vercel](https://vercel.com) は、静的サイト・JAMstack なアーキテクチャでのデプロイ、サーバーレスファンクション機能をサポートするグローバル CDN を備えたオールインワンプラットフォームです。
 
 ### はじめに
 
@@ -14,12 +14,12 @@ Next.jsを本番環境にデプロイする最も簡単な方法は、Next.jsの
 
 次に、以下の手順に従ってください:
 
-1. [Vercelにサインアップする](https://vercel.com/signup) （クレジットカードの登録は不要）。
+1. [Vercelにサインアップする](https://vercel.com/signup)（クレジットカードの登録は不要）。
 2. サインアップ後に、[「Import Project」](https://vercel.com/import)ページに遷移します。「From Git Repository」でデプロイに使用する Git プロバイダーを選択し、設定をします。(設定は各プロバイダーで次の手順で行います: [GitHub](https://vercel.com/docs/v2/git-integrations/vercel-for-github) / [GitLab](https://vercel.com/docs/v2/git-integrations/vercel-for-gitlab) / [BitBucket](https://vercel.com/docs/v2/git-integrations/vercel-for-bitbucket)).
-3. 設定が完了したら、「Import Project From ...」をクリックしてNext.jsアプリをVercelにインポートします。アプリがNext.jsを使用していることが自動検出され、ビルド設定が設定されます。何も変更する必要はありません。
-4. インポート後、Next.jsアプリはデプロイされ、デプロイ用URLが提供されます。「Visit」をクリックして、デプロイされたアプリを確認しましょう。
+3. 設定が完了したら、「Import Project From ...」をクリックして Next.js アプリを Vercel にインポートします。アプリが Next.js を使用していることが自動検出され、ビルド設定が設定されます。何も変更する必要はありません。
+4. インポート後、Next.js アプリはデプロイされ、デプロイ用 URL が提供されます。「Visit」をクリックして、デプロイされたアプリを確認しましょう。
 
-おめでとうございます！Next.jsアプリのデプロイが完了しました。疑問点がある場合は、[Vercel documentation](https://vercel.com/docs) を参照してください。
+おめでとうございます！Next.js アプリのデプロイが完了しました。疑問点がある場合は、[Vercel documentation](https://vercel.com/docs) を参照してください。
 
 > [カスタムサーバー](/docs/advanced-features/custom-server.md)を使用している場合は、代替手法への移行を強くお勧めします(例えば、[動的ルーティング](/docs/routing/dynamic-routes.md)を使用するなど)。移行できない場合は、[他のホスティング方法](#other-hosting-options)を検討してください。
 
@@ -36,26 +36,26 @@ DPS ワークフローを使用することで、_コードレビュー_ に加�
 
 ### Next.js のための最適化
 
-[Vercel](https://vercel.com)は、Next.jsのクリエイターが作ったもので、Next.jsを最も手厚くサポートしています。
+[Vercel](https://vercel.com)は、Next.js のクリエイターが作ったもので、Next.js を最も手厚くサポートしています。
 
 例えば、[ハイブリッドページ](/docs/basic-features/pages.md)については完全にサポートされています。
 
 - 各ページについて[静的サイト生成]（/docs/basic-features/pages.md#static-generation）または[サーバサイドレンダリング]（/docs/basic-features/pages.md#server-side-rendering）を使用できます。
 - [静的サイト生成]（/docs/basic-features/pages.md#static-generation）により生成される各種アセット（JS、CSS、画像、フォントなど）を使用したページは、自動的に[Vercel Smart CDN](https://vercel.com/smart-cdn)から配信されます。
-- [サーバサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering) と [APIルート](/docs/api-routes/introduction.md) を使用しているページは、独立したサーバレス関数へと自動的に変換してデプロイします。これにより、レンダリングとAPIリクエストを無限にスケールさせることができます。
+- [サーバサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering) と [APIルート](/docs/api-routes/introduction.md) を使用しているページは、独立したサーバレス関数へと自動的に変換してデプロイします。これにより、レンダリングと API リクエストを無限にスケールさせることができます。
 
-### カスタムドメイン、環境変数、自動HTTPS（SSL化） など
+### カスタムドメイン、環境変数、自動HTTPS（SSL化）など
 
-- **カスタムドメイン:** [Vercel](https://vercel.com) にデプロイするNext.jsアプリはカスタムドメインを割り当て可能です。[こちらのドキュメントを参照してください](https://vercel.com/docs/v2/custom-domains)。
+- **カスタムドメイン:** [Vercel](https://vercel.com) にデプロイする Next.js アプリはカスタムドメインを割り当て可能です。[こちらのドキュメントを参照してください](https://vercel.com/docs/v2/custom-domains)。
 - **環境変数:** Vercel では環境変数を設定できます。詳細は、[ここにあるドキュメント](https://vercel.com/docs/v2/build-step#using-environment-variables-and-secrets) を参照してください。Next.js アプリ内で[これらの環境変数](/docs/api-reference/next.config.js/environment-variables.md)を使用できます。
-- **自動HTTPS（SSL化）:** HTTPSはデフォルトで有効になっており（カスタムドメインを含む）、余分な設定は必要ありません。SSL証明書は自動で更新されます。
+- **自動 HTTPS（SSL 化）:** HTTPS はデフォルトで有効になっており（カスタムドメインを含む）、余分な設定は必要ありません。SSL 証明書は自動で更新されます。
 - **その他:** Vervel というプラットフォームをさらに知るために[ドキュメント](https://vercel.com/docs)をご覧ください。
 
 ## その他のホスティング方法
 
 ### Node.jsサーバー
 
-Next.jsはNode.jsに対応しているホスティング環境であれば、どこにでもデプロイできます。
+Next.js は Node.js に対応しているホスティング環境であれば、どこにでもデプロイできます。
 [カスタムサーバー](/docs/advanced-features/custom-server.md)を使用している場合はこのようなアプローチになります。
 
 あなたの `package.json` に `"build"` と `"start"` のスクリプトが含まれていることを確認してください。
@@ -71,10 +71,10 @@ Next.jsはNode.jsに対応しているホスティング環境であれば、ど
 ```
 
 `next build`スクリプトは `.next` フォルダ内に本番用アプリケーションをビルドします。
-ビルド後に実行する `next start` により、静的に生成されたページとサーバサイドでレンダリングされたページ の[ハイブリッドページ](/docs/basic-features/pages.md) をサポートする Node.js サーバを起動します。
+ビルド後に実行する `next start` により、静的に生成されたページとサーバサイドでレンダリングされたページの[ハイブリッドページ](/docs/basic-features/pages.md) をサポートする Node.js サーバを起動します。
 
 ### 静的 HTML の出力
 
-Next.js アプリを静的 HTML へと出力したい場合は、[ドキュメント](/docs/advanced-features/static-html-export.md)の指示に従ってください。デフォルトでは、`next export`によって`out`ディレクトリが生成され、 CDN や静的サイトホスティングサービスで配信することができます。
+Next.js アプリを静的 HTML へと出力したい場合は、[ドキュメント](/docs/advanced-features/static-html-export.md)の指示に従ってください。デフォルトでは、`next export`によって `out` ディレクトリが生成され、 CDN や静的サイトホスティングサービスで配信できます。
 
 > ご利用の Next.js アプリが完全に静的サイトの場合でも、[Vercel](https://vercel.com/) を使用することを強くお勧めします。[Vercel](https://vercel.com/) は、静的な Next.js アプリが非常に高速に動作するように最適化されています。`next export` は、Vercel では設定を一切行わずにデプロイしても動作します。
