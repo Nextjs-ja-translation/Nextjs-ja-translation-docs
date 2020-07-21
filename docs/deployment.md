@@ -4,7 +4,7 @@ description: Next.js アプリを Vercel やその他のホスティング方法
 
 # デプロイ
 
-## Vercel (推奨する方法)
+## Vercel (推奨)
 
 Next.jsを本番環境にデプロイする最も簡単な方法は、Next.jsの開発者が提供する**[Vercel platform](https://vercel.com)**を利用することです。[Vercel](https://vercel.com)は、静的サイト・JAMstackなアーキテクチャでのデプロイ、サーバーレスファンクション機能をサポートするグローバルCDNを備えたオールインワンプラットフォームです。
 
