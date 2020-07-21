@@ -59,7 +59,8 @@
       "contributions": [
         "doc",
         "translation",
-        "tool"
+        "tool",
+        "review"
       ]
     },
     {
@@ -123,6 +124,24 @@
       "profile": "https://thesugar.me",
       "contributions": [
         "review"
+      ]
+    },
+    {
+      "login": "queq1890",
+      "name": "Yuji Matsumoto",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/32263803?v=4",
+      "profile": "http://queq1890.info",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "f-teruhisa",
+      "name": "Teruhisa Fukumoto",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/21003135?v=4",
+      "profile": "https://github.com/mpg-teruhisa-fukumoto",
+      "contributions": [
+        "translation"
       ]
     }
   ],
