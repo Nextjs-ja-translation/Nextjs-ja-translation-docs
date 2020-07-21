@@ -1,9 +1,9 @@
 ---
-description: AMP pages are automatically validated by Next.js during development and on build. Learn more about it here.
+description: AMPページは、開発時やビルド時にNext.jsによって自動的に検証されます。 詳しく学んでいきましょう。
 ---
 
-# AMP Validation
+# AMPの検証
 
-AMP pages are automatically validated with [amphtml-validator](https://www.npmjs.com/package/amphtml-validator) during development. Errors and warnings will appear in the terminal where you started Next.js.
+AMP ページは開発時に [amphtml-validator](https://www.npmjs.com/package/amphtml-validator) によって自動的に検証されます。 エラーや注意事項は Next.js を起動したターミナルに表示されます。
 
-Pages are also validated during [Static HTML export](/docs/advanced-features/static-html-export.md) and any warnings / errors will be printed to the terminal. Any AMP errors will cause the export to exit with status code `1` because the export is not valid AMP.
+ページは [静的HTMLエクスポート](/docs/advanced-features/static-html-export.md) 時にも検証され、エラーや注意事項はターミナルに表示されます。エクスポートされた AMP が有効ではなく、AMP に関するエラーが起きた場合は、ステータスコード `1` で処理を終了します。
