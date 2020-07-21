@@ -58,7 +58,7 @@ DPS ワークフローを使用することで、_コードレビュー_ に加�
 Next.jsはNode.jsに対応しているホスティング環境であれば、どこにでもデプロイできます。
 [カスタムサーバー](/docs/advanced-features/custom-server.md)を使用している場合はこのようなアプローチになります。
 
-あなたの`package.json`に`"build"`と`"start"`スクリプトが含まれていることを確認してください。
+あなたの `package.json` に `"build"` と `"start"` のスクリプトが含まれていることを確認してください。
 
 ```json
 {
