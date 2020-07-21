@@ -1,10 +1,10 @@
 ---
-description: Add components from the AMP community to AMP pages, and make your pages more interactive.
+description: AMPコミュニティのコンポーネントを追加して、よりインタラクティブなAMPページを作成します。
 ---
 
-# Adding AMP Components
+# AMPコンポーネントの追加
 
-The AMP community provides [many components](https://amp.dev/documentation/components/) to make AMP pages more interactive. Next.js will automatically import all components used on a page and there is no need to manually import AMP component scripts:
+AMPコミュニティは、よりインタラクティブなAMPページを作成するのに役立つ [たくさんのコンポーネント](https://amp.dev/documentation/components/) を提供しています。 Next.js はページで使用されるすべてのコンポーネントを自動的にインポートするので、AMPコンポーネントのスクリプトを手動でインポートする必要はありません:
 
 ```jsx
 export const config = { amp: true };
@@ -25,9 +25,9 @@ function MyAmpPage() {
 export default MyAmpPage;
 ```
 
-The above example uses the [`amp-timeago`](https://amp.dev/documentation/components/amp-timeago/?format=websites) component.
+上記の例では、 [`amp-timeago`](https://amp.dev/documentation/components/amp-timeago/?format=websites) コンポーネントを使用しています。
 
-By default, the latest version of a component is always imported. If you want to customize the version, you can use `next/head`, as in the following example:
+デフォルトでは、最新バージョンのコンポーネントが常にインポートされます。バージョンをカスタマイズしたい場合は、次の例のように `next/head` を使用して下さい:
 
 ```jsx
 import Head from 'next/head';

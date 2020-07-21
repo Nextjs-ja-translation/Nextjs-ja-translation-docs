@@ -17,7 +17,8 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/42742053?v=4",
       "profile": "https://shinyaigeek.dev/",
       "contributions": [
-        "code"
+        "code",
+        "review"
       ]
     },
     {
@@ -26,7 +27,8 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/39504660?v=4",
       "profile": "https://code-log.hatenablog.com/",
       "contributions": [
-        "code"
+        "code",
+        "review"
       ]
     },
     {
@@ -34,6 +36,110 @@
       "name": "hoosan",
       "avatar_url": "https://avatars3.githubusercontent.com/u/40290137?v=4",
       "profile": "https://github.com/hoosan",
+      "contributions": [
+        "translation",
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "okmr-d",
+      "name": "Daiki Okumura",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4679138?v=4",
+      "profile": "https://twitter.com/okumura_daiki",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "yokinist",
+      "name": "yokinist",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/19779874?v=4",
+      "profile": "https://about.me/yokinist",
+      "contributions": [
+        "doc",
+        "translation",
+        "tool",
+        "review"
+      ]
+    },
+    {
+      "login": "96-38",
+      "name": "kurosawa",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/48713768?v=4",
+      "profile": "https://github.com/96-38",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "noriaki",
+      "name": "Noriaki UCHIYAMA",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/44050?v=4",
+      "profile": "http://www.facebook.com/noriaki.uchiyama",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "ria3100",
+      "name": "ria",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/11747541?v=4",
+      "profile": "https://ria-blog.org",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "ryuckel",
+      "name": "ryuckel",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/36391432?v=4",
+      "profile": "https://peaceful-mcclintock-c87ee2.netlify.app/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "yamanoku",
+      "name": "Okuto Oyama",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1996642?v=4",
+      "profile": "https://yamanoku.net",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "syakoo",
+      "name": "syakoo",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/12678450?v=4",
+      "profile": "https://github.com/syakoo",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "thesugar",
+      "name": "thesugar / Ryohei Sato",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/53966025?v=4",
+      "profile": "https://thesugar.me",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "queq1890",
+      "name": "Yuji Matsumoto",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/32263803?v=4",
+      "profile": "http://queq1890.info",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "f-teruhisa",
+      "name": "Teruhisa Fukumoto",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/21003135?v=4",
+      "profile": "https://github.com/mpg-teruhisa-fukumoto",
       "contributions": [
         "translation"
       ]

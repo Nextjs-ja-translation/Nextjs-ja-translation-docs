@@ -6,13 +6,13 @@ description: 公式ドキュメントでNext.jsを始めてみましょう！
 
 Next.jsのドキュメントへようこそ！
 
-Next.jsを初めて使用する場合は、[学習コース](https://nextjs.org/learn/basics/getting-started)から始めることをおすすめします。
+Next.jsを初めて使用する場合は、[学習コース](https://nextjs.org/learn/basics/getting-started)から始めることをお勧めします。
 
 `学習コースは翻訳されていません。`
 
 インタラクティブなクイズによる学習コースでは、Next.jsを使うために必要なすべての知識を習得できます。
 
-Next.jsに関連する質問がある場合は、[GitHub Dissussions](https://github.com/zeit/next.js/discussions)のコミュニティーでなんでも質問してください。
+Next.jsに関連する質問がある場合は、[GitHub Discussions](https://github.com/zeit/next.js/discussions)のコミュニティーでなんでも質問してください。
 
 #### システム要件
 
@@ -21,7 +21,7 @@ Next.jsに関連する質問がある場合は、[GitHub Dissussions](https://gi
 
 ## セットアップ
 
-すべてを自動的にセットアップする`create-next-app`を使って、Next.js アプリを作成することをおすすめします。プロジェクトを作成するために、次を実行します:
+すべてを自動的にセットアップする`create-next-app`を使って、Next.js アプリを作成することをお勧めします。プロジェクトを作成するために、次を実行します:
 
 ```bash
 npx create-next-app
@@ -86,7 +86,7 @@ export default HomePage;
 
 ## 関連
 
-次に行う詳細は、以下のセクションをおすすめします。
+以下のセクションを次に読むことをお勧めします。
 
 <div class="card">
   <a href="/docs/basic-features/pages.md">
