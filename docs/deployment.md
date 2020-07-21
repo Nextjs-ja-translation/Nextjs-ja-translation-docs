@@ -14,7 +14,7 @@ Next.jsを本番環境にデプロイする最も簡単な方法は、Next.jsの
 
 次に、以下の手順に従ってください:
 
-1. [Vercelにサインアップする](https://vercel.com/signup) （クレジットカードの登録は不要）
+1. [Vercelにサインアップする](https://vercel.com/signup) （クレジットカードの登録は不要）。
 2. サインアップ後に、[「Import Project」](https://vercel.com/import)ページに遷移します。「From Git Repository」でデプロイに使用する Git プロバイダーを選択し、設定をします。(設定は各プロバイダーで次の手順で行います: [GitHub](https://vercel.com/docs/v2/git-integrations/vercel-for-github) / [GitLab](https://vercel.com/docs/v2/git-integrations/vercel-for-gitlab) / [BitBucket](https://vercel.com/docs/v2/git-integrations/vercel-for-bitbucket)).
 3. 設定が完了したら、「Import Project From ...」をクリックしてNext.jsアプリをVercelにインポートします。アプリがNext.jsを使用していることが自動検出され、ビルド設定が設定されます。何も変更する必要はありません。
 4. インポート後、Next.jsアプリはデプロイされ、デプロイ用URLが提供されます。「Visit」をクリックして、デプロイされたアプリを確認しましょう。
