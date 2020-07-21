@@ -1,5 +1,5 @@
 ---
-description: ビルトインのヘッドコンポーネントを用いてページの `head` にカスタム要素を追加します。
+description: ビルトインの Head コンポーネントを用いてページの `head` にカスタム要素を追加します。
 ---
 
 # next/head
@@ -12,7 +12,7 @@ description: ビルトインのヘッドコンポーネントを用いてペー�
   </ul>
 </details>
 
-Next.js はページの `head` に要素を追加するためのビルトインコンポーネントを公開しています。
+Next.js はページの `head` に要素を追加するためのビルトインコンポーネントを公開しています:
 
 ```jsx
 import Head from 'next/head';
