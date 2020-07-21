@@ -1,5 +1,5 @@
 ---
-description: Next.jsアプリをVercelやその他のホスティングオプションを使って本番環境にデプロイします。
+description: Next.js アプリを Vercel やその他のホスティング方法を使って本番環境にデプロイします。
 ---
 
 # デプロイ
