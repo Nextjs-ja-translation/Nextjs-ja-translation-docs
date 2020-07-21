@@ -38,7 +38,7 @@ DPS ワークフローを使用することで、_コードレビュー_ に加�
 
 [Vercel](https://vercel.com)は、Next.jsのクリエイターが作ったもので、Next.jsを最も手厚くサポートしています。
 
-例えば、[ハイブリッドページ](/docs/basic-features/pages.md)を活用する手法は完全にサポートされています。
+例えば、[ハイブリッドページ](/docs/basic-features/pages.md)については完全にサポートされています。
 
 - 各ページについて[静的サイト生成]（/docs/basic-features/pages.md#static-generation）または[サーバサイドレンダリング]（/docs/basic-features/pages.md#server-side-rendering）を使用できます。
 - [静的サイト生成]（/docs/basic-features/pages.md#static-generation）により生成される各種アセット（JS、CSS、画像、フォントなど）を使用したページは、自動的に[Vercel Smart CDN](https://vercel.com/smart-cdn)から配信されます。
