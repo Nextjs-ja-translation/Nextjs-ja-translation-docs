@@ -2,17 +2,17 @@
 description: Next.jsが使用する標準のAppコンポーネントを上書きすることで、ページの初期化を制御し、すべてのページで存在するレイアウトを追加します。
 ---
 
-# Custom `App`
+# カスタム `App`
 
-Next.js は App コンポーネントを使ってページの初期化を行います。App コンポーネントを上書きして、ページ初期化の制御を行えます。これによって次のようなことが実現できます。
+Next.js は `App` コンポーネントを使ってページの初期化を行います。App コンポーネントを上書きして、ページ初期化の制御を行えます。これによって次のようなことが実現できます:
 
-- ページ変化の間でレイアウトを保持する
+- ページが変化する間でレイアウトを保持する
 - ページ遷移時に state を保持する
 - componentDidCatch を使って独自のエラーハンドリングを行う
 - ページに追加の情報を注入する
 - [グローバルCSSを追加する](/docs/basic-features/built-in-css-support#adding-a-global-stylesheet)
 
-標準の `App` を上書きするには、次に示すような `./pages/_app.js` を作成します。
+標準の `App` を上書きするには、次に示すような `./pages/_app.js` を作成します:
 
 ```jsx
 // import App from 'next/app'
@@ -49,18 +49,18 @@ export default MyApp;
 
 ## 関連事項
 
-次にすべきことの情報については、次のセクションをお勧めします。
+次にやるべきこととして、以下のセクションをお勧めします:
 
 <div class="card">
   <a href="/docs/advanced-features/automatic-static-optimization.md">
     <b>Automatic Static Optimization:</b>
-    <small>Next.js automatically optimizes your app to be static HTML whenever possible. Learn how it works here.</small>
+    <small>Next.jsは可能な限り静的HTMLにすることで自動でアプリケーションを最適化します。どのように動くか学んでみましょう。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/advanced-features/custom-error-page.md">
-    <b>Custom Error Page:</b>
-    <small>Learn more about the built-in Error page.</small>
+    <b>カスタムエラーページ:</b>
+    <small>組み込みのエラーページについてもっと学んでみましょう。</small>
   </a>
 </div>
