@@ -32,7 +32,7 @@ function IndexPage() {
 export default IndexPage;
 ```
 
-`head` 内でのタグの重複を避けるため、次の例のような `key` プロパティを利用できます。これにより、タグが 1 度だけレンダリングされるようになります。
+`head` 内でのタグの重複を避けるため、次の例のような `key` プロパティを利用できます。これにより、タグが 1 度だけレンダリングされるようになります:
 
 ```jsx
 import Head from 'next/head';
@@ -55,7 +55,7 @@ function IndexPage() {
 export default IndexPage;
 ```
 
-この場合、 2 番目の `<meta property="og:title" />` のみがレンダリングされます。name 属性が重複する `meta` タグは自動的に処理されます。
+この場合、 2 番目の `<meta property="og:title" />` のみがレンダリングされます。`name` 属性が重複する `meta` タグは自動的に処理されます。
 
 > コンポーネントがアンマウントされた際、 `head` の内容は削除されます。そのため、他のページで追加したものは考慮せず、各ページの `head` に必要なものを完全に定義できているか確認してください。
 
