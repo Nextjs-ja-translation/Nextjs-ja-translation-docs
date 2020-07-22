@@ -8,26 +8,26 @@
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
 
-Next.jsのドキュメントを翻訳する非公式プロジェクトです。
+Next.js のドキュメントを翻訳する非公式プロジェクトです。
 
 [本家公式ドキュメント](https://nextjs.org/docs/getting-started)
 
 ## 翻訳手順
 
-翻訳の状況は、[翻訳の概要と進捗状況](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/issues/3)のissuesを確認してください。
+翻訳の状況は、[翻訳の概要と進捗状況](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/issues/3)の issues を確認してください。
 
 ### 手順1:翻訳を始める準備
 
-まずは、このリポジトリを右上からForkしてください。
+まずは、このリポジトリを右上から Fork してください。
 
-そして、リポジトリをクローンします。`your`には、あなたのGitHubのユーザーネームを入れてください。
+そして、リポジトリをクローンします。`your`には、あなたの GitHub のユーザーネームを入れてください。
 
 ```
 $ git clone https://github.com/your/Nextjs-ja-translation-docs
 $ cd Nextjs-ja-translation-docs
 ```
 
-dependencyのインストールをしてください。必ず`yarn`で行ってください。
+dependency のインストールをしてください。必ず `yarn` で行ってください。
 
 ```
 $ yarn install
@@ -39,7 +39,7 @@ $ yarn install
 $ yarn dev
 ```
 
-翻訳作業を行うためのブランチを作成します。ここでは、例として`docs/example.md`を翻訳するためのブランチを作成します。
+翻訳作業を行うためのブランチを作成します。ここでは、例として `docs/example.md` を翻訳するためのブランチを作成します。
 
 ```
 $ git checkout -b docs/example
@@ -47,9 +47,9 @@ $ git checkout -b docs/example
 
 これで、翻訳を始める準備は完了です。エディタを使って、翻訳箇所のファイルを編集します。
 
-また、docs/manifest.jsonの各セクションのタイトルが設定されています。自分の担当箇所のタイトルを翻訳してください。
+また、docs/manifest.json の各セクションのタイトルが設定されています。自分の担当箇所のタイトルを翻訳してください。
 
-getting-staredを翻訳する例:
+getting-started を翻訳する例:
 
 ```
 { "title": "はじめに", "path": "/docs/getting-started.md" },
@@ -57,7 +57,7 @@ getting-staredを翻訳する例:
 
 ### 手順2:翻訳完了からプルリクエスト
 
-precommit時に翻訳の対象ファイルに対してtextlintが走ります。textlintが通らない限りcommitできません。エラーを修正する場合は、`text-lint:fix`を使います。
+precommit 時に翻訳の対象ファイルに対して textlint が走ります。textlint が通らない限り commit できません。エラーを修正する場合は、`text-lint:fix`を使います。
 
 ```
 $ yarn text-lint:fix ./docs/example.md
@@ -71,11 +71,11 @@ $ git commit -m "docs: translate docs/example.md"
 $ git push -u origin docs/example.md
 ```
 
-最後に、GitHub上からプルリクエストを作成してください。その後、メンテナーがレビューをして問題がなければマージされます。
+最後に、GitHub 上からプルリクエストを作成してください。その後、メンテナーがレビューをして問題がなければマージされます。
 
 ## Q&A
 
-質問がある場合は、[Slack](https://join.slack.com/t/nextjs-ja/shared_invite/zt-f9knbi69-AjTZqNZpYv7knG30jPwHcQ)に参加して、#questionsチャンネルまでお願いします。
+質問がある場合は、[Slack](https://join.slack.com/t/nextjs-ja/shared_invite/zt-f9knbi69-AjTZqNZpYv7knG30jPwHcQ)に参加して、#questions チャンネルまでお願いします。
 
 ## Contributors ✨
 
