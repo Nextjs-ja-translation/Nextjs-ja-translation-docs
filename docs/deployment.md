@@ -10,7 +10,7 @@ Next.js を本番環境にデプロイする最も簡単な方法は、Next.js �
 
 ### はじめに
 
-はじめに、Next.js アプリを任意の Git プロバイダーにプッシュしてください。[GitHub](http://github.com/)、[GitLab](https://gitlab.com/)、[BitBucket](https://bitbucket.org/)などです。リポジトリはプライベートとパブリックのどちらでも構いません。
+はじめに、Next.js アプリを[GitHub](http://github.com/)、[GitLab](https://gitlab.com/)、[BitBucket](https://bitbucket.org/)など任意の Git プロバイダーにプッシュしてください。リポジトリはプライベートとパブリックのどちらでも構いません。
 
 次に、以下の手順に従ってください:
 
