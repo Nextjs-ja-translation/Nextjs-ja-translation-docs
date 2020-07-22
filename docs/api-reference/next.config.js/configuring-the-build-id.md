@@ -1,27 +1,29 @@
 ---
-description: Configure the build id, which is used to identify the current build in which your application is being served.
+description: ビルド ID を設定してみましょう。これは、アプリケーションが提供されている現在のビルドを識別するために使用されます。
 ---
 
-# Configuring the Build ID
+# ビルド ID の設定
 
-Next.js uses a constant id generated at build time to identify which version of your application is being served. This can cause problems in multi-server deployments when `next build` is ran on every server. In order to keep a static build id between builds you can provide your own build id.
+Next.js では、ビルド時に生成される一定の識別子を利用して、提供されているアプリケーションのバージョンを識別します。  
+これによって、それぞれのサーバーで `next build` が行われるような場合、複数サーバーのデプロイに問題を生じる可能性があります。  
+そこで、ビルド間で静的なビルド ID を維持するために、独自のビルド ID を提供できます。
 
-Open `next.config.js` and add the `generateBuildId` function:
+`next.config.js` を開いて `generateBuildId` という関数を追加してみましょう:
 
 ```js
 module.exports = {
   generateBuildId: async () => {
-    // You can, for example, get the latest git commit hash here
+    // 例えば、ここで最新のコミットハッシュを取得することができますね。
     return 'my-build-id';
   }
 };
 ```
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js の紹介:</b>
+    <small>Next.js が使用する設定ファイルについてさらに学んでみましょう。</small>
   </a>
 </div>

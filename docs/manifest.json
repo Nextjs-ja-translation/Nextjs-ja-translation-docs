@@ -256,7 +256,7 @@
               "path": "/docs/api-reference/next.config.js/setting-a-custom-build-directory.md"
             },
             {
-              "title": "Configuring the Build ID",
+              "title": "ビルド ID の設定",
               "path": "/docs/api-reference/next.config.js/configuring-the-build-id.md"
             },
             {
