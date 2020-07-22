@@ -33,7 +33,6 @@ rules:
   - expected: 注意事項
     pattern:
       - 注意点
-      - 警告
 
   - expected: 例
     pattern:
