@@ -15,9 +15,9 @@ description: Next.jsで追加したPostCSSの設定とプラグインを独自�
 
 Next.js では、PostCSS を使って[組み込み用のCSS](/docs/basic-features/built-in-css-support)をコンパイルしています。
 
-何も設定していない場合、Next.js は以下のような変換をして CSS をコンパイルします:
+何も設定していなくても、Next.js は以下のような変換によって CSS をコンパイルします:
 
-1. Autoprefixer は、CSS ルールセットにベンダープレフィックスを自動的に追加します（IE11 に戻す）。
+1. [Autoprefixer](https://github.com/postcss/autoprefixer) は、CSS ルールセットにベンダープレフィックスを自動的に追加します（IE11 に戻す）。
 1. [クロスブラウザのFlexboxのバグ](https://github.com/philipwalton/flexbugs)が[仕様](https://www.w3.org/TR/css-flexbox-1/)通りに動作するように修正されます。
 1. 新しい CSS の機能は、Internet Explorer 11 との互換性のために自動的にコンパイルされます:
    - [`all` プロパティ](https://developer.mozilla.org/ja/docs/Web/CSS/all)
