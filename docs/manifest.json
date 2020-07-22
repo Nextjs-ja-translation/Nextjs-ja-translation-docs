@@ -134,7 +134,7 @@
               "path": "/docs/advanced-features/customizing-babel-config.md"
             },
             {
-              "title": "Customizing PostCSS Config",
+              "title": "PostCSS設定のカスタマイズ",
               "path": "/docs/advanced-features/customizing-postcss-config.md"
             },
             {
