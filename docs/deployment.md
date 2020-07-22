@@ -10,12 +10,12 @@ Next.js を本番環境にデプロイする最も簡単な方法は、Next.js �
 
 ### はじめに
 
-はじめに、Next.js アプリを[GitHub](http://github.com/)、[GitLab](https://gitlab.com/)、[BitBucket](https://bitbucket.org/)など任意の Git プロバイダーにプッシュしてください。リポジトリはプライベートとパブリックのどちらでも構いません。
+はじめに、Next.js アプリを [GitHub](http://github.com/)、[GitLab](https://gitlab.com/)、[BitBucket](https://bitbucket.org/) など任意の Git プロバイダーにプッシュしてください。リポジトリはプライベートとパブリックのどちらでも構いません。
 
 次に、以下の手順に従ってください:
 
-1. [Vercelにサインアップしてください](https://vercel.com/signup)（クレジットカードの登録は不要です）。
-2. サインアップすると、[Import Project](https://vercel.com/import)ページに遷移します。「From Git Repository」からデプロイに使用する[GitHub](https://vercel.com/docs/v2/git-integrations/vercel-for-github)、[GitLab](https://vercel.com/docs/v2/git-integrations/vercel-for-gitlab) 、[BitBucket](https://vercel.com/docs/v2/git-integrations/vercel-for-bitbucket))などの Git プロバイダーを選択して設定をします（設定は各プロバイダーで次の手順で行います）。
+1. [Vercel にサインアップしてください](https://vercel.com/signup)（クレジットカードの登録は不要です）。
+2. サインアップすると、[Import Project](https://vercel.com/import) ページに遷移します。「From Git Repository」からデプロイに使用する [GitHub](https://vercel.com/docs/v2/git-integrations/vercel-for-github)、[GitLab](https://vercel.com/docs/v2/git-integrations/vercel-for-gitlab) 、[BitBucket](https://vercel.com/docs/v2/git-integrations/vercel-for-bitbucket) などの Git プロバイダーを選択して設定をします（設定は各プロバイダーで次の手順で行います）。
 3. 設定が完了したら、「Import Project From ...」をクリックして Next.js アプリを Vercel にインポートします。アプリが Next.js を使用していることが自動検出され、ビルド設定が設定されます。何も変更する必要はありません。
 4. インポート後、Next.js アプリはデプロイされ、デプロイ用 URL が提供されます。「Visit」をクリックして、デプロイされたアプリを確認しましょう。
 
@@ -25,9 +25,9 @@ Next.js を本番環境にデプロイする最も簡単な方法は、Next.js �
 
 ### DPS: 開発（Develop）、プレビュー（Preview）、公開（Ship）
 
-ここでは、[Vercel](https://vercel.com)が推奨するワークフローについて説明します。[Vercel](https://vercel.com)では、いわゆる**DPS**ワークフローを支持しています。**DPS**とは、開発（**D**evelop）・プレビュー（**P**review）・公開（**S**hip）の頭字語です。
+ここでは、[Vercel](https://vercel.com)が推奨するワークフローについて説明します。[Vercel](https://vercel.com)では、いわゆる **DPS** ワークフローを支持しています。**DPS** とは、開発（**D**evelop）・プレビュー（**P**review）・公開（**S**hip）の頭字語です。
 
-- **開発（Develop）:** Next.js のコードを書きましょう。開発サーバーを稼働させておき、[React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh)を活用しましょう。
+- **開発（Develop）:** Next.js のコードを書きましょう。開発サーバーを稼働させておき、[React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh) を活用しましょう。
 - **プレビュー（Preview）:** GitHub / GitLab / BitBucket 上に変更をプッシュするたびに、自動的に一意の URL を持つ新しいデプロイを実施します。
 プルリクエストを開くと GitHub で見ることができますし、Vercel のプロジェクトページの「デプロイメントのプレビュー」で見ることもできます。[詳細はこちらをご覧ください](https://vercel.com/features/deployment-previews)。
 - **公開（Ship）:** 本番環境で公開する準備ができたら、プルリクエストをデフォルトのブランチ (例: `master`) にマージします。Vercel  は自動的に本番環境へのデプロイを行います。
@@ -36,12 +36,12 @@ DPS ワークフローを使用することで、_コードレビュー_ に加�
 
 ### Next.js のための最適化
 
-[Vercel](https://vercel.com)は、Next.js のクリエイターが作ったもので、Next.js を最も手厚くサポートしています。
+[Vercel](https://vercel.com) は、Next.js のクリエイターが作ったもので、Next.js を最も手厚くサポートしています。
 
 例えば、[ハイブリッドページ](/docs/basic-features/pages.md)については完全にサポートされています。
 
 - 各ページについて[静的サイト生成]（/docs/basic-features/pages.md#static-generation）または[サーバサイドレンダリング]（/docs/basic-features/pages.md#server-side-rendering）を使用できます。
-- [静的サイト生成]（/docs/basic-features/pages.md#static-generation）により生成される各種アセット（JS、CSS、画像、フォントなど）を使用したページは、自動的に[Vercel Smart CDN](https://vercel.com/smart-cdn)から配信されます。
+- [静的サイト生成]（/docs/basic-features/pages.md#static-generation）により生成される各種アセット（JS、CSS、画像、フォントなど）を使用したページは、自動的に [Vercel Smart CDN](https://vercel.com/smart-cdn) から配信されます。
 - [サーバサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering) と [APIルート](/docs/api-routes/introduction.md) を使用しているページは、独立したサーバレス関数へと自動的に変換してデプロイします。これにより、レンダリングと API リクエストを無限にスケールさせることができます。
 
 ### カスタムドメイン、環境変数、自動HTTPS（SSL化）など
@@ -70,11 +70,11 @@ Next.js は Node.js に対応しているホスティング環境であれば、
 }
 ```
 
-`next build`スクリプトは `.next` フォルダ内に本番用アプリケーションをビルドします。
+`next build` スクリプトは `.next` フォルダ内に本番用アプリケーションをビルドします。
 ビルド後に実行する `next start` により、静的に生成されたページとサーバサイドでレンダリングされたページの[ハイブリッドページ](/docs/basic-features/pages.md) をサポートする Node.js サーバを起動します。
 
 ### 静的 HTML の出力
 
-Next.js アプリを静的 HTML へと出力したい場合は、[ドキュメント](/docs/advanced-features/static-html-export.md)の指示に従ってください。デフォルトでは、`next export`によって `out` ディレクトリが生成され、 CDN や静的サイトホスティングサービスで配信できます。
+Next.js アプリを静的 HTML へと出力したい場合は、[ドキュメント](/docs/advanced-features/static-html-export.md)の指示に従ってください。デフォルトでは、`next export` によって `out` ディレクトリが生成され、 CDN や静的サイトホスティングサービスで配信できます。
 
 > ご利用の Next.js アプリが完全に静的サイトの場合でも、[Vercel](https://vercel.com/) を使用することを強くお勧めします。[Vercel](https://vercel.com/) は、静的な Next.js アプリが非常に高速に動作するように最適化されています。`next export` は、Vercel では設定を一切行わずにデプロイしても動作します。
