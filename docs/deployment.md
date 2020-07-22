@@ -25,7 +25,7 @@ Next.js を本番環境にデプロイする最も簡単な方法は、Next.js �
 
 ### DPS: 開発（Develop）、プレビュー（Preview）、公開（Ship）
 
-ここでは、[Vercel](https://vercel.com)が推奨するワークフローについて説明します。[Vercel](https://vercel.com)では、私たちが**DPS**と呼ぶワークフローを支持しています。**DPS**とは、開発（**D**evelop）・プレビュー（**P**review）・公開（**S**hip）の頭字語です。
+ここでは、[Vercel](https://vercel.com)が推奨するワークフローについて説明します。[Vercel](https://vercel.com)では、いわゆる**DPS**ワークフローを支持しています。**DPS**とは、開発（**D**evelop）・プレビュー（**P**review）・公開（**S**hip）の頭字語です。
 
 - **開発（Develop）:** Next.js のコードを書きましょう。開発サーバーを稼働させておき、[React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh)を活用しましょう。
 - **プレビュー（Preview）:** GitHub / GitLab / BitBucket 上に変更をプッシュするたびに、自動的に一意の URL を持つ新しいデプロイを実施します。
