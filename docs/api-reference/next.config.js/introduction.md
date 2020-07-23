@@ -4,7 +4,7 @@ description: アプリケーションを処理するために、Next.jsが使用
 
 # next.config.js
 
-Next.js の高度な動作をカスタマイズするには、プロジェクトディレクトリのルートに `next.config.js` を作成します。(`package.json` と同じディレクトリ)
+Next.js の高度な動作をカスタマイズするには、プロジェクトディレクトリのルートに `next.config.js` を作成します(`package.json` と同じディレクトリ)。
 
 `next.config.js` は通常の Node.js モジュールであり JSON ファイルではありません。
 Next.js サーバーとビルドフェーズで使用され、ブラウザのビルドには含まれません。
