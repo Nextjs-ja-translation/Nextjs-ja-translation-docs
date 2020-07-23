@@ -8,7 +8,7 @@ description: クライアント側とサーバー側のランタイム設定を 
 
 > ランタイム設定は [`serverless` target](/docs/api-reference/next.config.js/build-target.md#serverless-target) のときは利用できません。
 
-Runtime configuration をあなたのアプリケーションに追加するためには、 `next.config.js` に `publicRuntimeConfig` と `serverRuntimeConfig` を記述してください:
+ランタイム設定を追加するためには、`next.config.js` に `publicRuntimeConfig` と `serverRuntimeConfig` を記述してください:
 
 ```js
 module.exports = {
