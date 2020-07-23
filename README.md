@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -107,6 +107,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
     <td align="center"><a href="https://twitter.com/takepepe"><img src="https://avatars1.githubusercontent.com/u/22139818?v=4" width="100px;" alt=""/><br /><sub><b>Takefumi Yoshii</b></sub></a><br /><a href="#translation-takefumi-yoshii" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/rikusen0335"><img src="https://avatars0.githubusercontent.com/u/19174234?v=4" width="100px;" alt=""/><br /><sub><b>rikusen0335</b></sub></a><br /><a href="#translation-rikusen0335" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/kentaro84207"><img src="https://avatars1.githubusercontent.com/u/33363411?v=4" width="100px;" alt=""/><br /><sub><b>Kentaro Suzuki</b></sub></a><br /><a href="#translation-kentaro84207" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/ogugu9"><img src="https://avatars1.githubusercontent.com/u/14102616?v=4" width="100px;" alt=""/><br /><sub><b>ogugu</b></sub></a><br /><a href="#translation-ogugu9" title="Translation">🌍</a></td>
   </tr>
 </table>
 
