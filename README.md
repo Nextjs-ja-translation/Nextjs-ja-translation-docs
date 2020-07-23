@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -102,6 +102,9 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
     <td align="center"><a href="https://thesugar.me"><img src="https://avatars1.githubusercontent.com/u/53966025?v=4" width="100px;" alt=""/><br /><sub><b>thesugar / Ryohei Sato</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3Athesugar" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="http://queq1890.info"><img src="https://avatars2.githubusercontent.com/u/32263803?v=4" width="100px;" alt=""/><br /><sub><b>Yuji Matsumoto</b></sub></a><br /><a href="#translation-queq1890" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/mpg-teruhisa-fukumoto"><img src="https://avatars2.githubusercontent.com/u/21003135?v=4" width="100px;" alt=""/><br /><sub><b>Teruhisa Fukumoto</b></sub></a><br /><a href="#translation-f-teruhisa" title="Translation">🌍</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://twitter.com/takepepe"><img src="https://avatars1.githubusercontent.com/u/22139818?v=4" width="100px;" alt=""/><br /><sub><b>Takefumi Yoshii</b></sub></a><br /><a href="#translation-takefumi-yoshii" title="Translation">🌍</a></td>
   </tr>
 </table>
 
