@@ -188,6 +188,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "resqnet",
+      "name": "ken_o",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/12475586?v=4",
+      "profile": "https://github.com/resqnet",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
