@@ -37,7 +37,7 @@ export default MyDocument;
 
 ページを適切にレンダリングするには `<Html>`, `<Head />`, `<Main />` と `<NextScript />` が必要です。
 
-カスタム属性は `lang` のように props として許可されます。
+カスタム属性は `lang` のように props として許可されます:
 
 ```jsx
 <Html lang="en">
