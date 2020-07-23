@@ -26,7 +26,7 @@ module.exports = {
 
 サーバー側だけで利用する値であれば、ランタイムの設定は `serverRuntimeConfig` に記述してください。
 
-クライアント側とサーバー側のどちらのコードからも使う値であれば、 `publicRuntimeConfig` に記述しましょう。
+クライアント側とサーバー側のどちらのコードからも使う値であれば、 `publicRuntimeConfig` に記述してください。
 
 > `publicRuntimeConfig` を使用しているページは [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) の対象から除外するために、 **必ず** `getInitialProps` を使ってください。 Runtime configuration は `getInitialProps` を使っていないページ（またはページ内のコンポーネント）では利用できません。
 
