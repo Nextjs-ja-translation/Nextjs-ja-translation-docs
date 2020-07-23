@@ -65,7 +65,6 @@ export default withRouter(Page);
 
 `next/router` でエクスポートされた `Router` API は次のように定義されます。
 
-
 ### Router.push
 
 <details>
@@ -203,6 +202,7 @@ export default function Login() {
 ```
 
 ### Router.beforePopState
+
 一部の場合 ( 例えば、[Custom Server](/docs/advanced-features/custom-server.md)を使用する場合 ) において、ルーターが実行される前に[popstate](https://developer.mozilla.org/en-US/docs/Web/Events/popstate) を呼び出して、何かさせたい場合があります。
 
 次の実装例のように、リクエストを扱う際(例えば、SSR リフレッシュさせたいとき)に利用できます。
@@ -224,10 +224,10 @@ Router.beforePopState(({ url, as, options }) => {
 
 `Router.beforePopState(cb: () => boolean)`
 
-- `cb` - The function to run on incoming `popstate` events. The function receives the state of the event as an object with the following props:
-  - `url`: `String` - the route for the new state. This is usually the name of a `page`
-  - `as`: `String` - the url that will be shown in the browser
-  - `options`: `Object` - Additional options sent by [Router.push](#router.push)
+- `cb` - `popstate` イベントによって実行するための関数です。この関数はイベントのステートを次のプロパティをオブジェクト型で受け取ります。: 
+  - `url`: `String` - 新しいステートのためのルートです。この値は主に `page` の名前が返されます。
+  - `as`: `String` - ブラウザーで表示される URL を返します。
+  - `options`: `Object` - [Router.push](#router.push) によって付随されるオプションが返されます。
 
 If the function you pass into `beforePopState` returns `false`, `Router` will not handle `popstate` and you'll be responsible for handling it, in that case. See [Disabling file-system routing](/docs/advanced-features/custom-server.md#disabling-file-system-routing).
 
@@ -270,9 +270,9 @@ You can listen to different events happening inside the Router. Here's a list of
 - `hashChangeStart(url)` - Fires when the hash will change but not the page
 - `hashChangeComplete(url)` - Fires when the hash has changed but not the page
 
-> Here `url` is the URL shown in the browser. If you call `Router.push(url, as)` (or similar), then the value of `url` will be `as`.
+> この時の  `url`　は、ブラウザーで表示されているものです。もし、`Router.push(url, as)`(あるいはそれに似たもの)　を呼び出すと、`url` の値は `as`になります。
 
-For example, to listen to the router event `routeChangeStart`, do the following:
+例えば、ルーターイベント `routeChangeStart` を呼ぶには、次のようにしてください。:
 
 ```jsx
 import Router from 'next/router';
@@ -284,7 +284,7 @@ const handleRouteChange = url => {
 Router.events.on('routeChangeStart', handleRouteChange);
 ```
 
-If you no longer want to listen to the event, unsubscribe with the `off` method:
+もし、そのイベントを呼び出したくないのであれば、`off`メソッドをつかってイベントを解除してください。
 
 ```jsx
 import Router from 'next/router';
