@@ -21,7 +21,7 @@ description: 'Next.jsには2つのプリレンダリングモードがありま�
 
 [Pagesのドキュメント](/docs/basic-features/pages.md)において、Next.js には 2 種類のプリレンダリングがあることを説明しました。**静的生成**と**サーバーサイドレンダリング**です。このページでは、それぞれの場合でのデータ取得戦略について掘り下げていきます。 まず最初に[Pagesのドキュメントを読む](/docs/basic-features/pages.md)ことをお勧めします。
 
-プリレンダリングのデータ取得に使える 3 つの特徴的な Next.js の関数についてお話します。
+プリレンダリングのデータ取得に使える 3 つの特徴的な Next.js の関数についてお話します:
 
 - [`getStaticProps`](#getstaticprops-static-generation)（静的生成）: **ビルド時**にデータ取得する
 - [`getStaticPaths`](#getstaticpaths-static-generation)（静的生成）: データに基づきプリレンダリングする[動的ルート](/docs/routing/dynamic-routes.md)を特定する
