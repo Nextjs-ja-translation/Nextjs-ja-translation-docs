@@ -1,12 +1,12 @@
 ---
-description: A custom asset prefix allows you serve static assets from a CDN. Learn more about it here.
+description: カスタムアセットプレフィックスを使用すると、CDN から静的コンテンツを配信させられます。詳細はこちらをご覧ください。
 ---
 
-# CDN Support with Asset Prefix
+# アセットプレフィックスによる CDN サポート
 
-To set up a [CDN](https://en.wikipedia.org/wiki/Content_delivery_network), you can set up an asset prefix and configure your CDN's origin to resolve to the domain that Next.js is hosted on.
+[CDN](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%83%87%E3%83%AA%E3%83%90%E3%83%AA%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF)を設定するには、CDN のオリジンサーバーが Next.js をホストするドメインを解決するように、アセットプレフィックスを設定します。
 
-Open `next.config.js` and add the `assetPrefix` config:
+`next.config.js` を開き、 `assetPrefix` の設定を追加します:
 
 ```js
 const isProd = process.env.NODE_ENV === 'production';
@@ -17,20 +17,20 @@ module.exports = {
 };
 ```
 
-Next.js will automatically use your prefix in the scripts it loads, but this has no effect whatsoever on the [public](/docs/basic-features/static-file-serving.md) folder; if you want to serve those assets over a CDN, you'll have to introduce the prefix yourself. One way of introducing a prefix that works inside your components and varies by environment is documented [in this example](https://github.com/zeit/next.js/tree/canary/examples/with-universal-configuration-build-time).
+Next.js はスクリプトを読み込みプレフィックスを自動的に使用しますが、 [public](/docs/basic-features/static-file-serving.md) フォルダには何の影響もありません。 コンポーネント内で動作し、環境ごとに異なるプレフィックスを導入する方法の例として、 [こちら](https://github.com/zeit/next.js/tree/canary/examples/with-universal-configuration-build-time)をご参考ください。
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.jsの導入:</b>
+    <small>Next.jsの設定ファイルの詳細を見る。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/basic-features/static-file-serving.md">
-    <b>Static File Serving:</b>
-    <small>Serve static files, like images, in the public directory.</small>
+    <b>静的ファイルの保存:</b>
+    <small>publicディレクトリに画像などの静的ファイルを保存します。</small>
   </a>
 </div>

@@ -220,7 +220,7 @@
               "path": "/docs/api-reference/next.config.js/custom-page-extensions.md"
             },
             {
-              "title": "CDN Support with Asset Prefix",
+              "title": "アセットプレフィックスによる CDN サポート",
               "path": "/docs/api-reference/next.config.js/cdn-support-with-asset-prefix.md"
             },
             {
