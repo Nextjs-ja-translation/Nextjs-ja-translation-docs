@@ -57,7 +57,7 @@ export default MyImage;
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>next.config.js の概要:</b>
+    <b>next.config.js の紹介:</b>
     <small>Next.js の設定ファイルについてもっと学ぶ。</small>
   </a>
 </div>
