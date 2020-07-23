@@ -23,7 +23,7 @@ description: 'Next.jsには2つのプリレンダリングモードがありま�
 
 プリレンダリングのデータ取得に使える 3 つの特徴的な Next.js の関数についてお話します。
 
-- [`getStaticProps`](#getstaticprops-static-generation)（静的生成）: **ビルド時**のデータ取得する
+- [`getStaticProps`](#getstaticprops-static-generation)（静的生成）: **ビルド時**にデータ取得する
 - [`getStaticPaths`](#getstaticpaths-static-generation)（静的生成）: データに基づきプリレンダリングする[動的ルート](/docs/routing/dynamic-routes.md)を特定する
 - [`getServerSideProps`](#getserversideprops-server-side-rendering)（サーバーサイドレンダリング）: **リクエストごと**にデータを取得する
 
