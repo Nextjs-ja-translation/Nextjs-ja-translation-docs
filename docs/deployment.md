@@ -30,7 +30,7 @@ Next.js を本番環境にデプロイする最も簡単な方法は、Next.js �
 - **開発（Develop）:** Next.js のコードを書きましょう。開発サーバーを稼働させておき、[React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh) を活用しましょう。
 - **プレビュー（Preview）:** GitHub / GitLab / BitBucket 上に変更をプッシュするたびに、自動的に一意の URL を持つ新しいデプロイを実施します。
 プルリクエストを開くと GitHub で見ることができますし、Vercel のプロジェクトページの「デプロイメントのプレビュー」で見ることもできます。[詳細はこちらをご覧ください](https://vercel.com/features/deployment-previews)。
-- **公開（Ship）:** 本番環境で公開する準備ができたら、プルリクエストをデフォルトのブランチ (例: `master`) にマージします。Vercel  は自動的に本番環境へのデプロイを行います。
+- **公開（Ship）:** 本番環境で公開する準備ができたら、プルリクエストをデフォルトのブランチ (例: `master`) にマージします。Vercel は自動的に本番環境へのデプロイを行います。
 
 DPS ワークフローを使用することで、_コードレビュー_ に加えて、_デプロイ前のプレビュー_ を行うことができます。各デプロイはユニークな URL を生成し、それを共有したり、統合テストに使用したりできます。
 
@@ -44,7 +44,7 @@ DPS ワークフローを使用することで、_コードレビュー_ に加�
 - [静的サイト生成](/docs/basic-features/pages.md#static-generation)により生成される各種アセット（JS、CSS、画像、フォントなど）を使用したページは、自動的に [Vercel Smart CDN](https://vercel.com/smart-cdn) から配信されます。
 - [サーバサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering) と [APIルート](/docs/api-routes/introduction.md) を使用しているページは、独立したサーバレス関数へと自動的に変換してデプロイします。これにより、レンダリングと API リクエストを無限にスケールさせることができます。
 
-### カスタムドメイン、環境変数、自動HTTPS（SSL化）など
+### カスタムドメイン、環境変数、自動HTTPS（SSL 化）など
 
 - **カスタムドメイン:** [Vercel](https://vercel.com) にデプロイする Next.js アプリはカスタムドメインを割り当て可能です。[こちらのドキュメントを参照してください](https://vercel.com/docs/v2/custom-domains)。
 - **環境変数:** Vercel では環境変数を設定できます。詳細は、[ここにあるドキュメント](https://vercel.com/docs/v2/build-step#using-environment-variables-and-secrets) を参照してください。Next.js アプリ内で[これらの環境変数](/docs/api-reference/next.config.js/environment-variables.md)を使用できます。
