@@ -1,14 +1,14 @@
 ---
-description: Learn more about the API of the Next.js Router, and access the router instance in your page with the useRouter hook.
+description: Next.js Router のAPIやuseRouter フックを利用したルーターインスタンスの使い方について学んでいきます。 
 ---
 
 # next/router
 
-> Before moving forward, we recommend you to read [Routing Introduction](/docs/routing/introduction.md) first.
+> この記事を読む前に、[Routing Introduction](/docs/routing/introduction.md)をあらかじめ参照することをおすすめします。
 
 ## useRouter
 
-If you want to access the [`router` object](#router-object) inside any function component in your app, you can use the `useRouter` hook, take a look at the following example:
+もし、アプリ内の関数コンポーネントに含まれる [`router` object](#router-object) へアクセスしたいときは、 `useRouter` フックを利用できます。以下の例を見てください。
 
 ```jsx
 import { useRouter } from 'next/router';
@@ -35,21 +35,21 @@ function ActiveLink({ children, href }) {
 export default ActiveLink;
 ```
 
-> `useRouter` is a [React Hook](https://reactjs.org/docs/hooks-intro.html), meaning it cannot be used with classes. You can either use [withRouter](#withRouter) or wrap your class in a function component.
+> `useRouter` は、[React Hook](https://reactjs.org/docs/hooks-intro.html)、クラスとして扱うことができません。[withRouter](#withRouter)を利用するか、関数コンポーネントでラップしたクラスを用いるかのいづれかで扱うことができます。 
 
 ### router object
 
-The following is the definition of the `router` object returned by both [`useRouter`](#useRouter) and [`withRouter`](#withRouter):
+続いて、[`useRouter`](#useRouter)と[`withRouter`](#withRouter)を使って返す `router` object の定義について書いていきます。:
 
-- `pathname`: `String` - Current route. That is the path of the page in `/pages`
-- `query`: `Object` - The query string parsed to an object. It will be an empty object during prerendering if the page doesn't have [data fetching requirements](/docs/basic-features/data-fetching.md). Defaults to `{}`
-- `asPath`: `String` - Actual path (including the query) shown in the browser
+- `pathname`: `String` - 現在のルート名を返します。 これは `/pages` ディレクトリに含まれるページのパスです。
+- `query`: `Object` - クエリーを文字列からオブジェクト型に変換したものを返します。もし、ページに[data fetching requirements](/docs/basic-features/data-fetching.md) 含まれなければ、前もってが空オブジェクトを返します。デフォルトでは。`{}` を返します。
+- `asPath`: `String` - ブラウザーに反映されている実際のパス名（クエリーも含まれます）を返します。
 
-Additionally, the [`Router API`](#router-api) is also included inside the object.
+加えて、[`Router API`](#router-api) もまたこのオブジェクトに含まれます。
 
 ## withRouter
 
-If [`useRouter`](#useRouter) is not the best fit for you, `withRouter` can also add the same [`router` object](#router-object) to any component, here's how to use it:
+もし、[`useRouter`](#useRouter) がうまく扱えない場合、`withRouter` も[`router` object](#router-object) と同様にコンポーネントに加えることができます。次のように使っていきます。:
 
 ```jsx
 import { withRouter } from 'next/router';
@@ -63,7 +63,8 @@ export default withRouter(Page);
 
 ## Router API
 
-The API of `Router`, exported by `next/router`, is defined below.
+`next/router` でエクスポートされた `Router` API は次のように定義されます。
+
 
 ### Router.push
 
@@ -74,7 +75,7 @@ The API of `Router`, exported by `next/router`, is defined below.
   </ul>
 </details>
 
-Handles client-side transitions, this method is useful for cases where [`next/link`](/docs/api-reference/next/link.md) is not enough.
+クライアントサイドのトランジションを扱います。このメソッドは[`next/link`](/docs/api-reference/next/link.md) では不十分でない場合に役立ちます。
 
 ```jsx
 import Router from 'next/router';
@@ -87,11 +88,11 @@ Router.push(url, as, options);
 - `options` - Optional object with the following configuration options:
   - [`shallow`](/docs/routing/shallow-routing.md): Update the path of the current page without rerunning [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation), [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering) or [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md). Defaults to `false`
 
-> You don't need to use `Router` for external URLs, [window.location](https://developer.mozilla.org/en-US/docs/Web/API/Window/location) is better suited for those cases.
+> 外部URL をRouter`　で使う必要がない場合、[window.location](https://developer.mozilla.org/en-US/docs/Web/API/Window/location) が先ほどの場合には向いている You don't need to use `Router` for external URLs, [window.location](https://developer.mozilla.org/en-US/docs/Web/API/Window/location) is better suited for those cases.
 
-#### Usage
+#### 使い方
 
-Navigating to `pages/about.js`, which is a predefined route:
+あらかじめ定義した `pages/about.js` にナビゲートする場合:
 
 ```jsx
 import Router from 'next/router';
@@ -101,7 +102,7 @@ function Page() {
 }
 ```
 
-Navigating `pages/post/[pid].js`, which is a dynamic route:
+動的ルートである `pages/post/[pid].js`へナビゲートする場合:
 
 ```jsx
 import Router from 'next/router';
@@ -111,9 +112,9 @@ function Page() {
 }
 ```
 
-#### With URL object
+#### URL object と一緒に利用する
 
-You can use an URL object in the same way you can use it for [`next/link`](/docs/api-reference/next/link.md#with-url-object). Works for both the `url` and `as` parameters:
+URL オブジェクトも、さきほどの[`next/link`](/docs/api-reference/next/link.md#with-url-object) と同じように使うことができます。`url` と `as` パラメータとを扱う場合は次のようになります。:
 
 ```jsx
 import Router from 'next/router';
@@ -137,8 +138,7 @@ export default ReadMore;
 ```
 
 ### Router.replace
-
-Similar to the `replace` prop in [`next/link`](/docs/api-reference/next/link.md), `Router.replace` will prevent adding a new URL entry into the `history` stack, take a look at the following example:
+[`next/link`](/docs/api-reference/next/link.md) の `replace` prop に似た `Router.replace` は、`history` スタックに新しい URL エントリを追加されるのを防ぎます。次の例を見てください。:
 
 ```jsx
 import Router from 'next/router';
@@ -146,13 +146,13 @@ import Router from 'next/router';
 Router.replace('/home');
 ```
 
-The API for `Router.replace` is exactly the same as that used for [`Router.push`](#router.push).
+`Router.replace` の API は [`Router.push`](#router.push)で使われる API　と全く同じ値を返します。
 
 ### Router.prefetch
-
+クライアントサイドのトランジションを高速化のためのページを呼び出します。このメソッドは [`next/link`](/docs/api-reference/next/link.md) を用いないでナヴィゲーションを
 Prefetch pages for faster client-side transitions. This method is only useful for navigations without [`next/link`](/docs/api-reference/next/link.md), as `next/link` takes care of prefetching pages automatically.
 
-> This is a production only feature. Next.js doesn't prefetch pages on development.
+> このAPI は、本番環境用の機能です。開発環境でページを前もって呼び出すことはできません。
 
 ```jsx
 import Router from 'next/router';
@@ -160,12 +160,13 @@ import Router from 'next/router';
 Router.prefetch(url, as);
 ```
 
-- `url` - The path to a `page` inside the `pages` directory
-- `as` - Optional decorator for `url`, used to prefetch [dynamic routes](/docs/routing/dynamic-routes). Defaults to `url`
+- `url` - `pages` ディレクトリに含まれる `page`のパス　The path to a `page` inside the `pages` directory
+- `as` - `url` に付属する [dynamic routes](/docs/routing/dynamic-routes) を前もって呼ばれるデコレータ.　デフォルトで `url`を返します。
 
-#### Usage
+#### 使い方
 
-Let's say you have a login page, and after a login, you redirect the user to the dashboard. For that case, we can prefetch the dashboard to make a faster transition, like in the following example:
+例えば。ログインページがあって、ログイン後に、ユーザーをダッシュボードにリダイレクトさせる場合、画面をより高速なトランジションするよりも
+ you have a login page, and after a login, you redirect the user to the dashboard. For that case, we can prefetch the dashboard to make a faster transition, like in the following example:
 
 ```jsx
 import { useCallback, useEffect } from 'react';
@@ -202,10 +203,9 @@ export default function Login() {
 ```
 
 ### Router.beforePopState
+一部の場合 ( 例えば、[Custom Server](/docs/advanced-features/custom-server.md)を使用する場合 ) において、ルーターが実行される前に[popstate](https://developer.mozilla.org/en-US/docs/Web/Events/popstate) を呼び出して、何かさせたい場合があります。
 
-In some cases (for example, if using a [Custom Server](/docs/advanced-features/custom-server.md)), you may wish to listen to [popstate](https://developer.mozilla.org/en-US/docs/Web/Events/popstate) and do something before the router acts on it.
-
-You could use this to manipulate the request, or force a SSR refresh, as in the following example:
+次の実装例のように、リクエストを扱う際(例えば、SSR リフレッシュさせたいとき)に利用できます。
 
 ```jsx
 import Router from 'next/router';
