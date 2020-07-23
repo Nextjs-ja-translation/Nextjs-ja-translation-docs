@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -111,7 +111,10 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
     <td align="center"><a href="https://mottox2.com"><img src="https://avatars3.githubusercontent.com/u/7007253?v=4" width="100px;" alt=""/><br /><sub><b>Yuki Takemoto</b></sub></a><br /><a href="#translation-mottox2" title="Translation">🌍</a></td>
     <td align="center"><a href="http://qiita.com/ossan-engineer"><img src="https://avatars0.githubusercontent.com/u/2215105?v=4" width="100px;" alt=""/><br /><sub><b>Kiichi Tachibana</b></sub></a><br /><a href="#translation-ossan-engineer" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/resqnet"><img src="https://avatars3.githubusercontent.com/u/12475586?v=4" width="100px;" alt=""/><br /><sub><b>ken_o</b></sub></a><br /><a href="#translation-resqnet" title="Translation">🌍</a></td>
+  </tr>
+  <tr>
     <td align="center"><a href="https://panda-program.com/"><img src="https://avatars0.githubusercontent.com/u/36080801?v=4" width="100px;" alt=""/><br /><sub><b>Mashu Kushibiki</b></sub></a><br /><a href="#translation-KushibikiMashu" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://yopinoji.com/"><img src="https://avatars0.githubusercontent.com/u/46310104?v=4" width="100px;" alt=""/><br /><sub><b>Masaki Yoshiiwa</b></sub></a><br /><a href="#translation-YopiNoji" title="Translation">🌍</a></td>
   </tr>
 </table>
 
