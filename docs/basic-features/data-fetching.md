@@ -455,7 +455,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 #### サーバー側でのみ実行
 
-`getServerSideProps`はサーバー側でのみ実行され、ブラウザでは決して実行されません。ページが `getServerSideProps` を使うとこのような挙動になります。
+`getServerSideProps`はサーバー側でのみ実行され、ブラウザでは決して実行されません。ページが `getServerSideProps` を使うと次のような挙動になります。
 
 - このページを直接リクエストすると、`getServerSideProps`はリクエスト時に実行され、返された props でプリレンダリングされます。
 - `next/link`([ドキュメント](/docs/api-reference/next/link.md)) や `next/router` ([ドキュメント](/docs/api-reference/next/router.md)) でのクライアント側のページ遷移をリクエストすると Next.js は API リクエストをサーバーに送信します。続けて `getServerSideProps` を実行します。この挙動は全て自動的に Next.js によって処理されるため、`getServerSideProps`を定義しさえすれば他にやることはありません。
