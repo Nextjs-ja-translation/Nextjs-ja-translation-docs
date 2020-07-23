@@ -4,7 +4,7 @@ description: クライアント側とサーバー側のランタイムの設定�
 
 # Runtime configuration
 
-> 一般的に、あなたの Next.js アプリケーションに設定値を渡すためには [build-time environment variables](/docs/api-reference/next.config.js/environment-variables.md) を使いたいです。なぜなら、 Runtime configuration は レンダリング / 初期化 のオーバーヘッドにつながるからであり、また [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) は互換性がないからです。
+> 一般的には、 [環境変数](/docs/api-reference/next.config.js/environment-variables.md) を使用して設定を行うのがいいでしょう。なぜなら、ランタイム設定はレンダリング / 初期化時の余計な処理につながり、また [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) と互換性がないからです。
 
 > Runtime configuration は [`serverless` target](/docs/api-reference/next.config.js/build-target.md#serverless-target) のときは利用できません。
 
