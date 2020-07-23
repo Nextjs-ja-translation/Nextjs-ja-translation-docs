@@ -477,7 +477,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 ### SWR
 
-Next.js の開発チームはデータ取得用の [**SWR**](https://swr.now.sh/) という React フックを作成しました。クライアント側でデータ取得する際にはその利用を強くお勧めします。キャッシュ、再バリデーション、フォーカスの追跡、一定間隔での再取得などを処理できます。このように使用します。
+Next.js の開発チームはデータ取得用の [**SWR**](https://swr.now.sh/) という React フックを作成しました。クライアント側でデータ取得する際にはその利用を強くお勧めします。キャッシュ、再バリデーション、フォーカスの追跡、一定間隔での再取得などを処理できます。次のように使用します。
 
 ```jsx
 import useSWR from 'swr';
