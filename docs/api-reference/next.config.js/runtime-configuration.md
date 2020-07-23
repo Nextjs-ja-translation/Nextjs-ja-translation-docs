@@ -65,6 +65,6 @@ export default MyImage;
 <div class="card">
   <a href="/docs/api-reference/next.config.js/environment-variables.md">
     <b>環境変数:</b>
-    <small>あなたの Next.js アプリケーションのビルド時に環境変数を利用する。</small>
+    <small>Next.js アプリケーションのビルド時に環境変数を利用する。</small>
   </a>
 </div>
