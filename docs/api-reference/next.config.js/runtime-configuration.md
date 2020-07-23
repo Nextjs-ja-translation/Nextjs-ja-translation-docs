@@ -30,7 +30,7 @@ module.exports = {
 
 > `publicRuntimeConfig` に依存しているページは [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) の対象から除外するために、 **必ず** `getInitialProps` を使ってください。 ランタイム設定は `getInitialProps` を使っていないページ（またはページ内のコンポーネント）では利用できません。
 
-あなたのアプリケーションで Runtime config を利用するためには `next/config` を以下のように記述してください:
+アプリケーション内でランタイムの設定を利用するためには `next/config` を以下のように記述してください:
 
 ```jsx
 import getConfig from 'next/config';
