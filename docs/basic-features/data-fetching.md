@@ -216,7 +216,7 @@ export async function getStaticPaths() {
 }
 ```
 
-####`paths`キー（必須）
+#### `paths`キー（必須）
 
 `paths`キーはどのパスがプリレンダリングされるかを決定します。たとえば、動的ルートを使った `pages/posts/[id].js` というページがあります。このページから `getStaticPaths` をエクスポートして `paths` に次のような値を返すとしましょう。
 
