@@ -1,12 +1,12 @@
 ---
-description: Set a custom build directory to use instead of the default .next directory.
+description: デフォルトの.nextディレクトリの代わりに使用する、カスタムビルドディレクトリの設定をします。
 ---
 
-# Setting a custom build directory
+# カスタムビルドディレクトリの設定
 
-You can specify a name to use for a custom build directory to use instead of `.next`.
+`.next` の代わりに使用する、カスタムビルドディレクトリの名前を指定できます。
 
-Open `next.config.js` and add the `distDir` config:
+`next.config.js` に `distDir` の設定を追記します :
 
 ```js
 module.exports = {
@@ -14,15 +14,15 @@ module.exports = {
 };
 ```
 
-Now if you run `next build` Next.js will use `build` instead of the default `.next` folder.
+上記の設定で `next build` を実行すると、 Next.js はデフォルトの `.next` フォルダの代わりに `build` フォルダを使用します。
 
-> `distDir` **should not** leave your project directory. For example, `../build` is an **invalid** directory.
+> `distDir` はプロジェクトのディレクトリから離れ**ないで**下さい。 例えば、 `../build` は**無効な**ディレクトリです。
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js入門:</b>
+    <small>Next.jsの設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
