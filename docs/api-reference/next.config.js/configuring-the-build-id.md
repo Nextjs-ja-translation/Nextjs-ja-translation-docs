@@ -13,7 +13,7 @@ Next.js では、ビルド時に生成される一定の識別子を利用して
 ```js
 module.exports = {
   generateBuildId: async () => {
-    // 例えば、ここで最新のコミットハッシュを取得することができますね。
+    // 例えば、ここで最新のコミットハッシュを取得することができますね
     return 'my-build-id';
   }
 };
@@ -24,6 +24,6 @@ module.exports = {
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
     <b>next.config.js の紹介:</b>
-    <small>Next.js が使用する設定ファイルについてさらに学んでみましょう。</small>
+    <small>Next.js が使用する設定ファイルについてさらに学びましょう。</small>
   </a>
 </div>
