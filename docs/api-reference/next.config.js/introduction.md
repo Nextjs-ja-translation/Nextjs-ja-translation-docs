@@ -53,4 +53,4 @@ module.exports = (phase, { defaultConfig }) => {
 ただし、いずれの設定も必要でなく、全ての設定を完全に理解する必要はありません。
 有効化または修正する必要がある設定のみ調べて変更するようにお勧めします。
 
-> 利用する Node.js のバージョンでは利用出来ない JavaScript の機能を使用しないようにしましょう。 `next.config.js` は Webpack、Babel、TypeScriptで解析されません。
+> 利用する Node.js のバージョンで利用出来ない JavaScript の新機能を使用しないようにしましょう。 `next.config.js` は Webpack、Babel、TypeScriptで解析されません。
