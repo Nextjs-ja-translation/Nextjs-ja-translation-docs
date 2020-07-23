@@ -13,7 +13,7 @@ Next.js では、ビルド時に生成される一定の識別子を利用して
 ```js
 module.exports = {
   generateBuildId: async () => {
-    // 例えば、ここで最新のコミットハッシュを取得することができますね
+    // 例えば、ここで最新のコミットハッシュを取得することができます
     return 'my-build-id';
   }
 };
