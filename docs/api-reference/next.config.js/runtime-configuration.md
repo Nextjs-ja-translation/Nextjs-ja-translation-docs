@@ -24,7 +24,7 @@ module.exports = {
 };
 ```
 
-サーバー側だけで利用する値であれば、 Runtime config は `serverRuntimeConfig` に記述します。
+サーバー側だけで利用する値であれば、ランタイムの設定は `serverRuntimeConfig` に記述してください。
 
 クライアント側とサーバー側のどちらのコードからも使う値であれば、 `publicRuntimeConfig` に記述しましょう。
 
