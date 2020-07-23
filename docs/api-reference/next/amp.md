@@ -43,7 +43,7 @@ export default About;
 上のページは AMP-only のページです。つまり:
 
 - ページには Next.js または React によるクライアント側のランタイムがありません
-- ページは [AMP Optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer) によって自動的に最適化されます。AMP Optimizer は AMP キャッシュと同様の変換をするオプティマイザであり、パフォーマンスを最大 42 % 向上させます
+- ページは [AMP Optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer) によって自動的に最適化されます。AMP Optimizer は AMP キャッシュと同様の変換をするオプティマイザであり、パフォーマンスを最大 42% 向上させます
 - ページにはユーザーがアクセスできる（最適化された）バージョンのページと、検索エンジンのインデックス付け可能な（最適化されていない）バージョンのページがあります
 
 ## ハイブリッド AMP ページ
