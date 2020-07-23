@@ -8,7 +8,7 @@ description: Next.jsによって追加された、デフォルトのドキュメ
 
 カスタム `Document` には、非同期サーバーレンダリングのデータ要求を表現するための `getInitialProps` を含めることもできます。
 
-デフォルトの `Document` をオーバーライドするには `./pages/_document.js` ファイルを作成し、次のように `Document` クラスを拡張します。
+デフォルトの `Document` をオーバーライドするには `./pages/_document.js` ファイルを作成し、次のように `Document` クラスを拡張します:
 
 ```jsx
 import Document, { Html, Head, Main, NextScript } from 'next/document';
