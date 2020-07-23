@@ -179,7 +179,7 @@ export default Blog;
 
 `getStaticProps`を持つページがビルド時にプリレンダリングされると、ページの HTML ファイルだけでなく Next.js は `getStaticProps` の結果を持つ JSON ファイルを生成します。
 
-この JSON ファイルは、`next/link`([ドキュメント](/docs/api-reference/next/link.md))もしくは `next/router` ([ドキュメント](/docs/api-reference/next/router.md))経由のクライアント側のルーティングで使われます。`getStaticProps`　でプリレンダリングされたページに遷移すると、Next.js はこの JSON ファイル（ビルド時に事前計算）を取得してページコンポーネントの props として使います。つまり、クライアント側のページ遷移は `getStaticProps` を呼び出さず、エクスポートされた JSON だけが使われます。
+この JSON ファイルは、`next/link`([ドキュメント](/docs/api-reference/next/link.md))もしくは `next/router` ([ドキュメント](/docs/api-reference/next/router.md))経由のクライアント側のルーティングで使われます。`getStaticProps`　でプリレンダリングされたページに遷移すると、Next.js はこの JSON ファイル（ビルド時に事前処理）を取得してページコンポーネントの props として使います。つまり、クライアント側のページ遷移は `getStaticProps` を呼び出さず、エクスポートされた JSON だけが使われます。
 
 #### ページ内でのみ許可
 
