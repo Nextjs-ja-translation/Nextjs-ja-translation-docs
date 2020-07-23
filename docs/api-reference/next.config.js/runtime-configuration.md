@@ -1,5 +1,5 @@
 ---
-description: クライアント側とサーバー側のランタイムの設定をあなたの Next.js アプリケーションに追加します。
+description: クライアント側とサーバー側のランタイム設定を Next.js アプリケーションに追加します。
 ---
 
 # Runtime configuration
