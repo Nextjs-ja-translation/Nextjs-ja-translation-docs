@@ -437,7 +437,7 @@ export default Page;
 
 `getServerSideProps`は、リクエスト時にデータを取得するページのプリレンダリングが必要な時のみ使うべきです。最初のバイトの所要時間（TTFB）は `getStaticProps` よりも遅くなります。サーバーはリクエストごとに演算しなければならず、その結果は追加設定なしで CDN にキャッシュされないためです。
 
-データをプリレンダリングする必要がなければ、クライアント側でのデータ取得を検討すべきです。[詳細はこちら]](#fetching-data-on-the-client-side)。
+データをプリレンダリングする必要がなければ、クライアント側でのデータ取得を検討すべきです。[詳細はこちら](#fetching-data-on-the-client-side)。
 
 ### TypeScript: `GetServerSideProps`を使う
 
