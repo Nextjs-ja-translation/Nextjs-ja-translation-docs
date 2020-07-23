@@ -41,7 +41,7 @@ export async function getStaticProps(context) {
 }
 ```
 
-`context`パラメータは次のキーを含むオブジェクトです。
+`context`パラメータは次のキーを含むオブジェクトです:
 
 - `params`はページが動的ルートを利用するためのルートパラメータを持ちます。たとえば、ページ名が `[id].js` である時、`params`は `{ id: ...}` のように見えます。詳細は [動的ルーティングのドキュメント](/docs/routing/dynamic-routes.md)をご覧ください。後に説明する `getStaticPaths`と一緒に使う必要があります。
 - ページがプレビューモードになっている時は `preview` が `true` になり、そうでない場合は `false` になります。[プレビューモードのドキュメント](/docs/advanced-features/preview-mode.md)をご覧ください。
