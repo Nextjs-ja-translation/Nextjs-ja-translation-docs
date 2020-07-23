@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-20-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -109,6 +109,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
     <td align="center"><a href="https://github.com/kentaro84207"><img src="https://avatars1.githubusercontent.com/u/33363411?v=4" width="100px;" alt=""/><br /><sub><b>Kentaro Suzuki</b></sub></a><br /><a href="#translation-kentaro84207" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/ogugu9"><img src="https://avatars1.githubusercontent.com/u/14102616?v=4" width="100px;" alt=""/><br /><sub><b>ogugu</b></sub></a><br /><a href="#translation-ogugu9" title="Translation">🌍</a></td>
     <td align="center"><a href="https://mottox2.com"><img src="https://avatars3.githubusercontent.com/u/7007253?v=4" width="100px;" alt=""/><br /><sub><b>Yuki Takemoto</b></sub></a><br /><a href="#translation-mottox2" title="Translation">🌍</a></td>
+    <td align="center"><a href="http://qiita.com/ossan-engineer"><img src="https://avatars0.githubusercontent.com/u/2215105?v=4" width="100px;" alt=""/><br /><sub><b>Kiichi Tachibana</b></sub></a><br /><a href="#translation-ossan-engineer" title="Translation">🌍</a></td>
   </tr>
 </table>
 
