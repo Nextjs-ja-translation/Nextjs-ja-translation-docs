@@ -2,7 +2,7 @@
 description: クライアント側とサーバー側のランタイム設定を Next.js アプリケーションに追加します。
 ---
 
-# Runtime configuration
+# ランタイム設定
 
 > 一般的には、 [環境変数](/docs/api-reference/next.config.js/environment-variables.md) を使用して設定を行うのがいいでしょう。なぜなら、ランタイム設定はレンダリング / 初期化時の余計な処理につながり、また [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) と互換性がないからです。
 
