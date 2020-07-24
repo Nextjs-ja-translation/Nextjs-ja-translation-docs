@@ -3,6 +3,7 @@
     "preset-ja-technical-writing": {
       "no-exclamation-question-mark": {
         "allowFullWidthExclamation": true,
+        "allowHalfWidthExclamation": true,
         "allowFullWidthQuestion": true,
       }
     },
