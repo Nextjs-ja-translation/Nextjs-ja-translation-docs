@@ -264,7 +264,7 @@
               "path": "/docs/api-reference/next.config.js/configuring-onDemandEntries.md"
             },
             {
-              "title": "Ignoring TypeScript Errors",
+              "title": "TypeScriptのエラーを無視する",
               "path": "/docs/api-reference/next.config.js/ignoring-typescript-errors.md"
             },
             {
