@@ -4,9 +4,9 @@ description: Next.js は、レンダリングされたコンテンツや静的�
 
 # 圧縮
 
-Next.js は、レンダリングされたコンテンツや静的ファイルを圧縮する、[**gzip**](https://tools.ietf.org/html/rfc6713#section-3)圧縮を提供します。
+Next.js は、レンダリングされたコンテンツや静的ファイルを圧縮する、[**gzip**](https://tools.ietf.org/html/rfc6713#section-3) 圧縮を提供します。
 圧縮は、[`server` ターゲット](/docs/api-reference/next.config.js/build-target.md#server-target)でのみ動作します。
-一般的には、 `Node.js` プロセスの負荷を軽減するために、[nginx](https://www.nginx.com/)のような HTTP プロキシで圧縮を有効化したいでしょう。
+一般的には、 `Node.js` プロセスの負荷を軽減するために、[nginx](https://www.nginx.com/) のような HTTP プロキシで圧縮を有効にしたいでしょう。
 
 圧縮を無効にするには、 `next.config.js` の `compress` を無効にします:
 
