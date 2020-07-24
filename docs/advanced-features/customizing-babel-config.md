@@ -57,4 +57,4 @@ Next.js のアプリに含まれる `next/babel` プリセットは、React ア�
 
 > Next.js は、サーバーサイドのコンパイルに**現在**の Node.js のバージョンを使用します。
 
-> `"preset-env"` の `mobules` オプションは `false` にすべきで、そうでなければ、webpack のコード分割はされません。
+> `"preset-env"` の `modules` オプションは `false` にすべきで、そうでなければ、webpack のコード分割はされません。
