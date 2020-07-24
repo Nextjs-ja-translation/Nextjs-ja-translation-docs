@@ -252,7 +252,7 @@
               "path": "/docs/api-reference/next.config.js/disabling-etag-generation.md"
             },
             {
-              "title": "Setting a custom build directory",
+              "title": "カスタムビルドディレクトリの設定",
               "path": "/docs/api-reference/next.config.js/setting-a-custom-build-directory.md"
             },
             {
