@@ -1,32 +1,32 @@
 ---
-description: Learn how to upgrade Next.js.
+description: Next.js  noアップグレード方法を学びます。
 ---
 
-# Upgrade Guide
+# アップグレードガイド
 
-## Upgrading from version 8 to 9.0.x
+## バージョン 8 から 9.0.x へのアップグレード
 
-### Preamble
+### 前置き
 
-#### Production Deployment on Vercel
+#### Vercel へのプロダクションデプロイ
 
-If you previously configured `routes` in your `now.json` file for dynamic routes, these rules can be removed when leveraging Next.js 9's new [Dynamic Routing feature](https://nextjs.org/docs/routing/dynamic-routes).
+動的ルーティングのために、 `now.json` ファイル内に `routes` を設定していた場合、Next.js 9 の新しい[動的なルーティング機能](https://nextjs.org/docs/routing/dynamic-routes) を利用することで、これらのルールを削除できます。
 
-Next.js 9's dynamic routes are **automatically configured on [Now](https://vercel.com/now)** and do not require any `now.json` customization.
+Next.js 9 の動的なルーティングは **[Now](https://vercel.com/now) 上では自動的に設定されている**ため、 `now.json` のカスタマイズは必要ありません。
 
-You can read more about [Dynamic Routing here](https://nextjs.org/docs/routing/dynamic-routes).
+詳細は [こちらの動的なルーティング](https://nextjs.org/docs/routing/dynamic-routes) を読んでください。
 
-#### Check your Custom <App> (`pages/_app.js`)
+#### 自分のカスタム <App>(`pages/_app.js`) のチェック
 
-If you previously copied the [Custom `<App>`](https://nextjs.org/docs#custom-app) example, you may be able to remove your `getInitialProps`.
+[カスタム `<App>`](https://nextjs.org/docs#custom-app) の例をコピーしていたなら、`getInitialProps` を削除できます。
 
-Removing `getInitialProps` from `pages/_app.js` (when possible) is important to leverage new Next.js features!
+`pages/_app.js` から `getInitialProps` の削除(できれば)は、新しい Next.js の機能を利用するために重要です！
 
-The following `getInitialProps` does nothing and may be removed:
+以下の `getInitialProps` は何もしないため削除して構いません:
 
 ```js
 class MyApp extends App {
-  // Remove me, I do nothing!
+  // 削除して下さい、何もしません!
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
@@ -38,28 +38,28 @@ class MyApp extends App {
   }
 
   render() {
-    // ... etc
+    // ... などなど
   }
 }
 ```
 
-### Breaking Changes
+### 破壊的な変更
 
-#### `@zeit/next-typescript` is no longer necessary
+#### `@zeit/next-typescript` はもはや必要ではありません
 
-Next.js will now ignore usage `@zeit/next-typescript` and warn you to remove it. Please remove this plugin from your `next.config.js`.
+Next.js は `@zeit/next-typescript` の使用を無視するようになり、削除するよう警告されます。`next.config.js` からこのプラグインを削除して下さい。
 
-Remove references to `@zeit/next-typescript/babel` from your custom `.babelrc` (if present).
+カスタム `.babelrc` から `@zeit/next-typescript/babel` への参照があれば削除して下さい。
 
-Usage of [`fork-ts-checker-webpack-plugin`](https://github.com/Realytics/fork-ts-checker-webpack-plugin/issues) should also be removed from your `next.config.js`.
+[`fork-ts-checker-webpack-plugin`](https://github.com/Realytics/fork-ts-checker-webpack-plugin/issues) の使用も `next.config.js` から削除されるべきです。
 
-TypeScript Definitions are published with the `next` package, so you need to uninstall `@types/next` as they would conflict.
+Typescript の定義は `next` パッケージと共に配布されるため、衝突する `@types/next` をアンインストールする必要があります。
 
-The following types are different:
+以下の型は異なります:
 
-> This list was created by the community to help you upgrade, if you find other differences please send a pull-request to this list to help other users.
+> このリストはアップグレードの助けになるようコミュニティで作成されました。もし他の違いを発見した場合は、他のユーザーの助けになるようにこのリストに対してプルリクエストを送って下さい。
 
-From:
+変更前:
 
 ```tsx
 import { NextContext } from 'next';
@@ -67,7 +67,7 @@ import { NextAppContext, DefaultAppIProps } from 'next/app';
 import { NextDocumentContext, DefaultDocumentIProps } from 'next/document';
 ```
 
-to
+ 変更後:
 
 ```tsx
 import { NextPageContext } from 'next';
@@ -75,16 +75,18 @@ import { AppContext, AppInitialProps } from 'next/app';
 import { DocumentContext, DocumentInitialProps } from 'next/document';
 ```
 
-#### The `config` key is now a special export on a page
+#### `config` キーはページ上で特殊なエクスポートになります
 
-You may no longer export a custom variable named `config` from a page (i.e. `export { config }` / `export const config ...`).
-This exported variable is now used to specify page-level Next.js configuration like Opt-in AMP and API Route features.
+ページから `config` という名前のカスタム変数(つまり `export { config }` / `export const config ...`) をエクスポートする必要はありません。
+このエクスポート変数はオプトイン AMP や API ルーティング機能のように
+ページレベルの Next.js 設定を指定するために使われます。
 
-You must rename a non-Next.js-purposed `config` export to something different.
+Next.js ではない目的の `config` エクスポートは別の名前に変更しなければなりません。
 
-#### `next/dynamic` no longer renders "loading..." by default while loading
+#### `next/dynamic` はデフォルトではもはやロード時に　"loading..." を表示しません
 
-Dynamic components will not render anything by default while loading. You can still customize this behavior by setting the `loading` property:
+動的コンポーネントはデフォルトではロード時に何も表示しません。その場合でも、
+`loading` プロパティを設定することでこの挙動をカスタマイズできます:
 
 ```jsx
 import dynamic from 'next/dynamic';
@@ -94,19 +96,19 @@ const DynamicComponentWithCustomLoading = dynamic(() => import('../components/he
 });
 ```
 
-#### `withAmp` has been removed in favor of an exported configuration object
+#### `withAmp` は削除され、エクスポートされた設定オブジェクトに置き換えられました
 
-Next.js now has the concept of page-level configuration, so the `withAmp` higher-order component has been removed for consistency.
+Next.js はページレベルの設定という概念を持つようになり、整合性を保つため `withAmp` 高位コンポーネントは削除されました。
 
-This change can be **automatically migrated by running the following commands in the root of your Next.js project:**
+この変更は **Next.js プロジェクトのルートディレクトリで以下のコマンドを実行することで自動的に移行されます:**
 
 ```bash
 curl -L https://github.com/zeit/next-codemod/archive/master.tar.gz | tar -xz --strip=2 next-codemod-master/transforms/withamp-to-config.js npx jscodeshift -t ./withamp-to-config.js pages/**/*.js
 ```
 
-To perform this migration by hand, or view what the codemod will produce, see below:
+この移行を手動で行う、あるいは codemod が生成する内容を見るためには、以下を見て下さい:
 
-**Before**
+**移行前**
 
 ```jsx
 import { withAmp } from 'next/amp';
@@ -116,11 +118,11 @@ function Home() {
 }
 
 export default withAmp(Home);
-// or
+// あるいは
 export default withAmp(Home, { hybrid: true });
 ```
 
-**After**
+**移行後**
 
 ```jsx
 export default function Home() {
@@ -129,16 +131,16 @@ export default function Home() {
 
 export const config = {
   amp: true,
-  // or
+  // あるいは
   amp: 'hybrid'
 };
 ```
 
-#### `next export` no longer exports pages as `index.html`
+#### `next export` はもはや `index.html` としてエクスポートされません
 
-Previously, exporting `pages/about.js` would result in `out/about/index.html`. This behavior has been changed to result in `out/about.html`.
+以前は、 `pages/about.js` のエクスポートにより `out/about/index.html` が出力されていました。この挙動は `out/about.html` を出力するように変更されました。
 
-You can revert to the previous behavior by creating a `next.config.js` with the following content:
+以下の内容で `next.config.js` を作成することで、以前の挙動に戻すことができます:
 
 ```js
 // next.config.js
@@ -147,20 +149,21 @@ module.exports = {
 };
 ```
 
-#### `./pages/api/` is treated differently
+#### `./pages/api/` は異なる扱いになります
 
-Pages in `./pages/api/` are now considered [API Routes](https://nextjs.org/blog/next-9#api-routes).
-Pages in this directory will no longer contain a client-side bundle.
+`./pages/api/` 内のページは [API Routes](https://nextjs.org/blog/next-9#api-routes) と見なされます。
+このディレクトリのページはもはやクライアント側のバンドルに含まれません。
 
-## Deprecated Features
+## 非推奨の機能
 
-#### `next/dynamic` has deprecated loading multiple modules at once
+#### `next/dynamic` の一度に複数のモジュールのロードは非推奨となりました
 
-The ability to load multiple modules at once has been deprecated in `next/dynamic` to be closer to React's implementation (`React.lazy` and `Suspense`).
+`next/dynamic` の一度に複数のモジュールをロードする機能は、 React の実装 (`React.lazy` と `Suspense`) に近づけるため非推奨となりました。
 
-Updating code that relies on this behavior is relatively straightforward! We've provided an example of a before/after to help you migrate your application:
+この挙動に依存するコードの更新は、比較的素直です。
+アプリケーション移行の助けになるよう、移行前/移行後の例を提供しました:
 
-**Before**
+**移行前**
 
 ```jsx
 import dynamic from 'next/dynamic';
@@ -190,7 +193,7 @@ function DynamicBundle() {
 export default DynamicBundle;
 ```
 
-**After**
+**移行後**
 
 ```jsx
 import dynamic from 'next/dynamic';
