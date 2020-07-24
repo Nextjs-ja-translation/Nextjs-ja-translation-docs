@@ -11,30 +11,30 @@ description: ページに使用される動的ルーティングはAPIのルー�
   </ul>
 </details>
 
-APIのルーティングは[動的ルーティング](/docs/routing/dynamic-routes.md)をサポートし、`pages`に使用されるものと同じファイル命名規則に従います。
+API のルーティングは[動的ルーティング](/docs/routing/dynamic-routes.md)をサポートし、`pages` に使用されるものと同じファイル命名規則に従います。
 
-例えば、APIルート`pages/api/post/[pid].js`に以下のコードがあるとします:
+例えば、API ルート `pages/api/post/[pid].js` に以下のコードがあるとします:
 
 ```js
 export default (req, res) => {
   const {
-    query: { pid },
-  } = req
+    query: { pid }
+  } = req;
 
-  res.end(`Post: ${pid}`)
-}
+  res.end(`Post: ${pid}`);
+};
 ```
 
-このとき、`/api/post/abc`へのリクエストは`Post: abc`というテキストを返します。 
+このとき、`/api/post/abc` へのリクエストは `Post: abc` というテキストを返します。
 
 ### インデックスのルーティングと動的APIルーティング
 
-ごく一般的なRESTfulパターンは、次のようなルートを設定します:
+ごく一般的な RESTful パターンは、次のようなルートを設定します:
 
 - `GET api/posts/` - 投稿の一覧を取得します。おそらくページネーションがあります。
-- `GET api/posts/12345` - 投稿ID 12345 を取得します。
+- `GET api/posts/12345` - 投稿 ID 12345 を取得します。
 
-これは2つの方法でモデル化できます:
+これは 2 つの方法でモデル化できます:
 
 - オプション 1:
   - `/api/posts.js`
@@ -44,49 +44,49 @@ export default (req, res) => {
   - `/api/posts/index.js`
   - `/api/posts/[postId].js`
 
-どちらも同等です。3つ目のオプションとして`/api/posts/[postId].js`のみを使うことは正しくありません。なぜなら、どんな状況でも動的ルーティング（すべてのルートのキャッチを含む-下記を参照）には`未定義`な状態はなく、`GET api/posts/`は`/api/posts/[postId].js`に一致しないためです。
+どちらも同等です。3 つ目のオプションとして `/api/posts/[postId].js` のみを使うことは正しくありません。なぜなら、どんな状況でも動的ルーティング（すべてのルートのキャッチを含む-下記を参照）には `未定義` な状態はなく、`GET api/posts/` は `/api/posts/[postId].js` に一致しないためです。
 
 ### すべてのAPIルートをキャッチ
 
-角括弧`[]`内に3つのドット（`...`）を追加することで、APIルートを拡張してすべてのパスをキャッチできます。例えば:
+角括弧 `[]` 内に 3 つのドット（`...`）を追加することで、API ルートを拡張してすべてのパスをキャッチできます。例えば:
 
-- `pages/api/post/[...slug].js`は`/api/post/a`に一致しますが、`/api/post/a/b`、`/api/post/a/b/c`などにも一致します。
+- `pages/api/post/[...slug].js` は `/api/post/a` に一致しますが、`/api/post/a/b`、`/api/post/a/b/c` などにも一致します。
 
-> **備考**: `slug`以外の名前も使用できます。例えば: `[...param]`
+> **備考**: `slug` 以外の名前も使用できます。例えば: `[...param]`
 
-一致したパラメータはクエリパラメータ（例では`slug`）としてページに送信され、常に配列になり、パス`/api/post/a`は次の`query`オブジェクトを持ちます:
+一致したパラメータはクエリパラメータ（例では `slug`）としてページに送信され、常に配列になり、パス `/api/post/a` は次の `query` オブジェクトを持ちます:
 
 ```json
 { "slug": ["a"] }
 ```
 
-そして、`/api/post/a/b`やその他の一致するパスである場合、次のように新しいパラメータが配列に追加されます:
+そして、`/api/post/a/b` やその他の一致するパスである場合、次のように新しいパラメータが配列に追加されます:
 
 ```json
 { "slug": ["a", "b"] }
 ```
 
-`pages/api/post/[...slug].js`のAPIルートは、次のようになります:
+`pages/api/post/[...slug].js` の API ルートは、次のようになります:
 
 ```js
-export default (req, res） => {
+export default (req, res) => {
   const {
-    query: { slug },
-  } = req
+    query: { slug }
+  } = req;
 
-  res.end(`Post: ${slug.join(', ')}`)
-}
+  res.end(`Post: ${slug.join(', ')}`);
+};
 ```
 
-このとき、`/api/post/a/b/c`へのリクエストは次のテキストを返します: `Post: a, b, c`
+このとき、`/api/post/a/b/c` へのリクエストは `Post: a, b, c` というテキストを返します。
 
 ### オプショナルにすべてのAPIルートをキャッチ
 
-すべてのルートをキャッチすることは、`[[...slug]]`のようにパラメータを二重角括弧内に含めることでオプショナルにできます。
+すべてのルートをキャッチすることは、`[[...slug]]` のようにパラメータを二重角括弧内に含めることでオプショナルにできます。
 
-例えば、`pages/api/post/[[...slug]].js`は`/api/post`、`/api/post/a`、`/api/post/a/b`などにマッチします。
+例えば、`pages/api/post/[[...slug]].js` は `/api/post`、`/api/post/a`、`/api/post/a/b` などに一致します。
 
-`query`オブジェクトは次のようになります:
+`query` オブジェクトは次のようになります:
 
 ```json
 { } // GET `/api/post` (空のオブジェクト)
@@ -96,12 +96,12 @@ export default (req, res） => {
 
 ## 注意事項
 
-- 予め定義されたAPIのルーティングは動的APIルーティングよりも優先され、動的APIルーティングはすべてのAPIルートのキャッチよりも優先されます。次の例を見てください:
-  - `pages/api/post/create.js` - `/api/post/create`に一致します
-  - `pages/api/post/[pid].js` - `/api/post/1`、`/api/post/abc`などに一致します。しかし、`/api/post/create`には一致しません。
-  - `pages/api/post/[...slug].js` - `/api/post/1/2`、`/api/post/a/b/c`などにマッチします。しかし、`/api/post/create`、`/api/post/abc`などには一致しません。
+- 予め定義された API のルーティングは動的 API ルーティングよりも優先され、動的 API ルーティングはすべての API ルートのキャッチよりも優先されます。次の例を見てください:
+  - `pages/api/post/create.js` - `/api/post/create` に一致します
+  - `pages/api/post/[pid].js` - `/api/post/1`、`/api/post/abc` などに一致します。しかし、`/api/post/create` には一致しません。
+  - `pages/api/post/[...slug].js` - `/api/post/1/2`、`/api/post/a/b/c` などに一致します。しかし、`/api/post/create`、`/api/post/abc` などには一致しません。
 
-## 関連
+## 関連事項
 
 さらに詳細については、以下のセクションをお勧めします:
 
