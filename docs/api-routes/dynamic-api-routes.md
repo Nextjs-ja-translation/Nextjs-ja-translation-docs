@@ -1,5 +1,5 @@
 ---
-description: ページに使用される動的ルーティングはAPIのルーティングにおいても使用できます。ここではそれがどのように機能するかを学びます。
+description: ページに使用される動的ルーティングはAPIのルーティングにおいても使用できます。ここでは、それがどのように機能するかを学びます。
 ---
 
 # 動的APIルーティング
@@ -25,11 +25,11 @@ export default (req, res) => {
 }
 ```
 
-このとき、`/api/post/abc`へのリクエストは次のテキストを返します: `Post: abc`
+このとき、`/api/post/abc`へのリクエストは`Post: abc`というテキストを返します。 
 
 ### インデックスのルーティングと動的APIルーティング
 
-非常に一般的なRESTfulパターンは、次のようなルートを設定します:
+ごく一般的なRESTfulパターンは、次のようなルートを設定します:
 
 - `GET api/posts/` - 投稿の一覧を取得します。おそらくページネーションがあります。
 - `GET api/posts/12345` - 投稿ID 12345 を取得します。
@@ -48,13 +48,13 @@ export default (req, res) => {
 
 ### すべてのAPIルートをキャッチ
 
-括弧`[]`内に3つのドット（`...`）を追加することで、APIルートを拡張してすべてのパスをキャッチできます。例えば:
+角括弧`[]`内に3つのドット（`...`）を追加することで、APIルートを拡張してすべてのパスをキャッチできます。例えば:
 
-- `pages/api/post/[...slug].js`は`/api/post/a`と一致しますが、`/api/post/a/b`、`/api/post/a/b/c`なども一致します。
+- `pages/api/post/[...slug].js`は`/api/post/a`に一致しますが、`/api/post/a/b`、`/api/post/a/b/c`などにも一致します。
 
 > **備考**: `slug`以外の名前も使用できます。例えば: `[...param]`
 
-一致したパラメータはクエリパラメータ（例では`slug`）としてページに送信され、常に配列になり、パス`/api/post/a`には次の`query`オブジェクトが含まれます:
+一致したパラメータはクエリパラメータ（例では`slug`）としてページに送信され、常に配列になり、パス`/api/post/a`は次の`query`オブジェクトを持ちます:
 
 ```json
 { "slug": ["a"] }
@@ -82,7 +82,7 @@ export default (req, res） => {
 
 ### オプショナルにすべてのAPIルートをキャッチ
 
-すべてのルートをキャッチすることは、`[[...slug]]`のようにパラメータを二重括弧内に含めることでオプショナルにできます。
+すべてのルートをキャッチすることは、`[[...slug]]`のようにパラメータを二重角括弧内に含めることでオプショナルにできます。
 
 例えば、`pages/api/post/[[...slug]].js`は`/api/post`、`/api/post/a`、`/api/post/a/b`などにマッチします。
 
@@ -96,10 +96,10 @@ export default (req, res） => {
 
 ## 注意事項
 
-- 事前定義されたAPIのルーティングは動的APIルーティングよりも優先され、動的APIルーティングはすべてのAPIルートのキャッチよりも優先されます。次の例を見てください:
-  - `pages/api/post/create.js` - `/api/post/create`にマッチします
-  - `pages/api/post/[pid].js` - `/api/post/1`、`/api/post/abc`などにマッチします。しかし、`/api/post/create`にはマッチしません。
-  - `pages/api/post/[...slug].js` - `/api/post/1/2`、`/api/post/a/b/c`などにマッチします。しかし、`/api/post/create`、`/api/post/abc`などにはマッチしません。
+- 予め定義されたAPIのルーティングは動的APIルーティングよりも優先され、動的APIルーティングはすべてのAPIルートのキャッチよりも優先されます。次の例を見てください:
+  - `pages/api/post/create.js` - `/api/post/create`に一致します
+  - `pages/api/post/[pid].js` - `/api/post/1`、`/api/post/abc`などに一致します。しかし、`/api/post/create`には一致しません。
+  - `pages/api/post/[...slug].js` - `/api/post/1/2`、`/api/post/a/b/c`などにマッチします。しかし、`/api/post/create`、`/api/post/abc`などには一致しません。
 
 ## 関連
 
@@ -108,6 +108,6 @@ export default (req, res） => {
 <div class="card">
   <a href="/docs/routing/dynamic-routes.md">
     <b>動的ルーティング:</b>
-    <small>ビルトインの動的ルーティングについて学びましょう。</small>
+    <small>ビルトインされた動的ルーティングについて学びましょう。</small>
   </a>
 </div>
