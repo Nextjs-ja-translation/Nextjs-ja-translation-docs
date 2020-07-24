@@ -1,0 +1,6 @@
+{
+  "*.md": [
+    "textlint --fix",
+    "textlint"
+  ]
+}
