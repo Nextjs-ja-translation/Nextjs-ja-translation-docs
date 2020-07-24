@@ -17,7 +17,7 @@ module.exports = {
 };
 ```
 
-Next.js はスクリプトを読み込みプレフィックスを自動的に使用しますが、 [public](/docs/basic-features/static-file-serving.md) フォルダには何の影響もありません。 コンポーネント内で動作し、環境ごとに異なるプレフィックスを導入する方法の例として、 [こちら](https://github.com/zeit/next.js/tree/canary/examples/with-universal-configuration-build-time)をご参考ください。
+Next.js は読み込むスクリプトの中でプレフィックスを自動的に使用しますが、 [public](/docs/basic-features/static-file-serving.md) フォルダには何の影響もありません。 コンポーネント内で動作し、環境ごとに異なるプレフィックスを導入する方法の 1 つとして、 [こちら](https://github.com/zeit/next.js/tree/canary/examples/with-universal-configuration-build-time)をご参考ください。
 
 ## 関連事項
 
