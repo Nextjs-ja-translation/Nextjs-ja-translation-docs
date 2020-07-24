@@ -3,12 +3,12 @@ name: reviewdog
 on: [pull_request]
 
 jobs:
-  documentation:
+  textlint:
+    name: runner / textlint
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [12.x]
-    name: Node ${{ matrix.node }} on ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - name: Setup node
@@ -30,4 +30,4 @@ jobs:
           FILES: README.md docs/**/*.md
           LEVEL: error
           REVIEWDOG_GITHUB_API_TOKEN: ${{ github.token }}
-        run: ./bin/reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review -level=${LEVEL} |  yarn run textlint ${FILES}
+        run: ./bin/reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review -level=${LEVEL} |  yarn run textlint ${FILES} --cache -f checkstyle
