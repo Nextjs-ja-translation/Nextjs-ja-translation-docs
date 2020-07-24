@@ -1,8 +1,8 @@
 ---
-description: 独自の設定をNext.jsに追加して、Babelプリセットを拡張します。
+description: 独自の設定をNext.js に追加し、Babel プリセットを拡張します。
 ---
 
-# Babel設定のカスタマイズ
+# Babel 設定のカスタマイズ
 
 <details>
   <summary><b>例</b></summary>
@@ -11,9 +11,9 @@ description: 独自の設定をNext.jsに追加して、Babelプリセットを�
   </ul>
 </details>
 
-Next.js のアプリに含まれる `next/babel` プリセットは、React アプリケーションや、サーバーサイドコードのコンパイルに必要なすべてのことが含まれます。ですが、デフォルトの Babel 設定を拡張したい場合は、それも可能です。
+Next.js のアプリに含まれる `next/babel` プリセットは、React アプリケーションや、サーバーサイドのコードをコンパイルに必要なすべてのことが含まれます。ですが、デフォルトの Babel 設定を拡張したい場合は、それも可能です。
 
-開始するには、アプリのトップに `.babelrc` を定義する必要があるだけです。もし、そのようなファイルを見つけた場合信頼できるソースだと考えます。それから、`next/babel`プリセットを Next.js で定義する必要があります。
+開始するには、アプリのトップに `.babelrc` を置くだけです。もし、そのようなファイルを見つけた場合_信頼できるソース_だとみなされるため、Next.js も同様に必要とする `next/babel` プリセットを定義する必要があります。
 
 こちらが `.babelrc` ファイルの例です:
 
@@ -34,7 +34,7 @@ Next.js のアプリに含まれる `next/babel` プリセットは、React ア�
 - plugin-transform-runtime
 - styled-jsx
 
-これらの presets/plugins を設定する場合、カスタムした `.babelrc` の `presets` や `plugins` を追加しないでください。その代わり、`next/babel`プリセットでこのように設定します:
+これらの presets/plugins を設定する場合、カスタムした `.babelrc` の `presets` や `plugins` を追加**しないでください**。その代わり、`next/babel`プリセットでこのように設定します:
 
 ```json
 {
@@ -53,8 +53,8 @@ Next.js のアプリに含まれる `next/babel` プリセットは、React ア�
 }
 ```
 
-各設定で、利用可能なオプションについてはドキュメントサイトに訪れて学んでください。
+各設定で、利用可能なオプションについてはドキュメントサイトにご覧ください。
 
 > Next.jsは、サーバーサイドのコンパイルに現在のNode.jsのバージョンを使用します。
 
-> `"preset-env"`の `mobules` オプションは `false` にすべきで、そうでなければ、webpackのコード分割はオフになります。
+> `"preset-env"`の `mobules` オプションは `false` にすべきで、そうでなければ、webpackのコード分割されません。
