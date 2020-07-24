@@ -3,26 +3,31 @@ name: reviewdog
 on: [pull_request]
 
 jobs:
-  textlint:
-    name: runner / textlint
+  documentation:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    name: Node ${{ matrix.node }} on ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
-      - name: textlint-github-pr-check
-        uses: tsuyoshicho/action-textlint@master
+      - name: Setup node
+        uses: actions/setup-node@v1
         with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-check
-          textlint_flags: 'docs/**'
-      - name: textlint-github-check
-        uses: tsuyoshicho/action-textlint@master
+          node-version: ${{ matrix.node }}
+      - uses: actions/cache@v2
         with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-check
-          textlint_flags: 'docs/**'
-      - name: textlint-github-pr-review
-        uses: tsuyoshicho/action-textlint@master
-        with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review
-          textlint_flags: 'docs/**'
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
+      - name: install reviewdog
+        run: |
+          curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s  v0.9.13
+      - name: textlint
+        env:
+          FILES: README.md docs/**/*.md
+          LEVEL: error
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ github.token }}
+        run: ./bin/reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review -level=${LEVEL} |  yarn run textlint ${FILES}
