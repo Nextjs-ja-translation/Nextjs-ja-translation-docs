@@ -30,4 +30,4 @@ jobs:
           FILES: README.md docs/**/*.md
           LEVEL: error
           REVIEWDOG_GITHUB_API_TOKEN: ${{ github.token }}
-        run: ./bin/reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review -level=${LEVEL} |  yarn run textlint ${FILES} --cache -f checkstyle
+        run: ./bin/reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review -level=${LEVEL} |  yarn run text-lint ${FILES} -f checkstyle
