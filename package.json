@@ -13,7 +13,7 @@
     "analyze": "ANALYZE=true next build",
     "index-docs": "node ./.next/serverless/scripts/index-docs.js",
     "lint": "eslint .",
-    "text-lint": "textlint",
+    "text-lint": "textlint --cache",
     "text-lint:fix": "textlint --fix"
   },
   "dependencies": {
