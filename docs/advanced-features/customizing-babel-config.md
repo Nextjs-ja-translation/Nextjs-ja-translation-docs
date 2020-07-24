@@ -7,7 +7,7 @@ description: 独自の設定をNext.js に追加し、Babel プリセットを�
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-custom-babel-config">Babel設定のカスタマイズ</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-custom-babel-config">Babel 設定のカスタマイズ</a></li>
   </ul>
 </details>
 
