@@ -119,16 +119,18 @@ Next.jsでは`export`された[React コンポーネント](https://reactjs.org/
 
 用語の翻訳に一貫性を持たせるため、下記の単語についての翻訳をまとめました。随時追加中です。
 
-| 用語          | 和訳         |
-| ------------- | ------------ |
-| Caveats       | 注意事項     |
-| Note          | 備考         |
-| How to use it | 使い方       |
-| Introduction  | はじめに     |
-| Related       | 関連事項     |
-| Import        | インポート   |
-| Export        | エクスポート |
-| warnings      | 警告         |
+| 用語             | 和訳                       |
+| ---------------- | -------------------------- |
+| Caveats          | 注意事項                   |
+| Note             | 備考                       |
+| How to use it    | 使い方                     |
+| Introduction     | はじめに                   |
+| Related          | 関連事項                   |
+| Import           | インポート                 |
+| Export           | エクスポート               |
+| warnings         | 警告                       |
+| introduce to     | の紹介                     |
+| learn more about | について詳しく学びましょう |
 
 ### 原文のままの方がいいと判断された用語
 
