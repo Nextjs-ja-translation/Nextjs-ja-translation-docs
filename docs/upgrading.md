@@ -1,5 +1,5 @@
 ---
-description: Next.js  noアップグレード方法を学びます。
+description: Next.js のアップグレード方法を学びます。
 ---
 
 # アップグレードガイド
