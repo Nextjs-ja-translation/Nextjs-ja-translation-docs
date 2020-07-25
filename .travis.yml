@@ -8,6 +8,6 @@ install:
   - curl -fSL https://github.com/haya14busa/reviewdog/releases/download/$REVIEWDOG_VERSION/reviewdog_linux_amd64 -o ~/bin/reviewdog && chmod +x ~/bin/reviewdog
   - npm install
 script:
-  - $(npm bin)/textlint README.md docs/**
+  - $(npm bin)/textlint README.md docs/** --cache
 after_failure:
-  - test $TRAVIS_PULL_REQUEST && $(npm bin)/textlint -f checkstyle README.md docs/** | reviewdog -f=checkstyle -name="textlint" -ci="travis"
+  - test $TRAVIS_PULL_REQUEST && $(npm bin)/textlint -f checkstyle README.md docs/** --cache | reviewdog -f=checkstyle -name="textlint" -ci="travis"
