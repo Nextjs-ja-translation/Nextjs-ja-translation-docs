@@ -1,4 +1,6 @@
 {
-  "*": ["pretty-quick --staged"],
-  "*.md": ["textlint"],
+  "*.md": [
+    "textlint --fix",
+    "textlint"
+  ]
 }
