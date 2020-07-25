@@ -64,6 +64,14 @@ module.exports = {
 };
 ```
 
+## Customizing the output directory
+
+[`next export`](/docs/advanced-features/static-html-export.md#how-to-use-it) will use `out` as the default output directory, you can customize this using the `-o` argument, like so:
+
+```bash
+next export -o outdir
+```
+
 ## 関連事項
 
 <div class="card">
