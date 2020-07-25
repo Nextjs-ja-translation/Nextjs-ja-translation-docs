@@ -248,7 +248,7 @@
               "path": "/docs/api-reference/next.config.js/disabling-x-powered-by.md"
             },
             {
-              "title": "Disabling ETag Generation",
+              "title": "ETag 生成の無効化",
               "path": "/docs/api-reference/next.config.js/disabling-etag-generation.md"
             },
             {
