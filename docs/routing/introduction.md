@@ -64,7 +64,7 @@ export default Home;
 [動的なパスセグメント](/docs/routing/dynamic-routes.md)でリンクするとき、ルータがどの JavaScript ファイルを読む込むのかが分かるように、 `href` と `as` を渡す必要があります。
 
 - `href` - `pages` ディレクトリ中のページの名前です。例えば `/blog/[slug]` のようにします。
-- `as` - ブラウザに表示される URL. 例：`/blog/hello-world`.
+- `as` - ブラウザに表示される URL です。以下の例では `/blog/hello-world` になります。
 
 ```jsx
 import Link from 'next/link';
