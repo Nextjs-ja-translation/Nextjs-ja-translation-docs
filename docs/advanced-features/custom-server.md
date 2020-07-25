@@ -1,8 +1,8 @@
 ---
-description: Start a Next.js app programmatically using a custom server.
+description: カスタムサーバーを使用してプログラマティックに Next.js アプリを起動します。
 ---
 
-# Custom Server
+# カスタムサーバー
 
 <details>
   <summary><b>Examples</b></summary>
@@ -15,11 +15,11 @@ description: Start a Next.js app programmatically using a custom server.
   </ul>
 </details>
 
-Typically you start your next server with `next start`. It's possible, however, to start a server 100% programmatically in order to use custom route patterns.
+通常、next サーバーは `next start` で起動します。しかしながら、カスタムルートパターンを使用するために、100％ プログラマティックな起動が可能です。
 
-> Before deciding to use a custom server please keep in mind that it should only be used when the integrated router of Next.js can't meet your app requirements. A custom server will remove important performance optimizations, like **serverless functions** and **[Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md).**
+> カスタムサーバーの使用を決定する前に、Next.js の統合ルーターがアプリの要件を満たせない場合にのみ使用することを覚えておいてください。カスタムサーバーは、**サーバーレス関数**や **[Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md).** などの重要なパフォーマンス最適化を削除します。
 
-Take a look at the following example of a custom server:
+次のカスタムサーバーの例を見てください:
 
 ```js
 // server.js
@@ -33,8 +33,8 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   createServer((req, res) => {
-    // Be sure to pass `true` as the second argument to `url.parse`.
-    // This tells it to parse the query portion of the URL.
+    // `url.parse` の2番目の引数として必ず `true` を渡してください。
+    // これは、URLのクエリ部分を解析するように指示します。
     const parsedUrl = parse(req.url, true);
     const { pathname, query } = parsedUrl;
 
@@ -52,9 +52,9 @@ app.prepare().then(() => {
 });
 ```
 
-> `server.js` doesn't go through babel or webpack. Make sure the syntax and sources this file requires are compatible with the current node version you are running.
+> `server.js` は babel や webpack を経由しません。このファイルに必要な構文とソースが、現在実行中の node バージョンと互換性があることを確認してください。
 
-Then, to run the custom server you'll need to update the `scripts` in `package.json`, like so:
+次に、カスタムサーバーを実行するには、このように、`package.json` の `scripts` を更新する必要があります:
 
 ```json
 "scripts": {
@@ -66,27 +66,27 @@ Then, to run the custom server you'll need to update the `scripts` in `package.j
 
 ---
 
-The custom server uses the following import to connect the server with the Next.js application:
+カスタムサーバーは、次のインポートを使用して、サーバーを　Next.js　アプリケーションに接続します:
 
 ```js
 const next = require('next');
 const app = next({});
 ```
 
-The above `next` import is a function that receives an object with the following options:
+上記の `next` インポートは、次のオプションを持つオブジェクトを受け取る関数です:
 
-- `dev`: `Boolean` - Whether or not to launch Next.js in dev mode. Defaults to `false`
-- `dir`: `String` - Location of the Next.js project. Defaults to `'.'`
-- `quiet`: `Boolean` - Hide error messages containing server information. Defaults to `false`
-- `conf`: `object` - The same object you would use in [next.config.js](/docs/api-reference/next.config.js/introduction.md). Defaults to `{}`
+- `dev`: `Boolean` - Next.js を開発モードで起動するか。デフォルトは `false` です
+- `dir`: `String` - Next.js プロジェクトの場所。デフォルトは `'.'`です
+- `quiet`: `Boolean` - サーバー情報を含むエラーメッセージを非表示にします。デフォルトは `false` です
+- `conf`: `object` - [next.config.js](/docs/api-reference/next.config.js/introduction.md) で使用するのと同じオブジェクト。デフォルトは `{}` です
 
-The returned `app` can then be used to let Next.js handle requests as required.
+返された `app` を使用して、必要に応じて Next.js でリクエストを処理できます。
 
-## Disabling file-system routing
+## ファイルシステムルーティングの無効化
 
-By default, `Next` will serve each file in the `pages` folder under a pathname matching the filename. If your project uses a custom server, this behavior may result in the same content being served from multiple paths, which can present problems with SEO and UX.
+デフォルトでは、`Next` はファイル名と一致するパス名の下の `pages` フォルダー内の各ファイルを提供します。プロジェクトでカスタムサーバーを使用する場合、この挙動で同じコンテンツが複数のパスから提供される可能性があり、SEO と UX で問題を起こす可能性があります。
 
-To disable this behavior and prevent routing based on files in `pages`, open `next.config.js` and disable the `useFileSystemPublicRoutes` config:
+この動作を無効にし、　`pages`　内のファイルに基づくルーティングを防ぐには、 `next.config.js` を開いて `useFileSystemPublicRoutes` 設定を無効にします:
 
 ```js
 module.exports = {
@@ -94,6 +94,6 @@ module.exports = {
 };
 ```
 
-> Note that `useFileSystemPublicRoutes` disables filename routes from SSR; client-side routing may still access those paths. When using this option, you should guard against navigation to routes you do not want programmatically.
+> `useFileSystemPublicRoutes`は SSR のファイル名ルートのみを無効にすることに注意してください。クライアント側のルーティングは、これらのパスに引き続きアクセスできます。このオプションを使用する場合は、プログラマティックに不要なルートへのナビゲーションを防ぐ必要があります。
 
-> You may also wish to configure the client-side Router to disallow client-side redirects to filename routes; for that refer to [`Router.beforePopState`](/docs/api-reference/next/router.md#router.beforePopState).
+> クライアント側ルーターを構成して、ファイル名ルートへのクライアント側リダイレクトを禁止することもできます。これについては、[`Router.beforePopState`](/docs/api-reference/next/router.md#router.beforePopState) を参照してください。
