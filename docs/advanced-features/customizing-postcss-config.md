@@ -1,43 +1,43 @@
 ---
-description: Extend the PostCSS config and plugins added by Next.js with your own.
+description: Next.jsで追加したPostCSSの設定とプラグインを独自に拡張します。
 ---
 
-# Customizing PostCSS Config
+# PostCSS設定のカスタマイズ
 
 <details open>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-tailwindcss">Tailwind CSS Example</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-tailwindcss">Tailwind CSS の例</a></li>
   </ul>
 </details>
 
-## Default Behavior
+## デフォルトの挙動
 
-Next.js compiles CSS for its [built-in CSS support](/docs/basic-features/built-in-css-support) using PostCSS.
+Next.js では、PostCSS を使って[組み込み用のCSS](/docs/basic-features/built-in-css-support)をコンパイルしています。
 
-Out of the box, with no configuration, Next.js compiles CSS with the following transformations:
+何も設定していなくても、Next.js は以下のような変換によって CSS をコンパイルします:
 
-1. [Autoprefixer](https://github.com/postcss/autoprefixer) automatically adds vendor prefixes to CSS rules (back to IE11).
-1. [Cross-browser Flexbox bugs](https://github.com/philipwalton/flexbugs) are corrected to behave like [the spec](https://www.w3.org/TR/css-flexbox-1/).
-1. New CSS features are automatically compiled for Internet Explorer 11 compatibility:
-   - [`all` Property](https://developer.mozilla.org/en-US/docs/Web/CSS/all)
-   - [Break Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/break-after)
-   - [`font-variant` Property](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant)
-   - [Gap Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/gap)
-   - [Media Query Ranges](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Syntax_improvements_in_Level_4)
+1. [Autoprefixer](https://github.com/postcss/autoprefixer) は、CSS ルールセットにベンダープレフィックスを自動的に追加します（IE11 に戻す）。
+1. [クロスブラウザのFlexboxのバグ](https://github.com/philipwalton/flexbugs)が[仕様](https://www.w3.org/TR/css-flexbox-1/)通りに動作するように修正されます。
+1. 新しい CSS の機能は、Internet Explorer 11 との互換性のために自動的にコンパイルされます:
+   - [`all` プロパティ](https://developer.mozilla.org/ja/docs/Web/CSS/all)
+   - [Break プロパティ](https://developer.mozilla.org/ja/docs/Web/CSS/break-after)
+   - [`font-variant` プロパティ](https://developer.mozilla.org/ja/docs/Web/CSS/font-variant)
+   - [Gap プロパティ](https://developer.mozilla.org/ja/docs/Web/CSS/gap)
+   - [Media Query Ranges](https://developer.mozilla.org/ja/docs/Web/CSS/Media_Queries/Using_media_queries#Syntax_improvements_in_Level_4)
 
-By default, [Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/var) (CSS variables) are **not compiled** for IE11 support.
+デフォルトでは、IE11 対応のために[カスタムプロパティ](https://developer.mozilla.org/ja/docs/Web/CSS/var)（CSS 変数）は**コンパイルされません**。
 
-CSS variables are not compiled because it is [not possible to safely do so](https://github.com/MadLittleMods/postcss-css-variables#caveats).
-If you must use variables, consider using something like [Sass variables](https://sass-lang.com/documentation/variables) which are compiled away by [Sass](https://sass-lang.com/).
+CSS 変数は、[安全に実行できない](https://github.com/MadLittleMods/postcss-css-variables#caveats)ため、コンパイルされません。
+変数を使用する必要がある場合は、[Sass](https://sass-lang.com/)によってコンパイルされる[Sass変数](https://sass-lang.com/documentation/variables)などを使用することを検討してください。
 
-> **Note**: To support [Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/grid), you need to enable `grid: "autoplace"` for Autoprefixer. See ["Customizing Plugins"](#customizing-plugins) below.
+> **備考**: [グリッドレイアウト](https://developer.mozilla.org/ja/docs/Web/CSS/grid)をサポートするには、Autoprefixerで `grid: "autoplace"` を有効にする必要があります。後述の[プラグインのカスタマイズ](#プラグインのカスタマイズ)を参照してください。
 
-## Customizing Target Browsers
+## ターゲットブラウザのカスタマイズ
 
-Next.js allows you to configure the target browsers (for [Autoprefixer](https://github.com/postcss/autoprefixer) and compiled css features) through [Browserslist](https://github.com/browserslist/browserslist).
+Next.js では、[Browserslist](https://github.com/browserslist/browserslist)を介してターゲットブラウザ（[Autoprefixer](https://github.com/postcss/autoprefixer) やコンパイルされた CSS 機能のため）を設定できます。
 
-To customize browserslist, create a `browserslist` key in your `package.json` like so:
+browserslist をカスタマイズするには、以下のように `package.json` に `browserslist` key を作成します:
 
 ```json
 {
@@ -45,23 +45,23 @@ To customize browserslist, create a `browserslist` key in your `package.json` li
 }
 ```
 
-You can use the [browserl.ist](https://browserl.ist/?q=%3E0.3%25%2C+not+ie+11%2C+not+dead%2C+not+op_mini+all) tool to visualize what browsers you are targeting.
+[browserl.ist](https://browserl.ist/?q=%3E0.3%25%2C+not+ie+11%2C+not+dead%2C+not+op_mini+all) ツールを使って、どのブラウザをターゲットにしているか可視化できます。
 
-## CSS Modules
+## CSS モジュール
 
-No configuration is needed to support CSS Modules. To enable CSS Modules for a file, rename the file to have the extension `.module.css`.
+CSS モジュールをサポートするための設定は必要ありません。ファイルで CSS モジュールを有効にするには、ファイルの名前を拡張子 `.module.css` に変更します。
 
-You can learn more about [Next.js' CSS Module support here](/docs/basic-features/built-in-css-support).
+[Next.jsのCSSモジュールのサポートについてはこちら](/docs/basic-features/built-in-css-support)をご覧ください。
 
-## Customizing Plugins
+## プラグインのカスタマイズ
 
-> **Warning**: When you define a custom PostCSS configuration file, Next.js **completely disables** the [default behavior](#default-behavior).
-> Be sure to manually configure all the features you need compiled, including [Autoprefixer](https://github.com/postcss/autoprefixer).
-> You also need to install any plugins included in your custom configuration manually, i.e. `npm install postcss-flexbugs-fixes`.
+> **警告**: カスタムPostCSSの設定ファイルを定義すると、Next.jsは[デフォルトの挙動](#デフォルトの挙動)を**完全に無効にします**。
+> [Autoprefixer](https://github.com/postcss/autoprefixer)を含め、コンパイルに必要な機能はすべて手動で設定するようにしてください。
+> また、カスタムした設定に含まれるプラグインを手動でインストールする必要があります（例：`npm install postcss-flexbugs-fixes`）。
 
-To customize the PostCSS configuration, create a `postcss.config.json` file in the root of your project.
+PostCSS の設定をカスタマイズするには、プロジェクトのルートに `postcss.config.json` ファイルを作成します。
 
-This is the default configuration used by Next.js:
+これは Next.js が使用するデフォルトの設定です:
 
 ```json
 {
@@ -83,9 +83,9 @@ This is the default configuration used by Next.js:
 }
 ```
 
-> **Note**: Next.js also allows the file to be named `.postcssrc.json`, or, to be read from the `postcss` key in `package.json`.
+> **備考**: Next.jsでは、ファイル名を `.postcssrc.json` とするか、`package.json` の `postcss` keyから読み込むこともできます。
 
-It is also possible to configure PostCSS with a `postcss.config.js` file, which is useful when you want to conditionally include plugins based on environment:
+また、`postcss.config.js` ファイルで PostCSS を設定も可能で、環境に応じて条件付きでプラグインを入れたい場合に便利です:
 
 ```js
 module.exports = {
@@ -112,11 +112,11 @@ module.exports = {
 };
 ```
 
-> **Note**: Next.js also allows the file to be named `.postcssrc.js`.
+> **備考**: Next.jsでは、ファイル名を `.postcssrc.js` とすることもできます。
 
-Do **not use `require()`** to import the PostCSS Plugins. Plugins must be provided as strings.
+PostCSS プラグインをインポートするために **`require()` を使用しない**でください。プラグインは文字列として提供される必要があります。
 
-> **Note**: If your `postcss.config.js` needs to support other non-Next.js tools in the same project, you must use the interoperable object-based format instead:
+> **備考**: あなたの `postcss.config.js` が同じプロジェクト内でNext.js以外のツールをサポートする必要がある場合、代わりに相互運用可能なオブジェクトベースのフォーマットを使用しなければなりません:
 >
 > ```js
 > module.exports = {

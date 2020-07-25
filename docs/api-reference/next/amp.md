@@ -1,34 +1,34 @@
 ---
-description: Enable AMP in a page, and control the way Next.js adds AMP to the page with the AMP config.
+description: ページ内のAMPを有効にし、 Next.js がページに AMP を追加する方法を AMP の設定によって制御します。
 ---
 
 # next/amp
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
     <li><a href="https://github.com/zeit/next.js/tree/canary/examples/amp">AMP</a></li>
   </ul>
 </details>
 
-> AMP support is one of our advanced features, you can read more about it [here](/docs/advanced-features/amp-support/introduction.md).
+> AMP サポートは Next.js の高度な機能の 1 つです。詳細については、[こちら](/docs/advanced-features/amp-support/introduction.md)をご覧ください。
 
-To enable AMP, add the following config to your page:
+AMP を有効にするには、次の設定をページに追加します:
 
 ```jsx
 export const config = { amp: true };
 ```
 
-The `amp` config accepts the following values:
+`amp` の設定は次の値を受け付けます:
 
-- `true` - The page will be AMP-only
-- `'hybrid'` - The page will have two versions, one with AMP and another one with HTML
+- `true` - ページは AMP-only になります
+- `'hybrid'` - ページは AMP を使用したものと HTML を使用したものの 2 つのバージョンを持ちます
 
-To learn more about the `amp` config, read the sections below.
+`amp` の詳細設定については、以下のセクションをご覧ください。
 
-## AMP First Page
+## AMP の最初のページ
 
-Take a look at the following example:
+次の例をご覧ください:
 
 ```jsx
 export const config = { amp: true };
@@ -40,15 +40,15 @@ function About(props) {
 export default About;
 ```
 
-The page above is an AMP-only page, which means:
+上のページは AMP-only のページです。つまり:
 
-- The page has no Next.js or React client-side runtime
-- The page is automatically optimized with [AMP Optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer), an optimizer that applies the same transformations as AMP caches (improves performance by up to 42%)
-- The page has an user-accessible (optimized) version of the page and a search-engine indexable (unoptimized) version of the page
+- ページには Next.js または React によるクライアント側のランタイムがありません
+- ページは [AMP Optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer) によって自動的に最適化されます。AMP Optimizer は AMP キャッシュと同様の変換をするオプティマイザであり、パフォーマンスを最大 42% 向上させます
+- ページにはユーザーがアクセスできる（最適化された）バージョンのページと、検索エンジンのインデックス付け可能な（最適化されていない）バージョンのページがあります
 
-## Hybrid AMP Page
+## ハイブリッド AMP ページ
 
-Take a look at the following example:
+次の例をご覧ください:
 
 ```jsx
 import { useAmp } from 'next/amp';
@@ -79,9 +79,9 @@ function About(props) {
 export default About;
 ```
 
-The page above is a hybrid AMP page, which means:
+上のページはハイブリッド AMP ページです。つまり:
 
-- The page is rendered as traditional HTML (default) and AMP HTML (by adding `?amp=1` to the URL)
-- The AMP version of the page only has valid optimizations applied with AMP Optimizer so that it is indexable by search-engines
+- ページは従来の HTML（デフォルト）および、 AMP HTML（URL に `?amp=1` を追加することにより）としてレンダリングされます
+- ページの AMP バージョンは、検索エンジンにインデックスされるよう、AMP Optimizer による有効な最適化のみが適用されています
 
-The page uses `useAmp` to differentiate between modes, it's a [React Hook](https://reactjs.org/docs/hooks-intro.html) that returns `true` if the page is using AMP, and `false` otherwise.
+ページは `useAmp` を使用してモードを区別しています。 `useAmp` はページが AMP を使用している場合は `true` を返し、そうでない場合は `false` を返す [React Hook](https://reactjs.org/docs/hooks-intro.html) です。

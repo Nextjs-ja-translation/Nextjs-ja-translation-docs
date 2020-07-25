@@ -1,58 +1,59 @@
 ---
-description: 'Next.js has 2 pre-rendering modes: Static Generation and Server-side rendering. Learn how they work here.'
+description: 'Next.jsには2つのプリレンダリングモードがあります。静的生成とサーバーサイドレンダリングです。これらの動作についてはこちらを御覧ください。'
 ---
 
-# Data fetching
+# データ取得
 
-> This document is for Next.js versions 9.3 and up. If you’re using older versions of Next.js, refer to our [previous documentation](https://nextjs.org/docs/tag/v9.2.2/basic-features/data-fetching).
+> このドキュメントはNext.jsのバージョン9.3以降が対象となります。旧バージョンのNext.jsを使用している場合は、[以前のドキュメント](https://nextjs.org/docs/tag/v9.2.2/basic-features/data-fetching)を参照してください。
 
 <details open>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/blog-starter">Blog Starter using markdown files</a> (<a href="https://next-blog-starter.now.sh/">Demo</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-datocms">DatoCMS Example</a> (<a href="https://next-blog-datocms.now.sh/">Demo</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-takeshape">TakeShape Example</a> (<a href="https://next-blog-takeshape.now.sh/">Demo</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-sanity">Sanity Example</a> (<a href="https://next-blog-sanity.now.sh/">Demo</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-prismic">Prismic Example</a> (<a href="https://next-blog-prismic.now.sh/">Demo</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-contentful">Contentful Example</a> (<a href="https://next-blog-contentful.now.sh/">Demo</a>)</li>
-    <li><a href="https://static-tweet.now.sh/">Static Tweet Demo</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/blog-starter">マークダウンファイルを使ったブログスターター</a> (<a href="https://next-blog-starter.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-datocms">DatoCMSの例</a> (<a href="https://next-blog-datocms.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-takeshape">TakeShapeの例</a> (<a href="https://next-blog-takeshape.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-sanity">Sanityの例</a> (<a href="https://next-blog-sanity.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-prismic">Prismicの例</a> (<a href="https://next-blog-prismic.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-contentful">Contentfulの例</a> (<a href="https://next-blog-contentful.now.sh/">デモ</a>)</li>
+    <li><a href="https://static-tweet.now.sh/">静的Tweetのデモ</a></li>
   </ul>
 </details>
 
-In the [Pages documentation](/docs/basic-features/pages.md), we’ve explained that Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. In this page, we’ll talk in depths about data fetching strategies for each case. We recommend you to [read through the Pages documentation](/docs/basic-features/pages.md) first if you haven’t done so.
+[Pagesのドキュメント](/docs/basic-features/pages.md)において、Next.js には 2 種類のプリレンダリングがあることを説明しました。**静的生成**と**サーバーサイドレンダリング**です。このページでは、それぞれの場合でのデータ取得戦略について掘り下げていきます。 まず最初に[Pagesのドキュメントを読む](/docs/basic-features/pages.md)ことをお勧めします。
 
-We’ll talk about the three unique Next.js functions you can use to fetch data for pre-rendering:
+プリレンダリングのデータ取得に使える 3 つの特徴的な Next.js の関数についてお話します:
 
-- [`getStaticProps`](#getstaticprops-static-generation) (Static Generation): Fetch data at **build time**.
-- [`getStaticPaths`](#getstaticpaths-static-generation) (Static Generation): Specify [dynamic routes](/docs/routing/dynamic-routes.md) to pre-render based on data.
-- [`getServerSideProps`](#getserversideprops-server-side-rendering) (Server-side Rendering): Fetch data on **each request**.
+- [`getStaticProps`](#getstaticprops-static-generation)（静的生成）: **ビルド時**にデータ取得する
+- [`getStaticPaths`](#getstaticpaths-static-generation)（静的生成）: データに基づきプリレンダリングする[動的ルート](/docs/routing/dynamic-routes.md)を特定する
+- [`getServerSideProps`](#getserversideprops-server-side-rendering)（サーバーサイドレンダリング）: **リクエストごと**にデータを取得する
 
-In addition, we’ll talk briefly about how to do fetch data on the client side.
+また、クライアント側でのデータ取得について簡潔にお話します。
 
-## `getStaticProps` (Static Generation)
+## `getStaticProps`（静的生成）
 
-If you export an `async` function called `getStaticProps` from a page, Next.js will pre-render this page at build time using the props returned by `getStaticProps`.
+ページから `getStaticProps` という `async` 関数をエクスポートすると、Next.js はビルド時に `getStaticProps` から返される props を使ってプリレンダリングします。
 
 ```jsx
 export async function getStaticProps(context) {
   return {
-    props: {} // will be passed to the page component as props
+    props: {} // ページコンポーネントにpropsとして渡されます。
   };
 }
 ```
 
-The `context` parameter is an object containing the following keys:
+`context`パラメータは次のキーを含むオブジェクトです:
 
-- `params` contains the route parameters for pages using dynamic routes. For example, if the page name is `[id].js` , then `params` will look like `{ id: ... }`. To learn more, take a look at the [Dynamic Routing documentation](/docs/routing/dynamic-routes.md). You should use this together with `getStaticPaths`, which we’ll explain later.
-- `preview` is `true` if the page is in the preview mode and `false` otherwise. See the [Preview Mode documentation](/docs/advanced-features/preview-mode.md).
-- `previewData` contains the preview data set by `setPreviewData`. See the [Preview Mode documentation](/docs/advanced-features/preview-mode.md).
+- `params`はページが動的ルートを利用するためのルートパラメータを持ちます。たとえば、ページ名が `[id].js` である時、`params`は `{ id: ...}` のように見えます。詳細は [動的ルーティングのドキュメント](/docs/routing/dynamic-routes.md)をご覧ください。後に説明する `getStaticPaths`と一緒に使う必要があります。
+- ページがプレビューモードになっている時は `preview` が `true` になり、そうでない場合は `false` になります。[プレビューモードのドキュメント](/docs/advanced-features/preview-mode.md)をご覧ください。
+- `previewData`は、`setPreviewData`によって設定されたプレビューデータを含みます。[プレビューモードのドキュメント](/docs/advanced-features/preview-mode.md)
+をご覧ください。
 
-### Simple Example
+### 簡単な例
 
-Here’s an example which uses `getStaticProps` to fetch a list of blog posts from a CMS (content management system). This example is also in the [Pages documentation](/docs/basic-features/pages.md).
+`getStaticProps`を使って CMS（コンテンツマネジメントシステム）からブログ記事の一覧を取得する例です。この例は[Pagesのドキュメント](/docs/basic-features/pages.md)にもあります。
 
 ```jsx
-// posts will be populated at build time by getStaticProps()
+// posts はビルド時に getStaticProps() によって生成されます。
 function Blog({ posts }) {
   return (
     <ul>
@@ -63,17 +64,17 @@ function Blog({ posts }) {
   );
 }
 
-// This function gets called at build time on server-side.
-// It won't be called on client-side, so you can even do
-// direct database queries. See the "Technical details" section.
+// この関数はサーバー側でのビルド時に呼び出されます。
+// クライアント側では呼び出されないため、データベースクエリを直接実行することも可能です。
+// 「技術詳細」のセクションをご覧ください。
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
+  // 外部のAPIエンドポイントを呼び出してpostsを取得します。
+  // 任意のデータ取得ライブラリを使用できます。
   const res = await fetch('https://.../posts');
   const posts = await res.json();
 
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
+  // { props: posts } を返すことで、Blog コンポーネントは
+  // ビルド時に`posts`を prop として受け取ります。
   return {
     props: {
       posts
@@ -84,18 +85,18 @@ export async function getStaticProps() {
 export default Blog;
 ```
 
-### When should I use `getStaticProps`?
+### `getStaticProps`をいつ使うべきか？
 
-You should use `getStaticProps` if:
+`getStaticProps`を使うのはこんな時。
 
-- The data required to render the page is available at build time ahead of a user’s request.
-- The data comes from headless CMS.
-- The data can be publicly cached (not user-specific).
-- The page must be pre-rendered (for SEO) and be very fast — `getStaticProps` generates HTML and JSON files, both of which can be cached by a CDN for performance.
+- ページをレンダリングするのに必要なデータが、ビルド時にユーザーのリクエストよりも先に利用可能。
+- データがヘッドレス CMS から取得される。
+- データが公開キャッシュ（ユーザー固有ではない）。
+- ページがプリレンダリング（SEO のため）されて非常に高速。`getStaticProps`は HTML と JSON ファイルを生成し、どちらもパフォーマンスのために CDN でキャッシュされる。
 
-### TypeScript: Use `GetStaticProps`
+### TypeScript: `GetStaticProps`を使う
 
-For TypeScript, you can use the `GetStaticProps` type from `next`:
+TypeScript では、`GetStaticProps`型を `next` から利用できます。
 
 ```ts
 import { GetStaticProps } from 'next';
@@ -105,21 +106,21 @@ export const getStaticProps: GetStaticProps = async context => {
 };
 ```
 
-### Reading files: Use `process.cwd()`
+### ファイル読み込み: `process.cwd()`を使う
 
-Files can be read directly from the filesystem in `getStaticProps`.
+ファイルは `getStaticProps` でファイルシステムから直接読み込みできます。
 
-In order to do so you have to get the full path to a file.
+そのためにはファイルのフルパスが必要です。
 
-Since Next.js compiles your code into a separate directory you can't use `__dirname` as the path it will return will be different from the pages directory.
+Next.js はコードを別のディレクトリにコンパイルするため、`__dirname`はページディレクトリとは異なり、パスとしては使えません。
 
-Instead you can use `process.cwd()` which gives you the directory where Next.js is being executed.
+代わりに `process.cwd()` を使って Next.js が実行されたディレクトリを取得できます。
 
 ```jsx
 import fs from 'fs';
 import path from 'path';
 
-// posts will be populated at build time by getStaticProps()
+// posts はビルド時に getStaticProps() によって生成されます。
 function Blog({ posts }) {
   return (
     <ul>
@@ -133,9 +134,9 @@ function Blog({ posts }) {
   );
 }
 
-// This function gets called at build time on server-side.
-// It won't be called on client-side, so you can even do
-// direct database queries. See the "Technical details" section.
+// この関数はサーバー側のビルド時に呼び出されます。
+// クライアント側では呼び出されないので、直接データベースクエリを実行できます。
+// 「技術詳細」セクションをご覧ください。
 export async function getStaticProps() {
   const postsDirectory = path.join(process.cwd(), 'posts');
   const filenames = fs.readdirSync(postsDirectory);
@@ -144,16 +145,16 @@ export async function getStaticProps() {
     const filePath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, 'utf8');
 
-    // Generally you would parse/transform the contents
-    // For example you can transform markdown to HTML here
+    // 通常はコンテンツをパースもしくは変換するでしょう。
+    // たとえば、ここではマークダウンをHTMLに変換できます。
 
     return {
       filename,
       content: fileContents
     };
   });
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
+  // { props: posts } を返すことで、Blogコンポーネントはビルド時に
+  // `posts`をpropとして受け取ります。
   return {
     props: {
       posts
@@ -164,60 +165,60 @@ export async function getStaticProps() {
 export default Blog;
 ```
 
-### Technical details
+### 技術詳細
 
-#### Only runs at build time
+#### ビルド時のみ実行
 
-Because `getStaticProps` runs at build time, it does **not** receive data that’s only available during request time, such as query parameters or HTTP headers as it generates static HTML.
+`getStaticProps`はビルド時に実行されるため、リクエスト時でのみ利用可能なクエリパラメータや、静的 HTML を生成した時の HTTP ヘッダーのようなデータを**受け取りません**。
 
-#### Write server-side code directly
+#### サーバー側のコードを直接記述
 
-Note that `getStaticProps` runs only on the server-side. It will never be run on the client-side. It won’t even be included in the JS bundle for the browser. That means you can write code such as direct database queries without them being sent to browsers. You should not fetch an **API route** from `getStaticProps` — instead, you can write the server-side code directly in `getStaticProps`.
+`getStaticProps`はサーバー側でのみ実行されることに注意してください。クライアント側では決して実行されません。ブラウザ用の JS バンドルにも含まれません。つまり、直接データベースクエリのようなコードを書いてもブラウザに送信されることはないということです。**API ルート**を `getStaticProps` から取得するのではなく、代わりに `getStaticProps` で直接サーバー側のコードを書くことができます。
 
-#### Statically Generates both HTML and JSON
+#### HTMLとJSONの両方を静的に生成
 
-When a page with `getStaticProps` is pre-rendered at build time, in addition to the page HTML file, Next.js generates a JSON file holding the result of running `getStaticProps`.
+`getStaticProps`を持つページがビルド時にプリレンダリングされると、ページの HTML ファイルだけでなく Next.js は `getStaticProps` の結果を持つ JSON ファイルを生成します。
 
-This JSON file will be used in client-side routing through `next/link` ([documentation](/docs/api-reference/next/link.md)) or `next/router` ([documentation](/docs/api-reference/next/router.md)). When you navigate to a page that’s pre-rendered using `getStaticProps`, Next.js fetches this JSON file (pre-computed at build time) and uses it as the props for the page component. This means that client-side page transitions will **not** call `getStaticProps` as only the exported JSON is used.
+この JSON ファイルは、`next/link`([ドキュメント](/docs/api-reference/next/link.md))もしくは `next/router` ([ドキュメント](/docs/api-reference/next/router.md))経由のクライアント側のルーティングで使われます。`getStaticProps`　でプリレンダリングされたページに遷移すると、Next.js はこの JSON ファイル（ビルド時に事前処理）を取得してページコンポーネントの props として使います。つまり、クライアント側のページ遷移は `getStaticProps` を呼び出さず、エクスポートされた JSON だけが使われます。
 
-#### Only allowed in a page
+#### ページ内でのみ許可
 
-`getStaticProps` can only be exported from a **page**. You can’t export it from non-page files.
+`getStaticProps`は **ページ** からのみエクスポートされます。ページ以外のファイルからはエクスポートできません。
 
-One of the reasons for this restriction is that React needs to have all the required data before the page is rendered.
+この制約の理由の 1 つは、React がページレンダリングの前に必要なデータを全て持つ必要があるという点です。
 
-Also, you must use `export async function getStaticProps() {}` — it will **not** work if you add `getStaticProps` as a property of the page component.
+また、`export async function getStaticProps() {}`を使用しなければなりません。`getStaticProps`をページコンポーネントのプロパティとして追加しても機能しません。
 
-#### Runs on every request in development
+#### 開発中はリクエストごとに実行
 
-In development (`next dev`), `getStaticProps` will be called on every request.
+開発中（`next dev`）は、`getStaticProps`はリクエストごとに呼び出されます。
 
-#### Preview Mode
+#### プレビューモード
 
-In some cases, you might want to temporarily bypass Static Generation and render the page at **request time** instead of build time. For example, you might be using a headless CMS and want to preview drafts before they're published.
+一時的に静的生成を迂回してビルド時ではなく**リクエスト時**にレンダリングしたい時もあるでしょう。たとえば、ヘッドレス CMS を使って公開前に下書きをプレビューするような時です。
 
-This use case is supported by Next.js by the feature called **Preview Mode**. Learn more on the [Preview Mode documentation](/docs/advanced-features/preview-mode.md).
+このユースケースは Next.js の**プレビューモード**という機能でサポートされています。詳細は[プレビューモードのドキュメント](/docs/advanced-features/preview-mode.md)をご覧ください。
 
-## `getStaticPaths` (Static Generation)
+## `getStaticPaths`（静的生成）
 
-If a page has dynamic routes ([documentation](/docs/routing/dynamic-routes.md)) and uses `getStaticProps` it needs to define a list of paths that have to be rendered to HTML at build time.
+ページが動的ルート([ドキュメント](/docs/routing/dynamic-routes.md))を持ち、`getStaticProps`を使用する場合、ビルド時に HTML をレンダリングするためのパス一覧を定義する必要があります。
 
-If you export an `async` function called `getStaticPaths` from a page that uses dynamic routes, Next.js will statically pre-render all the paths specified by `getStaticPaths`.
+動的ルートを使ったページから `getStaticPaths` という `async` 関数をエクスポートすると Next.js は `getStaticPaths` で指定された全パスを静的にプリレンダリングします。
 
 ```jsx
 export async function getStaticPaths() {
   return {
     paths: [
-      { params: { ... } } // See the "paths" section below
+      { params: { ... } } // 下記の「パス」セクションをご覧ください。
     ],
-    fallback: true or false // See the "fallback" section below
+    fallback: true or false // 下記の「フォールバック」セクションをご覧ください。
   };
 }
 ```
 
-#### The `paths` key (required)
+#### `paths`キー（必須）
 
-The `paths` key determines which paths will be pre-rendered. For example, suppose that you have a page that uses dynamic routes named `pages/posts/[id].js`. If you export `getStaticPaths` from this page and return the following for `paths`:
+`paths`キーはどのパスがプリレンダリングされるかを決定します。たとえば、動的ルートを使った `pages/posts/[id].js` というページがあります。このページから `getStaticPaths` をエクスポートして `paths` に次のような値を返すとしましょう。
 
 ```js
 return {
@@ -229,54 +230,54 @@ return {
 }
 ```
 
-Then Next.js will statically generate `posts/1` and `posts/2` at build time using the page component in `pages/posts/[id].js`.
+Next.js はビルド時に `pages/posts/[id].js` でページコンポーネントを使って `静的に` posts/1`と`posts/2`を生成します。
 
-Note that the value for each `params` must match the parameters used in the page name:
+各 `params` の値はページ名で使われたパラメータと一致しなければならないことに注意してください。
 
-- If the page name is `pages/posts/[postId]/[commentId]`, then `params` should contain `postId` and `commentId`.
-- If the page name uses catch-all routes, for example `pages/[...slug]`, then `params` should contain `slug` which is an array. For example, if this array is `['foo', 'bar']`, then Next.js will statically generate the page at `/foo/bar`.
+- ページ名が `pages/posts/[postId]/[commentId]` であれば、`params`は `postId` と `commentId` を含まなければなりません。
+-`pages/[...slug] のように`ページ名が catch-all ルートを使用していれば、`params`は `slug` という配列を含まなければなりません。たとえば、この配列が `['foo', 'bar']` であれば、 Next.js は静的に `/foo/bar` というページを生成します。
 
-#### The `fallback` key (required)
+#### `fallback`キー（必須）
 
-The object returned by `getStaticPaths` must contain a boolean `fallback` key.
+`getStaticPaths`で返されるオブジェクトはブール値の `fallback` キーを含まなければなりません。
 
 #### `fallback: false`
 
-If `fallback` is `false`, then any paths not returned by `getStaticPaths` will result in a **404 page**. You can do this if you have a small number of paths to pre-render - so they are all statically generated during build time. It’s also useful when the new pages are not added often. If you add more items to the data source and need to render the new pages, you’d need to run the build again.
+`fallback`が `false` であれば、`getStaticPaths`で返されないパスは全て**404 ページ**となります。プリレンダリングの必要なパスが少ない時に使えます。つまり、ビルド時に全てのパスが静的に生成されます。新しいページがあまり追加されないような時にも役立ちます。データソースに項目を増やして新しいページをレンダリングしたい場合には、再度ビルドする必要があります。
 
-Here’s an example which pre-renders one blog post per page called `pages/posts/[id].js`. The list of blog posts will be fetched from a CMS and returned by `getStaticPaths` . Then, for each page, it fetches the post data from a CMS using `getStaticProps`. This example is also in the [Pages documentation](/docs/basic-features/pages.md).
+こちらは `pages/posts/[id].js` というページごとに 1 件のブログ記事をプリレンダリングする例です。ブログ記事の一覧は CMS から取得され、`getStaticPaths`で返されます。各ページでは、`getStaticProps`を使って CMS から記事データを取得します。この例は[ページのドキュメント](/docs/basic-features/pages.md)にもあります。
 
 ```jsx
 // pages/posts/[id].js
 
 function Post({ post }) {
-  // Render post...
+  // 記事をレンダリングします...
 }
 
-// This function gets called at build time
+// この関数はビルド時に呼び出されます。
 export async function getStaticPaths() {
-  // Call an external API endpoint to get posts
+  // 外部APIエンドポイントを呼び出して記事を取得します。
   const res = await fetch('https://.../posts');
   const posts = await res.json();
 
-  // Get the paths we want to pre-render based on posts
+  // 記事に基づいてプリレンダリングしたいパスを取得します
   const paths = posts.map(post => ({
     params: { id: post.id }
   }));
 
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
+  // ビルド時にこれらのパスだけをプリレンダリングします。
+  // { fallback: false } は他のルートが404になることを意味します。
   return { paths, fallback: false };
 }
 
-// This also gets called at build time
+// ビルド時にも呼び出されます。
 export async function getStaticProps({ params }) {
-  // params contains the post `id`.
-  // If the route is like /posts/1, then params.id is 1
+  // paramsは記事の`id`を含みます。
+  // ルートが/posts/1のような時、params.id は1です。
   const res = await fetch(`https://.../posts/${params.id}`);
   const post = await res.json();
 
-  // Pass post data to the page via props
+  // 記事データをprops経由でページに渡します。
   return { props: { post } };
 }
 
@@ -285,22 +286,22 @@ export default Post;
 
 #### `fallback: true`
 
-If `fallback` is `true`, then the behavior of `getStaticProps` changes:
+`fallback`が `true` の時、`getStaticProps`の振る舞いは変わります。
 
-- The paths returned from `getStaticPaths` will be rendered to HTML at build time.
-- The paths that have not been generated at build time will **not** result in a 404 page. Instead, Next.js will serve a “fallback” version of the page on the first request to such a path (see [“Fallback pages”](#fallback-pages) below for details).
-- In the background, Next.js will statically generate the requested path HTML and JSON. This includes running `getStaticProps`.
-- When that’s done, the browser receives the JSON for the generated path. This will be used to automatically render the page with the required props. From the user’s perspective, the page will be swapped from the fallback page to the full page.
-- At the same time, Next.js adds this path to the list of pre-rendered pages. Subsequent requests to the same path will serve the generated page, just like other pages pre-rendered at build time.
+- `getStaticPaths`が返すパスはビルド時に HTML でレンダリングされます。
+- ビルド時に生成されなかったパスは 404 ページには**なりません**。代わりに、Next.js はそのようなパス（[「フォールバックページ」](#fallback-pages)をご覧ください）への最初のリクエストに対して「フォールバック」版のページを提供します。
+- バックグラウンドで、Next.js はリクスエストされたパスの HTML と JSON を静的に生成します。これは `getStaticProps` の実行を含みます。
+- 完了したら、ブラウザは生成されたパスの JSON を受け取ります。これは必須の props を使ってページを自動的にレンダリングするのに使われます。
+- 同時に、Next.js はこのパスをプリレンダリングされたページの一覧に追加します。同じパスに対する後続のリクエストは、ビルド時にプリレンダリングされた他のページと同じように生成されたページを提供します。
 
-#### Fallback pages
+#### フォールバックページ
 
-In the “fallback” version of a page:
+「フォールバック」版ページの特徴は下記のとおりです。
 
-- The page’s props will be empty.
-- Using the [router](/docs/api-reference/next/router.md), you can detect if the fallback is being rendered, `router.isFallback` will be `true`.
+- ページの props は空になります。
+- [ルーター](/docs/api-reference/next/router.md)を使うと、フォールバックがレンダリングされたことを検知でき、`route.isFallback`は `true` となります。
 
-Here’s an example that uses `isFallback`:
+`isFallback`を使った例を示します。
 
 ```jsx
 // pages/posts/[id].js
@@ -309,55 +310,54 @@ import { useRouter } from 'next/router';
 function Post({ post }) {
   const router = useRouter();
 
-  // If the page is not yet generated, this will be displayed
-  // initially until getStaticProps() finishes running
+  // ページが未生成の時、
+  // getStaticProps() が実行完了するまで初期状態で表示されます。
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
 
-  // Render post...
+  // 記事をレンダリングします...
 }
 
-// This function gets called at build time
+// この関数はビルド時に呼び出されます。
 export async function getStaticPaths() {
   return {
-    // Only `/posts/1` and `/posts/2` are generated at build time
+    // `/posts/1`と`/posts/2`だけがビルド時に生成されます。
     paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
-    // Enable statically generating additional pages
-    // For example: `/posts/3`
+    // `/posts/3`のような追加ページの静的生成を有効にします。
     fallback: true
   };
 }
 
-// This also gets called at build time
+// ビルド時にも呼び出されます。
 export async function getStaticProps({ params }) {
-  // params contains the post `id`.
-  // If the route is like /posts/1, then params.id is 1
+  // params は記事の`id`を含みます。
+  // ルートが/posts/1のような時、params.idは1です。
   const res = await fetch(`https://.../posts/${params.id}`);
   const post = await res.json();
 
-  // Pass post data to the page via props
+  // 記事データをprops経由でページに渡します。
   return { props: { post } };
 }
 
 export default Post;
 ```
 
-#### When is `fallback: true` useful?
+#### `fallback: true`がいつ役立つか？
 
-`fallback: true` is useful if your app has a very large number of static pages that depend on data (think: a very large e-commerce site). You want to pre-render all product pages, but then your builds would take forever.
+`fallback: true`は、アプリケーションがデータに依存する多数の静的ページ（巨大な E コマースサイトなど）を持つ時に役立ちます。全商品のページをプリレンダリングしたくても、ビルドに膨大な時間がかかってしまうような時です。
 
-Instead, you may statically generate a small subset of pages and use `fallback: true` for the rest. When someone requests a page that’s not generated yet, the user will see the page with a loading indicator. Shortly after, `getStaticProps` finishes and the page will be rendered with the requested data. From now on, everyone who requests the same page will get the statically pre-rendered page.
+代わりに、ページの小さなサブセットを静的に生成し、残りは `fallback: true` にできます。未生成のページがリクエストされると、ユーザーにはローディングインジケーターが表示されます。その直後に、`getStaticProps`が完了して、ページはリクエストされたデータでレンダリングされます。それ以降は、同じページがリクエストされると静的にプリレンダリングされたページが表示されます。
 
-This ensures that users always have a fast experience while preserving fast builds and the benefits of Static Generation.
+これにより、ユーザーは高速なビルドと静的生成の利点を保ったまま、常に高速な体験を得ることができます。
 
-### When should I use `getStaticPaths`?
+### `getStaticPaths`をいつ使うべきか？
 
-You should use `getStaticPaths` if you’re statically pre-rendering pages that use dynamic routes.
+動的ルートを使ったページを静的にプリレンダリングするときに `getStaticPaths` を使うと良いでしょう。
 
-### TypeScript: Use `GetStaticPaths`
+### TypeScript: `GetStaticPaths`を使う
 
-For TypeScript, you can use the `GetStaticPaths` type from `next`:
+TypeScript では、`next`から `GetStaticPaths` 型を利用できます。
 
 ```ts
 import { GetStaticPaths } from 'next';
@@ -367,80 +367,81 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 ```
 
-### Technical details
+### 技術詳細
 
-#### Use together with `getStaticProps`
+#### `getStaticProps`と一緒に使う
 
-When you use `getStaticProps` on a page with dynamic route parameters, you must use `getStaticPaths`.
+動的ルートパラメータを持つページで `getStaticProps` を使う時は `getStaticPaths` を使わなければなりません。
 
-You cannot use `getStaticPaths` with `getServerSideProps`.
+`getStaticPaths`と `getServerSideProps` は併用できません。
 
-#### Only runs at build time on server-side
+#### サーバー側でビルド時のみ実行
 
-`getStaticPaths` only runs at build time on server-side.
+`getStaticPaths`はサーバー側のビルド時のみ実行されます。
 
-#### Only allowed in a page
+#### ページ内でのみ許可
 
-`getStaticPaths` can only be exported from a **page**. You can’t export it from non-page files.
+`getStaticPaths`は**ページ**からのみエクスポートできます。ページ以外のファイルからはエクスポートできません。
 
-Also, you must use `export async function getStaticPaths() {}` — it will **not** work if you add `getStaticPaths` as a property of the page component.
+また、`export async function getStaticPaths() {}`を使わなければなりません。これは `getStaticPaths` をページコンポーネントのプロパティとして追加しても**動作しません**。
 
-#### Runs on every request in development
+#### 開発中はリクエストごとに実行
 
-In development (`next dev`), `getStaticPaths` will be called on every request.
+開発中（`next dev`）は、`getStaticPaths`はリクエストごとに呼び出されます。
 
-## `getServerSideProps` (Server-side Rendering)
+## `getServerSideProps`（サーバーサイドレンダリング）
 
-If you export an `async` function called `getServerSideProps` from a page, Next.js will pre-render this page on each request using the data returned by `getServerSideProps`.
+`getServerSideProps`という `async` 関数をエクスポートすると Next.js はリクエストごとに `getServerSideProps` から返されるデータでプリレンダリングします。
 
 ```js
 export async function getServerSideProps(context) {
   return {
-    props: {} // will be passed to the page component as props
+    props: {} // ページコンポーネントにpropsとして渡されます。
   };
 }
 ```
 
-The `context` parameter is an object containing the following keys:
+`context`パラメータは以下のキーを含むオブジェクトです。
 
-- `params`: If this page uses a dynamic route, `params` contains the route parameters. If the page name is `[id].js` , then `params` will look like `{ id: ... }`. To learn more, take a look at the [Dynamic Routing documentation](/docs/routing/dynamic-routes.md).
-- `req`: [The HTTP IncomingMessage object](https://nodejs.org/api/http.html#http_class_http_incomingmessage).
-- `res`: [The HTTP response object](https://nodejs.org/api/http.html#http_class_http_serverresponse).
-- `query`: The query string.
-- `preview`: `preview` is `true` if the page is in the preview mode and `false` otherwise. See the [Preview Mode documentation](/docs/advanced-features/preview-mode.md).
-- `previewData`: The preview data set by `setPreviewData`. See the [Preview Mode documentation](/docs/advanced-features/preview-mode.md).
+- `params`: ページが動的ルートを使えば、`params`はルートパラメータを含みます。ページ名が `[id].js` であれば、`params`は `{ id: ... }` のようになります。詳細は[動的ルーティングのドキュメント](/docs/routing/dynamic-routes.md)をご覧ください。
 
-### Simple example
+- `req`: [HTTPインカミングメッセージオブジェクト](https://nodejs.org/api/http.html#http_class_http_incomingmessage)。
+- `res`: [HTTPレスポンスオブジェクト](https://nodejs.org/api/http.html#http_class_http_serverresponse)。
+- `query`: クエリストリング。
+- `preview`: `preview`はページがプレビューモードであれば `true` 、そうでなければ `false` になります。[プレビューモードのドキュメント](/docs/advanced-features/preview-mode.md)をご覧ください。
+- `previewData`: プレビューデータは `setPreviewData` によって設定されます。[プレビューモードのドキュメント](/docs/advanced-features/preview-mode.md)をご覧ください。
 
-Here’s an example which uses `getServerSideProps` to fetch data at request time and pre-renders it. This example is also in the [Pages documentation](/docs/basic-features/pages.md).
+### 簡単な例
+
+`getServerSideProps`を使ってリクエスト時にデータを取得してプリレンダリングする例を示します。この例は [ページのドキュメント](/docs/basic-features/pages.md)にもあります。
 
 ```jsx
 function Page({ data }) {
-  // Render data...
+  // データをレンダリングします...
 }
 
-// This gets called on every request
+// リクエストごとに呼び出されます。
 export async function getServerSideProps() {
-  // Fetch data from external API
+  // 外部APIからデータを取得します。
   const res = await fetch(`https://.../data`);
   const data = await res.json();
 
-  // Pass data to the page via props
+  // データをprops経由でページに渡します。
   return { props: { data } };
 }
 
 export default Page;
 ```
 
-### When should I use `getServerSideProps`?
+### `getServerSideProps`はいつ使うべきか？
 
-You should use `getServerSideProps` only if you need to pre-render a page whose data must be fetched at request time. Time to first byte (TTFB) will be slower than `getStaticProps` because the server must compute the result on every request, and the result cannot be cached by a CDN without extra configuration.
+`getServerSideProps`は、リクエスト時にデータを取得するページのプリレンダリングが必要な時のみ使うべきです。最初のバイトの所要時間（TTFB）は `getStaticProps` よりも遅くなります。サーバーはリクエストごとに演算しなければならず、その結果は追加設定なしで CDN にキャッシュされないためです。
 
-If you don’t need to pre-render the data, then you should consider fetching data on the client side. [Click here to learn more](#fetching-data-on-the-client-side).
+データをプリレンダリングする必要がなければ、クライアント側でのデータ取得を検討すべきです。[詳細はこちら](#fetching-data-on-the-client-side)。
 
-### TypeScript: Use `GetServerSideProps`
+### TypeScript: `GetServerSideProps`を使う
 
-For TypeScript, you can use the `GetServerSideProps` type from `next`:
+TypeScript では、`GetServerSideProps`型を `next` から利用できます。
 
 ```ts
 import { GetServerSideProps } from 'next';
@@ -450,33 +451,33 @@ export const getServerSideProps: GetServerSideProps = async context => {
 };
 ```
 
-### Technical details
+### 技術詳細
 
-#### Only runs on server-side
+#### サーバー側でのみ実行
 
-`getServerSideProps` only runs on server-side and never runs on the browser. If a page uses `getServerSideProps` , then:
+`getServerSideProps`はサーバー側でのみ実行され、ブラウザでは決して実行されません。ページが `getServerSideProps` を使うと次のような挙動になります。
 
-- When you request this page directly, `getServerSideProps` runs at the request time, and this page will be pre-rendered with the returned props.
-- When you request this page on client-side page transitions through `next/link` ([documentation](/docs/api-reference/next/link.md)) or `next/router` ([documentation](/docs/api-reference/next/router.md)), Next.js sends an API request to the server, which runs `getServerSideProps`. It’ll return JSON that contains the result of running `getServerSideProps`, and the JSON will be used to render the page. All this work will be handled automatically by Next.js, so you don’t need to do anything extra as long as you have `getServerSideProps` defined.
+- このページを直接リクエストすると、`getServerSideProps`はリクエスト時に実行され、返された props でプリレンダリングされます。
+- `next/link`([ドキュメント](/docs/api-reference/next/link.md)) や `next/router` ([ドキュメント](/docs/api-reference/next/router.md)) でのクライアント側のページ遷移をリクエストすると Next.js は API リクエストをサーバーに送信します。続けて `getServerSideProps` を実行します。この挙動は全て自動的に Next.js によって処理されるため、`getServerSideProps`を定義しさえすれば他にやることはありません。
 
-#### Only allowed in a page
+#### ページ内でのみ許可
 
-`getServerSideProps` can only be exported from a **page**. You can’t export it from non-page files.
+`getServerSideProps`は**ページ**からのみエクスポートされます。ページ以外のファイルからはエクスポートされません。
 
-Also, you must use `export async function getServerSideProps() {}` — it will **not** work if you add `getServerSideProps` as a property of the page component.
+また、`export async function getStaticPaths() {}`を使わなければなりません。これは `getServerSideProps` をページコンポーネントのプロパティとして追加しても**動作しません**。
 
-## Fetching data on the client side
+## クライアント側でのデータ取得
 
-If your page contains frequently updating data, and you don’t need to pre-render the data, you can fetch the data on the client side. An example of this is user-specific data. Here’s how it works:
+ページが頻繁に更新されるデータを持ち、データをプリレンダリングする必要がないようであれば、クライアント側でデータ取得もできます。ユーザー固有のデータなどが該当します。次のように機能します。
 
-- First, immediately show the page without data. Parts of the page can be pre-rendered using Static Generation. You can show loading states for missing data.
-- Then, fetch the data on the client side and display it when ready.
+- 最初に、データなしのページを直ちに表示します。ページのパーツは静的生成によりプリレンダリングもできます。データがない箇所にはローディング状態を表示できます。
+- 次に、クライアント側でデータを取得して準備ができたら表示します。
 
-This approach works well for user dashboard pages, for example. Because a dashboard is a private, user-specific page, SEO is not relevant and the page doesn’t need to be pre-rendered. The data is frequently updated, which requires request-time data fetching.
+このアプローチは、ユーザーダッシュボードのようなページに有効です。ダッシュボードはプライベートかつユーザー固有のページであり、SEO も不要なのでページをプリレンダリングする必要もないためです。データは頻繁に更新され、リクエスト時のデータ取得を必要とします。
 
 ### SWR
 
-The team behind Next.js has created a React hook for data fetching called [**SWR**](https://swr.now.sh/). We highly recommend it if you’re fetching data on the client side. It handles caching, revalidation, focus tracking, refetching on interval, and more. And you can use it like so:
+Next.js の開発チームはデータ取得用の [**SWR**](https://swr.now.sh/) という React フックを作成しました。クライアント側でデータ取得する際にはその利用を強くお勧めします。キャッシュ、再バリデーション、フォーカスの追跡、一定間隔での再取得などを処理できます。次のように使用します。
 
 ```jsx
 import useSWR from 'swr';
@@ -490,29 +491,29 @@ function Profile() {
 }
 ```
 
-[Check out the SWR documentation to learn more](https://swr.now.sh/).
+[詳しくはSWRのドキュメントをご覧ください](https://swr.now.sh/)。
 
-## Learn more
+## もっと詳しく
 
-We recommend you to read the following sections next:
+次のセクションを読むことをお勧めします。
 
 <div class="card">
   <a href="/docs/advanced-features/preview-mode.md">
-    <b>Preview Mode:</b>
-    <small>Learn more about the preview mode in Next.js.</small>
+    <b>プレビューモード</b>
+    <small>Next.jsのプレビューモードについてはこちら。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/routing/introduction.md">
-    <b>Routing:</b>
-    <small>Learn more about routing in Next.js.</small>
+    <b>ルーティング</b>
+    <small>Next.jsのルーティングについてはこちら。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/basic-features/typescript.md#pages">
-    <b>TypeScript:</b>
-    <small>Add TypeScript to your pages.</small>
+    <b>TypeScript</b>
+    <small>TypeScriptをページに追加します。</small>
   </a>
 </div>
