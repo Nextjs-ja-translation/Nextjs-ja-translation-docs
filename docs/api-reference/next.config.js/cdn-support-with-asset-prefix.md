@@ -24,7 +24,7 @@ Next.js は読み込むスクリプトの中でプレフィックスを自動的
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
     <b>next.config.jsの紹介:</b>
-    <small>Next.jsの設定ファイルについて詳細を見る。</small>
+    <small>Next.jsの設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
 
