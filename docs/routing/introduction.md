@@ -36,7 +36,7 @@ Next.js は[ページという概念](/docs/basic-features/pages.md)に基づい
 
 Next.js のルーターは、シングルページアプリケーションのようにクライアントサイドでのページ間遷移が可能です。
 
-`Link` という React コンポーネントはクライアントサイドでの遷移を提供します。
+このクライアントサイドでのページ遷移のために、`Link` という React コンポーネントが提供されています。
 
 ```jsx
 import Link from 'next/link';
