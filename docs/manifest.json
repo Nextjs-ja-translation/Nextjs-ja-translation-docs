@@ -232,7 +232,7 @@
               "path": "/docs/api-reference/next.config.js/custom-webpack-config.md"
             },
             {
-              "title": "Compression",
+              "title": "圧縮",
               "path": "/docs/api-reference/next.config.js/compression.md"
             },
             {
