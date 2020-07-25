@@ -4,7 +4,7 @@ description: Next.js はデフォルトですべてのページの ETag を生�
 
 # ETag 生成の無効化
 
-Next.js はデフォルトですべてのページの [ETag](https://ja.wikipedia.org/wiki/HTTP_ETag) を生成します。キャッシュ戦略によっては、HTML ページの ETag 生成を無効化したい場合があるでしょう。
+Next.js はデフォルトですべてのページの [ETag](https://ja.wikipedia.org/wiki/HTTP_ETag) を生成します。キャッシュ戦略によっては、HTML ページの ETag 生成を無効化した方が良い場合があります。
 
 `next.config.js` の `generateEtags` オプションを無効化します:
 
