@@ -19,7 +19,7 @@ Next.js は[ページという概念](/docs/basic-features/pages.md)に基づい
 
 ### ネストされたルート
 
-ルーターはネストされたファイルもサポートします。もしネストされたフォルダ構造にファイルを作れば、同じようにルーティングされます。
+ルーターはネストされたファイルもサポートします。ネストされたフォルダ構造を作ると、内部に置かれたファイルも同じようにルーティングされます。
 
 - `pages/blog/first-post.js` → `/blog/first-post`
 - `pages/dashboard/settings/username.js` → `/dashboard/settings/username`
