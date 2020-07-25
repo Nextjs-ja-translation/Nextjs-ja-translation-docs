@@ -64,9 +64,9 @@ module.exports = {
 };
 ```
 
-## Customizing the output directory
+## 出力するディレクトリをカスタマイズする
 
-[`next export`](/docs/advanced-features/static-html-export.md#how-to-use-it) will use `out` as the default output directory, you can customize this using the `-o` argument, like so:
+[`next export`](/docs/advanced-features/static-html-export.md#how-to-use-it) はデフォルトの出力先ディレクトリとして `out` を使います。`-o` 引数を使って、このようにカスタマイズできます:
 
 ```bash
 next export -o outdir
