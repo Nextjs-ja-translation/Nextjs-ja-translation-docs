@@ -15,11 +15,11 @@ description: Next.jsはAPIルートをサポートしており、Next.jsアプ�
   </ul>
 </details>
 
-API ルートはNext.jsで**API**を構築する簡単な方法を提供しています。
+API ルートは Next.js で**API**を構築する簡単な方法を提供しています。
 
-`pages/api`フォルダ内にあるすべてのファイルは`/api/*`にマッピングされ、`page`の代わりにAPI エンドポイントとして扱われます。
+`pages/api`フォルダ内にあるすべてのファイルは `/api/*` にマッピングされ、`page`の代わりに API エンドポイントとして扱われます。
 
-例えば、以下のAPI ルート`pages/api/user.js`は`json`レスポンスを扱います:
+例えば、以下の API ルート `pages/api/user.js` は `json` レスポンスを扱います:
 
 ```js
 export default (req, res) => {
@@ -29,12 +29,12 @@ export default (req, res) => {
 };
 ```
 
-API ルートを使用するためには、関数(**リクエストハンドラ**)をデフォルトとしてエクスポートする必要があり、この関数は以下の2つのパラメータを受け取ります:
+API ルートを使用するためには、関数(**リクエストハンドラ**)をデフォルトとしてエクスポートする必要があり、この関数は以下の 2 つのパラメータを受け取ります:
 
 - `req`: [http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage)のインスタンスと、[こちら](/docs/api-routes/api-middlewares.md)にある組み込みミドルウェア。
 - `res`: [http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse)のインスタンスと、[こちら](/docs/api-routes/response-helpers.md)にあるヘルパー関数。
 
-API ルートで異なるHTTPメソッドを処理するには、次のようにリクエストハンドラの`req.method`を使うことができます:
+API ルートで異なる HTTP メソッドを処理するには、次のようにリクエストハンドラの `req.method` を使うことができます:
 
 ```js
 export default (req, res) => {
@@ -52,7 +52,7 @@ API エンドポイントを取得するには、このセクションの最初�
 
 > API ルートを使用しても、クライアントサイドのバンドルサイズが大きくなることはありません。これらはサーバーサイドのみのバンドルです。
 
-## 関連
+## 関連事項
 
 以下のセクションを次に読むことをお勧めします:
 

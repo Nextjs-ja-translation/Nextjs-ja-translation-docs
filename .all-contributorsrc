@@ -28,7 +28,8 @@
       "profile": "https://code-log.hatenablog.com/",
       "contributions": [
         "code",
-        "review"
+        "review",
+        "translation"
       ]
     },
     {
@@ -140,6 +141,87 @@
       "name": "Teruhisa Fukumoto",
       "avatar_url": "https://avatars2.githubusercontent.com/u/21003135?v=4",
       "profile": "https://github.com/mpg-teruhisa-fukumoto",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "takefumi-yoshii",
+      "name": "Takefumi Yoshii",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/22139818?v=4",
+      "profile": "https://twitter.com/takepepe",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "rikusen0335",
+      "name": "rikusen0335",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/19174234?v=4",
+      "profile": "https://github.com/rikusen0335",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "kentaro84207",
+      "name": "Kentaro Suzuki",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/33363411?v=4",
+      "profile": "https://github.com/kentaro84207",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "ogugu9",
+      "name": "ogugu",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/14102616?v=4",
+      "profile": "https://github.com/ogugu9",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "mottox2",
+      "name": "Yuki Takemoto",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7007253?v=4",
+      "profile": "https://mottox2.com",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "ossan-engineer",
+      "name": "Kiichi Tachibana",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2215105?v=4",
+      "profile": "http://qiita.com/ossan-engineer",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "resqnet",
+      "name": "ken_o",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/12475586?v=4",
+      "profile": "https://github.com/resqnet",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "KushibikiMashu",
+      "name": "Mashu Kushibiki",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/36080801?v=4",
+      "profile": "https://panda-program.com/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "YopiNoji",
+      "name": "Masaki Yoshiiwa",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/46310104?v=4",
+      "profile": "https://yopinoji.com/",
       "contributions": [
         "translation"
       ]
