@@ -1,18 +1,18 @@
 ---
-description: 公式ドキュメントでNext.jsを始めてみましょう！ 
+description: 公式ドキュメントでNext.jsを始めてみましょう！
 ---
 
 # はじめに
 
-Next.jsのドキュメントへようこそ！
+Next.js のドキュメントへようこそ！
 
-Next.jsを初めて使用する場合は、[学習コース](https://nextjs.org/learn/basics/getting-started)から始めることをお勧めします。
+Next.js を初めて使用する場合は、[学習コース](https://nextjs.org/learn/basics/getting-started)から始めることをお勧めします。
 
 `学習コースは翻訳されていません。`
 
-インタラクティブなクイズによる学習コースでは、Next.jsを使うために必要なすべての知識を習得できます。
+インタラクティブなクイズによる学習コースでは、Next.js を使うために必要なすべての知識を習得できます。
 
-Next.jsに関連する質問がある場合は、[GitHub Discussions](https://github.com/zeit/next.js/discussions)のコミュニティーでなんでも質問してください。
+Next.js に関連事項する質問がある場合は、[GitHub Discussions](https://github.com/zeit/next.js/discussions)のコミュニティーでなんでも質問してください。
 
 #### システム要件
 
@@ -21,7 +21,7 @@ Next.jsに関連する質問がある場合は、[GitHub Discussions](https://gi
 
 ## セットアップ
 
-すべてを自動的にセットアップする`create-next-app`を使って、Next.js アプリを作成することをお勧めします。プロジェクトを作成するために、次を実行します:
+すべてを自動的にセットアップする `create-next-app` を使って、Next.js アプリを作成することをお勧めします。プロジェクトを作成するために、次を実行します:
 
 ```bash
 npx create-next-app
@@ -33,7 +33,7 @@ yarn create next-app
 
 ## マニュアル設定
 
-あなたのプロジェクトに、`next`,`react`そして`react-dom`をインストールしてください。
+あなたのプロジェクトに、`next`,`react`そして `react-dom` をインストールしてください。
 
 ```bash
 npm install next react react-dom
@@ -51,15 +51,15 @@ npm install next react react-dom
 
 これらのスクリプトは、アプリケーション開発のさまざまな段階に当てはまります。
 
-- `dev` - `next`はNext.jsを開発モードで実行します。
+- `dev` - `next`は Next.js を開発モードで実行します。
 - `build` - `next build`は本番用にアプリケーションをビルドします。
-- `start` - `next start`はNext.jsの本番サーバーを起動します。
+- `start` - `next start`は Next.js の本番サーバーを起動します。
 
-Next.jsはpagesの概念を中心に構築されます。`page`とはpagesディレクトリの`.js`、`.jsx`、`.ts`、または`.tsx`ファイルからエクスポートされた[React コンポーネント](https://ja.reactjs.org/docs/components-and-props.html)です。
+Next.js は pages の概念を中心に構築されます。`page`とは pages ディレクトリの `.js` 、`.jsx`、`.ts`、または `.tsx` ファイルからエクスポートされた[React コンポーネント](https://ja.reactjs.org/docs/components-and-props.html)です。
 
-ページはファイル名に基づいて、ルーティングに紐づけられます。例えば、`pages/about.js`は`/about`にマップされます。ファイル名によって動的パラメータを追加できます。
+ページはファイル名に基づいて、ルーティングに紐づけられます。例えば、`pages/about.js`は `/about` にマップされます。ファイル名によって動的パラメータを追加できます。
 
-プロジェクトの`pages`ディレクトリの中に作成してください。
+プロジェクトの `pages` ディレクトリの中に作成してください。
 
 `./pages/index.js`の中に次の内容を記載します:
 
@@ -77,14 +77,14 @@ export default HomePage;
 
 これまでのところ:
 
-- 自動コンパイルとバンドル(webpackとbabelを使用)
+- 自動コンパイルとバンドル(webpack と babel を使用)
 - [React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh)
 - [`./pages/`](/docs/basic-features/pages.md)の[静的生成とサーバーサイドレンダリング](/docs/basic-features/data-fetching.md)
-- [静的ファイル配信](/docs/basic-features/static-file-serving.md). `./public/`は`/`にマッピングされます。
+- [静的ファイル配信](/docs/basic-features/static-file-serving.md). `./public/`は `/` にマッピングされます。
 
-さらに、すべてのNext.jsアプリケーションは最初から本番環境で使用できます。詳細は、[デプロイメントのドキュメント](/docs/deployment.md)をご覧ください。
+さらに、すべての Next.js アプリケーションは最初から本番環境で使用できます。詳細は、[デプロイメントのドキュメント](/docs/deployment.md)をご覧ください。
 
-## 関連
+## 関連事項
 
 以下のセクションを次に読むことをお勧めします。
 

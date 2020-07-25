@@ -11,7 +11,7 @@ description: 動的なルーティングを用いてページのURLにカスタ�
   </ul>
 </details>
 
-複雑なアプリケーションでは、予め定義されたパスを用いてルートを定義するだけでは不十分な場合があります。Next.jsでは `[param]` のようにしてページ名に角括弧(ブラケット)を使うことで動的なルーティング(別名slugやpretty urlなど)を作成できます。
+複雑なアプリケーションでは、予め定義されたパスを用いてルートを定義するだけでは不十分な場合があります。Next.js では `[param]` のようにしてページ名に角括弧(ブラケット)を使うことで動的なルーティング(別名 slug や pretty url など)を作成できます。
 
 `pages/post/[pid].js` というページが以下の内容であるとします:
 
@@ -65,9 +65,9 @@ export default Post;
   </ul>
 </details>
 
-動的ルーティングは角括弧(ブラケット)のなかに3つのドット `...` を使うことで、すべてのパスを受け取ることができるようになります。例えば以下のようになります:
+動的ルーティングは角括弧(ブラケット)のなかに 3 つのドット `...` を使うことで、すべてのパスを受け取ることができるようになります。例えば以下のようになります:
 
-- `pages/post/[...slug].js` は `/post/a` にマッチしますが、`/post/a/b` や`/post/a/b/c` などにも同様にマッチします。
+- `pages/post/[...slug].js` は `/post/a` にマッチしますが `/post/a/b` や `/post/a/b/c` などにも同様にマッチします。
 
 > **備考**: `[...param]`のように `slug` 以外の名前も使うことができます。
 
@@ -87,7 +87,7 @@ export default Post;
 
 ### オプショナルにすべてのルートを受け取る
 
-すべてのルートをキャッチすることは、`[[...slug]]`のようにパラメータを二重括弧内に含めることでオプショナルにできます。
+すべてのルートをキャッチすることは、`[[...slug]]` のようにパラメータを二重括弧内に含めることでオプショナルにできます。
 
 例えば、`pages/post/[[...slug]].js` は `/post`, `/post/a`, `/post/a/b`, などにマッチします。
 
@@ -102,9 +102,9 @@ export default Post;
 ## 注意事項
 
 - 予め定義されたルートは動的ルーティングよりも優先され、動的ルーティングはすべてのルートを受け取りよりも優先されます。以下の例をみてください:
-  - `pages/post/create.js` は  `/post/create`　にマッチします。
-  - `pages/post/[pid].js` は  `/post/1`　や`/post/abc`　にマッチしますが、 `/post/create` にはマッチしません。
-  - `pages/post/[...slug].js` は `/post/1/2`　や `/post/a/b/c`にマッチしますが、 `/post/create`, `/post/abc`などにはマッチしません。
-- [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)によって静的に最適化されたページはルートパラメータが指定されていない状態でハイドレートされます。つまり、`query` は `{}`のように空オブジェクトになります。
+  - `pages/post/create.js` は `/post/create` にマッチします。
+  - `pages/post/[pid].js` は `/post/1` や `/post/abc` にマッチしますが、`/post/create` にはマッチしません。
+  - `pages/post/[...slug].js` は `/post/1/2` や `/post/a/b/c` にマッチしますが、`/post/create`, `/post/abc` などにはマッチしません。
+- [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)によって静的に最適化されたページはルートパラメータが指定されていない状態でハイドレートされます。つまり、`query` は `{}` のように空オブジェクトになります。
 
-  ハイドレート後にNext.jsはアプリケーションの更新をトリガーにして、 `query` オブジェクトにルートパラメータを提供します。
+  ハイドレート後に Next.js はアプリケーションの更新をトリガーにして、 `query` オブジェクトにルートパラメータを提供します。

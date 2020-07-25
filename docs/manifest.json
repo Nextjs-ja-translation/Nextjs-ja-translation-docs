@@ -14,11 +14,11 @@
               "path": "/docs/basic-features/pages.md"
             },
             {
-              "title": "Data fetching",
+              "title": "データ取得",
               "path": "/docs/basic-features/data-fetching.md"
             },
             {
-              "title": "Built-in CSS Support",
+              "title": "CSS のビルトインサポート",
               "path": "/docs/basic-features/built-in-css-support.md"
             },
             {
@@ -101,7 +101,7 @@
               "path": "/docs/advanced-features/static-html-export.md"
             },
             {
-              "title": "Absolute Imports and Module Path Aliases",
+              "title": "絶対パスインポートとモジュールパスエイリアス",
               "path": "/docs/advanced-features/module-path-aliases.md"
             },
             {
@@ -116,11 +116,11 @@
                   "path": "/docs/advanced-features/amp-support/adding-amp-components.md"
                 },
                 {
-                  "title": "AMP Validation",
+                  "title": "AMPの検証",
                   "path": "/docs/advanced-features/amp-support/amp-validation.md"
                 },
                 {
-                  "title": "AMP in Static HTML export",
+                  "title": "AMPの静的HTMLエクスポート",
                   "path": "/docs/advanced-features/amp-support/amp-in-static-html-export.md"
                 },
                 {
@@ -130,11 +130,11 @@
               ]
             },
             {
-              "title": "Customizing Babel Config",
+              "title": "Babel 設定のカスタマイズ",
               "path": "/docs/advanced-features/customizing-babel-config.md"
             },
             {
-              "title": "Customizing PostCSS Config",
+              "title": "PostCSS設定のカスタマイズ",
               "path": "/docs/advanced-features/customizing-postcss-config.md"
             },
             {
@@ -142,15 +142,15 @@
               "path": "/docs/advanced-features/custom-server.md"
             },
             {
-              "title": "Custom `App`",
+              "title": "カスタム`App`",
               "path": "/docs/advanced-features/custom-app.md"
             },
             {
-              "title": "Custom `Document`",
+              "title": "カスタム `Document`",
               "path": "/docs/advanced-features/custom-document.md"
             },
             {
-              "title": "Custom Error Page",
+              "title": "エラーページのカスタマイズ",
               "path": "/docs/advanced-features/custom-error-page.md"
             },
             {
@@ -158,7 +158,7 @@
               "path": "/docs/advanced-features/src-directory.md"
             },
             {
-              "title": "Multi Zones",
+              "title": "マルチゾーン",
               "path": "/docs/advanced-features/multi-zones.md"
             },
             {
@@ -208,11 +208,11 @@
           "title": "next.config.js",
           "routes": [
             {
-              "title": "Introduction",
+              "title": "はじめに",
               "path": "/docs/api-reference/next.config.js/introduction.md"
             },
             {
-              "title": "Environment Variables",
+              "title": "環境変数",
               "path": "/docs/api-reference/next.config.js/environment-variables.md"
             },
             {
@@ -240,7 +240,7 @@
               "path": "/docs/api-reference/next.config.js/static-optimization-indicator.md"
             },
             {
-              "title": "Runtime Configuration",
+              "title": "ランタイム設定",
               "path": "/docs/api-reference/next.config.js/runtime-configuration.md"
             },
             {
@@ -252,11 +252,11 @@
               "path": "/docs/api-reference/next.config.js/disabling-etag-generation.md"
             },
             {
-              "title": "Setting a custom build directory",
+              "title": "カスタムビルドディレクトリの設定",
               "path": "/docs/api-reference/next.config.js/setting-a-custom-build-directory.md"
             },
             {
-              "title": "Configuring the Build ID",
+              "title": "ビルド ID の設定",
               "path": "/docs/api-reference/next.config.js/configuring-the-build-id.md"
             },
             {
