@@ -102,7 +102,7 @@ function Home({ posts }) {
 }
 ```
 
-## ルーターを注入する
+## ルーターを React コンポーネント内で使う
 
 <details>
   <summary><b>例</b></summary>
