@@ -1,0 +1,13 @@
+sudo: false
+language: node_js
+node_js: 'stable'
+env:
+  - REVIEWDOG_VERSION=0.9.5
+install:
+  - mkdir -p ~/bin/ && export export PATH="~/bin/:$PATH"
+  - curl -fSL https://github.com/haya14busa/reviewdog/releases/download/$REVIEWDOG_VERSION/reviewdog_linux_amd64 -o ~/bin/reviewdog && chmod +x ~/bin/reviewdog
+  - npm install
+script:
+  - $(npm bin)/textlint README.md docs/**
+after_failure:
+  - test $TRAVIS_PULL_REQUEST && $(npm bin)/textlint -f checkstyle README.md docs/** | reviewdog -f=checkstyle -name="textlint" -ci="travis"
