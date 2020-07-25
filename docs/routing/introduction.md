@@ -61,7 +61,7 @@ function Home() {
 export default Home;
 ```
 
-[動的なパスセグメント](/docs/routing/dynamic-routes.md)でリンクするとき、ルータがどの JavaScript ファイルを読む込むのかを知るために `href` と `as` を渡す必要があります。
+[動的なパスセグメント](/docs/routing/dynamic-routes.md)でリンクするとき、ルータがどの JavaScript ファイルを読む込むのかが分かるように、 `href` と `as` を渡す必要があります。
 
 - `href` - `pages` ディレクトリ中のページの名前。例：`/blog/[slug]`.
 - `as` - ブラウザに表示される URL. 例：`/blog/hello-world`.
