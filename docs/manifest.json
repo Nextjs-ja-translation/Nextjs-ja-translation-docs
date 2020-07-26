@@ -39,7 +39,7 @@
           "title": "Routing",
           "routes": [
             {
-              "title": "Introduction",
+              "title": "はじめに",
               "path": "/docs/routing/introduction.md"
             },
             {
