@@ -1,18 +1,18 @@
 ---
-description: Add custom elements to the `head` of your page with the built-in Head component.
+description: ビルトインの Head コンポーネントを用いてページの `head` にカスタム要素を追加します。
 ---
 
 # next/head
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/head-elements">Head Elements</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/layout-component">Layout Component</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/head-elements">ヘッド要素</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/layout-component">レイアウトコンポーネント</a></li>
   </ul>
 </details>
 
-We expose a built-in component for appending elements to the `head` of the page:
+Next.js はページの `head` に要素を追加するためのビルトインコンポーネントを公開しています:
 
 ```jsx
 import Head from 'next/head';
@@ -32,7 +32,7 @@ function IndexPage() {
 export default IndexPage;
 ```
 
-To avoid duplicate tags in your `head` you can use the `key` property, which will make sure the tag is only rendered once, as in the following example:
+`head` 内でのタグの重複を避けるため、次の例のような `key` プロパティを利用できます。これにより、タグが 1 度だけレンダリングされるようになります:
 
 ```jsx
 import Head from 'next/head';
@@ -55,9 +55,9 @@ function IndexPage() {
 export default IndexPage;
 ```
 
-In this case only the second `<meta property="og:title" />` is rendered. `meta` tags with duplicate `name` attributes are automatically handled.
+この場合、 2 番目の `<meta property="og:title" />` のみがレンダリングされます。`name` 属性が重複する `meta` タグは自動的に処理されます。
 
-> The contents of `head` get cleared upon unmounting the component, so make sure each page completely defines what it needs in `head`, without making assumptions about what other pages added.
+> コンポーネントがアンマウントされた際、 `head` の内容は削除されます。そのため、他のページで追加したものは考慮せず、各ページの `head` に必要なものを完全に定義できているか確認してください。
 
-`title`, `meta` or any other elements (e.g. `script`) need to be contained as **direct** children of the `Head` element,
-or wrapped into maximum one level of `<React.Fragment>` or arrays—otherwise the tags won't be correctly picked up on client-side navigations.
+`title` 、 `meta` やその他の要素（`script` など）は `Head` 要素の**直下**の子要素として含まれているか、
+`<React.Fragment>` や配列の単一階層にラップされている必要があります。そうでなければ、タグはクライアント側のナビゲーションで正しく取得されません。

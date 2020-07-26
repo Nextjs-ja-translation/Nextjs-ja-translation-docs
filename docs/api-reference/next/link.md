@@ -1,21 +1,21 @@
 ---
-description: Enable client-side transitions between routes with the built-in Link component.
+description: 組み込みの Link コンポーネントを使用して、ルート間のクライアント側のトランジションを有効にします。
 ---
 
 # next/link
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
     <li><a href="https://github.com/zeit/next.js/tree/canary/examples/hello-world">Hello World</a></li>
   </ul>
 </details>
 
-> Before moving forward, we recommend you to read [Routing Introduction](/docs/routing/introduction.md) first.
+> 先に進む前に、まずは[ルーティング入門](/docs/routing/introduction.md)をお読みになることをお勧めします。
 
-Client-side transitions between routes can be enabled via the `Link` component exported by `next/link`.
+ルート間のクライアント側のトランジションは、`next/link` でエクスポートされた `Link` コンポーネントを介して有効にできます。
 
-An example of linking to `/` and `/about`:
+`/` と `/about` をリンクした例:
 
 ```jsx
 import Link from 'next/link';
@@ -40,21 +40,23 @@ function Home() {
 export default Home;
 ```
 
-`Link` accepts the following props:
+`Link` は以下のような props を受け入れる:
 
-- `href` - The path inside `pages` directory. This is the only required prop
-- `as` - The path that will be rendered in the browser URL bar. Used for dynamic routes
-- [`passHref`](#forcing-Link-to-expose-href-to-its-child) - Forces `Link` to send the `href` property to its child. Defaults to `false`
-- `prefetch` - Prefetch the page in the background. Defaults to `true`. Any `<Link />` that is in the viewport (initially or through scroll) will be preloaded. Pages using [Static Generation](/docs/basic-features/data-fetching#getstaticprops-static-generation) will preload `JSON` files with the data for faster page transitions.
-- [`replace`](#replace-the-url-instead-of-push) - Replace the current `history` state instead of adding a new url into the stack. Defaults to `false`
-- [`scroll`](#disable-scrolling-to-the-top-of-the-page) - Scroll to the top of the page after a navigation. Defaults to `true`
-- [`shallow`](/docs/routing/shallow-routing.md) - Update the path of the current page without rerunning [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation), [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering) or [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md). Defaults to `false`
+- `href` - `pages` ディレクトリ内のパス。これは唯一必須のプロパティです。
+- `as` - ブラウザの URL バーに表示されるパス。動的ルーティングに使用されます。
+- [`passHref`](#子が-a-タグをラップするカスタムコンポーネントの場合) - `Link` が子に `href` プロパティを強制送信します。デフォルトは `false` です。
+- `prefetch` - バックグラウンドでページをプリフェッチします。デフォルトは `true` です。ビューポート内にある `<Link />` はすべてプリロードされます (初期状態やスクロール中)。[静的生成](/docs/basic-features/data-fetching#getstaticprops-static-generation)を使用しているページでは、ページ遷移を高速化するためにデータと一緒に `JSON` ファイルがプリロードされます。
+- [`replace`](#プッシュの代わりにURLを置換する) - スタックに新しい URL を追加する代わりに、現在の `history` の state を置き換えます。デフォルトは `false` です。
+- [`scroll`](#ページ上部へのスクロールを無効にする) - ナビゲーションの後にページの先頭にスクロールします。デフォルトは `true` です。
+- [`shallow`](/docs/routing/shallow-routing.md) - [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation)、 [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering)、 [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md) を再実行せずに現在のページのパスを更新します。デフォルトは `false` です。
 
-External URLs, and any links that don't require a route navigation using `/pages`, don't need to be handled with `Link`; use the anchor tag for such cases instead.
+外部 URL や `/pages` を使ったルートナビゲーションを必要としないリンクは、`Link` で処理する必要はありません; このような場合には、代わりにアンカータグを使用してください。
 
-## Dynamic routes
+## 動的ルーティング
 
 A `Link` to a dynamic route is a combination of the `href` and `as` props. A link to the page `pages/post/[pid].js` will look like this:
+
+動的ルーティングへの `Link` は、`href` と `as` の props の組み合わせです。`pages/post/[pid].js` のページへのリンクは以下のようになります:
 
 ```jsx
 <Link href="/post/[pid]" as="/post/abc">
@@ -62,7 +64,7 @@ A `Link` to a dynamic route is a combination of the `href` and `as` props. A lin
 </Link>
 ```
 
-`href` is a file system path used by the page and it shouldn't change at runtime. `as` on the other hand, will be dynamic most of the time according to your needs. Here's an example of how to create a list of links:
+`href` はページが使用するファイルシステムのパスであり、実行時に変更されるべきではありません。一方、 `as` は必要に応じてほとんどの場合動的に変化します。ここでは、リンクのリストを作成する方法の例を示します:
 
 ```jsx
 const pids = ['id1', 'id2', 'id3'];
@@ -75,21 +77,21 @@ const pids = ['id1', 'id2', 'id3'];
 }
 ```
 
-## If the child is a custom component that wraps an `<a>` tag
+## 子が `<a>` タグをラップするカスタムコンポーネントの場合
 
-If the child of `Link` is a custom component that wraps an `<a>` tag, you must add `passHref` to `Link`. This is necessary if you’re using libraries like [styled-components](https://styled-components.com/). Without this, the `<a>` tag will not have the `href` attribute, which might hurt your site’s SEO.
+`Link` の子が `<a>` タグをラップするカスタムコンポーネントの場合は、`Link` に `passHref` を追加する必要があります。これは [styled-components](https://styled-components.com/) のようなライブラリを使用している場合は必要です。これがないと、`<a>` タグには `href` 属性が付与されず、サイトの SEO に悪影響を及ぼす可能性があります。
 
 ```jsx
 import Link from 'next/link';
 import styled from 'styled-components';
 
-// This creates a custom component that wraps an <a> tag
+// これは、<a>タグをラップするカスタムコンポーネントを作成します
 const RedLink = styled.a`
   color: red;
 `;
 
 function NavLink({ href, name }) {
-  // Must add passHref to Link
+  // リンクにpassHrefを追加する必要があります
   return (
     <Link href={href} passHref>
       <RedLink>{name}</RedLink>
@@ -100,17 +102,17 @@ function NavLink({ href, name }) {
 export default NavLink;
 ```
 
-> **Note**: If you’re using [emotion](https://emotion.sh/)’s JSX pragma feature (`@jsx jsx`), you must use `passHref` even if you use an `<a>` tag directly.
+> **備考**: [emotion](https://emotion.sh/) の JSX pragma 機能(`@jsx jsx`)を使用している場合は、`<a>` タグを直接使用していても `passHref` を使用しなければなりません。
 
-## If the child is a function component
+## 子が関数コンポーネントの場合
 
-If the child of `Link` is a function component, in addition to using `passHref`, you must wrap the component in [`React.forwardRef`](https://reactjs.org/docs/react-api.html#reactforwardref):
+`Link` の子が関数コンポーネントの場合、`passHref` の使用に加えて、[`React.forwardRef`](https://reactjs.org/docs/react-api.html#reactforwardref) でコンポーネントをラップする必要があります:
 
 ```jsx
 import Link from 'next/link';
 
-// `onClick`, `href`, and `ref` need to be passed to the DOM element
-// for proper handling
+// `onClick`, `href`, `ref` を適切に処理するためには
+// DOM 要素に渡す必要があります
 const MyButton = React.forwardRef(({ onClick, href }, ref) => {
   return (
     <a href={href} onClick={onClick} ref={ref}>
@@ -130,9 +132,9 @@ function Home() {
 export default Home;
 ```
 
-## With URL Object
+## URLオブジェクト
 
-`Link` can also receive an URL object and it will automatically format it to create the URL string. Here's how to do it:
+`Link` は URL オブジェクトを受け取ることもでき、それを自動的にフォーマットして URL 文字列を作成してくれます。その方法は以下の通りです:
 
 ```jsx
 import Link from 'next/link';
@@ -150,11 +152,11 @@ function Home() {
 export default Home;
 ```
 
-The above example will be a link to `/about?name=test`. You can use every property as defined in the [Node.js URL module documentation](https://nodejs.org/api/url.html#url_url_strings_and_url_objects).
+上記の例では、`/about?name=test` へのリンクになります。[Node.jsのURLモジュールのドキュメント](https://nodejs.org/api/url.html#url_url_strings_and_url_objects)で定義されているすべてのプロパティを使用できます。
 
-## Replace the URL instead of push
+## プッシュの代わりにURLを置換する
 
-The default behavior of the `Link` component is to `push` a new URL into the `history` stack. You can use the `replace` prop to prevent adding a new entry, as in the following example:
+`Link` コンポーネントのデフォルトの挙動は、新しい URL を `history` スタックに `push` することです。以下の例のように、`replace` prop を使って新しいエントリを追加しないようにできます:
 
 ```jsx
 <Link href="/about" replace>
@@ -162,9 +164,9 @@ The default behavior of the `Link` component is to `push` a new URL into the `hi
 </Link>
 ```
 
-## Using a component that supports `onClick`
+## `onClick` をサポートするコンポーネントを使う
 
-`Link` supports any component that supports the `onClick` event, in the case you don't provide an `<a>` tag, consider the following example:
+`Link` は `onClick` イベントをサポートする任意のコンポーネントをサポートしますが、`<a>` タグを指定しない場合は、以下の例を考えてみましょう:
 
 ```jsx
 <Link href="/about">
@@ -172,11 +174,11 @@ The default behavior of the `Link` component is to `push` a new URL into the `hi
 </Link>
 ```
 
-The child of `Link` is `<img>` instead of `<a>`. `Link` will send the `onClick` property to `<img>` but won't pass the `href` property.
+`Link` の子は `<a>` の代わりに `<img>` となります。`Link` は `onClick` プロパティを `<img>` に送りますが、`href` プロパティは渡しません。
 
-## Disable scrolling to the top of the page
+## ページ上部へのスクロールを無効にする
 
-The default behavior of `Link` is to scroll to the top of the page. When there is a hash defined it will scroll to the specific id, like a normal `<a>` tag. To prevent scrolling to the top / hash `scroll={false}` can be added to `Link`:
+`Link` のデフォルトの挙動はページの先頭までスクロールします。ハッシュが定義されている場合は、通常の `<a>` タグのように特定の id にスクロールします。ページのトップ / ハッシュへのスクロールを防ぐために、`Link` に `scroll={false}` を追加できます:
 
 ```jsx
 <Link href="/?counter=10" scroll={false}>

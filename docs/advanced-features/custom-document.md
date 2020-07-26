@@ -1,14 +1,14 @@
 ---
-description: Extend the default document markup added by Next.js.
+description: Next.jsによって追加された、デフォルトのドキュメントマークアップを拡張する。
 ---
 
-# Custom `Document`
+# カスタム `Document`
 
-A custom `Document` is commonly used to augment your application's `<html>` and `<body>` tags. This is necessary because Next.js pages skip the definition of the surrounding document's markup.
+カスタム `Document` は通常、アプリケーションの `<html>` タグと `<body>` タグを拡張するために使用されます。これはドキュメントのマークアップ定義を Next.js pages が省略するために必要です。
 
-A custom `Document` can also include `getInitialProps` for expressing asynchronous server-rendering data requirements.
+カスタム `Document` には、非同期サーバーレンダリングのデータ要求を表現するための `getInitialProps` を含めることもできます。
 
-To override the default `Document`, create the file `./pages/_document.js` and extend the `Document` class as shown below:
+デフォルトの `Document` をオーバーライドするには `./pages/_document.js` ファイルを作成し、次のように `Document` クラスを拡張します:
 
 ```jsx
 import Document, { Html, Head, Main, NextScript } from 'next/document';
@@ -35,31 +35,31 @@ class MyDocument extends Document {
 export default MyDocument;
 ```
 
-`<Html>`, `<Head />`, `<Main />` and `<NextScript />` are required for the page to be properly rendered.
+ページを適切にレンダリングするには `<Html>`, `<Head />`, `<Main />` と `<NextScript />` が必要です。
 
-Custom attributes are allowed as props, like `lang`:
+カスタム属性は `lang` のように props として許可されます:
 
 ```jsx
 <Html lang="en">
 ```
 
-The `ctx` object is equivalent to the one received in [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md#context-object), with one addition:
+`ctx` オブジェクトは [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md#context-object) で受け取るものと同等ですが、1 つ追加されています。
 
-- `renderPage`: `Function` - a callback that runs the actual React rendering logic (synchronously). It's useful to decorate this function in order to support server-rendering wrappers like Aphrodite's [`renderStatic`](https://github.com/Khan/aphrodite#server-side-rendering)
+- `renderPage`: `Function` - 実際の React レンダリングロジックを（同期的に）実行するコールバックです。 Aphrodite の [`renderStatic`](https://github.com/Khan/aphrodite#server-side-rendering) のようなサーバーレンダリングラッパーをサポートするために、この関数装飾が役立ちます
 
-## Caveats
+## 注意事項
 
-- `Document` is only rendered in the server, event handlers like `onClick` won't work
-- React components outside of `<Main />` will not be initialized by the browser. Do _not_ add application logic here. If you need shared components in all your pages (like a menu or a toolbar), take a look at the [`App`](/docs/advanced-features/custom-app.md) component instead
-- `Document`'s `getInitialProps` function is not called during client-side transitions, nor when a page is [statically optimized](/docs/advanced-features/automatic-static-optimization.md)
-- Make sure to check if `ctx.req` / `ctx.res` are defined in `getInitialProps`. Those variables will be `undefined` when a page is being statically exported by [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) or by [`next export`](/docs/advanced-features/static-html-export.md)
-- Common errors include adding a `<title>` in the `<Head />` tag or using `styled-jsx`. These should be avoided in `pages/_document.js` as they lead to unexpected behavior
+- `Document` はサーバーでのみレンダリングされ、`onClick` などのイベントハンドラーは機能しません
+- `<Main />` の外にある React コンポーネントはブラウザによって初期化されません。ここにアプリケーションロジックを追加 _しないで_ ください。すべてのページで共有コンポーネント（メニューやツールバーなど）が必要な場合は、代わりに [`App`](/docs/advanced-features/custom-app.md) コンポーネントをご覧ください
+- `Document` の `getInitialProps` 関数は、クライアント側の遷移中には呼び出されず、ページが[静的に最適化されている場合](/docs/advanced-features/automatic-static-optimization.md)にも呼び出されません
+- `getInitialProps` に `ctx.req` / `ctx.res` が定義されていないかを確認してください。これらの変数は、ページが [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) または [`next export`](/docs/advanced-features/static-html-export.md) によって静的にエクスポートされるとき `undefined` となります
+- よくある過ちは `<Head />` タグに `<title>` を追加することや、`styled-jsx` を使用することです。これらは予期しない動作につながるため `pages / _document.js` での利用は避けてください。
 
-## Customizing `renderPage`
+## `renderPage` のカスタマイズ
 
-> It should be noted that the only reason you should be customizing `renderPage` is for usage with **css-in-js** libraries that need to wrap the application to properly work with server-side rendering.
+> `renderPage` をカスタマイズする必要があるのは、**css-in-js** ライブラリなどで、サーバーサイドレンダリングを適切に処理するために、アプリケーションをラップする時だけです。
 
-It takes as argument an options object for further customization:
+カスタマイズするために、オプションオブジェクトを引数として受け取ります:
 
 ```jsx
 import Document from 'next/document';
@@ -70,13 +70,13 @@ class MyDocument extends Document {
 
     ctx.renderPage = () =>
       originalRenderPage({
-        // useful for wrapping the whole react tree
+        // react ツリー全体をラップするのに役立ちます
         enhanceApp: App => App,
-        // useful for wrapping in a per-page basis
+        // ページ単位をラップするのに役立ちます
         enhanceComponent: Component => Component
       });
 
-    // Run the parent `getInitialProps`, it now includes the custom `renderPage`
+    // 親の `getInitialProps` が実行されると、カスタム `renderPage` が含まれます
     const initialProps = await Document.getInitialProps(ctx);
 
     return initialProps;

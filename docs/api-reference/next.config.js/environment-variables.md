@@ -14,7 +14,7 @@ description: ビルド時に、Next.jsアプリケーションに環境変数を
   </ul>
 </details>
 
-JavaScriptバンドルに環境変数を追加するには、`next.config.js`を開き、`env`の設定を追加します:
+JavaScript バンドルに環境変数を追加するには、`next.config.js`を開き、`env`の設定を追加します:
 
 ```js
 module.exports = {
@@ -33,7 +33,7 @@ function Page() {
 
 export default Page;
 ```
-Next.jsはビルド時に`process.env.customKey`を`'my-value'`に置き換えます。 Webpack [DefinePlugin](https://webpack.js.org/plugins/define-plugin/)の性質上、`process.env` の変数を上書きしようとしてもうまくいきません。
+Next.js はビルド時に `process.env.customKey` を `'my-value'` に置き換えます。 Webpack [DefinePlugin](https://webpack.js.org/plugins/define-plugin/)の性質上、`process.env` の変数を上書きしようとしてもうまくいきません。
 
 例えば、下記のような環境変数は:
 
