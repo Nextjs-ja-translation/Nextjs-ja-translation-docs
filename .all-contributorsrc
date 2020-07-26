@@ -18,7 +18,8 @@
       "profile": "https://shinyaigeek.dev/",
       "contributions": [
         "code",
-        "review"
+        "review",
+        "tool"
       ]
     },
     {
@@ -28,7 +29,8 @@
       "profile": "https://code-log.hatenablog.com/",
       "contributions": [
         "code",
-        "review"
+        "review",
+        "translation"
       ]
     },
     {
@@ -221,6 +223,15 @@
       "name": "Masaki Yoshiiwa",
       "avatar_url": "https://avatars0.githubusercontent.com/u/46310104?v=4",
       "profile": "https://yopinoji.com/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "karur4n",
+      "name": "Kazuki Furukawa",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6816398?v=4",
+      "profile": "https://github.com/karur4n",
       "contributions": [
         "translation"
       ]
