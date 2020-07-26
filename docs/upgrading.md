@@ -131,7 +131,7 @@ export default function Home() {
 
 export const config = {
   amp: true,
-  // あるいは
+  // または
   amp: 'hybrid'
 };
 ```
