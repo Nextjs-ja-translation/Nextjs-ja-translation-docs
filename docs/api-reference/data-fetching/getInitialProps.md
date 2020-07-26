@@ -1,5 +1,5 @@
 ---
-description: `getInitialProps` を使い、ページでサーバーサイドレンダリングを有効にして初期データを生成します。
+description: `getInitialProps` を使い、ページでサーバーサイドレンダリングを有効にして初期データを追加します。
 ---
 
 # getInitialProps
@@ -19,10 +19,10 @@ description: `getInitialProps` を使い、ページでサーバーサイドレ�
 </details>
 
   `getInitialProps` は、ページ内の[サーバーサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering
-)を可能にし、初期データを生成します。これは特に [SEO](https://ja.wikipedia.org/wiki/%E6%A4%9C%E7%B4%A2%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E6%9C%80%E9%81%A9%E5%8C%96) 対策に有効です。
+)を可能にし、初期データを追加します。これは特に [SEO](https://ja.wikipedia.org/wiki/%E6%A4%9C%E7%B4%A2%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E6%9C%80%E9%81%A9%E5%8C%96) 対策に有効です。
 
 
-`getInitialProps` は、任意のページに静的メソッドとして追加できる[`非同期`](https://vercel.com/blog/async-and-await) 関数です。次の例を見てみましょう:
+`getInitialProps` は、任意のページに[`静的メソッド`](https://ja.javascript.info/static-properties-methods)として追加できる[`非同期`](https://vercel.com/blog/async-and-await) 関数です。次の例を見てみましょう:
 
 ```jsx
 function Page({ stars }) {
@@ -58,15 +58,16 @@ class Page extends React.Component {
 export default Page;
 ```
 
-`getInitialProps` は非同期にデータを取得して `props` を生成するために使われます。
+`getInitialProps` は非同期にデータを取得して `props` にデータを追加するために使われます。
+
+`getInitialProps` から返されるデータは、 [`JSON.stringify`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) が行うのと同じように、サーバーレンダリング時にシリアライズされます。 `getInitialProps` から返されるオブジェクトがプレーンなオブジェクトで `Date` 、 `Map` 、 `Set` を使用していないことを確認してください。
 
 最初のページのロードでは、 `getInitialProps` はサーバー上でのみ実行されます。
-
 `getInitialProps` は、 [`next/link`](/docs/api-reference/next/link.md) コンポーネントを介して、または [`next/router`](/docs/api-reference/next/router.md) を使用して別のルートへ移動するときにクライアント上で実行されます。
 
-## Context Object
+## Context オブジェクト
 
-`getInitialProps` は `context` という単一の引数を受け取る、以下のプロパティを持つオブジェクトです。
+`getInitialProps` は `context` という単一の引数を受け取る、以下のプロパティを持つオブジェクトです:
 
 - `pathname` - 現在のルート。これは /pages にあるページのパスです。
 - `query` - オブジェクトとしてパース(解析)される URL のクエリ文字列セクションです。
@@ -130,21 +131,21 @@ export default class Page extends React.Component<Props> {
 
 <div class="card">
   <a href="/docs/basic-features/data-fetching.md">
-    <b>Data Fetching:</b>
-    <small>Next.js の data fetching について詳しく学ぶ</small>
+    <b>データ取得:</b>
+    <small>Next.js のデータ取得について詳しく学びましょう。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/basic-features/pages.md">
     <b>Pages:</b>
-    <small>Next.js の pages について詳しく学ぶ</small>
+    <small>Next.js の pages について詳しく学びましょう。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/advanced-features/automatic-static-optimization.md">
     <b>Automatic Static Optimization:</b>
-    <small>Next.js の Automatic Static Optimization について詳しく学ぶ</small>
+    <small>Next.js の Automatic Static Optimization について詳しく学びましょう。</small>
   </a>
 </div>
