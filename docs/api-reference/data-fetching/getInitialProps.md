@@ -1,5 +1,5 @@
 ---
-description: `getInitialProps` を使い、ページでサーバーサイドレンダリングを有効にして初期データを追加します。
+description: getInitialProps を使い、ページでサーバーサイドレンダリングを有効にして初期データを追加します。
 ---
 
 # getInitialProps
