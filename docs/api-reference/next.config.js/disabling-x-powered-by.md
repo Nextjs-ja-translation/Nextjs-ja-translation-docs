@@ -17,6 +17,6 @@ module.exports = {
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
     <b>next.config.js の紹介:</b>
-    <small>Next.js が使用する設定ファイルについてさらに学びましょう。</small>
+    <small>Next.js が使用する設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
