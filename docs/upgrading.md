@@ -98,7 +98,7 @@ const DynamicComponentWithCustomLoading = dynamic(() => import('../components/he
 
 #### `withAmp` は削除され、エクスポートされた設定オブジェクトに置き換えられました
 
-Next.js はページレベルの設定という概念を持つようになり、整合性を保つため `withAmp` 高位コンポーネントは削除されました。
+Next.js はページレベルの設定という概念を持つようになり、整合性を保つため `withAmp` 高階コンポーネントは削除されました。
 
 この変更は **Next.js プロジェクトのルートディレクトリで以下のコマンドを実行することで自動的に移行されます:**
 
