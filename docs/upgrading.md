@@ -118,7 +118,7 @@ function Home() {
 }
 
 export default withAmp(Home);
-// あるいは
+// または
 export default withAmp(Home, { hybrid: true });
 ```
 
