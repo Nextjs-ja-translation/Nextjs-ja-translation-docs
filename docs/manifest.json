@@ -39,7 +39,7 @@
           "title": "Routing",
           "routes": [
             {
-              "title": "Introduction",
+              "title": "はじめに",
               "path": "/docs/routing/introduction.md"
             },
             {
@@ -130,7 +130,7 @@
               ]
             },
             {
-              "title": "Customizing Babel Config",
+              "title": "Babel 設定のカスタマイズ",
               "path": "/docs/advanced-features/customizing-babel-config.md"
             },
             {
@@ -220,11 +220,11 @@
               "path": "/docs/api-reference/next.config.js/custom-page-extensions.md"
             },
             {
-              "title": "CDN Support with Asset Prefix",
+              "title": "アセットプレフィックスによる CDN サポート",
               "path": "/docs/api-reference/next.config.js/cdn-support-with-asset-prefix.md"
             },
             {
-              "title": "Build Target",
+              "title": "ビルドターゲット",
               "path": "/docs/api-reference/next.config.js/build-target.md"
             },
             {
@@ -232,7 +232,7 @@
               "path": "/docs/api-reference/next.config.js/custom-webpack-config.md"
             },
             {
-              "title": "Compression",
+              "title": "圧縮",
               "path": "/docs/api-reference/next.config.js/compression.md"
             },
             {
@@ -248,11 +248,11 @@
               "path": "/docs/api-reference/next.config.js/disabling-x-powered-by.md"
             },
             {
-              "title": "Disabling ETag Generation",
+              "title": "ETag 生成の無効化",
               "path": "/docs/api-reference/next.config.js/disabling-etag-generation.md"
             },
             {
-              "title": "Setting a custom build directory",
+              "title": "カスタムビルドディレクトリの設定",
               "path": "/docs/api-reference/next.config.js/setting-a-custom-build-directory.md"
             },
             {
@@ -264,7 +264,7 @@
               "path": "/docs/api-reference/next.config.js/configuring-onDemandEntries.md"
             },
             {
-              "title": "Ignoring TypeScript Errors",
+              "title": "TypeScriptのエラーを無視する",
               "path": "/docs/api-reference/next.config.js/ignoring-typescript-errors.md"
             },
             {

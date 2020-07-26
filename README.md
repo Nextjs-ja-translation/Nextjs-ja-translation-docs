@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-26-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -86,8 +86,8 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://shinyaigeek.dev/"><img src="https://avatars1.githubusercontent.com/u/42742053?v=4" width="100px;" alt=""/><br /><sub><b>Shinobu Hayashi</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=Shinyaigeek" title="Code">💻</a> <a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3AShinyaigeek" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://code-log.hatenablog.com/"><img src="https://avatars0.githubusercontent.com/u/39504660?v=4" width="100px;" alt=""/><br /><sub><b>かみむら</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=hiro08gh" title="Code">💻</a> <a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3Ahiro08gh" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://shinyaigeek.dev/"><img src="https://avatars1.githubusercontent.com/u/42742053?v=4" width="100px;" alt=""/><br /><sub><b>Shinobu Hayashi</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=Shinyaigeek" title="Code">💻</a> <a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3AShinyaigeek" title="Reviewed Pull Requests">👀</a> <a href="#tool-Shinyaigeek" title="Tools">🔧</a></td>
+    <td align="center"><a href="https://code-log.hatenablog.com/"><img src="https://avatars0.githubusercontent.com/u/39504660?v=4" width="100px;" alt=""/><br /><sub><b>かみむら</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=hiro08gh" title="Code">💻</a> <a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3Ahiro08gh" title="Reviewed Pull Requests">👀</a> <a href="#translation-hiro08gh" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/hoosan"><img src="https://avatars3.githubusercontent.com/u/40290137?v=4" width="100px;" alt=""/><br /><sub><b>hoosan</b></sub></a><br /><a href="#translation-hoosan" title="Translation">🌍</a> <a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=hoosan" title="Documentation">📖</a> <a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3Ahoosan" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://twitter.com/okumura_daiki"><img src="https://avatars3.githubusercontent.com/u/4679138?v=4" width="100px;" alt=""/><br /><sub><b>Daiki Okumura</b></sub></a><br /><a href="#translation-okmr-d" title="Translation">🌍</a></td>
     <td align="center"><a href="https://about.me/yokinist"><img src="https://avatars2.githubusercontent.com/u/19779874?v=4" width="100px;" alt=""/><br /><sub><b>yokinist</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=yokinist" title="Documentation">📖</a> <a href="#translation-yokinist" title="Translation">🌍</a> <a href="#tool-yokinist" title="Tools">🔧</a> <a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3Ayokinist" title="Reviewed Pull Requests">👀</a></td>
@@ -115,6 +115,9 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
   <tr>
     <td align="center"><a href="https://panda-program.com/"><img src="https://avatars0.githubusercontent.com/u/36080801?v=4" width="100px;" alt=""/><br /><sub><b>Mashu Kushibiki</b></sub></a><br /><a href="#translation-KushibikiMashu" title="Translation">🌍</a></td>
     <td align="center"><a href="https://yopinoji.com/"><img src="https://avatars0.githubusercontent.com/u/46310104?v=4" width="100px;" alt=""/><br /><sub><b>Masaki Yoshiiwa</b></sub></a><br /><a href="#translation-YopiNoji" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/karur4n"><img src="https://avatars0.githubusercontent.com/u/6816398?v=4" width="100px;" alt=""/><br /><sub><b>Kazuki Furukawa</b></sub></a><br /><a href="#translation-karur4n" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/kuroppe1819"><img src="https://avatars1.githubusercontent.com/u/17245737?v=4" width="100px;" alt=""/><br /><sub><b>Atsusuke</b></sub></a><br /><a href="#translation-kuroppe1819" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://blog.dai.gd"><img src="https://avatars1.githubusercontent.com/u/49590399?v=4" width="100px;" alt=""/><br /><sub><b>dmamira</b></sub></a><br /><a href="#translation-dmamira" title="Translation">🌍</a></td>
   </tr>
 </table>
 
