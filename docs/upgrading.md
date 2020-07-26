@@ -20,7 +20,7 @@ Next.js 9 の動的なルーティングは **[Now](https://vercel.com/now) 上�
 
 [カスタム `<App>`](https://nextjs.org/docs#custom-app) の例をコピーしていたなら、`getInitialProps` を削除できます。
 
-`pages/_app.js` から `getInitialProps` の削除(できれば)は、新しい Next.js の機能を利用するために重要です！
+`pages/_app.js` から `getInitialProps` の削除(可能であれば)は、新しい Next.js の機能を利用するために重要です！
 
 以下の `getInitialProps` は何もしないため削除して構いません:
 
