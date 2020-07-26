@@ -10,7 +10,7 @@ description: Next.js のアップグレード方法を学びます。
 
 #### Vercel へのプロダクションデプロイ
 
-動的ルーティングのために、 `now.json` ファイル内に `routes` を設定していた場合、Next.js 9 の新しい[動的なルーティング機能](https://nextjs.org/docs/routing/dynamic-routes) を利用することで、これらのルールを削除できます。
+動的なルーティングのために、 `now.json` ファイル内に `routes` を設定していた場合、Next.js 9 の新しい[動的なルーティング機能](https://nextjs.org/docs/routing/dynamic-routes) を利用することで、これらのルールを削除できます。
 
 Next.js 9 の動的なルーティングは **[Now](https://vercel.com/now) 上では自動的に設定されている**ため、 `now.json` のカスタマイズは必要ありません。
 
