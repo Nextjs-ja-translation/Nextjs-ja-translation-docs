@@ -48,7 +48,7 @@ export default MyApp;
 - [First Input Delay](https://web.dev/fid/) (FID)
 - [Cumulative Layout Shift](https://web.dev/cls/) (CLS)
 
-これらのメトリックの結果はすべて `web-vital` ラベルを使用して処理できます。
+これらの指標はすべて `web-vital` ラベルを使用して処理できます。
 
 ```js
 export function reportWebVitals(metric) {
@@ -89,7 +89,7 @@ export function reportWebVitals(metric) {
 
 ## Custom metrics
 
-上記の主要な指標に加えて、ページのハイドレートとレンダリングにかかる時間を測定する、いくつかのカスタムメトリックがあります。
+上記の主要な指標に加えて、ページのハイドレートとレンダリングにかかる時間を測定する、いくつかのカスタム指標があります。
 
 - `Next.js-hydration`: ページのハイドレーションが開始から終了するまでにかかる時間(ミリ秒)
 - `Next.js-route-change-to-render`: ルーティング後、ページがレンダリングを開始するのにかかる時間(ミリ秒)
