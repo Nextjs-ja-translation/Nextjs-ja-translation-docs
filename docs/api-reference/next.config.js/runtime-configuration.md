@@ -1,45 +1,45 @@
 ---
-description: Add client and server runtime configuration to your Next.js app.
+description: クライアント側とサーバー側のランタイム設定を Next.js アプリケーションに追加します。
 ---
 
-# Runtime Configuration
+# ランタイム設定
 
-> Generally you'll want to use [build-time environment variables](/docs/api-reference/next.config.js/environment-variables.md) to provide your configuration. The reason for this is that runtime configuration adds rendering / initialization overhead and is incompatible with [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md).
+> 一般的には、 [環境変数](/docs/api-reference/next.config.js/environment-variables.md) を使用して設定を行うのがいいでしょう。なぜなら、ランタイム設定はレンダリング / 初期化時の余計な処理につながり、また [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) と互換性がないからです。
 
-> Runtime configuration is not available when using the [`serverless` target](/docs/api-reference/next.config.js/build-target.md#serverless-target).
+> ランタイム設定は [`serverless` target](/docs/api-reference/next.config.js/build-target.md#serverless-target) のときは利用できません。
 
-To add runtime configuration to your app open `next.config.js` and add the `publicRuntimeConfig` and `serverRuntimeConfig` configs:
+ランタイム設定を追加するためには、`next.config.js` に `publicRuntimeConfig` と `serverRuntimeConfig` を記述してください:
 
 ```js
 module.exports = {
   serverRuntimeConfig: {
-    // Will only be available on the server side
+    // サーバー側でのみ使えます
     mySecret: 'secret',
-    secondSecret: process.env.SECOND_SECRET // Pass through env variables
+    secondSecret: process.env.SECOND_SECRET // 環境変数から渡す
   },
   publicRuntimeConfig: {
-    // Will be available on both server and client
+    // サーバー側、クライアント側の両方で使えます
     staticFolder: '/static'
   }
 };
 ```
 
-Place any server-only runtime config under `serverRuntimeConfig`.
+サーバー側だけで利用する値であれば、ランタイムの設定は `serverRuntimeConfig` に記述してください。
 
-Anything accessible to both client and server-side code should be under `publicRuntimeConfig`.
+クライアント側とサーバー側のどちらのコードからも使う値であれば、 `publicRuntimeConfig` に記述してください。
 
-> A page that relies on `publicRuntimeConfig` **must** use `getInitialProps` to opt-out of [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md). Runtime configuration won't be available to any page (or component in a page) without `getInitialProps`.
+> `publicRuntimeConfig` に依存しているページは [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) の対象から除外するために、 **必ず** `getInitialProps` を使ってください。 ランタイム設定は `getInitialProps` を使っていないページ（またはページ内のコンポーネント）では利用できません。
 
-To get access to the runtime configs in your app use `next/config`, like so:
+アプリケーション内でランタイムの設定を利用するためには `next/config` を以下のように記述してください:
 
 ```jsx
 import getConfig from 'next/config';
 
-// Only holds serverRuntimeConfig and publicRuntimeConfig
+// serverRuntimeConfig と publicRuntimeConfig だけを保持している
 const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
-// Will only be available on the server-side
+// サーバー側でのみ使えます
 console.log(serverRuntimeConfig.mySecret);
-// Will be available on both server-side and client-side
+// サーバー側、クライアント側の両方で使えます
 console.log(publicRuntimeConfig.staticFolder);
 
 function MyImage() {
@@ -53,18 +53,18 @@ function MyImage() {
 export default MyImage;
 ```
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js の紹介:</b>
+    <small>Next.js の設定ファイルについて学ぶ。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/environment-variables.md">
-    <b>Environment Variables:</b>
-    <small>Access environment variables in your Next.js application at build time.</small>
+    <b>環境変数:</b>
+    <small>Next.js アプリケーションのビルド時に環境変数を利用する。</small>
   </a>
 </div>

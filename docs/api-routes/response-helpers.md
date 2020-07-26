@@ -12,7 +12,7 @@ description: APIルートには、レスポンスのためのExpress.jsライク
   </ul>
 </details>
 
-レスポンス (`res`) には、Express.jsライクなメソッドのセットが用意されています。これらは、より良い開発者体験を提供し、より手早くAPIエンドポイントを作成できます。次の例を見てみましょう:
+レスポンス (`res`) には、Express.js ライクなメソッドのセットが用意されています。これらは、より良い開発者体験を提供し、より手早く API エンドポイントを作成できます。次の例を見てみましょう:
 
 ```js
 export default (req, res) => {
@@ -23,5 +23,5 @@ export default (req, res) => {
 用意されているメソッドは以下の通りです:
 
 - `res.status(code)` -  ステータスコードを設定するための関数です。 `code` は正しい[HTTPステータスコード](https://ja.wikipedia.org/wiki/HTTP%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89)である必要があります。
-- `res.json(json)` - JSONレスポンスを送信します。`json` は正しい JSON オブジェクトである必要があります。
-- `res.send(body)` - HTTPレスポンスを送信します。 `body` は `string` か `object` 、または `Buffer` である必要があります。
+- `res.json(json)` - JSON レスポンスを送信します。`json` は正しい JSON オブジェクトである必要があります。
+- `res.send(body)` - HTTP レスポンスを送信します。 `body` は `string` か `object` 、または `Buffer` である必要があります。
