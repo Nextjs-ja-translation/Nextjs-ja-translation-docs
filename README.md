@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-26-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-27-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -118,6 +118,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
     <td align="center"><a href="https://github.com/karur4n"><img src="https://avatars0.githubusercontent.com/u/6816398?v=4" width="100px;" alt=""/><br /><sub><b>Kazuki Furukawa</b></sub></a><br /><a href="#translation-karur4n" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/kuroppe1819"><img src="https://avatars1.githubusercontent.com/u/17245737?v=4" width="100px;" alt=""/><br /><sub><b>Atsusuke</b></sub></a><br /><a href="#translation-kuroppe1819" title="Translation">🌍</a></td>
     <td align="center"><a href="https://blog.dai.gd"><img src="https://avatars1.githubusercontent.com/u/49590399?v=4" width="100px;" alt=""/><br /><sub><b>dmamira</b></sub></a><br /><a href="#translation-dmamira" title="Translation">🌍</a></td>
+    <td align="center"><a href="http://okakyo.myvnc.com"><img src="https://avatars3.githubusercontent.com/u/29594820?v=4" width="100px;" alt=""/><br /><sub><b>Kyohei Oka</b></sub></a><br /><a href="#translation-okakyo" title="Translation">🌍</a></td>
   </tr>
 </table>
 
