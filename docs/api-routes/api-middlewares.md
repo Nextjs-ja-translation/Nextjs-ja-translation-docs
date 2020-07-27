@@ -1,26 +1,26 @@
 ---
-description: API Routes provide built-in middlewares that parse the incoming request. Learn more about them here.
+description: API ルートは、受け取ったリクエストをパースするための組み込みミドルウェアを提供しています。ここで、詳しく学びましょう。
 ---
 
-# API Middlewares
+# API ミドルウェア
 
 <details open>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-middleware">API Routes with middleware</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-cors">API Routes with CORS</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes-middleware">ミドルウェアを用いたAPIルート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes-cors">CORSを用いたAPIルート</a></li>
   </ul>
 </details>
 
-API routes provide built in middlewares which parse the incoming request (`req`). Those middlewares are:
+API ルートには、送信されてきた (`req`) をパースするための組み込みミドルウェアが提供されています。以下、それらのミドルウェアです:
 
-- `req.cookies` - An object containing the cookies sent by the request. Defaults to `{}`
-- `req.query` - An object containing the [query string](https://en.wikipedia.org/wiki/Query_string). Defaults to `{}`
-- `req.body` - An object containing the body parsed by `content-type`, or `null` if no body was sent
+- `req.cookies` - リクエストにより送られてきた Cookie が格納されているオブジェクトです。デフォルト値は `{}` です
+- `req.query` - [クエリ文字列](https://en.wikipedia.org/wiki/Query_string) が格納されているオブジェクトです。デフォルト値は `{}` です
+- `req.body` - `content-type` によりパースされたボディが格納されているオブジェクトです。ボディが含まれていなかった場合は `null` となります
 
-## Custom config
+## カスタム設定
 
-Every API route can export a `config` object to change the default configs, which are the following:
+次のように、すべての API ルートは `config` オブジェクトをエクスポートすることで、デフォルトの設定を変更できます:
 
 ```js
 export const config = {
@@ -32,9 +32,9 @@ export const config = {
 };
 ```
 
-The `api` object includes all configs available for API routes.
+`api` オブジェクトには API ルートで利用できるすべての設定が含まれます。
 
-`bodyParser` Enables body parsing, you can disable it if you want to consume it as a `Stream`:
+`bodyParser` はボディのパースを有効にできます。もし、`Stream` として利用したい場合は無効にもできます:
 
 ```js
 export const config = {
@@ -44,7 +44,7 @@ export const config = {
 };
 ```
 
-`bodyParser.sizeLimit` is the maximum size allowed for the parsed body, in any format supported by [bytes](https://github.com/visionmedia/bytes.js), like so:
+`bodyParser.sizeLimit` は、このようにパースされたボディに対して [bytes](https://github.com/visionmedia/bytes.js) でサポートされている任意の形式を用いて許可する最大サイズのことです:
 
 ```js
 export const config = {
@@ -56,7 +56,7 @@ export const config = {
 };
 ```
 
-`externalResolver` is an explicit flag that tells the server that this route is being handled by an external resolver like _express_ or _connect_. Enabling this option disables warnings for unresolved requests.
+`externalResolver` はルーティングが _express_ や _connect_ のような外部リゾルバによって処理されていることをサーバーに伝える明示的なフラグです。このオプションを有効にすると、未解決のリクエストに対する警告を無効にできます。
 
 ```js
 export const config = {
@@ -66,32 +66,32 @@ export const config = {
 };
 ```
 
-## Connect/Express middleware support
+## Connect/Express ミドルウェアのサポート
 
-You can also use [Connect](https://github.com/senchalabs/connect) compatible middleware.
+また、 [Connect](https://github.com/senchalabs/connect) と互換性のあるミドルウェアも利用できます。
 
-For example, [configuring CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for your API endpoint can be done leveraging the [cors](https://www.npmjs.com/package/cors) package.
+例えば、 [cors](https://www.npmjs.com/package/cors) パッケージを活用することで API エンドポイントに [CORS 設定](https://developer.mozilla.org/ja/docs/Web/HTTP/CORS) をできます。
 
-First, install `cors`:
+まず、`cors` をインストールします:
 
 ```bash
 npm i cors
-# or
+# または
 yarn add cors
 ```
 
-Now, let's add `cors` to the API route:
+それでは、API ルートに `cors` を追加してみましょう:
 
 ```js
 import Cors from 'cors';
 
-// Initializing the cors middleware
+// CORS のミドルウェアを初期化
 const cors = Cors({
   methods: ['GET', 'HEAD']
 });
 
-// Helper method to wait for a middleware to execute before continuing
-// And to throw an error when an error happens in a middleware
+// ミドルウェアの実行を待ってから続けるためのヘルパーメソッド
+// そして、ミドルウェアでエラーが発生したときエラーを投げられるように
 function runMiddleware(req, res, fn) {
   return new Promise((resolve, reject) => {
     fn(req, res, result => {
@@ -105,14 +105,13 @@ function runMiddleware(req, res, fn) {
 }
 
 async function handler(req, res) {
-  // Run the middleware
+  // ミドルウェアを走らせる
   await runMiddleware(req, res, cors);
-
-  // Rest of the API logic
+  // API ロジックの残り部分
   res.json({ message: 'Hello Everyone!' });
 }
 
 export default handler;
 ```
 
-> Go to the [API Routes with CORS](https://github.com/zeit/next.js/tree/canary/examples/api-routes-cors) example to see the finished app
+> 完成したアプリを見るには、 [API Routes with CORS](https://github.com/zeit/next.js/tree/canary/examples/api-routes-cors) のサンプルを参照してください。
