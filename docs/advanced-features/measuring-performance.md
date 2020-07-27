@@ -64,19 +64,19 @@ export function reportWebVitals(metric) {
 export function reportWebVitals(metric) {
   switch (metric.name) {
     case 'FCP':
-      // handle FCP results
+      // FCP の測定結果に対する処理を記述
       break;
     case 'LCP':
-      // handle LCP results
+      // LCP の測定結果に対する処理を記述
       break;
     case 'CLS':
-      // handle CLS results
+      // CLS の測定結果に対する処理を記述
       break;
     case 'FID':
-      // handle FID results
+      // FID の測定結果に対する処理を記述
       break;
     case 'TTFB':
-      // handle TTFB results
+      // TTFB の測定結果に対する処理を記述
       break;
     default:
       break;
@@ -87,7 +87,7 @@ export function reportWebVitals(metric) {
 サードパーティのライブラリである [web-vitals](https://github.com/GoogleChrome/web-vitals) を用いて、これらの指標を測定します。 
 指標によってはブラウザの互換性に依存するため、サポートされているブラウザを確認する場合は、[Browser Support](https://github.com/GoogleChrome/web-vitals#browser-support) セクションを参照してください。
 
-## Custom metrics
+## カスタム指標
 
 上記の主要な指標に加えて、ページのハイドレートとレンダリングにかかる時間を測定する、いくつかのカスタム指標があります。
 
@@ -111,13 +111,13 @@ export function reportWebVitals(metric) {
 export function reportWebVitals(metric) {
   switch (metric.name) {
     case 'Next.js-hydration':
-      // handle hydration results
+      // ハイドレーションの結果に対する処理を記述
       break;
     case 'Next.js-route-change-to-render':
-      // handle route-change to render results
+      // ルーティングからレンダリング開始までの結果に対する処理を記述
       break;
     case 'Next.js-render':
-      // handle render results
+      // レンダリングの結果に対する処理を記述
       break;
     default:
       break;
