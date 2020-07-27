@@ -91,7 +91,7 @@ const cors = Cors({
 });
 
 // ミドルウェアの実行を待ってから続けるためのヘルパーメソッド
-// そして、ミドルウェアでエラーが発生したときエラーを投げられるように
+// そして、ミドルウェアでエラーが発生したときエラーを投げる
 function runMiddleware(req, res, fn) {
   return new Promise((resolve, reject) => {
     fn(req, res, result => {
