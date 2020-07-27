@@ -7,8 +7,8 @@ description: API ルートは、受け取ったリクエストをパースする
 <details open>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes-middleware">ミドルウェアを用いたAPIルート</a></li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes-cors">CORSを用いたAPIルート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes-middleware">ミドルウェアを用いた API ルート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes-cors">CORS を用いた API ルート</a></li>
   </ul>
 </details>
 
@@ -44,7 +44,7 @@ export const config = {
 };
 ```
 
-`bodyParser.sizeLimit` は、このようにパースされたボディに対して [bytes](https://github.com/visionmedia/bytes.js) でサポートされている任意の形式を用いて許可する最大サイズのことです:
+`bodyParser.sizeLimit` は、次のようにパースされたボディに対して [bytes](https://github.com/visionmedia/bytes.js) でサポートされている任意の形式を用いて許可する最大サイズのことです:
 
 ```js
 export const config = {
