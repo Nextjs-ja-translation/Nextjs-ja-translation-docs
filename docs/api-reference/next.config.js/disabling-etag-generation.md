@@ -1,12 +1,12 @@
 ---
-description: Next.js will generate etags for every page by default. Learn more about how to disable etag generation here.
+description: Next.js はデフォルトですべてのページの ETag を生成します。ここでは、 ETag の生成を無効化する方法を学びます。
 ---
 
-# Disabling ETag Generation
+# ETag 生成の無効化
 
-Next.js will generate [etags](https://en.wikipedia.org/wiki/HTTP_ETag) for every page by default. You may want to disable etag generation for HTML pages depending on your cache strategy.
+Next.js はデフォルトですべてのページの [ETag](https://ja.wikipedia.org/wiki/HTTP_ETag) を生成します。キャッシュ戦略によっては、HTML ページの ETag 生成を無効化した方が良いでしょう。
 
-Open `next.config.js` and disable the `generateEtags` option:
+`next.config.js` の `generateEtags` オプションを無効化します:
 
 ```js
 module.exports = {
@@ -14,11 +14,11 @@ module.exports = {
 };
 ```
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js の紹介:</b>
+    <small>Next.js の設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>

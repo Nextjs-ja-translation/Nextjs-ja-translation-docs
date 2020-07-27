@@ -1,28 +1,28 @@
 ---
-description: Learn more about the build targets used by Next.js, which decide the way your application is built and run.
+description: Next.js で使用され、アプリケーションのビルドと実行方法を決める build target について学びましょう。
 ---
 
 # Build Target
 
-Next.js supports various build targets, each changing the way your application is built and run. We'll explain each of the targets below.
+Next.js は様々なビルドターゲットをサポートしています。これらはそれぞれ、あなたのアプリケーションのビルドと実行方法を変えます。下記でそれぞれのターゲットについて説明します。
 
-## `server` target
+## `server` ターゲット
 
-> This is the default target, however, we highly recommend the [`serverless` target](#serverless-target). The `serverless` target enforces [additional constraints](https://rauchg.com/2020/2019-in-review#serverless-upgrades-itself) to keep you in the [Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success/).
+これはデフォルトのターゲットですが、我々は [`serverless` ターゲット](#serverless-target)を強くお勧めします。`serverless` ターゲットは、[追加の制約](https://rauchg.com/2020/2019-in-review#serverless-upgrades-itself)を強制することで、あなたを[成功の落とし穴(原文: Pit of Success)](https://blog.codinghorror.com/falling-into-the-pit-of-success/)にはめてくれます。
 
-This target is compatible with both `next start` and [custom server](/docs/advanced-features/custom-server.md) setups (it's mandatory for a custom server).
+このターゲットは、 `next start` と[カスタムサーバー](/docs/advanced-features/custom-server.md)の両方の設定と互換性があります。(カスタムサーバーを使用する場合はこのターゲットが必須)
 
-Your application will be built and deployed as a monolith. This is the default target and no action is required on your part to opt-in.
+あなたのアプリケーションは全てのページが 1 つの大きなアプリケーションとしてビルドされ、デプロイされます。これはデフォルトのターゲットで、特に設定の必要はありません。
 
-## `serverless` target
+## `serverless` ターゲット
 
-> Deployments to [Vercel](https://vercel.com) will automatically enable this target. You should not opt-into it yourself.
+> [Vercel](https://vercel.com) にデプロイする際は、自動でこのターゲットが有効になります。自分で設定をしないでください。
 
-This target will output independent pages that don't require a monolithic server.
+このターゲットは、モノリシックなサーバーを必要としないような独立したページを出力します。
 
-It's only compatible with `next start` or Serverless deployment platforms (like [Vercel](https://vercel.com)) — you cannot use the custom server API.
+このターゲットは、`next start`、もしくは [Vercel](https://vercel.com) のようなサーバーレスプラットフォームとしか互換性がありません。- カスタムサーバーを利用できません。
 
-To opt-into this target, set the following configuration in your `next.config.js`:
+このターゲットを選択するには、 `next.config.js` を以下のように設定してください:
 
 ```js
 module.exports = {
@@ -30,18 +30,18 @@ module.exports = {
 };
 ```
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js の紹介</b>
+    <small>Next.js で使われる設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/deployment.md">
-    <b>Deployment:</b>
-    <small>Compile and deploy your Next.js app to production.</small>
+    <b>デプロイ</b>
+    <small>Next.js のアプリをコンパイルし開発環境へデプロイしましょう。</small>
   </a>
 </div>
