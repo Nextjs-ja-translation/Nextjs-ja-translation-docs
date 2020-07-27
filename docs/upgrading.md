@@ -49,7 +49,7 @@ class MyApp extends App {
 
 Next.js は `@zeit/next-typescript` の使用を無視するようになり、削除するよう警告されます。`next.config.js` からこのプラグインを削除して下さい。
 
-カスタム `.babelrc` から `@zeit/next-typescript/babel` への参照を削除して下さい。（存在する場合）
+カスタム `.babelrc` から `@zeit/next-typescript/babel` への参照を削除して下さい（存在する場合）。
 
 [`fork-ts-checker-webpack-plugin`](https://github.com/Realytics/fork-ts-checker-webpack-plugin/issues) の使用も `next.config.js` から削除されるべきです。
 
