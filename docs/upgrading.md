@@ -83,7 +83,7 @@ import { DocumentContext, DocumentInitialProps } from 'next/document';
 
 Next.js ではない目的の `config` エクスポートは別の名前に変更しなければなりません。
 
-#### `next/dynamic` はデフォルトではもはやロード時に　"loading..." を表示しません
+#### もはや `next/dynamic` はデフォルトでロード時に "loading..." を表示しません
 
 動的コンポーネントはデフォルトではロード時に何も表示しません。その場合でも、
 `loading` プロパティを設定することでこの挙動をカスタマイズできます:
