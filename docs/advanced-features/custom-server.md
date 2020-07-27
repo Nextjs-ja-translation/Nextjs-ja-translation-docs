@@ -15,7 +15,7 @@ description: カスタムサーバーを使用してプログラム上で Next.j
   </ul>
 </details>
 
-通常、next サーバーは `next start` で起動します。しかしながら、カスタムルートパターンを使用するために、100％ プログラマティックな起動が可能です。
+通常、next サーバーは `next start` で起動します。しかしながら、カスタムしたルーティングパターンを使用するために、100％ プログラム上での起動が可能です。
 
 > カスタムサーバーの使用を決定する前に、Next.js の統合ルーターがアプリの要件を満たせない場合にのみ使用することを覚えておいてください。カスタムサーバーは、**サーバーレス関数**や **[Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md).** などの重要なパフォーマンス最適化を削除します。
 
