@@ -86,7 +86,7 @@ const app = next({});
 
 デフォルトでは、`Next` はファイル名と一致するパス名の下の `pages` フォルダー内の各ファイルを提供します。プロジェクトでカスタムサーバーを使用する場合、この挙動で同じコンテンツが複数のパスから提供される恐れがあり、SEO と UX に問題を起こす可能性があります。
 
-この動作を無効にし、　`pages`　内のファイルに基づくルーティングを防ぐには、 `next.config.js` を開いて `useFileSystemPublicRoutes` 設定を無効にします:
+この動作を無効にし、 `pages` 内のファイルに基づくルーティングを防ぐには、 `next.config.js` を開いて `useFileSystemPublicRoutes` 設定を無効にします:
 
 ```js
 module.exports = {
