@@ -6,7 +6,7 @@ description: Next.js の組み込みパフォーマンスリレー機能を使�
 
 Next.js には、さまざまな指標を用いてページのパフォーマンスを分析および測定できるリレー機能が組み込まれています。
 
-サポートされている指標を測定するには、[カスタム `App`](/docs/advanced-features/custom-app.md) コンポーネントを作成し、関数 `reportWebVitals` を定義する必要があります。
+サポートされている指標を測定するには、[カスタム `App`](/docs/advanced-features/custom-app.md) コンポーネントを作成し、関数 `reportWebVitals` を定義します:
 
 ```js
 // pages/_app.js
@@ -58,7 +58,7 @@ export function reportWebVitals(metric) {
 }
 ```
 
-オプションで各指標を個別に処理できます。
+オプションで各指標を個別に処理できます:
 
 ```js
 export function reportWebVitals(metric) {
@@ -95,7 +95,7 @@ export function reportWebVitals(metric) {
 - `Next.js-route-change-to-render`: ルーティング後、ページがレンダリングを開始するのにかかる時間(ミリ秒)
 - `Next.js-render`: ルーティング後、ページのレンダリングが完了するまでにかかる時間(ミリ秒)
 
-`custom` ラベルを使用して、これら指標についてすべての結果を処理できます。
+`custom` ラベルを使用して、これら指標についてすべての結果を処理できます:
 
 ```js
 export function reportWebVitals(metric) {
@@ -105,7 +105,7 @@ export function reportWebVitals(metric) {
 }
 ```
 
-オプションで各指標を個別に処理できます。
+オプションで各指標を個別に処理できます:
 
 ```js
 export function reportWebVitals(metric) {
@@ -129,8 +129,7 @@ export function reportWebVitals(metric) {
 
 ## 結果を analytics へ送信する
 
-リレー機能を使用すると、サイトのユーザーパフォーマンスを測定および追跡するためのエンドポイントに、任意の結果を送信できます。
-
+リレー機能を使用して、サイトのユーザーパフォーマンスを測定および追跡するためのエンドポイントに、任意の結果を送信できます:
 
 ```js
 export function reportWebVitals(metric) {
