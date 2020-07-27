@@ -75,7 +75,7 @@ const app = next({});
 
 上記の `next` インポートは、次のオプションを持つオブジェクトを受け取る関数です:
 
-- `dev`: `Boolean` - Next.js を開発モードで起動するか。デフォルトは `false` です
+- `dev`: `Boolean` - Next.js を開発モードで起動するかどうか。デフォルトは `false` です
 - `dir`: `String` - Next.js プロジェクトの場所。デフォルトは `'.'`です
 - `quiet`: `Boolean` - サーバー情報を含むエラーメッセージを非表示にします。デフォルトは `false` です
 - `conf`: `object` - [next.config.js](/docs/api-reference/next.config.js/introduction.md) で使用するのと同じオブジェクト。デフォルトは `{}` です
