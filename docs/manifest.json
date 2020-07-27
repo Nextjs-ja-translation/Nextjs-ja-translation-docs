@@ -244,7 +244,7 @@
               "path": "/docs/api-reference/next.config.js/runtime-configuration.md"
             },
             {
-              "title": "Disabling x-powered-by",
+              "title": "x-powered-by の無効化",
               "path": "/docs/api-reference/next.config.js/disabling-x-powered-by.md"
             },
             {
