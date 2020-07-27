@@ -108,6 +108,6 @@ export default (req, res) => {
 <div class="card">
   <a href="/docs/routing/dynamic-routes.md">
     <b>動的ルーティング:</b>
-    <small>ビルトインされた動的ルーティングについて学びましょう。</small>
+    <small>ビルトインされた動的ルーティングについて詳しく学びましょう。</small>
   </a>
 </div>
