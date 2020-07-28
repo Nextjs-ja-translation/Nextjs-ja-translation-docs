@@ -235,6 +235,33 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "kuroppe1819",
+      "name": "Atsusuke",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17245737?v=4",
+      "profile": "https://github.com/kuroppe1819",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "dmamira",
+      "name": "dmamira",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/49590399?v=4",
+      "profile": "https://blog.dai.gd",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "okakyo",
+      "name": "Kyohei Oka",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/29594820?v=4",
+      "profile": "http://okakyo.myvnc.com",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
