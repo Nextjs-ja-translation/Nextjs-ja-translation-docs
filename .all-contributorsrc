@@ -262,6 +262,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "tomotaco",
+      "name": "ともたこ(Tomotaka Ogino)",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/9277718?v=4",
+      "profile": "http://tacoworks.jp/",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
