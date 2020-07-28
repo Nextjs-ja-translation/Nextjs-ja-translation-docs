@@ -8,8 +8,8 @@ description: getInitialProps を使い、ページでサーバーサイドレン
 >
 > Next.js 9.3以降を使用している場合は、 `getInitialProps` ではなく、 `getStaticProps` または `getServerSideProps` を使用することをお勧めします。
 >
-> これらの新しいデータ取得メソッドを使用することで、静的生成とサーバーサイドのレンダリングを細かく選択できるようになります。
-> [Pages](/docs/basic-features/pages.md) と [Data fetching](/docs/basic-features/data-fetching.md) のドキュメントの詳細については、こちらをご覧ください:
+> これらの新しいデータ取得メソッドを使用することで、静的生成とサーバーサイドレンダリングを細かく選択できるようになります。
+> [Pages](/docs/basic-features/pages.md) と[データ取得](/docs/basic-features/data-fetching.md)のドキュメントの詳細については、こちらをご覧ください:
 
 <details>
   <summary><b>例</b></summary>
@@ -19,8 +19,9 @@ description: getInitialProps を使い、ページでサーバーサイドレン
 </details>
 
   `getInitialProps` は、ページ内の[サーバーサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering
-)を可能にし、初期データを追加します。これは特に [SEO](https://ja.wikipedia.org/wiki/%E6%A4%9C%E7%B4%A2%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E6%9C%80%E9%81%A9%E5%8C%96) 対策に有効です。
+)を可能にし、初期データを追加出来るようになります。つまり、既にデータが追加されているページをサーバーから送信するということです。これは特に [SEO](https://ja.wikipedia.org/wiki/%E6%A4%9C%E7%B4%A2%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E6%9C%80%E9%81%A9%E5%8C%96) 対策に有効です。
 
+> `getInitialProps` は [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) を無効化します。
 
 `getInitialProps` は、任意のページに[`静的メソッド`](https://ja.javascript.info/static-properties-methods)として追加できる[`非同期`](https://vercel.com/blog/async-and-await) 関数です。次の例を見てみましょう:
 
@@ -67,7 +68,7 @@ export default Page;
 
 ## Context オブジェクト
 
-`getInitialProps` は `context` という単一の引数を受け取る、以下のプロパティを持つオブジェクトです:
+`getInitialProps` は `context` という単一の引数を受け取り、この `context` は以下のプロパティを持つオブジェクトです:
 
 - `pathname` - 現在のルート。これは /pages にあるページのパスです。
 - `query` - オブジェクトとしてパース(解析)される URL のクエリ文字列セクションです。
@@ -79,7 +80,7 @@ export default Page;
 ## 注意事項
 
 - `getInitialProps` は各ページの export 部分のみで使用できます。子コンポーネントでは使用**できません**。
-- `getInitialProps` の中でサーバーサイドのみのモジュールを使用している場合は、[こちらを適切にインポート](https://arunoda.me/blog/ssr-and-server-only-modules)するようにしてください。そうしなければアプリが遅くなってしまうでしょう。
+- `getInitialProps` の中でサーバーサイドのみのモジュールを使用している場合は、[それらを適切にインポート](https://arunoda.me/blog/ssr-and-server-only-modules)するようにしてください。そうしなければアプリが遅くなってしまうでしょう。
 
 ## TypeScript
 
