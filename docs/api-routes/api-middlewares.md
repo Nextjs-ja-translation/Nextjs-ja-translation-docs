@@ -105,7 +105,7 @@ function runMiddleware(req, res, fn) {
 }
 
 async function handler(req, res) {
-  // ミドルウェアを走らせる
+  // ミドルウェアを実行する
   await runMiddleware(req, res, cors);
   // API ロジックの残り部分
   res.json({ message: 'Hello Everyone!' });
