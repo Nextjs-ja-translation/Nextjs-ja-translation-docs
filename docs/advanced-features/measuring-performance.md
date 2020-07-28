@@ -35,7 +35,7 @@ export default MyApp;
 追跡される指標には 2 つのタイプがあります。
 
 - Web Vitals
-- Custom metrics
+- カスタム指標
 
 ## Web Vitals
 
