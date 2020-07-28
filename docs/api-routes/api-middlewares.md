@@ -114,4 +114,4 @@ async function handler(req, res) {
 export default handler;
 ```
 
-> 完成したアプリを見るには、 [API Routes with CORS](https://github.com/zeit/next.js/tree/canary/examples/api-routes-cors) のサンプルを参照してください。
+> 完成したアプリを見るには、[CORS を用いた API ルート](https://github.com/vercel/next.js/tree/canary/examples/api-routes-cors)の例を参照してください。
