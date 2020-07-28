@@ -129,8 +129,9 @@ Next.jsでは`export`された[React コンポーネント](https://reactjs.org/
 | Import           | インポート                 |
 | Export           | エクスポート               |
 | warnings         | 警告                       |
-| introduce to     | の紹介                     |
+| introduce to xx  | xx の紹介                  |
 | learn more about | について詳しく学びましょう |
+| xx documentation | xx のドキュメント          |
 
 ### 原文のままの方がいいと判断された用語
 
