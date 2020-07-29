@@ -15,7 +15,7 @@ description: API ルートは、受け取ったリクエストをパースする
 API ルートは、受け取ったリクエスト (`req`) をパースするための組み込みミドルウェアを提供しています。以下、それらのミドルウェアです:
 
 - `req.cookies` - リクエストにより送られてきた Cookie が格納されているオブジェクトです。デフォルト値は `{}` です
-- `req.query` - [クエリ文字列](https://en.wikipedia.org/wiki/Query_string) が格納されているオブジェクトです。デフォルト値は `{}` です
+- `req.query` - [クエリ文字列](https://en.wikipedia.org/wiki/Query_string)が格納されているオブジェクトです。デフォルト値は `{}` です
 - `req.body` - `content-type` によりパースされたボディが格納されているオブジェクトです。ボディが含まれていなかった場合は `null` となります
 
 ## カスタム設定
