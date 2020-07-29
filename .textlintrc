@@ -4,6 +4,20 @@
       "no-exclamation-question-mark": {
         "allowFullWidthExclamation": true,
         "allowFullWidthQuestion": true,
+      },
+      "no-doubled-joshi": {
+         "strict": false,
+         "allow": ["か"], // 助詞のうち「か」は複数回の出現を許す(e.g.: するかどうか)
+      }
+    },
+    "preset-ja-spacing": {
+      "ja-space-between-half-and-full-width": {
+        space: "always",
+        exceptPunctuation: true,
+      },
+      "ja-space-around-code": {
+        "before": true,
+        "after": true
       }
     },
     "ja-technical-writing/ja-no-mixed-period": {

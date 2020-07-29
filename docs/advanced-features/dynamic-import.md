@@ -11,9 +11,9 @@ description: JavaScriptモジュールとReactコンポーネントを動的に�
   </ul>
 </details>
 
-Next.js はJavaScriptのES2020 [dynamic `import()`](https://github.com/tc39/proposal-dynamic-import) をサポートしています。JavaScriptモジュール（Reactコンポーネントを含む）を動的にインポートして使うことが出来ます。SSRにも対応しています。
+Next.js は JavaScript の ES2020 [dynamic `import()`](https://github.com/tc39/proposal-dynamic-import) をサポートしています。JavaScript モジュール（React コンポーネントを含む）を動的にインポートして使うことが出来ます。SSR にも対応しています。
 
-動的インポートは、コードを扱いやすいチャンクに分割する、もう1つの方法と考えることができます。
+動的インポートは、コードを扱いやすいチャンクに分割する、もう 1 つの方法と考えることができます。
 
 ## 基本的な使用方法
 
@@ -37,11 +37,11 @@ function Home() {
 export default Home;
 ```
 
-`DynamicComponent`は`../components/hello`から返されるデフォルトのコンポーネントです。通常のReact コンポーネントのように動き、通常どおりにpropsを渡すことができます。
+`DynamicComponent`は `../components/hello` から返されるデフォルトのコンポーネントです。通常の React コンポーネントのように動き、通常どおりに props を渡すことができます。
 
 ## 名前付きエクスポート
 
-動的コンポーネントがデフォルトのエクスポートでない場合は、名前付きエクスポートも使用できます。名前付きエクスポートの`Hello`を持つ`../components/hello.js` モジュールについて考えてみましょう:
+動的コンポーネントがデフォルトのエクスポートでない場合は、名前付きエクスポートも使用できます。名前付きエクスポートの `Hello` を持つ `../components/hello.js` モジュールについて考えてみましょう:
 
 ```jsx
 export function Hello() {
