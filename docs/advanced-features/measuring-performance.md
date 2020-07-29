@@ -42,18 +42,18 @@ export default MyApp;
 [Web Vitals](https://web.dev/vitals/) は、Web ページのユーザーエクスペリエンスを測定することを目的とした有用な指標のセットです。
 次の Web Vitals がすべて含まれています。
 
-- [Time to First Byte](https://developer.mozilla.org/en-US/docs/Glossary/Time_to_first_byte) (TTFB)
-- [First Contentful Paint](https://developer.mozilla.org/en-US/docs/Glossary/First_contentful_paint) (FCP)
+- [Time to First Byte](https://developer.mozilla.org/ja/docs/Glossary/Time_to_first_byte) (TTFB)
+- [First Contentful Paint](https://developer.mozilla.org/ja/docs/Glossary/First_contentful_paint) (FCP)
 - [Largest Contentful Paint](https://web.dev/lcp/) (LCP)
 - [First Input Delay](https://web.dev/fid/) (FID)
 - [Cumulative Layout Shift](https://web.dev/cls/) (CLS)
 
-これらの指標はすべて `web-vital` ラベルを使用して処理できます。
+これらの指標はすべて `web-vital` ラベルを使用して処理できます:
 
 ```js
 export function reportWebVitals(metric) {
   if (metric.label === 'web-vital') {
-    console.log(metric); // metricオブジェクト({ id, name, startTime, value, label }) がコンソールに出力されます。
+    console.log(metric); // metricオブジェクト({ id, name, startTime, value, label }) がコンソールに出力されます
   }
 }
 ```
@@ -100,7 +100,7 @@ export function reportWebVitals(metric) {
 ```js
 export function reportWebVitals(metric) {
   if (metric.label === 'custom') {
-    console.log(metric); // metricオブジェクト({ id, name, startTime, value, label }) がコンソールに出力されます。
+    console.log(metric); // metricオブジェクト({ id, name, startTime, value, label }) がコンソールに出力されます
   }
 }
 ```
@@ -125,11 +125,11 @@ export function reportWebVitals(metric) {
 }
 ```
 
-これらの指標は、[User Timing API](https://caniuse.com/#feat=user-timing) をサポートするすべてのブラウザで機能します。
+これらの指標は、[User Timing API](https://caniuse.com/#feat=user-timing) をサポートしているすべてのブラウザで機能します。
 
 ## 結果を analytics へ送信する
 
-リレー機能を使用して、サイトのユーザーパフォーマンスを測定および追跡するためのエンドポイントに、任意の結果を送信できます:
+リレー機能を用いて任意の結果をアナリティクスのエンドポイントに送信すると、サイトのユーザーパフォーマンスを測定および追跡できます:
 
 ```js
 export function reportWebVitals(metric) {
@@ -145,8 +145,8 @@ export function reportWebVitals(metric) {
 }
 ```
 
-> **備考**: [Google Analytics](https://analytics.google.com/analytics/web/) を使用している場合、 
-> `id` を使用して、手動でメトリックス分布を構築できます(割合の計算など)
+> **備考**: [Google Analytics](https://analytics.google.com/analytics/web/) を使用している場合、
+> `id` を使用して、手動でメトリックス分布を構築できます(割合の計算など)。
 >
 > ```js
 > export function reportWebVitals({ id, name, label, value }) {
@@ -155,7 +155,7 @@ export function reportWebVitals(metric) {
 >     eventAction: name,
 >     eventValue: Math.round(name === 'CLS' ? value * 1000 : value), // valueは整数のみ
 >     eventLabel: id, // 現在のページで固有のIDを
->     nonInteraction: true // 直帰率のデータへの影響を回避する
+>     nonInteraction: true // 直帰率のデータへの影響を回避する。
 >   });
 > }
 > ```
