@@ -68,7 +68,7 @@ export const config = {
 
 ## Connect/Express ミドルウェアのサポート
 
-また、 [Connect](https://github.com/senchalabs/connect) と互換性のあるミドルウェアも利用できます。
+また、[Connect](https://github.com/senchalabs/connect) と互換性のあるミドルウェアも利用できます。
 
 例えば、[cors](https://www.npmjs.com/package/cors) パッケージを活用することで API エンドポイントに [CORS 設定](https://developer.mozilla.org/ja/docs/Web/HTTP/CORS)をできます。
 
