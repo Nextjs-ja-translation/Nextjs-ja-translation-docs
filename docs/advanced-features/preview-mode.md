@@ -1,5 +1,5 @@
 ---
-解説: Next.jsは静的に生成されたページのためのプレビューモードがあります。ここではその使い方について学びます。
+description: Next.jsは静的に生成されたページのためのプレビューモードがあります。ここではその使い方について学びます。
 ---
 
 # プレビューモード
@@ -9,34 +9,34 @@
 <details open>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress">WordPressの例</a> (<a href="https://next-blog-wordpress.now.sh">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-datocms">DatoCMSの例 </a> (<a href="https://next-blog-datocms.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape">TakeShapeの例 </a> (<a href="https://next-blog-takeshape.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-sanity">Sanityの例 </a> (<a href="https://next-blog-sanity.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prismic">Prismicの例 </a> (<a href="https://next-blog-prismic.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-contentful">Contentfulの例 </a> (<a href="https://next-blog-contentful.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-strapi">Strapiの例 </a> (<a href="https://next-blog-strapi.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms">Agility CMSの例 </a> (<a href="https://next-blog-agilitycms.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic">Cosmicの例 </a> (<a href="https://next-blog-cosmic.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-buttercms">ButterCMSの例 </a> (<a href="https://next-blog-buttercms.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-storyblok">Storyblokの例 </a> (<a href="https://next-blog-storyblok.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-graphcms">GraphCMS Example</a> (<a href="https://next-blog-graphcms.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress">WordPress の例</a> (<a href="https://next-blog-wordpress.now.sh">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-datocms">DatoCMS の例 </a> (<a href="https://next-blog-datocms.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape">TakeShape の例 </a> (<a href="https://next-blog-takeshape.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-sanity">Sanity の例 </a> (<a href="https://next-blog-sanity.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prismic">Prismic の例 </a> (<a href="https://next-blog-prismic.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-contentful">Contentful の例 </a> (<a href="https://next-blog-contentful.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-strapi">Strapi の例 </a> (<a href="https://next-blog-strapi.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms">Agility CMS の例 </a> (<a href="https://next-blog-agilitycms.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic">Cosmic の例 </a> (<a href="https://next-blog-cosmic.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-buttercms">ButterCMS の例 </a> (<a href="https://next-blog-buttercms.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-storyblok">Storyblok の例 </a> (<a href="https://next-blog-storyblok.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-graphcms">GraphCMS の例</a> (<a href="https://next-blog-graphcms.now.sh/">デモ</a>)</li>
   </ul>
 </details>
 
-[ページドキュメント](/docs/basic-features/pages.md)と[データ取得ドキュメント](/docs/basic-features/data-fetching.md)で、 `getStaticProps` と `getStaticPaths`を使って、ビルド時にページを事前レンダリングをする(**静的生成**)について説明しました。
+[ページのドキュメント](/docs/basic-features/pages.md)と[データ取得のドキュメント](/docs/basic-features/data-fetching.md)で、 `getStaticProps` と `getStaticPaths`を使って、ビルド時にページを事前レンダリングをする(**静的生成**)について説明しました。
 
-静的生成はヘッドレスCMSからページにデータを取得するときに役立ちます。しかし、ヘッドレスCMSで下書きをしていて、すぐにページで**プレビュー**をしたいとき理想的ではありません。Next.jsではビルド時ではなく**リクエスト時**にこれらのページをレンダリングし、公開されたコンテンツではなく下書きのコンテンツを取得します。この特定の場合のみ、Next.jsでは静的生成をバイパスする必要があります。
+静的生成はヘッドレス CMS からページにデータを取得するときに役立ちます。しかし、ヘッドレス CMS で下書きをしていて、すぐにページで**プレビュー**をしたいときには理想的ではありません。Next.js ではビルド時ではなく**リクエスト時**にこれらのページをレンダリングし、公開されたコンテンツではなく下書きのコンテンツを取得します。このような特定のケースにおいて、Next.js に静的生成をして欲しくない場合があります。
 
-Next.jsはこの問題を解決するための**プレビューモード**と呼ばれる機能があります。ここではその使い方について説明します。
+Next.js にはこの問題を解決するための**プレビューモード**と呼ばれる機能があります。ここではその使い方について説明します。
 
 ## ステップ1. プレビューAPIルートを作成してアクセスする
 
-> Next.jsのAPIルートに慣れていない場合は、まず最初に [APIルートドキュメント](/docs/api-routes/introduction.md) を参照してください。
+> Next.jsのAPIルートに慣れていない場合は、まず最初に [APIルートのドキュメント](/docs/api-routes/introduction.md) を参照してください。
 
-まず**プレビューAPIルート**を作成します。`pages/api/preview.js` (TypeScriptを使用している場合は `.ts` )　などの任意の名前をつけることが出来ます。
+まず、**プレビューAPI ルート**を作成します。`pages/api/preview.js` (TypeScript を使用している場合は `.ts` )　などの任意の名前をつけることが出来ます。
 
-このAPIルートでは、レスポンスオブジェクトである `setPreviewData` を呼び出す必要があります。 `setPreviewData` の引数はオブジェクトである必要があり、 `getStatciProps` (これについては後ほど詳しく説明します)によって使用することが出来ます。ここでは　`{}` を使用します。
+この API ルートでは、レスポンスオブジェクトから `setPreviewData` を呼び出す必要があります。 `setPreviewData` の引数はオブジェクトである必要があり、 `getStatciProps` (これについては後ほど詳しく説明します)によって使用することが出来ます。ここでは　`{}` を使用します。
 
 ```js
 export default (req, res) => {
@@ -46,44 +46,44 @@ export default (req, res) => {
 }
 ```
 
-.　`res.setPreviewData` はプレビューモードを実行するブラウザにいくつかの**Cookie**を設定します。これらのCookieを含むNext.jsへのリクエストは**preview mode**と判断され、静的に生成されたページの動作へと変更されます(これについては後ほど詳しく説明します)。
+.　`res.setPreviewData` はプレビューモードを実行するブラウザにいくつかの **Cookie** を設定します。これらの Cookie を含む Next.js へのリクエストは**preview mode**と判断され、静的に生成されたページの動作が変更されます(これについては後ほど詳しく説明します)。
 
-以下のようなAPIルートを作成しブラウザから手動でアクセスすることによって、これを手動でテストすることが出来ます。
+以下のような API ルートを作成し、ブラウザから手動でアクセスすることによって、これを手動でテストすることが出来ます:
 
 ```js
-// ブラウザから手動でテストするための簡単なサンプル
-// pages/api/preview.jsにこれを配置し、
-// ブラウザで、 /api/preview を開いてください.
+// ブラウザから手動でテストするための簡単なサンプルです。
+// もしこのファイルがpages/api/preview.jsに置かれているならば、
+// ブラウザで、 /api/preview を開いてください。
 export default (req, res) => {
   res.setPreviewData({})
   res.end('Preview mode enabled')
 }
 ```
 
-ブラウザのデベロッパーツールを使用すると、 `__prerender_bypass` と `__next_preview_data` というCookieがリクエストに設定されていることに気づくでしょう。
+ブラウザのデベロッパーツールを使用すると、 `__prerender_bypass` と `__next_preview_data` という Cookie がリクエストに設定されていることに気づくでしょう。
 
 ### ヘッドレスCMSから安全にアクセスする
 
-実際には、このAPIルートをヘッドレスCMSから _安全に_ 呼び出す必要があります。具体的な手順は使用しているヘッドレスCMSによって異なりますが、ここでは実行できるいくつかの共通の手順を紹介します。
+実際には、この API ルートをヘッドレス CMS から _安全に_ 呼び出す必要があります。具体的な手順は使用しているヘッドレス CMS によって異なりますが、ここではいくつかの共通の手順を紹介します。
 
-これらの手順は使用しているヘッドレスCMSが**カスタムプレビューURL**の設定をサポートしていることを前提としています。そうではない場合でも、この方法を使用してプレビューURLを保護することが出来ますが、プレビューURLを手動で構築してアクセスする必要があります。
+これらの手順は使用しているヘッドレス CMS が**カスタムプレビューURL**の設定をサポートしていることを前提としています。そうではない場合でも、この方法を使用してプレビューURL を保護することが出来ますが、プレビューURL を手動で構築してアクセスする必要があります。
 
 
-**最初に**、選択したトークンジェネレーターを使用して**シークレットトークン文字列**を作成する必要があります。このシークレットトークンはNext.jsアプリとヘッドレスCMSだけが知っています、このシークレットトークンにより、CMSにアクセスできないユーザーはプレビューURLにアクセスすることが出来なくなります。
+**最初に**、選択したトークンジェネレーターを使用して**シークレットトークン文字列**を作成する必要があります。このシークレットトークンは Next.js アプリとヘッドレス CMS だけが知っています。このシークレットトークンにより、CMS にアクセスできないユーザーはプレビューURL にアクセスすることが出来なくなります。
 
-**次に**、ヘッドレスCMSがカスタムプレビューURLの設定をサポートしている場合は、プレビューURLとして次のように指定します。(これはプレビューAPIルートが `pages/api/preview.js` にあることを前提としています。)
+**次に**、ヘッドレス CMS がカスタムプレビューURL の設定をサポートしている場合は、プレビューURL として次のように指定します。(これはプレビューAPI ルートが `pages/api/preview.js` にあることを想定した場合です。)
 
 ```bash
 https://<your-site>/api/preview?secret=<token>&slug=<path>
 ```
 
-- `<your-site>` デプロイしたドメインである必要があります。
-- `<token>` 生成したシークレットトークンに置き換える必要があります。
-- `<path>` プレビューするページのパスである必要があります。 `/posts/foo` でプレビューする場合には `&slug=/posts/foo` を使用してください。
+- `<your-site>` はデプロイしたドメインである必要があります。
+- `<token>` は生成したシークレットトークンに置き換える必要があります。
+- `<path>` はプレビューするページのパスである必要があります。 `/posts/foo` でプレビューする場合には `&slug=/posts/foo` を使用してください。
 
-ヘッドレスCMSは　`<path>` に `&slug=/posts/{entry.fields.slug}` のようにCMSのデータに基づいて動的に設定することによって、プレビューURLに変数を含めることが出来ます。
+ヘッドレス CMS はプレビュー URL に変数を含めることも出来るので、これにより `&slug=/posts/{entry.fields.slug}` のように、CMS のデータに基づいて動的に `<path>` を設定できるようになります。
 
-**最後に**、プレビューAPIルートで:
+**最後に**、プレビューAPI ルートで以下の処理を行います:
 
 - シークレットトークンが一致し、　`slug` パラメーターが存在することを確認してください(存在しない場合、リクエストは失敗するはずです)。
 -  `res.setPreviewData` を呼び出してください.
@@ -97,11 +97,11 @@ export default async (req, res) => {
     return res.status(401).json({ message: 'Invalid token' })
   }
 
-  // 提供された `slug` が存在しているかどうか確認し、ヘッドレスCMSをフェッチします。
-  // getPostBySlugは必要なフェッチロジックをヘッドレスCMSに実装します。
+  // 提供された `slug` が存在しているかどうか確認するため、ヘッドレスCMSをフェッチします。
+  // getPostBySlugはヘッドレスCMSへの必要なフェッチロジックを実装します。
   const post = await getPostBySlug(req.query.slug)
 
-  // slugが存在しない場合、プレビューモードを有効にすることは出来ません。
+  // slugが存在しない場合、プレビューモードを有効にしないようにしましょう。
   if (!post) {
     return res.status(401).json({ message: 'Invalid slug' })
   }
@@ -115,15 +115,15 @@ export default async (req, res) => {
 }
 ```
 
-成功すると、ブラウザはプレビューモードのCookieが設定された状態で、プレビューするパスにリダイレクトされます。
+成功すると、ブラウザはプレビューモードの Cookie が設定された状態で、プレビューするパスにリダイレクトされます。
 
-## ステップ2 `getStaticProps` に更新
+## ステップ2 `getStaticProps` を更新
 
-次のステップはプレビューモードを `getStaticProps` をサポートするように更新することです。
+次のステップはプレビューモードをサポートするように `getStaticProps` を更新することです。
 
- ( `res.setPreviewData` を経由して)プレビューモードのCookieが設定されている `getStaticProps` で生成したページをリクエストすると、 `getStaticProps` が(ビルド時ではなく)**リクエスト時**に呼び出されます。
+ ( `res.setPreviewData` を経由して)プレビューモードの Cookie が設定されている `getStaticProps` を含むページをリクエストすると、 `getStaticProps` が(ビルド時ではなく)**リクエスト時**に呼び出されます。
 
-さらに、次のように `context` オブジェクトが呼び出されます。
+さらに、次のような `context` オブジェクトを引数に getStaticProps が呼ばれます:
 
 - `context.preview` は `true` になります。
 - `context.previewData` は `setPreviewData` で使用されている引数と同じになります。
@@ -137,15 +137,15 @@ export async function getStaticProps(context) {
 }
 ```
 
-プレビューAPIルートで `res.setPreviewData({})` を使用したため、 `context.previewData` は `{}` になります。 プレビューAPIルートから `getStaticProps` にセッション情報を渡し、必要に応じてこれを使用することが出来ます。
+プレビューAPI ルートで `res.setPreviewData({})` を使用したため、 `context.previewData` は `{}` になります。 これを用いて、プレビューAPI ルートから `getStaticProps` に、必要であればセッション情報を渡すことが出来ます。
 
 `getStaticPaths` も使用している場合は、 `context.params` が利用可能になります。
 
 ### プレビューデータを取得する
 
-`context.preview` 及び/または `context.previewData` に基づいて異なるデータを取得するように `getStaticProps` を更新することが出来ます。
+`context.preview` や `context.previewData` に基づいて異なるデータを取得するように `getStaticProps` を更新することが出来ます。
 
-例えば、ヘッドレスCMSは下書き投稿のための異なるAPIエンドポイントを持っている場合があります。その場合、 `context.preview` を使って以下のようにAPIエンドポイントURLを変更することが出来ます。
+例えば、ヘッドレス CMS は下書き投稿のための異なる API エンドポイントを持っている場合があります。その場合、 `context.preview` を使って以下のように API エンドポイント URL を変更することが出来ます。
 
 ```js
 export async function getStaticProps(context) {
@@ -157,25 +157,25 @@ export async function getStaticProps(context) {
 }
 ```
 
-それでおしまいです。ヘッドレスCMSからまたは手動で、( `secret` と `slug` を使用して)プレビューAPIルートにアクセスすると、プレビューコンテンツを表示することが出来ます。また公開せずに下書きを更新すると、下書きをプレビューすることが出来るようになります。
+以上です！ヘッドレス CMS から、または手動で、( `secret` と `slug` を使用して)プレビューAPI ルートにアクセスすると、プレビューコンテンツを表示することが出来ます。また公開せずに下書きを更新すると、下書きをプレビューすることが出来るはずです。
 
 ```bash
-# これをヘッドレスCMSのプレビューURLとして設定するか、手動でアクセスします。
-# そしてプレビューを見ることが出来るようになります。
+# これをヘッドレスCMSのプレビューURLとして設定するか、手動でアクセスすることで、
+# プレビューを見ることが出来るようになります。
 https://<your-site>/api/preview?secret=<token>&slug=<path>
 ```
 
 ## もっと詳しく
 
-### プレビューモードのCookieをクリアする
+### プレビューモードのCookieを削除する
 
-デフォルトでは、プレビューモードのCookienには有効期限が設定されていないため、ブラウザを閉じるとプレビューモードが終了します。
+デフォルトでは、プレビューモードの Cookien には有効期限が設定されていないため、ブラウザを閉じるとプレビューモードが終了します。
 
-手動でプレビューのCookieを削除するには、 `clearPreviewData` を呼ぶAPIルートを作成し、このAPIルートにアクセスします。
+手動でプレビューの Cookie を削除するには、 `clearPreviewData` を呼ぶ API ルートを作成し、この API ルートにアクセスします。
 
 ```js
 export default (req, res) => {
-  // プレビューモードのCookieを削除する
+  // プレビューモードのCookieを削除します。
   // この関数は引数を受け取りません。
   res.clearPreviewData()
   // ...
@@ -184,7 +184,7 @@ export default (req, res) => {
 
 ### プレビューモードの期間を設定する
 
-`setPreviewData` はオプションオブジェクトであるオプションの2番目のパラメーターを受け取ります。次のキーを受け取ります。
+`setPreviewData` はオプションで 2 番目のパラメーターを指定でき、これが設定に関するオブジェクトになります。次のキーを受け取ります:
 
 - `maxAge`: プレビューセッションの継続時間を指定します。
 
@@ -196,15 +196,15 @@ setPreviewData(data, {
 
 ### `previewData` のサイズ制限
 
-`setPreviewData` をオブジェクトに渡して、 `getStaticProps` で利用可能にすることが出来ます。しかし、データはCookieに保存されるため、サイズに制限があります。現在、プレビューデータは2KBに制限されています。
+オブジェクトを  `setPreviewData` に渡して、 `getStaticProps` で利用可能にすることが出来ます。しかし、データは Cookie に保存されるため、サイズに制限があります。現在、プレビューデータは 2KB に制限されています。
 
-### `getServerSideProps` の動作。
+### `getServerSideProps` の動作
 
 プレビューモードは `getServerSideProps` でも同様に機能します。 `preview` や `previewData` を含む `context` オブジェクトも利用可能です。
 
-### `next build` ごとにユニーク
+### `next build` ごとに単一
 
-This ensures that the bypass cookie can’t be guessed. `next build` を実行するたびに、バイパスCookieの値と暗号化された `previewData` の秘密鍵が変更されます。これにより、バイパスCookieを推測出来ないようにします。
+`next build` を実行するたびに、バイパス Cookie の値と暗号化された `previewData` の秘密鍵が変更されます。これにより、バイパス Cookie を推測出来ないようにします。
 
 ## もっと詳しく知る
 
@@ -213,20 +213,20 @@ This ensures that the bypass cookie can’t be guessed. `next build` を実行�
 <div class="card">
   <a href="/docs/basic-features/data-fetching.md">
     <b>データ取得:</b>
-    <small>Next.jsのデータ取得について学ぶ。</small>
+    <small>Next.jsのデータ取得について詳しく学びましょう。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/api-routes/introduction.md">
     <b>APIルート:</b>
-    <small>Next.jsのAPIルートについて学ぶ。</small>
+    <small>Next.jsのAPIルートについて詳しく学びましょう。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/environment-variables.md">
     <b>環境変数:</b>
-    <small>Next.jsの環境変数について学ぶ。</small>
+    <small>Next.jsの環境変数について詳しく学びましょう。</small>
   </a>
 </div>
