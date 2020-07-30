@@ -18,7 +18,8 @@
       "profile": "https://shinyaigeek.dev/",
       "contributions": [
         "code",
-        "review"
+        "review",
+        "tool"
       ]
     },
     {
@@ -28,7 +29,8 @@
       "profile": "https://code-log.hatenablog.com/",
       "contributions": [
         "code",
-        "review"
+        "review",
+        "translation"
       ]
     },
     {
@@ -190,10 +192,82 @@
       ]
     },
     {
+      "login": "ossan-engineer",
+      "name": "Kiichi Tachibana",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2215105?v=4",
+      "profile": "http://qiita.com/ossan-engineer",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
       "login": "resqnet",
       "name": "ken_o",
       "avatar_url": "https://avatars3.githubusercontent.com/u/12475586?v=4",
       "profile": "https://github.com/resqnet",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "KushibikiMashu",
+      "name": "Mashu Kushibiki",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/36080801?v=4",
+      "profile": "https://panda-program.com/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "YopiNoji",
+      "name": "Masaki Yoshiiwa",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/46310104?v=4",
+      "profile": "https://yopinoji.com/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "karur4n",
+      "name": "Kazuki Furukawa",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6816398?v=4",
+      "profile": "https://github.com/karur4n",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "kuroppe1819",
+      "name": "Atsusuke",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17245737?v=4",
+      "profile": "https://github.com/kuroppe1819",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "dmamira",
+      "name": "dmamira",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/49590399?v=4",
+      "profile": "https://blog.dai.gd",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "okakyo",
+      "name": "Kyohei Oka",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/29594820?v=4",
+      "profile": "http://okakyo.myvnc.com",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "tomotaco",
+      "name": "ともたこ(Tomotaka Ogino)",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/9277718?v=4",
+      "profile": "http://tacoworks.jp/",
       "contributions": [
         "translation"
       ]

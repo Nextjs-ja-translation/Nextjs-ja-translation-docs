@@ -1,10 +1,10 @@
 ---
-description: Next.js will add the `x-powered-by` header by default. Learn to opt-out of it here.
+description: Next.js はデフォルトで `x-powered-by` ヘッダーを追加します。ここでは、それをオプトアウトする方法を学びましょう。
 ---
 
-# Disabling x-powered-by
+# x-powered-by の無効化
 
-By default Next.js will add the `x-powered-by` header. To opt-out of it, open `next.config.js` and disable the `poweredByHeader` config:
+Next.js はデフォルトで `x-powered-by` ヘッダーを追加します。これをオプトアウトするには、 `next.config.js` を開いて `poweredByHeader` という設定を無効化してください:
 
 ```js
 module.exports = {
@@ -12,11 +12,11 @@ module.exports = {
 };
 ```
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js の紹介:</b>
+    <small>Next.js が使用する設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
