@@ -162,13 +162,13 @@
               "path": "/docs/advanced-features/multi-zones.md"
             },
             {
-              "title": "Measuring performance",
+              "title": "パフォーマンス測定",
               "path": "/docs/advanced-features/measuring-performance.md"
             }
           ]
         },
         {
-          "title": "Upgrade Guide",
+          "title": "アップグレードガイド",
           "path": "/docs/upgrading.md"
         },
         { "title": "FAQ", "path": "/docs/faq.md" }
