@@ -68,7 +68,7 @@
               "path": "/docs/api-routes/dynamic-api-routes.md"
             },
             {
-              "title": "API Middlewares",
+              "title": "API ミドルウェア",
               "path": "/docs/api-routes/api-middlewares.md"
             },
             {
