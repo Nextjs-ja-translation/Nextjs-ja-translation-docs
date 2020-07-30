@@ -4,7 +4,7 @@ description: 最適化されたページには、静的に最適化されてい�
 
 # Static Optimization Indicator
 
-[Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)をページができるようになった場合、私達はあなたに知らせるインジケーターを表示します。
+ページが [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) の対象となる場合は、インジケーターを表示してお知らせします。
 
 これは役に立ちます。なぜなら、automatic static optimization はとても有益なものですし、ページがその権利を与えられた場合、開発中でもすぐに知らせてくれるのは便利だからです。
 
