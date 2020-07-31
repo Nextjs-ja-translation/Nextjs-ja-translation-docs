@@ -11,18 +11,21 @@ jobs:
       - name: textlint-github-pr-check
         uses: tsuyoshicho/action-textlint@master
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check
           textlint_flags: 'docs/**'
+          level: error
       - name: textlint-github-check
         uses: tsuyoshicho/action-textlint@master
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-check
           textlint_flags: 'docs/**'
+          level: error
       - name: textlint-github-pr-review
         uses: tsuyoshicho/action-textlint@master
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           textlint_flags: 'docs/**'
+          level: error
