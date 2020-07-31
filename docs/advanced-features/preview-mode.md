@@ -24,7 +24,7 @@ description: Next.js には静的に生成されたページのためのプレ�
   </ul>
 </details>
 
-[ページのドキュメント](/docs/basic-features/pages.md)と[データ取得のドキュメント](/docs/basic-features/data-fetching.md)で、 `getStaticProps` と `getStaticPaths`を使って、ビルド時にページを事前レンダリングをする**静的生成**について説明しました。
+[ページのドキュメント](/docs/basic-features/pages.md)と[データ取得のドキュメント](/docs/basic-features/data-fetching.md)で、`getStaticProps` と `getStaticPaths` を使って、ビルド時にページをプリレンダリングする**静的生成**について説明しました。
 
 静的生成はヘッドレス CMS からページにデータを取得するときに役立ちます。しかし、ヘッドレス CMS で下書きをしていて、すぐにページで**プレビュー**をしたいときには理想的ではありません。Next.js ではビルド時ではなく**リクエスト時**にこれらのページをレンダリングし、公開されたコンテンツではなく下書きのコンテンツを取得します。このような特定のケースにおいて、Next.js に静的生成をして欲しくない場合があります。
 
