@@ -87,7 +87,7 @@ https://<your-site>/api/preview?secret=<token>&slug=<path>
 
 - シークレットトークンが一致し、　`slug` パラメーターが存在することを確認してください(存在しない場合、リクエストは失敗するはずです)。
 -  `res.setPreviewData` を呼び出してください.
-- それから、ブラウザを `slug` で指定したパスにリダイレクトします。(次の例では[307リダイレクト](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/307)を使用しています)
+- それから、ブラウザを `slug` で指定したパスにリダイレクトします。(次の例では[307リダイレクト](https://developer.mozilla.org/ja/docs/Web/HTTP/Status/307)を使用しています)
 
 ```js
 export default async (req, res) => {
