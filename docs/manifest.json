@@ -68,7 +68,7 @@
               "path": "/docs/api-routes/dynamic-api-routes.md"
             },
             {
-              "title": "API Middlewares",
+              "title": "API ミドルウェア",
               "path": "/docs/api-routes/api-middlewares.md"
             },
             {
@@ -162,7 +162,7 @@
               "path": "/docs/advanced-features/multi-zones.md"
             },
             {
-              "title": "Measuring performance",
+              "title": "パフォーマンス測定",
               "path": "/docs/advanced-features/measuring-performance.md"
             }
           ]
