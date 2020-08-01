@@ -1,71 +1,71 @@
 ---
-description: You can use shallow routing to change the URL without triggering a new page change. Learn more here.
+description: 浅いルーティングを利用することで、新しいページ変更をトリガーせずにURLを変更できます。このページで学びましょう。
 ---
 
-# Shallow Routing
+# 浅いルーティング
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-shallow-routing">Shallow Routing</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-shallow-routing">浅いルーティング</a></li>
   </ul>
 </details>
 
-Shallow routing allows you to change the URL without running data fetching methods again, that includes [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering), [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation), and [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md).
+浅いルーティングにより、 [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering), [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation), そして [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md)を含むデータフェッチメソッドを再度実行せずにURLを変更できます。
+ 
+  [`router` object](/docs/api-reference/next/router.md#router-object)( [`useRouter`](/docs/api-reference/next/router.md#useRouter) や [`withRouter`](/docs/api-reference/next/router.md#withRouter)によって追加される)を介して,状態を失うことなく、更新された` pathname`と `query`を受け取ります。
 
-You'll receive the updated `pathname` and the `query` via the [`router` object](/docs/api-reference/next/router.md#router-object) (added by [`useRouter`](/docs/api-reference/next/router.md#useRouter) or [`withRouter`](/docs/api-reference/next/router.md#withRouter)), without losing state.
-
-To enable shallow routing, set the `shallow` option to `true`. Consider the following example:
+浅いルーティングを有効にするには、 `shallow` オプションを `true`に設定します。 以下の例を考えてみましょう:
 
 ```jsx
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-// Current URL is '/'
+// 現在のURLは '/'
 function Page() {
   const router = useRouter();
 
   useEffect(() => {
-    // Always do navigations after the first render
+    // 最初のレンダリング後は常にナビゲーションを行います
     router.push('/?counter=10', undefined, { shallow: true });
   }, []);
 
   useEffect(() => {
-    // The counter changed!
+    // カウンターが変わりました！
   }, [router.query.counter]);
 }
 
 export default Page;
 ```
 
-If you don't need to add the router object to the page, you can also use the [Router API](/docs/api-reference/next/router.md#router-api) directly, like so:
+ルーターオブジェクトをページに追加する必要がない場合は、以下のように [Router API](/docs/api-reference/next/router.md#router-api) に直接使うこともできます:
 
 ```jsx
 import Router from 'next/router';
-// Inside your page
+// ページ内
 Router.push('/?counter=10', undefined, { shallow: true });
 ```
 
-The URL will get updated to `/?counter=10`. and the page won't get replaced, only the state of the route is changed.
+ページが置き換えられないまま、URLは `/?counter=10` に更新されます。 ルートの状態のみが変更されます。
 
-You can also watch for URL changes via [`componentDidUpdate`](https://reactjs.org/docs/react-component.html#componentdidupdate) as shown below:
+以下に示すように、 [`componentDidUpdate`](https://reactjs.org/docs/react-component.html#componentdidupdate) を介してURLの変更を監視することもできます:
 
 ```jsx
 componentDidUpdate(prevProps) {
   const { pathname, query } = this.props.router
-  // verify props have changed to avoid an infinite loop
+  // 無限ループを回避するために props が変更されたことを確認します
   if (query.counter !== prevProps.router.query.counter) {
-    // fetch data based on the new query
+    // 新しいqueryに基づいてデータを取得する
   }
 }
 ```
 
-## Caveats
+## 注意事項
 
-Shallow routing **only** works for same page URL changes. For example, let's assume we have another page called `pages/about.js`, and you run this:
+浅いルーティングは同じページのURLの変更に対して**のみ**機能します。例えば、 `pages / about.js`という別のページがあり、これを実行するとします:
 
 ```jsx
 Router.push('/?counter=10', '/about?counter=10', { shallow: true });
 ```
 
-Since that's a new page, it'll unload the current page, load the new one and wait for data fetching even though we asked to do shallow routing.
+これは新しいページなので、浅いルーティングを行うように設定していても、現在のページを読み込まず、新しいページを読み込み、データの取得を待ちます。
