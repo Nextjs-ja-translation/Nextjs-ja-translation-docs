@@ -43,7 +43,7 @@ module.exports = {
 - `dir` - プロジェクトディレクトリへの絶対パス
 - `outDir` - `out/` ディレクトリへの絶対パス ( `-o` で設定可能)。`dev` が `true` のとき、 `outDir` の値は `null` になります。
 - `distDir` - `.next/` ディレクトリへの絶対パス ([`distDir`](/docs/api-reference/next.config.js/setting-a-custom-build-directory.md)設定で設定可能)。
-- `buildId` - ビルド ID を生成します。 
+- `buildId` - ビルド ID を生成します
 
 返されたオブジェクトは、 `key` が `pathname` で `value` が以下のフィールドを受け入れるオブジェクトのページのマップです:
 
