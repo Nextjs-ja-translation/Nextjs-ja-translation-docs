@@ -77,7 +77,7 @@ next export -o outdir
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
     <b>next.config.js の紹介</b>
-    <small>Next.js で使う設定ファイルについてより詳しく学ぶ。</small>
+    <small>Next.js で使用する設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
 
