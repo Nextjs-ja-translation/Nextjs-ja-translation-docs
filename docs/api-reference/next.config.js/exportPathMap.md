@@ -42,7 +42,7 @@ module.exports = {
 - `dev` - 開発中に `exportPathMap` が呼ばれているとき `true` になります。`next export` 実行中のとき `false` になります。開発時 `exportPathMap` はルートの定義に利用されます。
 - `dir` - プロジェクトディレクトリへの絶対パス
 - `outDir` - `out/` ディレクトリへの絶対パス ( `-o` で設定可能)。`dev` が `true` のとき、 `outDir` の値は `null` になります。
-- `distDir` - `.next/` ディレクトリへの絶対パス ([`distDir`](/docs/api-reference/next.config.js/setting-a-custom-build-directory.md)設定で設定可能)。
+- `distDir` - `.next/` ディレクトリへの絶対パス ([`distDir`](/docs/api-reference/next.config.js/setting-a-custom-build-directory.md)設定で設定可能)
 - `buildId` - ビルド ID を生成します
 
 返されたオブジェクトは、 `key` が `pathname` で `value` が以下のフィールドを受け入れるオブジェクトのページのマップです:
