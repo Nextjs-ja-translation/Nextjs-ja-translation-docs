@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-29-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-30-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -123,6 +123,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
   </tr>
   <tr>
     <td align="center"><a href="https://www.resume.id/t0m0_sun"><img src="https://avatars2.githubusercontent.com/u/56680512?v=4" width="100px;" alt=""/><br /><sub><b>Tomo</b></sub></a><br /><a href="#translation-tomohiroyoshida" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://twitter.com/ryusou_mtkh"><img src="https://avatars3.githubusercontent.com/u/47715432?v=4" width="100px;" alt=""/><br /><sub><b>ryu-sou</b></sub></a><br /><a href="#translation-YouheiNozaki" title="Translation">🌍</a></td>
   </tr>
 </table>
 
