@@ -39,7 +39,7 @@ module.exports = {
 
 `exportPathMap` は 2 つの引数を受け取ります: `async` 関数(非同期関数)です。第 1 引数は `defaultPathMap` で、これは Next.js で使うデフォルトマップです。第 2 引数はオブジェクトです:
 
-- `dev` - 開発中に `exportPathMap` が呼ばれているとき `true` になります。`next export` 実行中のとき `false` になります。開発時 `exportPathMap` は経路の定義に利用されます。
+- `dev` - 開発中に `exportPathMap` が呼ばれているとき `true` になります。`next export` 実行中のとき `false` になります。開発時 `exportPathMap` はルートの定義に利用されます。
 - `dir` - プロジェクトディレクトリへの絶対パス。
 - `outDir` - `out/` ディレクトリへの絶対パス ( `-o` で設定可能)。`dev` が `true` のとき、 `outDir` の値は `null` になります。
 - `distDir` - `.next/` ディレクトリへの絶対パス ([`distDir`](/docs/api-reference/next.config.js/setting-a-custom-build-directory.md)設定で設定可能)。
