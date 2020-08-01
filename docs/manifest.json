@@ -85,7 +85,7 @@
           "title": "Advanced Features",
           "routes": [
             {
-              "title": "Preview Mode",
+              "title": "プレビューモード",
               "path": "/docs/advanced-features/preview-mode.md"
             },
             {
