@@ -1,5 +1,5 @@
 ---
-description: next export を使うとき、HTMLファイルとしてエクスポートされるページのカスタマイズをする。
+description: next export を使うとき、HTMLファイルとしてエクスポートされるページのカスタマイズをします。
 ---
 
 # exportPathMap
