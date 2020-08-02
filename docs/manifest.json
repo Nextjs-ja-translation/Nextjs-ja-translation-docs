@@ -260,7 +260,7 @@
               "path": "/docs/api-reference/next.config.js/configuring-the-build-id.md"
             },
             {
-              "title": "Configuring onDemandEntries",
+              "title": "onDemandEntries の設定",
               "path": "/docs/api-reference/next.config.js/configuring-onDemandEntries.md"
             },
             {
