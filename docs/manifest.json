@@ -39,7 +39,7 @@
           "title": "Routing",
           "routes": [
             {
-              "title": "Introduction",
+              "title": "はじめに",
               "path": "/docs/routing/introduction.md"
             },
             {
@@ -64,11 +64,11 @@
               "path": "/docs/api-routes/introduction.md"
             },
             {
-              "title": "Dynamic API Routes",
+              "title": "動的APIルーティング",
               "path": "/docs/api-routes/dynamic-api-routes.md"
             },
             {
-              "title": "API Middlewares",
+              "title": "API ミドルウェア",
               "path": "/docs/api-routes/api-middlewares.md"
             },
             {
@@ -85,7 +85,7 @@
           "title": "Advanced Features",
           "routes": [
             {
-              "title": "Preview Mode",
+              "title": "プレビューモード",
               "path": "/docs/advanced-features/preview-mode.md"
             },
             {
@@ -138,7 +138,7 @@
               "path": "/docs/advanced-features/customizing-postcss-config.md"
             },
             {
-              "title": "Custom Server",
+              "title": "カスタムサーバー",
               "path": "/docs/advanced-features/custom-server.md"
             },
             {
@@ -162,13 +162,13 @@
               "path": "/docs/advanced-features/multi-zones.md"
             },
             {
-              "title": "Measuring performance",
+              "title": "パフォーマンス測定",
               "path": "/docs/advanced-features/measuring-performance.md"
             }
           ]
         },
         {
-          "title": "Upgrade Guide",
+          "title": "アップグレードガイド",
           "path": "/docs/upgrading.md"
         },
         { "title": "FAQ", "path": "/docs/faq.md" }
@@ -220,11 +220,11 @@
               "path": "/docs/api-reference/next.config.js/custom-page-extensions.md"
             },
             {
-              "title": "CDN Support with Asset Prefix",
+              "title": "アセットプレフィックスによる CDN サポート",
               "path": "/docs/api-reference/next.config.js/cdn-support-with-asset-prefix.md"
             },
             {
-              "title": "Build Target",
+              "title": "ビルドターゲット",
               "path": "/docs/api-reference/next.config.js/build-target.md"
             },
             {
@@ -232,7 +232,7 @@
               "path": "/docs/api-reference/next.config.js/custom-webpack-config.md"
             },
             {
-              "title": "Compression",
+              "title": "圧縮",
               "path": "/docs/api-reference/next.config.js/compression.md"
             },
             {
@@ -244,11 +244,11 @@
               "path": "/docs/api-reference/next.config.js/runtime-configuration.md"
             },
             {
-              "title": "Disabling x-powered-by",
+              "title": "x-powered-by の無効化",
               "path": "/docs/api-reference/next.config.js/disabling-x-powered-by.md"
             },
             {
-              "title": "Disabling ETag Generation",
+              "title": "ETag 生成の無効化",
               "path": "/docs/api-reference/next.config.js/disabling-etag-generation.md"
             },
             {
@@ -264,7 +264,7 @@
               "path": "/docs/api-reference/next.config.js/configuring-onDemandEntries.md"
             },
             {
-              "title": "Ignoring TypeScript Errors",
+              "title": "TypeScriptのエラーを無視する",
               "path": "/docs/api-reference/next.config.js/ignoring-typescript-errors.md"
             },
             {
