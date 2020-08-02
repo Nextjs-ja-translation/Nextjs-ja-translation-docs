@@ -1,8 +1,8 @@
 ---
-description: ページディレクトリ内のページを解決する際にNext.jsが使用するデフォルトのページ拡張機能を拡張します。
+description: ページディレクトリ内のページを読み込む際にNext.jsが使用する、ページ標準の拡張子をカスタマイズします。
 ---
 
-# カスタムページ拡張機能
+# 独自のページ拡張子
 
 `.mdx` で終わるページのサポートを追加した [@next/mdx](https://github.com/zeit/next.js/tree/canary/packages/next-mdx) のようなモジュールを対象としています。ページを解決する際に `pages` ディレクトリで探す拡張子を設定できます。
 
@@ -19,6 +19,6 @@ module.exports = {
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
     <b>next.config.jsの紹介:</b>
-    <small>Next.jsが使用する設定ファイルについて学ぶ。</small>
+    <small>Next.jsが使用する設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
