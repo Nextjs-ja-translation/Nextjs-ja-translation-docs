@@ -14,15 +14,15 @@
               "path": "/docs/basic-features/pages.md"
             },
             {
-              "title": "Data fetching",
+              "title": "データ取得",
               "path": "/docs/basic-features/data-fetching.md"
             },
             {
-              "title": "Built-in CSS Support",
+              "title": "CSS のビルトインサポート",
               "path": "/docs/basic-features/built-in-css-support.md"
             },
             {
-              "title": "Static File Serving",
+              "title": "静的ファイルの配信",
               "path": "/docs/basic-features/static-file-serving.md"
             },
             {
@@ -30,7 +30,7 @@
               "path": "/docs/basic-features/typescript.md"
             },
             {
-              "title": "Environment Variables",
+              "title": "環境変数",
               "path": "/docs/basic-features/environment-variables.md"
             }
           ]
@@ -39,7 +39,7 @@
           "title": "Routing",
           "routes": [
             {
-              "title": "Introduction",
+              "title": "はじめに",
               "path": "/docs/routing/introduction.md"
             },
             {
@@ -60,19 +60,19 @@
           "title": "API Routes",
           "routes": [
             {
-              "title": "Introduction",
+              "title": "はじめに",
               "path": "/docs/api-routes/introduction.md"
             },
             {
-              "title": "Dynamic API Routes",
+              "title": "動的APIルーティング",
               "path": "/docs/api-routes/dynamic-api-routes.md"
             },
             {
-              "title": "API Middlewares",
+              "title": "API ミドルウェア",
               "path": "/docs/api-routes/api-middlewares.md"
             },
             {
-              "title": "Response Helpers",
+              "title": "レスポンスヘルパー",
               "path": "/docs/api-routes/response-helpers.md"
             }
           ]
@@ -85,11 +85,11 @@
           "title": "Advanced Features",
           "routes": [
             {
-              "title": "Preview Mode",
+              "title": "プレビューモード",
               "path": "/docs/advanced-features/preview-mode.md"
             },
             {
-              "title": "Dynamic Import",
+              "title": "動的インポート",
               "path": "/docs/advanced-features/dynamic-import.md"
             },
             {
@@ -97,30 +97,30 @@
               "path": "/docs/advanced-features/automatic-static-optimization.md"
             },
             {
-              "title": "Static HTML Export",
+              "title": "静的HTMLのエクスポート",
               "path": "/docs/advanced-features/static-html-export.md"
             },
             {
-              "title": "Absolute Imports and Module Path Aliases",
+              "title": "絶対パスインポートとモジュールパスエイリアス",
               "path": "/docs/advanced-features/module-path-aliases.md"
             },
             {
               "title": "AMP Support",
               "routes": [
                 {
-                  "title": "Introduction",
+                  "title": "はじめに",
                   "path": "/docs/advanced-features/amp-support/introduction.md"
                 },
                 {
-                  "title": "Adding AMP Components",
+                  "title": "AMPコンポーネントの追加",
                   "path": "/docs/advanced-features/amp-support/adding-amp-components.md"
                 },
                 {
-                  "title": "AMP Validation",
+                  "title": "AMPの検証",
                   "path": "/docs/advanced-features/amp-support/amp-validation.md"
                 },
                 {
-                  "title": "AMP in Static HTML export",
+                  "title": "AMPの静的HTMLエクスポート",
                   "path": "/docs/advanced-features/amp-support/amp-in-static-html-export.md"
                 },
                 {
@@ -130,45 +130,45 @@
               ]
             },
             {
-              "title": "Customizing Babel Config",
+              "title": "Babel 設定のカスタマイズ",
               "path": "/docs/advanced-features/customizing-babel-config.md"
             },
             {
-              "title": "Customizing PostCSS Config",
+              "title": "PostCSS設定のカスタマイズ",
               "path": "/docs/advanced-features/customizing-postcss-config.md"
             },
             {
-              "title": "Custom Server",
+              "title": "カスタムサーバー",
               "path": "/docs/advanced-features/custom-server.md"
             },
             {
-              "title": "Custom `App`",
+              "title": "カスタム`App`",
               "path": "/docs/advanced-features/custom-app.md"
             },
             {
-              "title": "Custom `Document`",
+              "title": "カスタム `Document`",
               "path": "/docs/advanced-features/custom-document.md"
             },
             {
-              "title": "Custom Error Page",
+              "title": "エラーページのカスタマイズ",
               "path": "/docs/advanced-features/custom-error-page.md"
             },
             {
-              "title": "`src` Directory",
+              "title": "`src` ディレクトリ",
               "path": "/docs/advanced-features/src-directory.md"
             },
             {
-              "title": "Multi Zones",
+              "title": "マルチゾーン",
               "path": "/docs/advanced-features/multi-zones.md"
             },
             {
-              "title": "Measuring performance",
+              "title": "パフォーマンス測定",
               "path": "/docs/advanced-features/measuring-performance.md"
             }
           ]
         },
         {
-          "title": "Upgrade Guide",
+          "title": "アップグレードガイド",
           "path": "/docs/upgrading.md"
         },
         { "title": "FAQ", "path": "/docs/faq.md" }
@@ -208,11 +208,11 @@
           "title": "next.config.js",
           "routes": [
             {
-              "title": "Introduction",
+              "title": "はじめに",
               "path": "/docs/api-reference/next.config.js/introduction.md"
             },
             {
-              "title": "Environment Variables",
+              "title": "環境変数",
               "path": "/docs/api-reference/next.config.js/environment-variables.md"
             },
             {
@@ -220,11 +220,11 @@
               "path": "/docs/api-reference/next.config.js/custom-page-extensions.md"
             },
             {
-              "title": "CDN Support with Asset Prefix",
+              "title": "アセットプレフィックスによる CDN サポート",
               "path": "/docs/api-reference/next.config.js/cdn-support-with-asset-prefix.md"
             },
             {
-              "title": "Build Target",
+              "title": "ビルドターゲット",
               "path": "/docs/api-reference/next.config.js/build-target.md"
             },
             {
@@ -232,7 +232,7 @@
               "path": "/docs/api-reference/next.config.js/custom-webpack-config.md"
             },
             {
-              "title": "Compression",
+              "title": "圧縮",
               "path": "/docs/api-reference/next.config.js/compression.md"
             },
             {
@@ -240,31 +240,31 @@
               "path": "/docs/api-reference/next.config.js/static-optimization-indicator.md"
             },
             {
-              "title": "Runtime Configuration",
+              "title": "ランタイム設定",
               "path": "/docs/api-reference/next.config.js/runtime-configuration.md"
             },
             {
-              "title": "Disabling x-powered-by",
+              "title": "x-powered-by の無効化",
               "path": "/docs/api-reference/next.config.js/disabling-x-powered-by.md"
             },
             {
-              "title": "Disabling ETag Generation",
+              "title": "ETag 生成の無効化",
               "path": "/docs/api-reference/next.config.js/disabling-etag-generation.md"
             },
             {
-              "title": "Setting a custom build directory",
+              "title": "カスタムビルドディレクトリの設定",
               "path": "/docs/api-reference/next.config.js/setting-a-custom-build-directory.md"
             },
             {
-              "title": "Configuring the Build ID",
+              "title": "ビルド ID の設定",
               "path": "/docs/api-reference/next.config.js/configuring-the-build-id.md"
             },
             {
-              "title": "Configuring onDemandEntries",
+              "title": "onDemandEntries の設定",
               "path": "/docs/api-reference/next.config.js/configuring-onDemandEntries.md"
             },
             {
-              "title": "Ignoring TypeScript Errors",
+              "title": "TypeScriptのエラーを無視する",
               "path": "/docs/api-reference/next.config.js/ignoring-typescript-errors.md"
             },
             {

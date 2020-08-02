@@ -1,20 +1,20 @@
 ---
-description: Learn to add and access environment variables in your Next.js application at build time.
+description: ビルド時に、Next.jsアプリケーションに環境変数を追加して使用する方法を学びます。
 ---
 
-# Environment Variables
+# 環境変数
 
-> Since the release of Next.js 9.4 we now have a more intuitive and ergonomic experience for [adding environment variables](/docs/basic-features/environment-variables.md). Give it a try!
+> Next.js 9.4のリリース以降、[環境変数の追加](/docs/basic-features/environment-variables.md)がより直感的で、自然に行えるようになりました。試してみてください！
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-env-from-next-config-js">With env</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-now-env">With Now env</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-env-from-next-config-js">envのみ</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-now-env">Nowとenv</a></li>
   </ul>
 </details>
 
-To add environment variables to the JavaScript bundle, open `next.config.js` and add the `env` config:
+JavaScript バンドルに環境変数を追加するには、`next.config.js`を開き、`env`の設定を追加します:
 
 ```js
 module.exports = {
@@ -24,42 +24,41 @@ module.exports = {
 };
 ```
 
-Now you can access `process.env.customKey` in your code. For example:
+そうすると、`process.env.customKey`を使用できるようになります。 例:
 
 ```jsx
 function Page() {
-  return <h1>The value of customKey is: {process.env.customKey}</h1>;
+  return <h1>カスタムキーの値は: {process.env.customKey}</h1>;
 }
 
 export default Page;
 ```
+Next.js はビルド時に `process.env.customKey` を `'my-value'` に置き換えます。 Webpack [DefinePlugin](https://webpack.js.org/plugins/define-plugin/)の性質上、`process.env` の変数を上書きしようとしてもうまくいきません。
 
-Next.js will replace `process.env.customKey` with `'my-value'` at build time. Trying to destructure `process.env` variables won't work due to the nature of webpack [DefinePlugin](https://webpack.js.org/plugins/define-plugin/).
-
-For example, the following line:
-
-```jsx
-return <h1>The value of customKey is: {process.env.customKey}</h1>;
-```
-
-Will end up being:
+例えば、下記のような環境変数は:
 
 ```jsx
-return <h1>The value of customKey is: {'my-value'}</h1>;
+return <h1>カスタムキーの値は: {process.env.customKey}</h1>;
 ```
 
-## Related
+最終的にこうなります:
+
+```jsx
+return <h1>カスタムキーの値は: {'my-value'}</h1>;
+```
+
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.jsの紹介:</b>
+    <small>Next.jsが使用する設定ファイルについて学ぶ。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/basic-features/environment-variables.md">
-    <b>Built-in support for Environment Variables:</b>
-    <small>Learn more about the new support for environment variables.</small>
+    <b>環境変数の組み込みサポート:</b>
+    <small>環境変数の新しいサポート方法について学ぶ。</small>
   </a>
 </div>

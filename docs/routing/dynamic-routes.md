@@ -1,19 +1,19 @@
 ---
-description: Dynamic Routes are pages that allow you to add custom params to your URLs. Start creating Dynamic Routes and learn more here.
+description: 動的なルーティングを用いてページのURLにカスタムパラメータを追加できます。動的なルーティングをつくり、詳しくみていきましょう。
 ---
 
-# Dynamic Routes
+# 動的なルーティング
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
     <li><a href="https://github.com/zeit/next.js/tree/canary/examples/dynamic-routing">Dynamic Routing</a></li>
   </ul>
 </details>
 
-Defining routes by using predefined paths is not always enough for complex applications. In Next.js you can add brackets to a page (`[param]`) to create a dynamic route (a.k.a. url slugs, pretty urls, and others).
+複雑なアプリケーションでは、予め定義されたパスを用いてルートを定義するだけでは不十分な場合があります。Next.js では `[param]` のようにしてページ名に角括弧(ブラケット)を使うことで動的なルーティング(別名 slug や pretty url など)を作成できます。
 
-Consider the following page `pages/post/[pid].js`:
+`pages/post/[pid].js` というページが以下の内容であるとします:
 
 ```jsx
 import { useRouter } from 'next/router';
@@ -28,83 +28,83 @@ const Post = () => {
 export default Post;
 ```
 
-Any route like `/post/1`, `/post/abc`, etc. will be matched by `pages/post/[pid].js`. The matched path parameter will be sent as a query parameter to the page, and it will be merged with the other query parameters.
+ このとき、`/post/1` や `/post/abc` などのルートは `pages/post/[pid].js` にマッチします。そして、マッチしたパスのパラメータはクエリパラメータとしてページに送られ、他のクエリパラメータと統合されます。
 
-For example, the route `/post/abc` will have the following `query` object:
+例えば、`/post/abc` というルートは以下の `query` オブジェクトを持ちます:
 
 ```json
 { "pid": "abc" }
 ```
 
-Similarly, the route `/post/abc?foo=bar` will have the following `query` object:
+同様に、`/post/abc?foo=bar` というルートは以下の `query` オブジェクトを持ちます:
 
 ```json
 { "foo": "bar", "pid": "abc" }
 ```
 
-However, route parameters will override query parameters with the same name. For example, the route `/post/abc?pid=123` will have the following `query` object:
+しかし、ルートパラメータは同じ名前のクエリパラメータを上書きします。例えば `/post/abc?pid=123` というルートは以下の `query` オブジェクトを持ちます:
 
 ```json
 { "pid": "abc" }
 ```
 
-Multiple dynamic route segments work the same way. The page `pages/post/[pid]/[comment].js` will match the route `/post/abc/a-comment` and its `query` object will be:
+複数の動的なルートセグメントがあるときも同様に機能します。例えば `pages/post/[pid]/[comment].js` は `/post/abc/a-comment` のルートにマッチし `query` オブジェクトは以下のようになります:
 
 ```json
 { "pid": "abc", "comment": "a-comment" }
 ```
 
-Client-side navigations to a dynamic route can be handled with [`next/link`](/docs/api-reference/next/link.md#dynamic-routes).
+動的ルーティングへのクライアント側のナビゲーションは [`next/link`](/docs/api-reference/next/link.md#dynamic-routes) で処理できます。
 
-### Catch all routes
+### すべてのルートを受け取る
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
     <li><a href="https://github.com/zeit/next.js/tree/canary/examples/catch-all-routes">Catch All Routes</a></li>
   </ul>
 </details>
 
-Dynamic routes can be extended to catch all paths by adding three dots (`...`) inside the brackets. For example:
+動的ルーティングは角括弧(ブラケット)のなかに 3 つのドット `...` を使うことで、すべてのパスを受け取ることができるようになります。例えば以下のようになります:
 
-- `pages/post/[...slug].js` matches `/post/a`, but also `/post/a/b`, `/post/a/b/c` and so on.
+- `pages/post/[...slug].js` は `/post/a` にマッチしますが `/post/a/b` や `/post/a/b/c` などにも同様にマッチします。
 
-> **Note**: You can use names other than `slug`, such as: `[...param]`
+> **備考**: `[...param]`のように `slug` 以外の名前も使うことができます。
 
-Matched parameters will be sent as a query parameter (`slug` in the example) to the page, and it will always be an array, so, the path `/post/a` will have the following `query` object:
+マッチしたパラメータはクエリパラメータ(例では `slug`)としてページに常に配列として送られ `/post/a` は以下の `query` オブジェクトを持ちます:
 
 ```json
 { "slug": ["a"] }
 ```
 
-And in the case of `/post/a/b`, and any other matching path, new parameters will be added to the array, like so:
+また `/post/a/b` など、その他にマッチするパスがある場合は、以下のように新しいパラメータが配列に追加されます。
 
 ```json
 { "slug": ["a", "b"] }
 ```
 
-> A good example of catch all routes is the Next.js docs, a single page called [pages/docs/[...slug].js](https://github.com/zeit/next-site/blob/master/pages/docs/%5B...slug%5D.js) takes care of all the docs you're currently looking at.
+> すべてのルートを受け取る良い例はNext.jsのdocsです。 [pages/docs/[...slug].js](https://github.com/zeit/next-site/blob/master/pages/docs/%5B...slug%5D.js) という1つのページが、現在見ているdocsをすべて処理しています。
 
-### Optional catch all routes
+### オプショナルにすべてのルートを受け取る
 
-Catch all routes can be made optional by including the parameter in double brackets (`[[...slug]]`).
+すべてのルートをキャッチすることは、`[[...slug]]` のようにパラメータを二重括弧内に含めることでオプショナルにできます。
 
-For example, `pages/post/[[...slug]].js` will match `/post`, `/post/a`, `/post/a/b`, and so on.
+例えば、`pages/post/[[...slug]].js` は `/post`, `/post/a`, `/post/a/b`, などにマッチします。
 
-The `query` objects are as follows:
+その時 `query` は以下のようになります:
 
 ```json
-{ } // GET `/post` (empty object)
-{ "slug": ["a"] } // `GET /post/a` (single-element array)
-{ "slug": ["a", "b"] } // `GET /post/a/b` (multi-element array)
+{ } // GET `/post` (空オブジェクト)
+{ "slug": ["a"] } // `GET /post/a` (単一要素の配列)
+{ "slug": ["a", "b"] } // `GET /post/a/b` (複数要素の配列)
 ```
 
-## Caveats
+## 注意事項
 
-- Predefined routes take precedence over dynamic routes, and dynamic routes over catch all routes. Take a look at the following examples:
-  - `pages/post/create.js` - Will match `/post/create`
-  - `pages/post/[pid].js` - Will match `/post/1`, `/post/abc`, etc. But not `/post/create`
-  - `pages/post/[...slug].js` - Will match `/post/1/2`, `/post/a/b/c`, etc. But not `/post/create`, `/post/abc`
-- Pages that are statically optimized by [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) will be hydrated without their route parameters provided, i.e `query` will be an empty object (`{}`).
+- 予め定義されたルートは動的ルーティングよりも優先され、動的ルーティングはすべてのルートを受け取りよりも優先されます。以下の例をみてください:
+  - `pages/post/create.js` は `/post/create` にマッチします。
+  - `pages/post/[pid].js` は `/post/1` や `/post/abc` にマッチしますが、`/post/create` にはマッチしません。
+  - `pages/post/[...slug].js` は `/post/1/2` や `/post/a/b/c` にマッチしますが、`/post/create`, `/post/abc` などにはマッチしません。
+- [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)によって静的に最適化されたページはルートパラメータが指定されていない状態でハイドレートされます。つまり、`query` は `{}` のように空オブジェクトになります。
 
-  After hydration, Next.js will trigger an update to your application to provide the route parameters in the `query` object.
+  ハイドレート後に Next.js はアプリケーションの更新をトリガーにして、 `query` オブジェクトにルートパラメータを提供します。

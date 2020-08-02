@@ -1,32 +1,35 @@
 ---
-description: learn more about the configuration file used by Next.js to handle your application.
+description: アプリケーションを処理するために、Next.jsが使用する設定ファイルの詳細をご覧ください。
 ---
 
 # next.config.js
 
-For custom advanced behavior of Next.js, you can create a `next.config.js` in the root of your project directory (next to `package.json`).
+Next.js の高度な動作をカスタマイズするには、プロジェクトディレクトリのルートに `next.config.js` を作成します(`package.json` と同じディレクトリ)。
 
-`next.config.js` is a regular Node.js module, not a JSON file. It gets used by the Next.js server and build phases, and it's not included in the browser build.
+`next.config.js` は通常の Node.js モジュールであり JSON ファイルではありません。
+Next.js サーバーとビルドフェーズで使用され、ブラウザのビルドには含まれません。
 
-Take a look at the following `next.config.js` example:
+`next.config.js` の例を見てみましょう:
 
 ```js
 module.exports = {
-  /* config options here */
+  /* ここにオプション設定を書きます */
 };
 ```
 
-You can also use a function:
+関数も利用できます:
 
 ```js
 module.exports = (phase, { defaultConfig }) => {
   return {
-    /* config options here */
+    /* ここにオプション設定を書きます */
   };
 };
 ```
 
-`phase` is the current context in which the configuration is loaded. You can see the available phases [here](https://github.com/zeit/next.js/blob/canary/packages/next/next-server/lib/constants.ts#L1-L4). Phases can be imported from `next/constants`:
+`phase` は設定がロードされている現在のフェーズです。
+利用可能なフェーズは[こちら](https://github.com/zeit/next.js/blob/canary/packages/next/next-server/lib/constants.ts#L1-L4)を参照ください。
+フェーズは `next/constants` からインポート出来ます:
 
 ```js
 const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
@@ -34,18 +37,20 @@ const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 module.exports = (phase, { defaultConfig }) => {
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     return {
-      /* development only config options here */
+      /* 開発フェーズでのみ利用するオプションを設定 */
     };
   }
 
   return {
-    /* config options for all phases except development here */
+    /* 開発フェーズを除く全てのフェーズで有効なオプションを設定 */
   };
 };
 ```
 
-The commented lines are the place where you can put the configs allowed by `next.config.js`, which are defined [here](https://github.com/zeit/next.js/blob/canary/packages/next/next-server/server/config.ts#L12-L63).
+コメントされている行は `next.config.js` で許可された設定が挿入可能な箇所です。
+定義は[こちら](https://github.com/zeit/next.js/blob/canary/packages/next/next-server/server/config.ts#L12-L63)をご覧ください。
 
-However, none of the configs are required, and it's not necessary to understand what each config does, instead, search for the features you need to enable or modify in this section and they will show you what to do.
+ただし、いずれの設定も必要でなく、全ての設定を完全に理解する必要はありません。
+有効化または修正する必要がある設定のみ調べて変更するようにお勧めします。
 
-> Avoid using new JavaScript features not available in your target Node.js version. `next.config.js` will not be parsed by Webpack, Babel or TypeScript.
+> 利用する Node.js のバージョンで利用出来ない JavaScript の新機能を使用しないようにしましょう。 `next.config.js` は Webpack、Babel、TypeScriptで解析されません。

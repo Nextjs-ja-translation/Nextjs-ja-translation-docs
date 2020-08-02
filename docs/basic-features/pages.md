@@ -1,14 +1,16 @@
 ---
-description: Next.js pages are React Components exported in a file in the pages directory. Learn how they work here.
+description: Next.js pagesとはpagesディレクトリ内のファイルからエクスポートされたReactコンポーネントです。どのように動作するか学んでいきましょう。
 ---
 
 # Pages
 
-> This document is for Next.js versions 9.3 and up. If you're using older versions of Next.js, refer to our [previous documentation](https://nextjs.org/docs/tag/v9.2.2/basic-features/pages).
+> このドキュメント、はNext.jsバージョン9.3以上を対象としています。
+古いバージョンのNext.jsを使用する場合は、[過去のドキュメント](https://nextjs.org/docs/tag/v9.2.2/basic-features/pages)を参照してください。
 
-In Next.js, a **page** is a [React Component](https://reactjs.org/docs/components-and-props.html) exported from a `.js`, `jsx`, `.ts`, or `.tsx` file in the `pages` directory. Each page is associated with a route based on its file name.
+Next.js では、**ページ(page)**というのは `pages` ディレクトリ内の `.js` , `jsx`, `.ts`, `.tsx`ファイルから `export` された[React コンポーネント](https://ja.reactjs.org/docs/components-and-props.html) のことです。
+それぞれのページのルーティングはファイル名によって決まります。
 
-**Example**: If you create `pages/about.js` that exports a React component like below, it will be accessible at `/about`.
+**例**: 以下のような React コンポーネントを `export` する `pages/about.js` というファイルを作成すると、`/about`へとアクセスできるようになります。
 
 ```jsx
 function About() {
@@ -18,53 +20,71 @@ function About() {
 export default About;
 ```
 
-### Pages with Dynamic Routes
+### Pagesにおける動的なルーティング
 
-Next.js supports pages with dynamic routes. For example, if you create a file called `pages/posts/[id].js`, then it will be accessible at `posts/1`, `posts/2`, etc.
+Next.js の pages は動的なルーティングをサポートしています。
+例えば、`pages/posts/[id].js`というファイルを作成すると、`posts/1`, `posts/2`などにアクセスできます。
 
-> To learn more about dynamic routing, check the [Dynamic Routing documentation](/docs/routing/dynamic-routes.md).
+> 動的なルーティングについてさらに知るには、[動的なルーティングのドキュメント](/docs/routing/dynamic-routes.md) をご覧ください。
 
-## Pre-rendering
+## プリレンダリング
 
-By default, Next.js **pre-renders** every page. This means that Next.js generates HTML for each page in advance, instead of having it all done by client-side JavaScript. Pre-rendering can result in better performance and SEO.
+通常、Next.js はそれぞれのページを**事前にレンダリング**します。
+つまり、クライアント側の JavaScript でページ全体を生成する代わりに、それぞれのページの HTML をあらかじめ生成します。
+プリレンダリングは優れたパフォーマンスと SEO をもたらします。
 
-Each generated HTML is associated with minimal JavaScript code necessary for that page. When a page is loaded by the browser, its JavaScript code runs and makes the page fully interactive. (This process is called _hydration_.)
+生成されたそれぞれの HTML には、そのページの生成に最低限必要な JavaScript コードが関連事項づけられています。
+ページがブラウザから読み込まれると、JavaScript コードが走りページをインタラクティブなものにします。（この処理は_ハイドレーション_と呼ばれています。）
 
-### Two forms of Pre-rendering
+### プリレンダリングの2つの方式
 
-Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
+Next.js ではプリレンダリングに関して**静的生成(Static Generation)**と**サーバーサイドレンダリング(Server-side Rendering)**の 2 つの方式が利用可能です。
+これらの違いは、HTML を**いつ**生成するかです。
 
-- [**Static Generation (Recommended)**](#static-generation-recommended): The HTML is generated at **build time** and will be reused on each request.
-- [**Server-side Rendering**](#server-side-rendering): The HTML is generated on **each request**.
+- [**静的生成（推奨）**](#static-generation-recommended): **ビルド時**に HTML が生成され、リクエストの度に再利用されます。
+- [**サーバーサイドレンダリング**](#server-side-rendering): HTML が**リクエストの度に**生成されます。
 
-Importantly, Next.js lets you **choose** which pre-rendering form you'd like to use for each page. You can create a "hybrid" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.
+重要なのは、Next.js ではどちらのプリレンダリング方法を用いるかを、それぞれのページに対して**選ぶことができる**ということです。
+つまり、ほとんどのページには静的生成を用い、残りのページにはサーバーサイドレンダリングを用いるといった、"ハイブリッド"な構成で Next.js アプリを作ることができます。
 
-We **recommend** using **Static Generation** over Server-side Rendering for performance reasons. Statically generated pages can be cached by CDN to boost performance. However, in some cases, Server-side Rendering might be the only option.
+パフォーマンスの観点から、サーバーサイドレンダリングよりも**静的生成**を用いることを**推奨**しています。
+静的に生成されたページは CDN によりキャッシュされ、パフォーマンスが高まります。ただし、サーバーサイドレンダリングを選択せざるを得ない場合もあります。
 
-Finally, you can always use **Client-side Rendering** along with Static Generation or Server-side Rendering. That means some parts of a page can be rendered entirely by client side JavaScript. To learn more, take a look at the [Data Fetching](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side) documentation.
+**クライアントサイドレンダリング**も静的生成やサーバーサイドレンダリングと同様にいつでも用いることができます。
+つまり、ページの特定部分をクライアント側の JavaScript で丸ごとレンダーしても良いです。
+これについてさらに知りたい場合には、[データ取得のドキュメント](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side)をご覧ください。
 
-## Static Generation (Recommended)
+## 静的生成（推奨）
 
 <details open>
-  <summary><b>Examples</b></summary>
+  <summary><b>サンプル</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/blog-starter">Blog Starter using markdown files</a> (<a href="https://next-blog-starter.now.sh/">Demo</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-datocms">DatoCMS Example</a> (<a href="https://next-blog-datocms.now.sh/">Demo</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-takeshape">TakeShape Example</a> (<a href="https://next-blog-takeshape.now.sh/">Demo</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-sanity">Sanity Example</a> (<a href="https://next-blog-sanity.now.sh/">Demo</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-prismic">Prismic Example</a> (<a href="https://next-blog-prismic.now.sh/">Demo</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-contentful">Contentful Example</a> (<a href="https://next-blog-contentful.now.sh/">Demo</a>)</li>
-    <li><a href="https://static-tweet.now.sh/">Static Tweet Demo</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress">WordPressの例</a> (<a href="https://next-blog-wordpress.now.sh">デモ</a>)</li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/blog-starter">Markdownファイルを用いたブログの例</a> (<a href="https://next-blog-starter.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-datocms">DatoCMSを用いた例</a> (<a href="https://next-blog-datocms.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-takeshape">TakeShapeを用いた例</a> (<a href="https://next-blog-takeshape.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-sanity">Sanityを用いた例</a> (<a href="https://next-blog-sanity.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-prismic">Prismicを用いた例</a> (<a href="https://next-blog-prismic.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-contentful">Contentfulを用いた例</a> (<a href="https://next-blog-contentful.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-strapi">Strapiを用いた例</a> (<a href="https://next-blog-strapi.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms">Agility CMSを用いた例</a> (<a href="https://next-blog-agilitycms.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic">Cosmicを用いた例</a> (<a href="https://next-blog-cosmic.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-buttercms">ButterCMSを用いた例</a> (<a href="https://next-blog-buttercms.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-storyblok">Storyblokを用いた例</a> (<a href="https://next-blog-storyblok.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-graphcms">GraphCMSを用いた例</a> (<a href="https://next-blog-graphcms.now.sh/">デモ</a>)</li>
+    <li><a href="https://static-tweet.now.sh/">ツイートの静的埋め込みのデモ</a></li>
   </ul>
 </details>
 
-If a page uses **Static Generation**, the page HTML is generated at **build time**. That means in production, the page HTML is generated when you run `next build` . This HTML will then be reused on each request. It can be cached by a CDN.
+ページを**静的生成**するということは、そのページの HTML を**ビルド時に**生成するということです。
+本番用のアプリケーションでは、`next build`を実行すると HTML が生成されます。
+この HTML はリクエストの度に再利用され、CDN によりキャッシュが可能です。
 
-In Next.js, you can statically generate pages **with or without data**. Let's take a look at each case.
+Next.js では、**外部データの取得の有無に関わらず**ページの静的生成が可能です。それぞれのケースについて見ていきましょう。
 
-### Static Generation without data
+### 外部データの取得がない場合の静的生成
 
-By default, Next.js pre-renders pages using Static Generation without fetching data. Here's an example:
+通常、Next.js はデータを取得せずに静的生成によってページをプリレンダリングします。以下がその例です。
 
 ```jsx
 function About() {
@@ -74,22 +94,25 @@ function About() {
 export default About;
 ```
 
-Note that this page does not need to fetch any external data to be pre-rendered. In cases like this, Next.js generates a single HTML file per page during build time.
+このページは外部からのデータ取得が必要ないことに留意してください。
+このような場合、Next.js はビルド時に 1 ページ当たり 1 つの HTML ファイルを生成します。
 
-### Static Generation with data
+### 外部データの取得がある場合の静的生成
 
-Some pages require fetching external data for pre-rendering. There are two scenarios, and one or both might apply. In each case, you can use a special function Next.js provides:
+ページによってはプリレンダリング時に外部のデータを取得しなければならない場合があります。
+これには以下 2 つのシナリオのいずれかあるいは両方が考えられます。
+それぞれのケースにおいて、Next.js の提供する以下の関数を用います。
 
-1. Your page **content** depends on external data: Use `getStaticProps`.
-2. Your page **paths** depend on external data: Use `getStaticPaths` (usually in addition to `getStaticProps`).
+1. ページの**コンテンツ**が外部データに依存する場合、`getStaticProps`を用いてください。
+2. ページの**パス(path)**が外部データに依存する場合、`getStaticPaths`を用いてください（通常、`getStaticProps`と合わせて用いられます）。
 
-#### Scenario 1: Your page **content** depends on external data
+#### シナリオ 1: ページの**コンテンツ**が外部データに依存する場合
 
-**Example**: Your blog page might need to fetch the list of blog posts from a CMS (content management system).
+**例**: ブログのページが CMS (コンテンツ管理システム)から投稿した記事を取得する必要がある場合。
 
 ```jsx
-// TODO: Need to fetch `posts` (by calling some API endpoint)
-//       before this page can be pre-rendered.
+// TODO: ページをプリレンダリングする前に、
+//       (APIのエンドポイントをコールして)`posts`を取得する必要あり
 function Blog({ posts }) {
   return (
     <ul>
@@ -103,21 +126,22 @@ function Blog({ posts }) {
 export default Blog;
 ```
 
-To fetch this data on pre-render, Next.js allows you to `export` an `async` function called `getStaticProps` from the same file. This function gets called at build time and lets you pass fetched data to the page's `props` on pre-render.
+プリレンダリング時にデータを取得するために、Next.js では `getStaticProps` と呼ばれる `async` 関数を同じファイルから `export` します。
+この関数はビルド時に呼ばれ、取得されたデータをページのプリレンダリング時の `props` に渡します。
 
 ```jsx
 function Blog({ posts }) {
-  // Render posts...
+  // 記事のレンダー
 }
 
-// This function gets called at build time
+// この関数はビルド時に呼ばれる
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts
+  // 投稿記事を取得する外部APIエンドポイントをコール
   const res = await fetch('https://.../posts');
   const posts = await res.json();
 
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
+  // { props: posts }を返すことで、ビルド時にBlogコンポーネントが
+  // `posts`をpropとして受け取れる
   return {
     props: {
       posts
@@ -128,152 +152,164 @@ export async function getStaticProps() {
 export default Blog;
 ```
 
-To learn more about how `getStaticProps` works, check out the [Data Fetching documentation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation).
+`getStaticProps`の動作についてさらに知るためには、[データ取得のドキュメント](/docs/basic-features/data-fetching.md#getstaticprops-static-generation)をご覧ください。
 
-#### Scenario 2: Your page paths depend on external data
+#### シナリオ 2: ページのパス(path)が外部データに依存する場合
 
-Next.js allows you to create pages with **dynamic routes**. For example, you can create a file called `pages/posts/[id].js` to show a single blog post based on `id`. This will allow you to show a blog post with `id: 1` when you access `posts/1`.
+Next.js では**動的なルーティング**によるページの生成が可能です。例えば、`id`に紐づくブログ投稿を表示するためには、`pages/posts/[id].js`というファイルを作成します。
+これにより、`posts/1`にアクセスすると `id: 1` の投稿内容が表示されます。
 
-> To learn more about dynamic routing, check the [Dynamic Routing documentation](/docs/routing/dynamic-routes.md).
+> 動的ルーティングについてさらに知るためには、[動的ルーティングのドキュメント](/docs/routing/dynamic-routes.md)をご覧ください。
 
-However, which `id` you want to pre-render at build time might depend on external data.
+しかしながら、どの `id` をビルド時にプリレンダリングするかが外部データに依存する可能性があります。
 
-**Example**: suppose that you've only added one blog post (with `id: 1`) to the database. In this case, you'd only want to pre-render `posts/1` at build time.
+**例**: データベースに `id: 1` のブログ記事のみが追加された場合を考えてみましょう。この場合、ビルド時にプリレンダリングによってページを生成したいのは `posts/1` のみです。
 
-Later, you might add the second post with `id: 2`. Then you'd want to pre-render `posts/2` as well.
+後になって `id: 2` のブログ記事を追加するとしましょう。今度はビルド時に `posts/2` もプリレンダリングする必要があります。
 
-So your page **paths** that are pre-rendered depend on external data**.** To handle this, Next.js lets you `export` an `async` function called `getStaticPaths` from a dynamic page (`pages/posts/[id].js` in this case). This function gets called at build time and lets you specify which paths you want to pre-render.
+つまり、プリレンダリングするページの**パス**は外部のデータに依存します。外部データに依存するパスを扱うために、Next.js では `getStaticPaths` という `async` 関数を `export` します。（今回の場合、`pages/posts/[id].js`に追加します。）
+
 
 ```jsx
-// This function gets called at build time
+// この関数はビルド時に呼ばれる
 export async function getStaticPaths() {
-  // Call an external API endpoint to get posts
+  // 記事を取得する外部APIのエンドポイントをコール
   const res = await fetch('https://.../posts');
   const posts = await res.json();
 
-  // Get the paths we want to pre-render based on posts
+  // 記事にもとづいてプリレンダするパスを取得
   const paths = posts.map(post => `/posts/${post.id}`);
 
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
+  // 設定したパスのみ、ビルド時にプリレンダ
+  // { fallback: false } は、他のルートが404になるという意味
   return { paths, fallback: false };
 }
 ```
 
-Also in `pages/posts/[id].js`, you need to export `getStaticProps` so that you can fetch the data about the post with this `id` and use it to pre-render the page:
+`pages/posts/[id].js`は、`id`のブログ記事の内容を取得してページをプリレンダリングするために、`getStaticProps`も合わせて `export` する必要があります。
+
 
 ```jsx
 function Post({ post }) {
-  // Render post...
+  // 記事のレンダー
 }
 
 export async function getStaticPaths() {
   // ...
 }
 
-// This also gets called at build time
+// この関数もビルド時に呼ばれる
 export async function getStaticProps({ params }) {
-  // params contains the post `id`.
-  // If the route is like /posts/1, then params.id is 1
+  // `params`は`id`の記事内容を含む
+  // ルートが/posts/1とすると、params.idは1となる
   const res = await fetch(`https://.../posts/${params.id}`);
   const post = await res.json();
 
-  // Pass post data to the page via props
+  // propsを通じてpostをページに渡す
   return { props: { post } };
 }
 
 export default Post;
 ```
 
-To learn more about how `getStaticPaths` works, check out the [Data Fetching documentation](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation).
+`getStaticPaths`の動作についてさらに知りたい場合には、[データ取得のドキュメント](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation)をご覧ください。
 
-### When should I use Static Generation?
+### どのような場合に静的生成を行うべきか？
 
-We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
+ページは一度だけビルドしてしまえば CDN によって配信できるので、（データ取得の有無に関わらず）可能な限り**静的生成**を推奨しています。
+これにより、それぞれのリクエストに対してサーバー側で HTML を生成するよりもずっと高速になります。
 
-You can use Static Generation for many types of pages, including:
+静的生成は以下のような様々なページに対して行うことができます。
 
-- Marketing pages
-- Blog posts
-- E-commerce product listings
-- Help and documentation
+- マーケティングのページ
+- ブログ記事
+- e コマースの製品リスト
+- ヘルプやドキュメント
 
-You should ask yourself: "Can I pre-render this page **ahead** of a user's request?" If the answer is yes, then you should choose Static Generation.
+「このページはユーザのリクエストより**前に**コンテンツを準備しておくことが可能か？」と自分自身に問いかけてみてください。
+もし答えが YES なら、静的生成を選択すべきでしょう。
 
-On the other hand, Static Generation is **not** a good idea if you cannot pre-render a page ahead of a user's request. Maybe your page shows frequently updated data, and the page content changes on every request.
+一方、ユーザーのリクエストよりも前にページの内容を準備できない場合、静的生成は推奨されません。
+ページに含まれる情報が頻繁に更新され、リクエストの度に内容が変わることもあり得るでしょう。
 
-In cases like this, you can do one of the following:
+このような場合には、以下の方法をとることができます。
 
-- Use Static Generation with **Client-side Rendering:** You can skip pre-rendering some parts of a page and then use client-side JavaScript to populate them. To learn more about this approach, check out the [Data Fetching documentation](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side).
-- Use **Server-Side Rendering:** Next.js pre-renders a page on each request. It will be slower because the page cannot be cached by a CDN, but the pre-rendered page will always be up-to-date. We'll talk about this approach below.
+- **クライアントサイドレンダリング**と静的生成を併用する: ページの一部のプリレンダリングを一旦飛ばし、クライアント側の JavaScript を使って残りを表示させます。
+このアプローチについてさらに知るためには、[データ取得のドキュメント](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side)をご覧ください。
+- **サーバーサイドレンダリング**を用いる: Next.js がそれぞれのリクエストに対してプリレンダリングします。
+CDN によるキャッシュができないので表示が遅くなりますが、常に最新の情報が表示されます。このアプローチについてこれから説明します。
 
-## Server-side Rendering
 
-> Also referred to as "SSR" or "Dynamic Rendering".
+## サーバーサイドレンダリング
 
-If a page uses **Server-side Rendering**, the page HTML is generated on **each request**.
+> "SSR"や"ダイナミックレンダリング"とも呼ばれます。
 
-To use Server-side Rendering for a page, you need to `export` an `async` function called `getServerSideProps`. This function will be called by the server on every request.
+**サーバーサイドレンダリング**を用いると、ページの HTML が**リクエストの度に**生成されます。
 
-For example, suppose that your page needs to pre-render frequently updated data (fetched from an external API). You can write `getServerSideProps` which fetches this data and passes it to `Page` like below:
+サーバーサイドレンダリングを使うためには、`getServerSideProps`と呼ばれる `async` 関数を `export` する必要があります。この関数はリクエストごとにサーバー側で呼ばれます。
+
+例えば、ページの表示に用いるデータ（外部の API から取得する）が頻繁に更新される場合を考えましょう。この場合、以下のように `getServerSideProps` を追加することで、データを取得して `Page` に渡す処理を行うことができます。
 
 ```jsx
 function Page({ data }) {
-  // Render data...
+  // 記事のレンダー
 }
 
-// This gets called on every request
+// この関数はリクエストのたびに呼ばれる
 export async function getServerSideProps() {
-  // Fetch data from external API
+  // 外部のAPIからデータを取得
   const res = await fetch(`https://.../data`);
   const data = await res.json();
 
-  // Pass data to the page via props
+  // propsを通してdataを渡す
   return { props: { data } };
 }
 
 export default Page;
 ```
 
-As you can see, `getServerSideProps` is similar to `getStaticProps`, but the difference is that `getServerSideProps` is run on every request instead of on build time.
+見ての通り、`getServerSideProps`は `getStaticProps` とよく似ています。両者の違いは、`getServerSideProps`がビルド時ではなくリクエストの度に呼ばれることです。
 
-To learn more about how `getServerSideProps` works, check out our [Data Fetching documentation](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering)
+`getServerSideProps`の動作についてさらに知りたい場合には、[データ取得のドキュメント](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering)をご覧ください。
 
-## Summary
+## まとめ
 
-We've discussed two forms of pre-rendering for Next.js.
+Next.js のプリレンダリングの方法として、以下の 2 つについて説明しました。
 
-- **Static Generation (Recommended):** The HTML is generated at **build time** and will be reused on each request. To make a page use Static Generation, either export the page component, or export `getStaticProps` (and `getStaticPaths` if necessary). It's great for pages that can be pre-rendered ahead of a user's request. You can also use it with Client-side Rendering to bring in additional data.
-- **Server-side Rendering:** The HTML is generated on **each request**. To make a page use Server-side Rendering, export `getServerSideProps`. Because Server-side Rendering results in slower performance than Static Generation, use this only if absolutely necessary.
+- **静的生成（推奨）:** HTML は**ビルド時に**生成され、それぞれのリクエストに対して再利用されます。
+静的生成では、ページの内容を `export` するか、`getStaticProps`（必要であれば `getStaticPaths` も）を `export` してください。
+ユーザーからのリクエストの前に, ページをプリレンダリングできるということは素晴らしいことです。クライアントサイドレンダリングと併用することで、追加のデータもレンダリングできます。
+- **サーバーサイドレンダリング:** HTML は**リクエストの度に**生成されます。サーバーサイドレンダリングを行うためには、`getServerSideProps`を `export` してください。
+サーバーサイドレンダリングは静的生成に比べて動作が遅くなるため、どうしても必要な場合にのみ使用してください。
 
-## Learn more
+## 関連事項
 
-We recommend you to read the following sections next:
+以下のセクションを次に読むことをお勧めします。
 
 <div class="card">
   <a href="/docs/basic-features/data-fetching.md">
-    <b>Data Fetching:</b>
-    <small>Learn more about data fetching in Next.js.</small>
+    <b>データの取得:</b>
+    <small>Next.jsのデータ取得について学びましょう。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/advanced-features/preview-mode.md">
-    <b>Preview Mode:</b>
-    <small>Learn more about the preview mode in Next.js.</small>
+    <b>プレビューモード:</b>
+    <small>Next.jsのプレビューモードについて学びましょう。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/routing/introduction.md">
-    <b>Routing:</b>
-    <small>Learn more about routing in Next.js.</small>
+    <b>ルーティング:</b>
+    <small>Next.jsのルーティングについて学びましょう。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/basic-features/typescript.md#pages">
     <b>TypeScript:</b>
-    <small>Add TypeScript to your pages.</small>
+    <small>ページにTypeScriptを追加しましょう。</small>
   </a>
 </div>

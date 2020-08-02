@@ -1,23 +1,23 @@
 ---
-description: Dynamically import JavaScript modules and React Components and split your code into manageable chunks.
+description: JavaScriptモジュールとReactコンポーネントを動的にインポートして、コードを扱いやすいチャンクに分割する。
 ---
 
-# Dynamic Import
+# 動的インポート
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-dynamic-import">Dynamic Import</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-dynamic-import">動的インポート</a></li>
   </ul>
 </details>
 
-Next.js supports ES2020 [dynamic `import()`](https://github.com/tc39/proposal-dynamic-import) for JavaScript. With it you can import JavaScript modules (inc. React Components) dynamically and work with them. They also work with SSR.
+Next.js は JavaScript の ES2020 [dynamic `import()`](https://github.com/tc39/proposal-dynamic-import) をサポートしています。JavaScript モジュール（React コンポーネントを含む）を動的にインポートして使うことが出来ます。SSR にも対応しています。
 
-You can think of dynamic imports as another way to split your code into manageable chunks.
+動的インポートは、コードを扱いやすいチャンクに分割する、もう 1 つの方法と考えることができます。
 
-## Basic usage
+## 基本的な使用方法
 
-In the following example, the module `../components/hello` will be dynamically loaded by the page:
+次の例では、`../components/hello`モジュールがページで動的に読み込まれています:
 
 ```jsx
 import dynamic from 'next/dynamic';
@@ -37,11 +37,11 @@ function Home() {
 export default Home;
 ```
 
-`DynamicComponent` will be the default component returned by `../components/hello`. It works like a regular React Component, and you can pass props to it as you normally would.
+`DynamicComponent`は `../components/hello` から返されるデフォルトのコンポーネントです。通常の React コンポーネントのように動き、通常どおりに props を渡すことができます。
 
-## With named exports
+## 名前付きエクスポート
 
-If the dynamic component is not the default export, you can use a named export too. Consider the module `../components/hello.js` which has a named export `Hello`:
+動的コンポーネントがデフォルトのエクスポートでない場合は、名前付きエクスポートも使用できます。名前付きエクスポートの `Hello` を持つ `../components/hello.js` モジュールについて考えてみましょう:
 
 ```jsx
 export function Hello() {
@@ -49,7 +49,7 @@ export function Hello() {
 }
 ```
 
-To dynamically import the `Hello` component, you can return it from the [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) returned by [`import()`](https://github.com/tc39/proposal-dynamic-import#example), like so:
+`Hello` コンポーネントを動的にインポートするには、次のように、[`import()`](https://github.com/tc39/proposal-dynamic-import#example) によって返される [Promise](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise) から `Hello` コンポーネントを返します:
 
 ```jsx
 import dynamic from 'next/dynamic';
@@ -69,9 +69,9 @@ function Home() {
 export default Home;
 ```
 
-## With custom loading component
+## カスタムローディングコンポーネント
 
-An optional `loading` component can be added to render a loading state while the dynamic component is being loaded. For example:
+オプションの `loading` コンポーネントを追加して、動的コンポーネントの読み込み中に読み込み状態をレンダリングできます。例:
 
 ```jsx
 import dynamic from 'next/dynamic';
@@ -93,11 +93,11 @@ function Home() {
 export default Home;
 ```
 
-## With no SSR
+## SSRを使用しない場合
 
-You may not always want to include a module on server-side. For example, when the module includes a library that only works in the browser.
+常にサーバー側にモジュールを含める必要はありません。たとえば、ブラウザのみで動作するライブラリがモジュールに含まれている場合です。
 
-Take a look at the following example:
+次の例を見てください:
 
 ```jsx
 import dynamic from 'next/dynamic';
