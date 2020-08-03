@@ -11,11 +11,11 @@ description: 浅いルーティングを利用することで、新しいペー�
   </ul>
 </details>
 
-浅いルーティングにより、 [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering), [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation), そして [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md)を含むデータフェッチメソッドを再度実行せずに URL を変更できます。
+浅いルーティングにより、[`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering) や [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) そして [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md) を含むデータフェッチメソッドを再度実行せずに URL を変更できます。
  
-更新された ` pathname` と `query` は、状態を失うことなく  [`router` オブジェクト](/docs/api-reference/next/router.md#router-object)( [`useRouter`](/docs/api-reference/next/router.md#useRouter) や [`withRouter`](/docs/api-reference/next/router.md#withRouter)によって追加されたもの)を介して受け取ることができます。
+更新された `pathname` と `query` は、状態を失うことなく [`router` オブジェクト](/docs/api-reference/next/router.md#router-object)( [`useRouter`](/docs/api-reference/next/router.md#useRouter) や [`withRouter`](/docs/api-reference/next/router.md#withRouter) によって追加されたもの)を介して受け取ることができます。
 
-浅いルーティングを有効にするには、 `shallow` オプションを `true`に設定します。以下を例に考えてみましょう:
+浅いルーティングを有効にするには、`shallow` オプションを `true` に設定します。以下を例に考えてみましょう:
 
 ```jsx
 import { useEffect } from 'react';
@@ -48,7 +48,7 @@ Router.push('/?counter=10', undefined, { shallow: true });
 
 ページが置き換えられないまま、URL は `/?counter=10` に更新されます。 ルートの状態のみ変更されます。
 
-以下に示すように、 [`componentDidUpdate`](https://reactjs.org/docs/react-component.html#componentdidupdate) を介して URL の変更を監視もできます:
+以下に示すように、[`componentDidUpdate`](https://reactjs.org/docs/react-component.html#componentdidupdate) を介して URL の変更を監視もできます:
 
 ```jsx
 componentDidUpdate(prevProps) {
@@ -62,7 +62,7 @@ componentDidUpdate(prevProps) {
 
 ## 注意事項
 
-浅いルーティングは同じページの URL の変更に対して**のみ**機能します。例えば、 `pages / about.js`という別のページがあり、これを実行するとします:
+浅いルーティングは同じページの URL の変更に対して**のみ**機能します。例えば、`pages/about.js` という別のページがあり、これを実行するとします:
 
 ```jsx
 Router.push('/?counter=10', '/about?counter=10', { shallow: true });
