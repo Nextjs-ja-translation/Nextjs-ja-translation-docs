@@ -4,7 +4,7 @@ description: next export を使うとき、HTMLファイルとしてエクスポ
 
 # exportPathMap
 
-> この機能は `next export` を含みません。もし `next export` について詳しく学びたい場合は[静的HTMLのエクスポート](/docs/advanced-features/static-html-export.md)を参照してください。
+> この機能は `next export` に固有のものです。もし `next export` について詳しく学びたい場合は[静的HTMLのエクスポート](/docs/advanced-features/static-html-export.md)を参照してください。
 
 <details>
   <summary><b>例</b></summary>
