@@ -13,7 +13,7 @@ description: next export を使うとき、HTMLファイルとしてエクスポ
   </ul>
 </details>
 
-以下のページで、アプリのカスタム `exportPathMap` を作る例から始めましょう:
+以下のページを含むアプリのカスタム `exportPathMap` を作る例から始めましょう:
 
 - `pages/index.js`
 - `pages/about.js`
