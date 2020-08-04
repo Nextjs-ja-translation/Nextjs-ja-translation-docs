@@ -18,7 +18,8 @@
       "profile": "https://shinyaigeek.dev/",
       "contributions": [
         "code",
-        "review"
+        "review",
+        "tool"
       ]
     },
     {
@@ -124,7 +125,8 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/53966025?v=4",
       "profile": "https://thesugar.me",
       "contributions": [
-        "review"
+        "review",
+        "translation"
       ]
     },
     {
@@ -222,6 +224,69 @@
       "name": "Masaki Yoshiiwa",
       "avatar_url": "https://avatars0.githubusercontent.com/u/46310104?v=4",
       "profile": "https://yopinoji.com/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "karur4n",
+      "name": "Kazuki Furukawa",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6816398?v=4",
+      "profile": "https://github.com/karur4n",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "kuroppe1819",
+      "name": "Atsusuke",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17245737?v=4",
+      "profile": "https://github.com/kuroppe1819",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "dmamira",
+      "name": "dmamira",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/49590399?v=4",
+      "profile": "https://blog.dai.gd",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "okakyo",
+      "name": "Kyohei Oka",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/29594820?v=4",
+      "profile": "http://okakyo.myvnc.com",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "tomotaco",
+      "name": "ともたこ(Tomotaka Ogino)",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/9277718?v=4",
+      "profile": "http://tacoworks.jp/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "tomohiroyoshida",
+      "name": "Tomo",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/56680512?v=4",
+      "profile": "https://www.resume.id/t0m0_sun",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "YouheiNozaki",
+      "name": "ryu-sou",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/47715432?v=4",
+      "profile": "https://twitter.com/ryusou_mtkh",
       "contributions": [
         "translation"
       ]

@@ -1,29 +1,29 @@
 ---
-description: Configure how Next.js will dispose and keep in memory pages created in development.
+description: 開発環境において、作成されたページを Next.js がどのように破棄し、また、メモリに保持しておくかを設定します。
 ---
 
-# Configuring onDemandEntries
+# onDemandEntries の設定
 
-Next.js exposes some options that give you some control over how the server will dispose or keep in memory built pages in development.
+Next.js では、開発環境において、ビルドされたページをサーバーがどのように破棄またはメモリに保持しておくかを制御するためのオプションがいくつか公開されています。
 
-To change the defaults, open `next.config.js` and add the `onDemandEntries` config:
+デフォルトの設定を変更するためには、`next.config.js` に `onDemandEntries` という設定項目を追加してください:
 
 ```js
 module.exports = {
   onDemandEntries: {
-    // period (in ms) where the server will keep pages in the buffer
+    // サーバーがページをバッファに保持する周期（ミリ秒単位）
     maxInactiveAge: 25 * 1000,
-    // number of pages that should be kept simultaneously without being disposed
+    // 破棄されずに同時に保持されるページ数
     pagesBufferLength: 2
   }
 };
 ```
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js の紹介:</b>
+    <small>Next.js で使用する設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>

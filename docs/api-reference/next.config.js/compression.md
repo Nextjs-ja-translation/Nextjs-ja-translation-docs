@@ -1,12 +1,12 @@
 ---
-description: Next.js provides gzip compression to compress rendered content and static files, it only works with the server target. Learn more about it here.
+description: Next.js は、レンダリングされたコンテンツや静的ファイルを圧縮する gzip 圧縮を提供し、それは server ターゲットでのみ動作します。ここで、詳しく学びましょう。
 ---
 
-# Compression
+# 圧縮
 
-Next.js provides [**gzip**](https://tools.ietf.org/html/rfc6713#section-3) compression to compress rendered content and static files. Compression only works with the [`server` target](/docs/api-reference/next.config.js/build-target.md#server-target). In general you will want to enable compression on a HTTP proxy like [nginx](https://www.nginx.com/), to offload load from the `Node.js` process.
+Next.js は、レンダリングされたコンテンツや静的ファイルを圧縮する、[**gzip**](https://tools.ietf.org/html/rfc6713#section-3) 圧縮を提供します。圧縮は、[`server` ターゲット](/docs/api-reference/next.config.js/build-target.md#server-target)でのみ動作します。一般的には、 `Node.js` プロセスの負荷を軽減するために、[nginx](https://www.nginx.com/) のような HTTP プロキシで圧縮を有効にするのがいいでしょう。
 
-To disable **compression**, open `next.config.js` and disable the `compress` config:
+**圧縮**を無効にするには、 `next.config.js` の `compress` を無効にします:
 
 ```js
 module.exports = {
@@ -14,11 +14,11 @@ module.exports = {
 };
 ```
 
-## Related
+## 関連事項 
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>Next.config.js の紹介:</b>
+    <small>Next.js の設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
