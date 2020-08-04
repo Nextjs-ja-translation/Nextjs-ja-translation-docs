@@ -45,7 +45,7 @@ module.exports = {
 - `distDir` - `.next/` ディレクトリへの絶対パス ([`distDir`](/docs/api-reference/next.config.js/setting-a-custom-build-directory.md)設定で設定可能)
 - `buildId` - ビルド ID を生成します
 
-返されたオブジェクトは、 `key` が `pathname` で `value` が以下のフィールドを受け入れるオブジェクトのページのマップです:
+返り値となるオブジェクトは、 `key` が `pathname` で `value` が以下のフィールドを受け入れるオブジェクトのページのマップです:
 
 - `page`: `String` - `pages` ディレクトリ内のページを描画します
 - `query`: `Object` - プリレンダリングするとき `getInitialProps` に `query` オブジェクトを渡します。デフォルトは `{}` です。
