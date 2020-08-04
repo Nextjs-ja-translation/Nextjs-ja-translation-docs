@@ -35,7 +35,7 @@ module.exports = {
 };
 ```
 
-ページが HTML ファイルとしてエクスポートされたとき、例えば、 `/about` は `/about.html` になります。
+ページは HTML ファイルとしてエクスポートされ、例えば、 `/about` は `/about.html` になります。
 
 `exportPathMap` は 2 つの引数を受け取る `async` 関数(非同期関数)です: 第 1 引数は `defaultPathMap` で、これは Next.js で使うデフォルトマップです。第 2 引数はオブジェクトです:
 
