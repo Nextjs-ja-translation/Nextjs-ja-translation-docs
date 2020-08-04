@@ -47,7 +47,7 @@ module.exports = {
 
 返り値となるオブジェクトは、 `key` が `pathname` で `value` が以下のフィールドを受け入れるオブジェクトのページのマップです:
 
-- `page`: `String` - `pages` ディレクトリ内のページを描画します
+- `page`: `String` - 描画する `pages` ディレクトリ内のページ
 - `query`: `Object` - プリレンダリングするとき `getInitialProps` に `query` オブジェクトを渡します。デフォルトは `{}` です。
 
 > エクスポートされた `pathname` はファイル名にすることもできます (例：`/readme.md`)。しかし、それが `.html` と異なる場合、コンテンツを提供するとき、おそらく `Content-Type` ヘッダーを `text/html` にセットする必要があります。
