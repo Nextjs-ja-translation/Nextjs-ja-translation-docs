@@ -1,25 +1,25 @@
 ---
-description: Customize the pages that will be exported as HTML files when using `next export`.
+description: next export を使うとき、HTMLファイルとしてエクスポートされるページのカスタマイズをします。
 ---
 
 # exportPathMap
 
-> This feature is exclusive of `next export`. Please refer to [Static HTML export](/docs/advanced-features/static-html-export.md) if you want to learn more about it.
+> この機能は `next export` に固有のものです。もし `next export` について詳しく学びたい場合は[静的HTMLのエクスポート](/docs/advanced-features/static-html-export.md)を参照してください。
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-static-export">Static Export</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-static-export">静的エクスポート</a></li>
   </ul>
 </details>
 
-Let's start with an example, to create a custom `exportPathMap` for an app with the following pages:
+以下のページを含むアプリのカスタム `exportPathMap` を作る例から始めましょう:
 
 - `pages/index.js`
 - `pages/about.js`
 - `pages/post.js`
 
-Open `next.config.js` and add the following `exportPathMap` config:
+`next.config.js` を開いて、以下の `exportPathMap` 設定を追加します:
 
 ```js
 module.exports = {
@@ -35,28 +35,28 @@ module.exports = {
 };
 ```
 
-The pages will then be exported as HTML files, for example, `/about` will become `/about.html`.
+ページは HTML ファイルとしてエクスポートされ、例えば、 `/about` は `/about.html` になります。
 
-`exportPathMap` is an `async` function that receives 2 arguments: the first one is `defaultPathMap`, which is the default map used by Next.js. The second argument is an object with:
+`exportPathMap` は 2 つの引数を受け取る `async` 関数(非同期関数)です: 第 1 引数は `defaultPathMap` で、これは Next.js で使うデフォルトマップです。第 2 引数は以下のプロパティを持つオブジェクトです:
 
-- `dev` - `true` when `exportPathMap` is being called in development. `false` when running `next export`. In development `exportPathMap` is used to define routes.
-- `dir` - Absolute path to the project directory
-- `outDir` - Absolute path to the `out/` directory (configurable with `-o`). When `dev` is `true` the value of `outDir` will be `null`.
-- `distDir` - Absolute path to the `.next/` directory (configurable with the [`distDir`](/docs/api-reference/next.config.js/setting-a-custom-build-directory.md) config)
-- `buildId` - The generated build id
+- `dev` - 開発中に `exportPathMap` が呼ばれているとき `true` になります。`next export` 実行中のとき `false` になります。開発時 `exportPathMap` はルートの定義に利用されます。
+- `dir` - プロジェクトディレクトリへの絶対パス
+- `outDir` - `out/` ディレクトリへの絶対パス ( `-o` で設定可能)。`dev` が `true` のとき、 `outDir` の値は `null` になります。
+- `distDir` - `.next/` ディレクトリへの絶対パス ([`distDir`](/docs/api-reference/next.config.js/setting-a-custom-build-directory.md)設定で設定可能)
+- `buildId` - ビルド ID を生成します
 
-The returned object is a map of pages where the `key` is the `pathname` and the `value` is an object that accepts the following fields:
+返り値となるオブジェクトは、 `key` が `pathname` で `value` が以下のフィールドを受け入れるオブジェクトのページのマップです:
 
-- `page`: `String` - the page inside the `pages` directory to render
-- `query`: `Object` - the `query` object passed to `getInitialProps` when prerendering. Defaults to `{}`
+- `page`: `String` - 描画する `pages` ディレクトリ内のページ
+- `query`: `Object` - プリレンダリングするとき `getInitialProps` に `query` オブジェクトを渡します。デフォルトは `{}` です。
 
-> The exported `pathname` can also be a filename (for example, `/readme.md`), but you may need to set the `Content-Type` header to `text/html` when serving its content if it is different than `.html`.
+> エクスポートされた `pathname` はファイル名にすることもできます (例：`/readme.md`)。しかし、それが `.html` と異なる場合、コンテンツを提供するとき、おそらく `Content-Type` ヘッダーを `text/html` にセットする必要があります。
 
-## Adding a trailing slash
+## 末尾にスラッシュを追加する
 
-It is possible to configure Next.js to export pages as `index.html` files and require trailing slashes, `/about` becomes `/about/index.html` and is routable via `/about/`. This was the default behavior prior to Next.js 9.
+`index.html` ファイルとしてページをエクスポートするために Next.js を設定できます。末尾にスラッシュを要求し、 `/about` が `/about/index.html` になることで、 `/about/` を経由してルーティング可能になります。これは Next.js 9 より前のデフォルトの動作でした。
 
-To switch back and add a trailing slash, open `next.config.js` and enable the `exportTrailingSlash` config:
+末尾にスラッシュを追加するように切り替えるには、 `next.config.js` を開いて、 `exportTrailingSlash` 設定を有効にします:
 
 ```js
 module.exports = {
@@ -64,18 +64,26 @@ module.exports = {
 };
 ```
 
-## Related
+## 出力するディレクトリをカスタマイズする
+
+[`next export`](/docs/advanced-features/static-html-export.md#how-to-use-it) はデフォルトの出力先ディレクトリとして `out` を使います。`-o` 引数を使って、このようにカスタマイズできます:
+
+```bash
+next export -o outdir
+```
+
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js の紹介</b>
+    <small>Next.js で使用する設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/advanced-features/static-html-export.md">
-    <b>Static HTML Export:</b>
-    <small>Export your Next.js app to static HTML.</small>
+    <b>静的HTMLのエクスポート</b>
+    <small>Next.js のアプリケーションを静的なHTMLにエクスポートする。</small>
   </a>
 </div>
