@@ -6,7 +6,7 @@ description: 最適化されたページには、静的に最適化されてい�
 
 ページが [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) の対象となる場合は、インジケーターを表示してお知らせします。
 
-これは役に立ちます。なぜなら、automatic static optimization はとても有益なものですし、ページがその権利を与えられた場合、開発中でもすぐに知らせてくれるのは便利だからです。
+Automatic Static Optimization 自体とても有益なものですし、開発中にページが適格であるかどうかをすぐに知ることができるので、これは役に立ちます。
 
 ですが、 Electron アプリケーションで動かすときなど、インジケーターが役立たない場合があります。インジケーターを削除するためには、`next.config.js` ファイルを開き、`devIndicators` プロパティの `autoPrerender` 設定を無効にします:
 
