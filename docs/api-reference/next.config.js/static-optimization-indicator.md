@@ -8,7 +8,7 @@ description: 最適化されたページには、静的に最適化されてい�
 
 これは役に立ちます。なぜなら、automatic static optimization はとても有益なものですし、ページがその権利を与えられた場合、開発中でもすぐに知らせてくれるのは便利だからです。
 
-Electron アプリケーションで動かすといったような場面では、このインジケーターは役に立たない可能性があります。インジケーターを削除するためには、`next.config.js`ファイルを開き、`devIndicators`プロパティの `autoPrerender` 設定を無効にします:
+ですが、 Electron アプリケーションで動かすときなど、インジケーターが役立たない場合があります。インジケーターを削除するためには、`next.config.js` ファイルを開き、`devIndicators` プロパティの `autoPrerender` 設定を無効にします:
 
 ```js
 module.exports = {
