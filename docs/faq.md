@@ -6,9 +6,9 @@ description: Get to know more about Next.js with the frequently asked questions.
 
 <details>
   <summary>どのブラウザに対応していますか？</summary>
-  <p>Next.js は <a href="https://new.babeljs.io/docs/en/next/babel-preset-env.html">@babel/preset-env</a> を利用することで IE11 を含む現行の全てのブラウザに対応しています。また IE11 に対応するため、 Next.js は Promise polyfill をグローバルインストールしています。</p>
+  <p>Next.js は <a href="https://new.babeljs.io/docs/en/next/babel-preset-env.html">@babel/preset-env</a> を利用することで IE11 と全てのモダンブラウザに対応しています。また IE11 に対応するため、 Next.js は Promise polyfill をグローバルインストールしています。</p>
 
-  <p>目的のブラウザが対応していない機能を必要とするコードや外部 npm パッケージを使用する場合は、 polyfills を実装する必要があります。 polyfills を実装する必要がある場合、 <a href="https://github.com/zeit/next.js/tree/canary/examples/with-polyfills">polyfills</a> のサンプルで推奨されている方法を見ることができます。</p>
+  <p>目的のブラウザが対応していない機能を必要とするコードや外部 npm パッケージを使用する場合は、 Polyfill を実装する必要があります。 Polyfill を実装する必要がある場合、 <a href="https://github.com/vercel/next.js/tree/canary/examples/with-polyfills">Polyfill</a> のサンプルで推奨されている方法を見ることができます。</p>
 </details>
 
 <details>
@@ -25,7 +25,7 @@ description: Get to know more about Next.js with the frequently asked questions.
 
 <details>
   <summary>webpack の内部設定を変えるにはどうすればいいですか？</summary>
-  <p>Next.js は webpack 設定のオーバーヘッドを無くすように最善を尽くしてきました。 もし独自で設定する必要がある場合は、こちらの <a href="/docs/api-reference/next.config.js/custom-webpack-config.md">webpack 設定のカスタマイズのドキュメント</a>を見てください。</p>
+  <p>Next.js は webpack 設定のオーバーヘッドを無くすように最善を尽くしています。 しかし、独自で設定する必要がある場合は、こちらの <a href="/docs/api-reference/next.config.js/custom-webpack-config.md">webpack 設定のカスタマイズのドキュメント</a>を見てください。</p>
 </details>
 
 <details>
@@ -39,8 +39,8 @@ description: Get to know more about Next.js with the frequently asked questions.
   <summary>なぜ新しいルーターなのですか？</summary>
   Next.js には以下の特徴があります:
   <ul>
-    <li>ルートは事前に知られておく必要はなく、ルートマニフェストを送りません</li>
-    <li>ルートは常に遅延読み込みが可能です</li>
+    <li>ルーティングは事前に知られておく必要はなく、ルートマニフェストを送りません</li>
+    <li>ルーティングは常に遅延読み込みが可能です</li>
   </ul>
 </details>
 
@@ -51,12 +51,12 @@ description: Get to know more about Next.js with the frequently asked questions.
 
 <details>
   <summary>GraphQL と一緒に使えますか？</summary>
-  <p>使えます！ <a href="https://github.com/zeit/next.js/tree/canary/examples/with-apollo">example with Apollo</a> を見てください。</p>
+  <p>使えます！ <a href="https://github.com/vercel/next.js/tree/canary/examples/with-apollo">example with Apollo</a> を見てください。</p>
 </details>
 
 <details>
   <summary>Reduxと一緒に使えますか？</summary>
-  <p>使えます！ <a href="https://github.com/zeit/next.js/tree/canary/examples/with-redux">example</a> を見てください。 <a href="https://github.com/zeit/next.js/tree/canary/examples/with-redux-thunk">example with thunk</a> もあります。</p>
+  <p>使えます！ <a href="https://github.com/vercel/next.js/tree/canary/examples/with-redux">example</a> を見てください。 <a href="https://github.com/vercel/next.js/tree/canary/examples/with-redux-thunk">example with thunk</a> もあります。</p>
 </details>
 
 <details>
@@ -66,7 +66,7 @@ description: Get to know more about Next.js with the frequently asked questions.
 
 <details>
   <summary>Next でお気に入りの JavaScript ライブラリやツールを使うことはできますか？</summary>
-  <p>最初のリリース以来、多くの他ライブラリやツールとの併用例がコントリビュートされてきました。 <a href="https://github.com/zeit/next.js/tree/canary/examples">examples</a> ディレクトリで見ることができます。</p>
+  <p>最初のリリース以来、多くの他ライブラリやツールとの併用例がコントリビュートされてきました。 <a href="https://github.com/vercel/next.js/tree/canary/examples">examples</a> ディレクトリで見ることができます。</p>
 </details>
 
 <details>
@@ -77,5 +77,5 @@ description: Get to know more about Next.js with the frequently asked questions.
 
   <p>PHP とは違って ES6 モジュールシステムの恩恵を受けることができ、ページ毎にコンポーネントや関数がエクスポートされることで遅延評価やテストを簡単に導入することができます。</p>
 
-  <p>手間がかからない React のサーバーサイドレンダリングの選択肢を調査していた時、 Next.js と同じ手法を取っている <a href="https://github.com/facebookarchive/react-page">react-page</a> （現在は非推奨）に出会いました。これは React の製作者である Jordan Walke によるものです。</p>
+  <p>手間がかからない React のサーバーサイドレンダリングの選択肢を調査していた時、 Next.js と似た手法を取っている <a href="https://github.com/facebookarchive/react-page">react-page</a> （現在は非推奨）に出会いました。これは React の製作者である Jordan Walke によるものです。</p>
 </details>
