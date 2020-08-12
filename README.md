@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-31-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -99,7 +99,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
     <td align="center"><a href="https://peaceful-mcclintock-c87ee2.netlify.app/"><img src="https://avatars0.githubusercontent.com/u/36391432?v=4" width="100px;" alt=""/><br /><sub><b>ryuckel</b></sub></a><br /><a href="#translation-ryuckel" title="Translation">🌍</a></td>
     <td align="center"><a href="https://yamanoku.net"><img src="https://avatars1.githubusercontent.com/u/1996642?v=4" width="100px;" alt=""/><br /><sub><b>Okuto Oyama</b></sub></a><br /><a href="#translation-yamanoku" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/syakoo"><img src="https://avatars1.githubusercontent.com/u/12678450?v=4" width="100px;" alt=""/><br /><sub><b>syakoo</b></sub></a><br /><a href="#translation-syakoo" title="Translation">🌍</a></td>
-    <td align="center"><a href="https://thesugar.me"><img src="https://avatars1.githubusercontent.com/u/53966025?v=4" width="100px;" alt=""/><br /><sub><b>thesugar / Ryohei Sato</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3Athesugar" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://thesugar.me"><img src="https://avatars1.githubusercontent.com/u/53966025?v=4" width="100px;" alt=""/><br /><sub><b>thesugar / Ryohei Sato</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3Athesugar" title="Reviewed Pull Requests">👀</a> <a href="#translation-thesugar" title="Translation">🌍</a></td>
     <td align="center"><a href="http://queq1890.info"><img src="https://avatars2.githubusercontent.com/u/32263803?v=4" width="100px;" alt=""/><br /><sub><b>Yuji Matsumoto</b></sub></a><br /><a href="#translation-queq1890" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/mpg-teruhisa-fukumoto"><img src="https://avatars2.githubusercontent.com/u/21003135?v=4" width="100px;" alt=""/><br /><sub><b>Teruhisa Fukumoto</b></sub></a><br /><a href="#translation-f-teruhisa" title="Translation">🌍</a></td>
   </tr>
@@ -115,6 +115,16 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
   <tr>
     <td align="center"><a href="https://panda-program.com/"><img src="https://avatars0.githubusercontent.com/u/36080801?v=4" width="100px;" alt=""/><br /><sub><b>Mashu Kushibiki</b></sub></a><br /><a href="#translation-KushibikiMashu" title="Translation">🌍</a></td>
     <td align="center"><a href="https://yopinoji.com/"><img src="https://avatars0.githubusercontent.com/u/46310104?v=4" width="100px;" alt=""/><br /><sub><b>Masaki Yoshiiwa</b></sub></a><br /><a href="#translation-YopiNoji" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/karur4n"><img src="https://avatars0.githubusercontent.com/u/6816398?v=4" width="100px;" alt=""/><br /><sub><b>Kazuki Furukawa</b></sub></a><br /><a href="#translation-karur4n" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/kuroppe1819"><img src="https://avatars1.githubusercontent.com/u/17245737?v=4" width="100px;" alt=""/><br /><sub><b>Atsusuke</b></sub></a><br /><a href="#translation-kuroppe1819" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://blog.dai.gd"><img src="https://avatars1.githubusercontent.com/u/49590399?v=4" width="100px;" alt=""/><br /><sub><b>dmamira</b></sub></a><br /><a href="#translation-dmamira" title="Translation">🌍</a></td>
+    <td align="center"><a href="http://okakyo.myvnc.com"><img src="https://avatars3.githubusercontent.com/u/29594820?v=4" width="100px;" alt=""/><br /><sub><b>Kyohei Oka</b></sub></a><br /><a href="#translation-okakyo" title="Translation">🌍</a></td>
+    <td align="center"><a href="http://tacoworks.jp/"><img src="https://avatars1.githubusercontent.com/u/9277718?v=4" width="100px;" alt=""/><br /><sub><b>ともたこ(Tomotaka Ogino)</b></sub></a><br /><a href="#translation-tomotaco" title="Translation">🌍</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://www.resume.id/t0m0_sun"><img src="https://avatars2.githubusercontent.com/u/56680512?v=4" width="100px;" alt=""/><br /><sub><b>Tomo</b></sub></a><br /><a href="#translation-tomohiroyoshida" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://twitter.com/ryusou_mtkh"><img src="https://avatars3.githubusercontent.com/u/47715432?v=4" width="100px;" alt=""/><br /><sub><b>ryu-sou</b></sub></a><br /><a href="#translation-YouheiNozaki" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/tanakaKSUK"><img src="https://avatars1.githubusercontent.com/u/49139714?v=4" width="100px;" alt=""/><br /><sub><b>tanakaKSUK</b></sub></a><br /><a href="#translation-tanakaKSUK" title="Translation">🌍</a></td>
   </tr>
 </table>
 

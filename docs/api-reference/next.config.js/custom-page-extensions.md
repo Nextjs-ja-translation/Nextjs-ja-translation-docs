@@ -1,12 +1,12 @@
 ---
-description: Extend the default page extensions used by Next.js when resolving pages in the pages directory.
+description: ページディレクトリ内のページを読み込む際にNext.jsが使用する、ページ標準の拡張子をカスタマイズします。
 ---
 
-# Custom Page Extensions
+# 独自のページ拡張子
 
-Aimed at modules like [@next/mdx](https://github.com/zeit/next.js/tree/canary/packages/next-mdx), which adds support for pages ending with `.mdx`. You can configure the extensions looked for in the `pages` directory when resolving pages.
+`.mdx` で終わるページのサポートを追加した [@next/mdx](https://github.com/zeit/next.js/tree/canary/packages/next-mdx) のようなモジュールを対象としています。ページを解決する際に `pages` ディレクトリで探す拡張子を設定できます。
 
-Open `next.config.js` and add the `pageExtensions` config:
+`next.config.js` を開き、 `pageExtensions` の設定を追加します:
 
 ```js
 module.exports = {
@@ -14,11 +14,11 @@ module.exports = {
 };
 ```
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.jsの紹介:</b>
+    <small>Next.jsが使用する設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
