@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-31-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-32-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -125,6 +125,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
     <td align="center"><a href="https://www.resume.id/t0m0_sun"><img src="https://avatars2.githubusercontent.com/u/56680512?v=4" width="100px;" alt=""/><br /><sub><b>Tomo</b></sub></a><br /><a href="#translation-tomohiroyoshida" title="Translation">🌍</a></td>
     <td align="center"><a href="https://twitter.com/ryusou_mtkh"><img src="https://avatars3.githubusercontent.com/u/47715432?v=4" width="100px;" alt=""/><br /><sub><b>ryu-sou</b></sub></a><br /><a href="#translation-YouheiNozaki" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/tanakaKSUK"><img src="https://avatars1.githubusercontent.com/u/49139714?v=4" width="100px;" alt=""/><br /><sub><b>tanakaKSUK</b></sub></a><br /><a href="#translation-tanakaKSUK" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/Hiro0206"><img src="https://avatars1.githubusercontent.com/u/50988223?v=4" width="100px;" alt=""/><br /><sub><b>chiiita</b></sub></a><br /><a href="#translation-Hiro0206" title="Translation">🌍</a></td>
   </tr>
 </table>
 
