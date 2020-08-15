@@ -4,10 +4,7 @@
       "title": "Documentation",
       "heading": true,
       "routes": [
-        {
-          "title": "はじめに",
-          "path": "/docs/getting-started.md"
-        },
+        { "title": "はじめに", "path": "/docs/getting-started.md" },
         {
           "title": "Basic Features",
           "open": true,
@@ -174,20 +171,14 @@
           "title": "アップグレードガイド",
           "path": "/docs/upgrading.md"
         },
-        {
-          "title": "FAQ",
-          "path": "/docs/faq.md"
-        }
+        { "title": "FAQ", "path": "/docs/faq.md" }
       ]
     },
     {
       "title": "API Reference",
       "heading": true,
       "routes": [
-        {
-          "title": "CLI",
-          "path": "/docs/api-reference/cli.md"
-        },
+        { "title": "CLI", "path": "/docs/api-reference/cli.md" },
         {
           "title": "next/router",
           "path": "/docs/api-reference/next/router.md"
