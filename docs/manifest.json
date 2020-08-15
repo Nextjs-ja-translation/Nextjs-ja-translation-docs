@@ -54,7 +54,7 @@
               "path": "/docs/routing/imperatively.md"
             },
             {
-              "title": "Shallow Routing",
+              "title": "浅いルーティング",
               "path": "/docs/routing/shallow-routing.md"
             }
           ]
@@ -71,7 +71,7 @@
               "path": "/docs/api-routes/dynamic-api-routes.md"
             },
             {
-              "title": "API Middlewares",
+              "title": "API ミドルウェア",
               "path": "/docs/api-routes/api-middlewares.md"
             },
             {
@@ -88,7 +88,7 @@
           "title": "Advanced Features",
           "routes": [
             {
-              "title": "Preview Mode",
+              "title": "プレビューモード",
               "path": "/docs/advanced-features/preview-mode.md"
             },
             {
@@ -165,13 +165,13 @@
               "path": "/docs/advanced-features/multi-zones.md"
             },
             {
-              "title": "Measuring performance",
+              "title": "パフォーマンス測定",
               "path": "/docs/advanced-features/measuring-performance.md"
             }
           ]
         },
         {
-          "title": "Upgrade Guide",
+          "title": "アップグレードガイド",
           "path": "/docs/upgrading.md"
         },
         {
@@ -269,7 +269,7 @@
               "path": "/docs/api-reference/next.config.js/configuring-the-build-id.md"
             },
             {
-              "title": "Configuring onDemandEntries",
+              "title": "onDemandEntries の設定",
               "path": "/docs/api-reference/next.config.js/configuring-onDemandEntries.md"
             },
             {

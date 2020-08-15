@@ -125,7 +125,8 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/53966025?v=4",
       "profile": "https://thesugar.me",
       "contributions": [
-        "review"
+        "review",
+        "translation"
       ]
     },
     {
@@ -259,6 +260,42 @@
       "name": "Kyohei Oka",
       "avatar_url": "https://avatars3.githubusercontent.com/u/29594820?v=4",
       "profile": "http://okakyo.myvnc.com",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "tomotaco",
+      "name": "ともたこ(Tomotaka Ogino)",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/9277718?v=4",
+      "profile": "http://tacoworks.jp/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "tomohiroyoshida",
+      "name": "Tomo",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/56680512?v=4",
+      "profile": "https://www.resume.id/t0m0_sun",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "YouheiNozaki",
+      "name": "ryu-sou",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/47715432?v=4",
+      "profile": "https://twitter.com/ryusou_mtkh",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "tanakaKSUK",
+      "name": "tanakaKSUK",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/49139714?v=4",
+      "profile": "https://github.com/tanakaKSUK",
       "contributions": [
         "translation"
       ]

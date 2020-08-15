@@ -2,7 +2,7 @@
 description: 最適化されたページには、静的に最適化されているかどうかを知らせるインジケーターが含まれています。オプトアウトの方法を見ていきましょう。
 ---
 
-# Static Optimization Indicator
+# 静的最適化インジケータ
 
 ページが [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) の対象となる場合は、インジケーターを表示してお知らせします。
 
