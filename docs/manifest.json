@@ -4,7 +4,10 @@
       "title": "Documentation",
       "heading": true,
       "routes": [
-        { "title": "はじめに", "path": "/docs/getting-started.md" },
+        {
+          "title": "はじめに",
+          "path": "/docs/getting-started.md"
+        },
         {
           "title": "Basic Features",
           "open": true,
@@ -171,14 +174,20 @@
           "title": "Upgrade Guide",
           "path": "/docs/upgrading.md"
         },
-        { "title": "FAQ", "path": "/docs/faq.md" }
+        {
+          "title": "FAQ",
+          "path": "/docs/faq.md"
+        }
       ]
     },
     {
       "title": "API Reference",
       "heading": true,
       "routes": [
-        { "title": "CLI", "path": "/docs/api-reference/cli.md" },
+        {
+          "title": "CLI",
+          "path": "/docs/api-reference/cli.md"
+        },
         {
           "title": "next/router",
           "path": "/docs/api-reference/next/router.md"
@@ -236,7 +245,7 @@
               "path": "/docs/api-reference/next.config.js/compression.md"
             },
             {
-              "title": "Static Optimization Indicator",
+              "title": "静的最適化インジケータ",
               "path": "/docs/api-reference/next.config.js/static-optimization-indicator.md"
             },
             {
