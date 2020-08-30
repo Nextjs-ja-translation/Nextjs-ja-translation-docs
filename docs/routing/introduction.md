@@ -1,42 +1,42 @@
 ---
-description: Next.js has a built-in, opinionated, and file-system based Router. You can learn how it works here.
+description: Next.js はファイルシステムに沿った、独自の思想に基づくルーターがビルトインで導入されています。このページで学んでいきましょう。
 ---
 
-# Routing
+# ルーティング
 
-Next.js has a file-system based router built on the [concept of pages](/docs/basic-features/pages.md).
+Next.js は[ページという概念](/docs/basic-features/pages.md)に基づいて、ファイルシステムに沿ったルーターを持っています。
 
-When a file is added to the `pages` directory it's automatically available as a route.
+`pages` ディレクトリにファイルが追加されたとき、ルートとして自動で使用可能になります。
 
-The files inside the `pages` directory can be used to define most common patterns.
+`pages` ディレクトリ内のファイルは次の一般的なパターンで定義されます。
 
-#### Index routes
+### インデックスルート
 
-The router will automatically route files named `index` to the root of the directory.
+ルーターは `index` という名前のファイルをディレクトリのルートとしてルーティングします。
 
 - `pages/index.js` → `/`
 - `pages/blog/index.js` → `/blog`
 
-#### Nested routes
+### ネストされたルート
 
-The router supports nested files. If you create a nested folder structure files will be automatically routed in the same way still.
+ルーターはネストされたファイルもサポートします。ネストされたフォルダ構造を作ると、内部に置かれたファイルも同じようにルーティングされます。
 
 - `pages/blog/first-post.js` → `/blog/first-post`
 - `pages/dashboard/settings/username.js` → `/dashboard/settings/username`
 
-#### Dynamic route segments
+### 動的なルートのセグメント
 
-To match a dynamic segment you can use the bracket syntax. This allows you to match named parameters.
+動的なセグメントにマッチさせたければブラケット記法を使うことができます。名前をつけたパラメーターとのマッチが可能です。
 
 - `pages/blog/[slug].js` → `/blog/:slug` (`/blog/hello-world`)
 - `pages/[username]/settings.js` → `/:username/settings` (`/foo/settings`)
 - `pages/post/[...all].js` → `/post/*` (`/post/2020/id/title`)
 
-## Linking between pages
+## ページ間をリンクする
 
-The Next.js router allows you to do client-side route transitions between pages, similarly to a single-page application.
+Next.js のルーターは、シングルページアプリケーションのようにクライアントサイドでのページ間遷移が可能です。
 
-A React component called `Link` is provided to do this client-side route transition.
+このクライアントサイドでのページ遷移のために、`Link` という React コンポーネントが提供されています。
 
 ```jsx
 import Link from 'next/link';
@@ -61,10 +61,10 @@ function Home() {
 export default Home;
 ```
 
-When linking to a route with [dynamic path segments](/docs/routing/dynamic-routes.md) you have to provide `href` and `as` to make sure the router knows which JavaScript file to load.
+[動的なパスセグメント](/docs/routing/dynamic-routes.md)でリンクするとき、ルータがどの JavaScript ファイルを読む込むのかが分かるように、 `href` と `as` を渡す必要があります。
 
-- `href` - The name of the page in the `pages` directory. For example `/blog/[slug]`.
-- `as` - The url that will be shown in the browser. For example `/blog/hello-world`.
+- `href` - `pages` ディレクトリ中のページの名前です。例えば `/blog/[slug]` のようにします。
+- `as` - ブラウザに表示される URL です。以下の例では `/blog/hello-world` になります。
 
 ```jsx
 import Link from 'next/link';
@@ -84,7 +84,7 @@ function Home() {
 export default Home;
 ```
 
-The `as` prop can also be generated dynamically. For example, to show a list of posts which have been passed to the page as a prop:
+`as` プロパティも動的に生成できます。プロパティとしてページに渡されたポストのリストを表示する時は次のようになります:
 
 ```jsx
 function Home({ posts }) {
@@ -102,33 +102,33 @@ function Home({ posts }) {
 }
 ```
 
-## Injecting the router
+## ルーターを React コンポーネント内で使う
 
 <details>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/dynamic-routing">Dynamic Routing</a></li>
+    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/dynamic-routing">動的なルーティング</a></li>
   </ul>
 </details>
 
-To access the [`router` object](/docs/api-reference/next/router.md#router-object) in a React component you can use [`useRouter`](/docs/api-reference/next/router.md#useRouter) or [`withRouter`](/docs/api-reference/next/router.md#withRouter).
+React コンポーネント内で [`router` オブジェクト](/docs/api-reference/next/router.md#router-object) にアクセスするには [`useRouter`]( /docs/api-reference/next/router.md#useRouter) もしくは [`withRouter`](/docs/api-reference/next/router.md#withRouter) を使うことができます。
 
-In general we recommend using [`useRouter`](/docs/api-reference/next/router.md#useRouter).
+一般的に [`useRouter`](/docs/api-reference/next/router.md#useRouter) を使うことをお勧めします。
 
-## Learn more
+## さらに学ぶ
 
-The router is divided in multiple parts:
+ルーターは複数のパーツに分かれています。
 
 <div class="card">
   <a href="/docs/api-reference/next/link.md">
     <b>next/link:</b>
-    <small>Handle client-side navigations.</small>
+    <small>クライアントサイドでの遷移を制御する</small>
   </a>
 </div>
 
 <div class="card">
   <a href="/docs/api-reference/next/router.md">
     <b>next/router:</b>
-    <small>Leverage the router API in your pages.</small>
+    <small>ページ内でルーター API を活用する</small>
   </a>
 </div>
