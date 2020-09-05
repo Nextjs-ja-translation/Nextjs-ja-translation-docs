@@ -18,18 +18,17 @@ module.exports = {
 };
 ```
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js の紹介</b>
+    <small>Next.js で使用する設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
-
 <div class="card">
   <a href="/docs/advanced-features/automatic-static-optimization.md">
     <b>Automatic Static Optimization:</b>
-    <small>Next.js automatically optimizes your app to be static HTML whenever possible. Learn how it works here.</small>
+    <small>Next.jsは可能な限り静的HTMLにすることで自動でアプリケーションを最適化します。どのように動くか学んでみましょう。</small>
   </a>
 </div>
