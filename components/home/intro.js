@@ -137,7 +137,7 @@ export default class extends React.PureComponent {
                 </div>
 
                 <div className="button-spacer">
-                  <Button href="/contributors" invert outline>
+                  <Button href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs#contributors-" invert outline>
                     コントリビューター
                   </Button>
                 </div>
