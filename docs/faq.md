@@ -56,7 +56,7 @@ description: よくある質問を通して Next.js について理解を深め�
 
 <details>
   <summary>Reduxと一緒に使えますか？</summary>
-  <p>使えます！ <a href="https://github.com/vercel/next.js/tree/canary/examples/with-redux">example</a> を見てください。 <a href="https://github.com/vercel/next.js/tree/canary/examples/with-redux-thunk">example with thunk</a> もあります。</p>
+  <p>使えます！ こちらの<a href="https://github.com/vercel/next.js/tree/canary/examples/with-redux">サンプル</a> を見てください。 <a href="https://github.com/vercel/next.js/tree/canary/examples/with-redux-thunk">thunk を用いたサンプル</a> もあります。</p>
 </details>
 
 <details>
