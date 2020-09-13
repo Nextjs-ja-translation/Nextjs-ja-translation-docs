@@ -1,5 +1,5 @@
 ---
-description: `next export`を使用してAMPページを作成する方法を学んでいきましょう。
+description: next export を使用してAMPページを作成する方法を学んでいきましょう。
 ---
 
 # AMPの静的HTMLエクスポート

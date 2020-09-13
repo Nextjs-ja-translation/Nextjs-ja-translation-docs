@@ -1,14 +1,14 @@
 ---
-description: Optimized pages include an indicator to let you know if it's being statically optimized. You can opt-out of it here.
+description: 最適化されたページには、静的に最適化されているかどうかを知らせるインジケーターが含まれています。また、こちらでオプトアウトすることができます。
 ---
 
-# Static Optimization Indicator
+# 静的最適化インジケータ
 
-When a page qualifies for [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) we show an indicator to let you know.
+ページが [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) の対象となる場合は、インジケーターを表示してお知らせします。
 
-This is helpful since automatic static optimization can be very beneficial and knowing immediately in development if the page qualifies can be useful.
+Automatic Static Optimization 自体とても有益なものですし、ページが Automatic Static Optimization の対象であるか開発時にすぐ分かるので、これは役に立ちます。
 
-In some cases this indicator might not be useful, like when working on electron applications. To remove it open `next.config.js` and disable the `autoPrerender` config in `devIndicators`:
+しかし、 Electron アプリケーションで動かすときなど、インジケーターは役に立たない場合があります。インジケーターを削除するためには、`next.config.js` ファイルを開き、`devIndicators` プロパティの `autoPrerender` 設定を無効にします:
 
 ```js
 module.exports = {
@@ -18,18 +18,17 @@ module.exports = {
 };
 ```
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js の紹介</b>
+    <small>Next.js で使用する設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
-
 <div class="card">
   <a href="/docs/advanced-features/automatic-static-optimization.md">
     <b>Automatic Static Optimization:</b>
-    <small>Next.js automatically optimizes your app to be static HTML whenever possible. Learn how it works here.</small>
+    <small>Next.jsは可能な限り静的HTMLにすることで自動でアプリケーションを最適化します。どのように動くか学んでみましょう。</small>
   </a>
 </div>

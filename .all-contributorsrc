@@ -317,6 +317,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "itohiro73",
+      "name": "Hiroshi Ito",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2220637?v=4",
+      "profile": "http://itohiro73.hatenablog.com/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
