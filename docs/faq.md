@@ -51,7 +51,7 @@ description: よくある質問を通して Next.js について理解を深め�
 
 <details>
   <summary>GraphQL と一緒に使えますか？</summary>
-  <p>使えます！ <a href="https://github.com/vercel/next.js/tree/canary/examples/with-apollo">example with Apollo</a> を見てください。</p>
+  <p>使えます！ <a href="https://github.com/vercel/next.js/tree/canary/examples/with-apollo">Apollo を使ったサンプル</a> を見てください。</p>
 </details>
 
 <details>
