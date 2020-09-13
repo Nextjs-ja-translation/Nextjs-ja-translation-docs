@@ -25,7 +25,7 @@ description: よくある質問を通して Next.js について理解を深め�
 
 <details>
   <summary>webpack の内部設定を変えるにはどうすればいいですか？</summary>
-  <p>Next.js は webpack 設定のオーバーヘッドを無くすように最善を尽くしています。 しかし、独自で設定する必要がある場合は、こちらの <a href="/docs/api-reference/next.config.js/custom-webpack-config.md">webpack 設定のカスタマイズのドキュメント</a>を見てください。</p>
+  <p>Next.js は webpack 設定のオーバーヘッドを無くすように最善を尽くしています。 しかし、より多くの制御を必要とするような高度なケースでは、こちらの <a href="/docs/api-reference/next.config.js/custom-webpack-config.md">webpack 設定のカスタマイズのドキュメント</a>を見てください。</p>
 </details>
 
 <details>
