@@ -1,5 +1,5 @@
 ---
-description: Get to know more about Next.js with the frequently asked questions.
+description: よくある質問を通して Next.js について理解を深めましょう。
 ---
 
 # よくある質問
