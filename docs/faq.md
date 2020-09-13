@@ -46,7 +46,7 @@ description: よくある質問を通して Next.js について理解を深め�
 
 <details>
   <summary>データを取得するにはどうすればいいですか？</summary>
-  <p>好きな方法を選ぶことができます。 React コンポーネント内でリモートデータを取得するには、 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">fetch API</a> か <a href="https://swr.now.sh/">SWR</a> のどちらかを使うことができます。 もしくは Next.js 独自の<a href="/docs/basic-features/data-fetching.md">データ取得メソッド</a>を使って初期データ群を取得することができます。</p>
+  <p>好きな方法を選ぶことができます。 React コンポーネント内でリモートデータを取得するには、 <a href="https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch">fetch API</a> か <a href="https://swr.now.sh/">SWR</a> のどちらかを使うことができます。 もしくは Next.js 独自の<a href="/docs/basic-features/data-fetching.md">データ取得メソッド</a>を使って初期データを追加できます。</p>
 </details>
 
 <details>
