@@ -125,7 +125,8 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/53966025?v=4",
       "profile": "https://thesugar.me",
       "contributions": [
-        "review"
+        "review",
+        "translation"
       ]
     },
     {
@@ -288,6 +289,42 @@
       "profile": "https://twitter.com/ryusou_mtkh",
       "contributions": [
         "translation"
+      ]
+    },
+    {
+      "login": "tanakaKSUK",
+      "name": "tanakaKSUK",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/49139714?v=4",
+      "profile": "https://github.com/tanakaKSUK",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "adoringonion",
+      "name": "adoringonion",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/43922475?v=4",
+      "profile": "https://adoringonion.com",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "Hiro0206",
+      "name": "chiiita",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/50988223?v=4",
+      "profile": "https://github.com/Hiro0206",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "itohiro73",
+      "name": "Hiroshi Ito",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2220637?v=4",
+      "profile": "http://itohiro73.hatenablog.com/",
+      "contributions": [
+        "doc"
       ]
     }
   ],

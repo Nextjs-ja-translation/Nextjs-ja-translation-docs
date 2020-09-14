@@ -70,7 +70,7 @@ export default withPure(() => (
               </Link>
             </p>
             <p>
-              <Link href="/contributors">
+              <Link href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs#contributors-">
                 <a>コントリビューター</a>
               </Link>
             </p>

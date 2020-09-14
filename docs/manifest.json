@@ -171,7 +171,7 @@
           "title": "アップグレードガイド",
           "path": "/docs/upgrading.md"
         },
-        { "title": "FAQ", "path": "/docs/faq.md" }
+        { "title": "よくある質問", "path": "/docs/faq.md" }
       ]
     },
     {
@@ -236,7 +236,7 @@
               "path": "/docs/api-reference/next.config.js/compression.md"
             },
             {
-              "title": "Static Optimization Indicator",
+              "title": "静的最適化インジケータ",
               "path": "/docs/api-reference/next.config.js/static-optimization-indicator.md"
             },
             {
@@ -260,7 +260,7 @@
               "path": "/docs/api-reference/next.config.js/configuring-the-build-id.md"
             },
             {
-              "title": "Configuring onDemandEntries",
+              "title": "onDemandEntries の設定",
               "path": "/docs/api-reference/next.config.js/configuring-onDemandEntries.md"
             },
             {
