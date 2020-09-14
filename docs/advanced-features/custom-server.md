@@ -7,11 +7,11 @@ description: カスタムサーバーを使用してプログラム上で Next.j
 <details>
   <summary><b>Examples</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/custom-server">Basic custom server</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/custom-server-express">Express integration</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/custom-server-hapi">Hapi integration</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/custom-server-koa">Koa integration</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/ssr-caching">SSR Caching</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/custom-server">Basic custom server</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/custom-server-express">Express integration</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/custom-server-hapi">Hapi integration</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/custom-server-koa">Koa integration</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/ssr-caching">SSR Caching</a></li>
   </ul>
 </details>
 

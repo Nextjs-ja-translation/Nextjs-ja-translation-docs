@@ -177,7 +177,7 @@ const nextConfig = {
         },
         {
           source: '/discussions',
-          destination: 'https://github.com/zeit/next.js/discussions',
+          destination: 'https://github.com/vercel/next.js/discussions',
           permanent: false
         }
       ];

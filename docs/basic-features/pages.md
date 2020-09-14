@@ -60,12 +60,12 @@ Next.js ではプリレンダリングに関して**静的生成(Static Generati
   <summary><b>サンプル</b></summary>
   <ul>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress">WordPressの例</a> (<a href="https://next-blog-wordpress.now.sh">デモ</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/blog-starter">Markdownファイルを用いたブログの例</a> (<a href="https://next-blog-starter.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-datocms">DatoCMSを用いた例</a> (<a href="https://next-blog-datocms.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-takeshape">TakeShapeを用いた例</a> (<a href="https://next-blog-takeshape.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-sanity">Sanityを用いた例</a> (<a href="https://next-blog-sanity.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-prismic">Prismicを用いた例</a> (<a href="https://next-blog-prismic.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-contentful">Contentfulを用いた例</a> (<a href="https://next-blog-contentful.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/blog-starter">Markdownファイルを用いたブログの例</a> (<a href="https://next-blog-starter.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-datocms">DatoCMSを用いた例</a> (<a href="https://next-blog-datocms.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape">TakeShapeを用いた例</a> (<a href="https://next-blog-takeshape.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-sanity">Sanityを用いた例</a> (<a href="https://next-blog-sanity.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prismic">Prismicを用いた例</a> (<a href="https://next-blog-prismic.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-contentful">Contentfulを用いた例</a> (<a href="https://next-blog-contentful.now.sh/">デモ</a>)</li>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-strapi">Strapiを用いた例</a> (<a href="https://next-blog-strapi.now.sh/">デモ</a>)</li>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms">Agility CMSを用いた例</a> (<a href="https://next-blog-agilitycms.now.sh/">デモ</a>)</li>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic">Cosmicを用いた例</a> (<a href="https://next-blog-cosmic.now.sh/">デモ</a>)</li>

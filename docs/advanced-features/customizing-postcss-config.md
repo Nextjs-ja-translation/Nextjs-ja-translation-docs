@@ -7,7 +7,7 @@ description: Next.jsで追加したPostCSSの設定とプラグインを独自�
 <details open>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-tailwindcss">Tailwind CSS の例</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss">Tailwind CSS の例</a></li>
   </ul>
 </details>
 

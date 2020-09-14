@@ -7,7 +7,7 @@ description: 動的なルーティングを用いてページのURLにカスタ�
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/dynamic-routing">Dynamic Routing</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/dynamic-routing">Dynamic Routing</a></li>
   </ul>
 </details>
 
@@ -61,7 +61,7 @@ export default Post;
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/catch-all-routes">Catch All Routes</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/catch-all-routes">Catch All Routes</a></li>
   </ul>
 </details>
 
@@ -83,7 +83,7 @@ export default Post;
 { "slug": ["a", "b"] }
 ```
 
-> すべてのルートを受け取る良い例はNext.jsのdocsです。 [pages/docs/[...slug].js](https://github.com/zeit/next-site/blob/master/pages/docs/%5B...slug%5D.js) という1つのページが、現在見ているdocsをすべて処理しています。
+> すべてのルートを受け取る良い例はNext.jsのdocsです。 [pages/docs/[...slug].js](https://github.com/vercel/next-site/blob/master/pages/docs/%5B...slug%5D.js) という1つのページが、現在見ているdocsをすべて処理しています。
 
 ### オプショナルにすべてのルートを受け取る
 

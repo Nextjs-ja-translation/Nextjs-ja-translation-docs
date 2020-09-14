@@ -71,7 +71,7 @@ export default withRouter(Page);
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/using-router">ルーターを利用する</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/using-router">ルーターを利用する</a></li>
   </ul>
 </details>
 
@@ -183,7 +183,7 @@ export default function Login() {
         /* フォームのデータ */
       })
     }).then(res => {
-      // プリフェッチ済みのダッシュボードページに、クライアント側で高速に遷移します 
+      // プリフェッチ済みのダッシュボードページに、クライアント側で高速に遷移します
       if (res.ok) Router.push('/dashboard');
     });
   }, []);
@@ -223,7 +223,7 @@ Router.beforePopState(({ url, as, options }) => {
 
 `Router.beforePopState(cb: () => boolean)`
 　
-- `cb` - 入力された `popstate` イベントに対して実行される関数です。この関数は、以下の props を持つオブジェクトとしてイベントの状態を受け取ります: 
+- `cb` - 入力された `popstate` イベントに対して実行される関数です。この関数は、以下の props を持つオブジェクトとしてイベントの状態を受け取ります:
   - `url`: `String` - 新しい state のためのルートです。これは通常 `page` の名前です。
   - `as`: `String` - ブラウザに表示される URL です。
   - `options`: `Object` - [Router.push](#router.push) によって送信される追加のオプションです。
@@ -255,7 +255,7 @@ Router.reload();
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-loading">ページ読み込みインジケーターと一緒に利用する</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-loading">ページ読み込みインジケーターと一緒に利用する</a></li>
   </ul>
 </details>
 
@@ -265,7 +265,7 @@ Router 内で発生する様々なイベントをリッスンできます。こ�
 - `routeChangeComplete(url)` - ルートが完全に変更され終わったときに発火します。
 - `routeChangeError(err, url)` - ルート変更時にエラーが発生した際、あるいはルートの読み込みが中止された際に発火します。
   - `err.cancelled` - ページ遷移が中止されたかどうかを示します。
-- `beforeHistoryChange(url)` -ブラウザの履歴を変更する直前に発火します。 
+- `beforeHistoryChange(url)` -ブラウザの履歴を変更する直前に発火します。
 - `hashChangeStart(url)` - ハッシュが変更されるが、ページが変更されないときに発火します。
 - `hashChangeComplete(url)` - ハッシュの変更が完了したが、ページが変更されないときに実行されます。
 

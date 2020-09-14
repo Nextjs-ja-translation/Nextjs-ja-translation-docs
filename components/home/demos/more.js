@@ -9,7 +9,7 @@ const EXAMPLES = [
         Using <code>getStaticProps</code> to fetch data at built time.
       </span>
     ),
-    href: 'https://github.com/zeit/next.js/tree/master/examples/data-fetch'
+    href: 'https://github.com/vercel/next.js/tree/master/examples/data-fetch'
   },
   {
     name: 'Dynamic Routing',
@@ -18,32 +18,32 @@ const EXAMPLES = [
         How to create dynamic routes, such as <code>/blog/[id]</code> for posts.
       </span>
     ),
-    href: 'https://github.com/zeit/next.js/tree/master/examples/dynamic-routing'
+    href: 'https://github.com/vercel/next.js/tree/master/examples/dynamic-routing'
   },
   {
     name: 'TypeScript',
     description: 'How to use built-in TypeScript support in Next.js',
-    href: 'https://github.com/zeit/next.js/tree/master/examples/with-typescript'
+    href: 'https://github.com/vercel/next.js/tree/master/examples/with-typescript'
   },
   {
     name: 'CSS',
     description: 'How to use Next.js with CSS imports and CSS modules',
-    href: 'https://github.com/zeit/next.js/tree/canary/examples/with-next-css'
+    href: 'https://github.com/vercel/next.js/tree/canary/examples/with-next-css'
   },
   {
     name: 'SASS',
     description: 'How to use Next.js with Sass imports and Sass modules',
-    href: 'https://github.com/zeit/next.js/tree/canary/examples/with-next-sass'
+    href: 'https://github.com/vercel/next.js/tree/canary/examples/with-next-sass'
   },
   {
     name: 'API Routes',
     description: 'Using Next.js API Routes to handle API logic',
-    href: 'https://github.com/zeit/next.js/tree/canary/examples/api-routes'
+    href: 'https://github.com/vercel/next.js/tree/canary/examples/api-routes'
   },
   {
     name: 'Using next/head',
     description: 'How to add additional meta tags into the <head>',
-    href: 'https://github.com/zeit/next.js/tree/canary/examples/head-elements'
+    href: 'https://github.com/vercel/next.js/tree/canary/examples/head-elements'
   }
 ];
 
@@ -118,13 +118,13 @@ export default {
       ))}
       <div className="example-col">
         <a
-          href="https://github.com/zeit/next.js/tree/canary/examples"
+          href="https://github.com/vercel/next.js/tree/canary/examples"
           rel="noopener noreferrer"
           target="_blank"
         >
           <span className="more">
             <span className="f5 fw6" style={{ color: '#f3f3f3', marginBottom: '.2rem' }}>
-              github.com/zeit/next.js
+              github.com/vercel/next.js
             </span>
             <span className="f5">190+ examples</span>
           </span>

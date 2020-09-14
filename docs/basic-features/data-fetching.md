@@ -9,12 +9,12 @@ description: 'Next.jsには2つのプリレンダリングモードがありま�
 <details open>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/blog-starter">マークダウンファイルを使ったブログスターター</a> (<a href="https://next-blog-starter.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-datocms">DatoCMSの例</a> (<a href="https://next-blog-datocms.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-takeshape">TakeShapeの例</a> (<a href="https://next-blog-takeshape.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-sanity">Sanityの例</a> (<a href="https://next-blog-sanity.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-prismic">Prismicの例</a> (<a href="https://next-blog-prismic.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/cms-contentful">Contentfulの例</a> (<a href="https://next-blog-contentful.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/blog-starter">マークダウンファイルを使ったブログスターター</a> (<a href="https://next-blog-starter.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-datocms">DatoCMSの例</a> (<a href="https://next-blog-datocms.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape">TakeShapeの例</a> (<a href="https://next-blog-takeshape.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-sanity">Sanityの例</a> (<a href="https://next-blog-sanity.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prismic">Prismicの例</a> (<a href="https://next-blog-prismic.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-contentful">Contentfulの例</a> (<a href="https://next-blog-contentful.now.sh/">デモ</a>)</li>
     <li><a href="https://static-tweet.now.sh/">静的Tweetのデモ</a></li>
   </ul>
 </details>

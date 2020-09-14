@@ -14,7 +14,7 @@ description: getInitialProps を使い、ページでサーバーサイドレン
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/data-fetch">Data fetch</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/data-fetch">Data fetch</a></li>
   </ul>
 </details>
 

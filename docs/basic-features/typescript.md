@@ -7,7 +7,7 @@ description: Next.jsは標準でTypeScriptをサポートし、ページとAPI�
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-typescript">TypeScript</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-typescript">TypeScript</a></li>
   </ul>
 </details>
 
@@ -97,7 +97,7 @@ export default (req: NextApiRequest, res: NextApiResponse<Data>) => {
 };
 ```
 
-## カスタム `App` 
+## カスタム `App`
 
 [カスタム `App` ](/docs/advanced-features/custom-app)がある場合は、ビルトインの `AppProps` 型を使用して、ファイル名を `./pages/_app.tsx` に変更できます:
 

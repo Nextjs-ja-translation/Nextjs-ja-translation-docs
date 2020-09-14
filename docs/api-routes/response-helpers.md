@@ -7,8 +7,8 @@ description: APIルートには、レスポンスのためのExpress.jsライク
 <details open>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes">基本的なAPIルート</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-rest">RESTによるAPIルート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes">基本的なAPIルート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes-rest">RESTによるAPIルート</a></li>
   </ul>
 </details>
 

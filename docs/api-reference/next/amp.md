@@ -7,7 +7,7 @@ description: ページ内のAMPを有効にし、 Next.js がページに AMP �
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/amp">AMP</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/amp">AMP</a></li>
   </ul>
 </details>
 

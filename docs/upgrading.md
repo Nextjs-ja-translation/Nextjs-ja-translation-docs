@@ -103,7 +103,7 @@ Next.js はページレベルの設定という概念を持つようになり、
 この変更は **Next.js プロジェクトのルートディレクトリで以下のコマンドを実行することで自動的に移行されます:**
 
 ```bash
-curl -L https://github.com/zeit/next-codemod/archive/master.tar.gz | tar -xz --strip=2 next-codemod-master/transforms/withamp-to-config.js npx jscodeshift -t ./withamp-to-config.js pages/**/*.js
+curl -L https://github.com/vercel/next-codemod/archive/master.tar.gz | tar -xz --strip=2 next-codemod-master/transforms/withamp-to-config.js npx jscodeshift -t ./withamp-to-config.js pages/**/*.js
 ```
 
 この移行を手動で行う、あるいは codemod が生成する内容を見るためには、以下をご覧下さい:

@@ -7,11 +7,11 @@ description: Next.jsはAPIルートをサポートしており、Next.jsアプ�
 <details open>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes">基本的なAPI ルート</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-middleware">ミドルウェアを用いたAPI ルート</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-graphql">GraphQLを用いたAPI ルート</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-rest">RESTを用いたAPI ルート</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/api-routes-cors">CORSを用いたAPI ルート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes">基本的なAPI ルート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes-middleware">ミドルウェアを用いたAPI ルート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes-graphql">GraphQLを用いたAPI ルート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes-rest">RESTを用いたAPI ルート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/api-routes-cors">CORSを用いたAPI ルート</a></li>
   </ul>
 </details>
 

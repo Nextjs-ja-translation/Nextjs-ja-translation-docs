@@ -7,7 +7,7 @@ description: 組み込みの Link コンポーネントを使用して、ルー�
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/hello-world">Hello World</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/hello-world">Hello World</a></li>
   </ul>
 </details>
 

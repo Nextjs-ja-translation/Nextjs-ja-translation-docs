@@ -12,7 +12,7 @@ Next.js を初めて使用する場合は、[学習コース](https://nextjs.org
 
 インタラクティブなクイズによる学習コースでは、Next.js を使うために必要なすべての知識を習得できます。
 
-Next.js に関連事項する質問がある場合は、[GitHub Discussions](https://github.com/zeit/next.js/discussions)のコミュニティーでなんでも質問してください。
+Next.js に関連事項する質問がある場合は、[GitHub Discussions](https://github.com/vercel/next.js/discussions)のコミュニティーでなんでも質問してください。
 
 #### システム要件
 
