@@ -9,8 +9,8 @@ description: ビルド時に、Next.jsアプリケーションに環境変数を
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-env-from-next-config-js">envのみ</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-now-env">Nowとenv</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-env-from-next-config-js">envのみ</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-now-env">Nowとenv</a></li>
   </ul>
 </details>
 

@@ -28,7 +28,7 @@ module.exports = (phase, { defaultConfig }) => {
 ```
 
 `phase` は設定がロードされている現在のフェーズです。
-利用可能なフェーズは[こちら](https://github.com/zeit/next.js/blob/canary/packages/next/next-server/lib/constants.ts#L1-L4)を参照ください。
+利用可能なフェーズは[こちら](https://github.com/vercel/next.js/blob/canary/packages/next/next-server/lib/constants.ts#L1-L4)を参照ください。
 フェーズは `next/constants` からインポート出来ます:
 
 ```js
@@ -48,7 +48,7 @@ module.exports = (phase, { defaultConfig }) => {
 ```
 
 コメントされている行は `next.config.js` で許可された設定が挿入可能な箇所です。
-定義は[こちら](https://github.com/zeit/next.js/blob/canary/packages/next/next-server/server/config.ts#L12-L63)をご覧ください。
+定義は[こちら](https://github.com/vercel/next.js/blob/canary/packages/next/next-server/server/config.ts#L12-L63)をご覧ください。
 
 ただし、いずれの設定も必要でなく、全ての設定を完全に理解する必要はありません。
 有効化または修正する必要がある設定のみ調べて変更するようにお勧めします。

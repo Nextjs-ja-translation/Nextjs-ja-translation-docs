@@ -9,7 +9,7 @@ description: next export を使うとき、HTMLファイルとしてエクスポ
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-static-export">静的エクスポート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-static-export">静的エクスポート</a></li>
   </ul>
 </details>
 

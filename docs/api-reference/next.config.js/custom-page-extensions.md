@@ -4,7 +4,7 @@ description: ページディレクトリ内のページを読み込む際にNext
 
 # 独自のページ拡張子
 
-`.mdx` で終わるページのサポートを追加した [@next/mdx](https://github.com/zeit/next.js/tree/canary/packages/next-mdx) のようなモジュールを対象としています。ページを解決する際に `pages` ディレクトリで探す拡張子を設定できます。
+`.mdx` で終わるページのサポートを追加した [@next/mdx](https://github.com/vercel/next.js/tree/canary/packages/next-mdx) のようなモジュールを対象としています。ページを解決する際に `pages` ディレクトリで探す拡張子を設定できます。
 
 `next.config.js` を開き、 `pageExtensions` の設定を追加します:
 

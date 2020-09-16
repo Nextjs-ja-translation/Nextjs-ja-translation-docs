@@ -7,7 +7,7 @@ description: JavaScriptモジュールとReactコンポーネントを動的に�
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/with-dynamic-import">動的インポート</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-dynamic-import">動的インポート</a></li>
   </ul>
 </details>
 

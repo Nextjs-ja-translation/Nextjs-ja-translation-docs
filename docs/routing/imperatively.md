@@ -7,7 +7,7 @@ description: クライアント側のナビゲーションは、Link コンポ�
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/using-router">Router を使用する</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/using-router">Router を使用する</a></li>
   </ul>
 </details>
 

@@ -7,8 +7,8 @@ description: ビルトインの Head コンポーネントを用いてページ�
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/head-elements">ヘッド要素</a></li>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/layout-component">レイアウトコンポーネント</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/head-elements">ヘッド要素</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/layout-component">レイアウトコンポーネント</a></li>
   </ul>
 </details>
 
