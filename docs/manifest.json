@@ -228,7 +228,7 @@
               "path": "/docs/api-reference/next.config.js/build-target.md"
             },
             {
-              "title": "Custom Webpack Config",
+              "title": "webpackの設定のカスタマイズ",
               "path": "/docs/api-reference/next.config.js/custom-webpack-config.md"
             },
             {
