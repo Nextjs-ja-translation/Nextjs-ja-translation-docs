@@ -216,7 +216,7 @@
               "path": "/docs/api-reference/next.config.js/environment-variables.md"
             },
             {
-              "title": "Custom Page Extensions",
+              "title": "独自のページ拡張子",
               "path": "/docs/api-reference/next.config.js/custom-page-extensions.md"
             },
             {
