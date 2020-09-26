@@ -326,6 +326,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "kkeeth",
+      "name": "Keeth Kuwahara",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4125257?v=4",
+      "profile": "https://speakerdeck.com/clown0082",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
