@@ -53,3 +53,7 @@ rules:
   - expected: 備考
     pattern:
       - ノート
+
+  - expected: サーバーサイド
+    pattern:
+      - サーバサイド

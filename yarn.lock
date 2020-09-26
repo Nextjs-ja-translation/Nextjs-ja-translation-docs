@@ -1217,7 +1217,7 @@
     try-resolve "^1.0.1"
     xml-escape "^1.0.0"
 
-"@textlint/markdown-to-ast@^6.2.5":
+"@textlint/markdown-to-ast@^6.1.7", "@textlint/markdown-to-ast@^6.2.5":
   version "6.2.5"
   resolved "https://registry.yarnpkg.com/@textlint/markdown-to-ast/-/markdown-to-ast-6.2.5.tgz#b39d806520ff6507440c3e1d4242b9ec2a6086d0"
   integrity sha512-9vlQbylGjnnRGev3yt9ntNy6I9FQH3p+MkbijybKnwobK/msoAX9sThDHOMbGM24PsUHxcDjktDlj2vHN/pwDA==
@@ -1252,7 +1252,7 @@
     lodash.uniqwith "^4.5.0"
     to-regex "^3.0.2"
 
-"@textlint/text-to-ast@^3.2.4":
+"@textlint/text-to-ast@^3.1.7", "@textlint/text-to-ast@^3.2.4":
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/@textlint/text-to-ast/-/text-to-ast-3.2.4.tgz#a1ccb1ad2a561d93291c9f73d9c2376ddb701a5b"
   integrity sha512-uIiNg52OdQ3Fn8aOYaV7BLW2QakNsmf4doypIwrW4q+gHYQ3jxdPHHkq6RxuYoO112vO40M3zmAoEZmM1qmPhw==
@@ -8963,6 +8963,14 @@ string.prototype.matchall@^4.0.2:
     internal-slot "^1.0.2"
     regexp.prototype.flags "^1.3.0"
     side-channel "^1.0.2"
+
+string.prototype.padstart@^3.0.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/string.prototype.padstart/-/string.prototype.padstart-3.1.0.tgz#b47c087540d0710be5a49375751a0a627bd4ff90"
+  integrity sha512-envqZvUp2JItI+OeQ5UAh1ihbAV5G/2bixTojvlIa090GGqF+NQRxbWb2nv9fTGrZABv6+pE6jXoAZhhS2k4Hw==
+  dependencies:
+    define-properties "^1.1.3"
+    es-abstract "^1.17.0-next.1"
 
 string.prototype.trimend@^1.0.0, string.prototype.trimend@^1.0.1:
   version "1.0.1"
