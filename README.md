@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-34-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-35-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -128,6 +128,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
     <td align="center"><a href="https://adoringonion.com"><img src="https://avatars0.githubusercontent.com/u/43922475?v=4" width="100px;" alt=""/><br /><sub><b>adoringonion</b></sub></a><br /><a href="#translation-adoringonion" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/Hiro0206"><img src="https://avatars1.githubusercontent.com/u/50988223?v=4" width="100px;" alt=""/><br /><sub><b>chiiita</b></sub></a><br /><a href="#translation-Hiro0206" title="Translation">🌍</a></td>
     <td align="center"><a href="http://itohiro73.hatenablog.com/"><img src="https://avatars1.githubusercontent.com/u/2220637?v=4" width="100px;" alt=""/><br /><sub><b>Hiroshi Ito</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/commits?author=itohiro73" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://speakerdeck.com/clown0082"><img src="https://avatars3.githubusercontent.com/u/4125257?v=4" width="100px;" alt=""/><br /><sub><b>Keeth Kuwahara</b></sub></a><br /><a href="#translation-kkeeth" title="Translation">🌍</a></td>
   </tr>
 </table>
 
