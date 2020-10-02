@@ -5,13 +5,6 @@ description: よくある質問を通して Next.js について理解を深め�
 # よくある質問
 
 <details>
-  <summary>どのブラウザに対応していますか？</summary>
-  <p>Next.js は <a href="https://new.babeljs.io/docs/en/next/babel-preset-env.html">@babel/preset-env</a> を利用することで IE11 と全てのモダンブラウザに対応しています。また IE11 に対応するため、 Next.js は Promise polyfill をグローバルインストールしています。</p>
-
-  <p>目的のブラウザが対応していない機能を必要とするコードや外部 npm パッケージを使用する場合は、 Polyfill を実装する必要があります。 Polyfill を実装する必要がある場合、 <a href="https://github.com/vercel/next.js/tree/canary/examples/with-polyfills">Polyfill</a> のサンプルで推奨されている方法を見ることができます。</p>
-</details>
-
-<details>
   <summary>製品利用することはできますか？</summary>
   <p><a href="https://vercel.com">https://vercel.com</a> は当初から Next.js で実装されています。</p>
 

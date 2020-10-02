@@ -32,6 +32,10 @@
             {
               "title": "環境変数",
               "path": "/docs/basic-features/environment-variables.md"
+            },
+            {
+              "title": "サポートされているブラウザと機能",
+              "path": "/docs/basic-features/supported-browsers-features.md"
             }
           ]
         },
