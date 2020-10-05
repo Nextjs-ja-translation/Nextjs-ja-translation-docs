@@ -38,7 +38,7 @@ Next.js では、最新の JavaScript の機能をすぐに利用できます。
 - [Optional Chaining](https://github.com/tc39/proposal-optional-chaining) (ES2020)
 - [Nullish Coalescing](https://github.com/tc39/proposal-nullish-coalescing) (ES2020)
 - [Class Fields](https://github.com/tc39/proposal-class-fields) と [Static Properties](https://github.com/tc39/proposal-static-class-features) (stage 3 proposal の途中)
-- などなど！
+- など！
 
 ### TypeScript の機能
 
