@@ -1,10 +1,10 @@
 ---
-description: Next.js がサポートしているブラウザと JavaScript の言語機能
+description: Next.js がサポートしているブラウザと JavaScript の機能
 ---
 
-# サポートされているブラウザと機能
+# サポートしているブラウザと機能
 
-Next.js は **IE11 と全てのモダンブラウザ** (Edge, Firefox, Chrome, Safari や Opera など) を必要な設定なしでサポートしています。
+Next.js は **IE11 と全てのモダンブラウザ** (Edge, Firefox, Chrome, Safari や Opera など) をサポートしており、設定は不要です。
 
 ## Polyfills
 
@@ -20,11 +20,11 @@ IE11 の互換性に必要な polyfills を透過的に注入しています。�
 
 ### サーバーサイド Polyfills
 
-クライアント側での `fetch()` に加えて、 Next.js は Node.js 環境でも `fetch()` の polyfilsl を行います。 サーバー側のコード (例えば `getStaticProps`) では、 `isomorphic-unfetch` や `node-fetch` のような polyfills を使わずに `fetch()` を使用できます。
+クライアント側での `fetch()` に加えて、Next.js は Node.js 環境でも `fetch()` の polyfills を行います。 サーバー側のコード (例えば `getStaticProps`) では、`isomorphic-unfetch` や `node-fetch` などの polyfills を使わずに `fetch()` を使用できます。
 
 ### カスタム Polyfills
 
-独自のコードや外部の npm 依存関係で、ターゲットブラウザにてサポートされていない機能が必要な場合は、 polyfills を追加する必要があります。
+独自のコードや外部の npm 依存関係で、ターゲットブラウザにてサポートされていない機能が必要な場合は、自分自身で polyfills を追加する必要があります。
 
 この場合は、 [Custom `<App>`](/docs/advanced-features/custom-app.md) または個々のコンポーネントに必要な **特定の polyfill** のトップレベルインポートを追加する必要があります。
 
@@ -38,7 +38,7 @@ Next.js では、最新の JavaScript の機能をすぐに利用できます。
 - [Optional Chaining](https://github.com/tc39/proposal-optional-chaining) (ES2020)
 - [Nullish Coalescing](https://github.com/tc39/proposal-nullish-coalescing) (ES2020)
 - [Class Fields](https://github.com/tc39/proposal-class-fields) と [Static Properties](https://github.com/tc39/proposal-static-class-features) (stage 3 proposal の途中)
-- など
+- などなど！
 
 ### TypeScript の機能
 
