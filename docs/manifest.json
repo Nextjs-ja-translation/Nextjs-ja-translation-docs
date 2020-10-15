@@ -32,6 +32,10 @@
             {
               "title": "環境変数",
               "path": "/docs/basic-features/environment-variables.md"
+            },
+            {
+              "title": "サポートしているブラウザと機能",
+              "path": "/docs/basic-features/supported-browsers-features.md"
             }
           ]
         },
@@ -228,7 +232,7 @@
               "path": "/docs/api-reference/next.config.js/build-target.md"
             },
             {
-              "title": "Custom Webpack Config",
+              "title": "webpackの設定のカスタマイズ",
               "path": "/docs/api-reference/next.config.js/custom-webpack-config.md"
             },
             {
