@@ -54,8 +54,6 @@ export default Home;
 
 ## 動的ルーティング
 
-A `Link` to a dynamic route is a combination of the `href` and `as` props. A link to the page `pages/post/[pid].js` will look like this:
-
 動的ルーティングへの `Link` は、`href` と `as` の props の組み合わせです。`pages/post/[pid].js` のページへのリンクは以下のようになります:
 
 ```jsx
