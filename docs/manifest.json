@@ -274,6 +274,10 @@
             {
               "title": "exportPathMap",
               "path": "/docs/api-reference/next.config.js/exportPathMap.md"
+            },
+            {
+              "title": "トレイリングスラッシュ",
+              "path": "/docs/api-reference/next.config.js/trailing-slash.md"
             }
           ]
         }
