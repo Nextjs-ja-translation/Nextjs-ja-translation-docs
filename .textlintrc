@@ -31,6 +31,9 @@
     }
   },
   "filters": {
-    "comments": true
+    "comments": {
+      "disablingComment": "textlint-disable", // textlint のチェック対象から外す
+      "enablingComment": "textlint-enable", // textlint のチェックを再開
+    }
   }
 }
