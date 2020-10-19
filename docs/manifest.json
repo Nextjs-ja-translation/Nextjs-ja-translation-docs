@@ -274,6 +274,10 @@
             {
               "title": "exportPathMap",
               "path": "/docs/api-reference/next.config.js/exportPathMap.md"
+            },
+            {
+              "title": "React Strict モード",
+              "path": "/docs/api-reference/next.config.js/react-strict-mode.md"
             }
           ]
         }
