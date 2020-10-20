@@ -220,6 +220,10 @@
               "path": "/docs/api-reference/next.config.js/environment-variables.md"
             },
             {
+              "title": "独自のヘッダー",
+              "path": "/docs/api-reference/next.config.js/headers.md"
+            },
+            {
               "title": "独自のページ拡張子",
               "path": "/docs/api-reference/next.config.js/custom-page-extensions.md"
             },
