@@ -5,7 +5,6 @@ description: Next.js アプリに独自の HTTP ヘッダーを追加します�
 # 独自のヘッダー
 
 > この機能は [Next.js 9.5](https://nextjs.org/blog/next-9-5) で導入されました。古いバージョンの Next.js をお使いの場合は、アップグレードしてお試しください。
-
 ヘッダー内では、リクエストパスに独自の HTTP ヘッダーを設定できます。
 
 独自の HTTP ヘッダーを設定するためには、 `next.config.js` の `headers` キーを使用します:
@@ -151,7 +150,6 @@ module.exports = {
 ```js
 module.exports = {
   basePath: '/docs',
-
   async headers() {
     return [
       {
