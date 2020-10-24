@@ -8,7 +8,7 @@ description: トレイリングスラッシュで Next.js のページを解決�
 
 Next.js では、末尾にスラッシュが付いている URL から、末尾にスラッシュが付いていない URL にデフォルトでリダイレクトします。例えば、`/about/` は `/about` にリダイレクトされます。この動作を逆に設定し、URL の末尾にスラッシュがない場合は、末尾にスラッシュがある URL にリダイレクトさせることもできます。
 
-`next.config.js` を開き、 `trailingSlash` の設定を追加してください:
+`next.config.js` を開き、`trailingSlash` の設定を追加してください:
 
 ```js
 module.exports = {
