@@ -16,7 +16,7 @@ module.exports = {
 }
 ```
 
-あなたやチームが、アプリケーション全体で Strict モードを使用する準備ができていなくても問題ありません。 [`<React.StrictMode>` を使用](https://reactjs.org/docs/strict-mode.html)して、ページ単位で段階的に移行できます 。
+あなたやチームが、アプリケーション全体で Strict モードを使用する準備ができていなくても問題ありません！[`<React.StrictMode>` を使用](https://reactjs.org/docs/strict-mode.html)して、ページ単位で段階的に移行できます 。
 
 React の Strict モードは、アプリケーションの潜在的な問題を明らかにするための開発専用の機能です。安全ではないライフサイクルやレガシーな API の使用、その他多くの機能を特定するのに役立ちます。
 
