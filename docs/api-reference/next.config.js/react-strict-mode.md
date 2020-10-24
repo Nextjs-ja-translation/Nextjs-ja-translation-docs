@@ -1,5 +1,5 @@
 ---
-description: Next.js ランタイムが、完全に Strict モードに準拠しました。オプトインの方法を学びましょう。
+description: すべての Next.js ランタイムは、Strict モードに準拠しました。オプトインの方法を学びましょう。
 ---
 
 # React Strict モード
