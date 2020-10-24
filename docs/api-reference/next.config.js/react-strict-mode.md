@@ -5,7 +5,8 @@ description: すべての Next.js ランタイムは、Strict モードに準拠
 # React Strict モード
 
 > **推奨**: これからの React に備えて、Next.js アプリケーションで Strict モードを有効にしておくことを強くお勧めします。
-Next.js ランタイムは、現在 Strict モードに準拠しています。Strict モードを有効にするには、 `next.config.js` で以下のオプションを設定してください :
+
+Next.js ランタイムは、現在 Strict モードに準拠しています。Strict モードを有効にするには、`next.config.js` で以下のオプションを設定してください :
 
 
 ```js
