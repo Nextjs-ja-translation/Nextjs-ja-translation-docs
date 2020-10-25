@@ -6,7 +6,7 @@ description: 公式ドキュメントでNext.jsを始めてみましょう！
 
 Next.js のドキュメントへようこそ！
 
-Next.js を初めて使用する場合は、[学習コース](https://nextjs.org/learn/basics/getting-started)から始めることをお勧めします。
+Next.js を初めて使用する場合は、[学習コース](https://nextjs.org/learn/basics/getting-started)から始めることをお勧めします。。
 
 `学習コースは翻訳されていません。`
 
