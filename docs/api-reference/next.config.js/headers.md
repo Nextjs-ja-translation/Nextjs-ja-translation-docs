@@ -146,7 +146,7 @@ module.exports = {
 
 ### basePath をサポートしたヘッダー
 
-ヘッダーで [`basePath` サポート](/docs/api-reference/next.config.js/basepath.md) を利用する際はヘッダーに `basePath: false` を追加しない限り、各 `source` に自動的に `basePath` をプレフィックスとして付与します:
+ヘッダーで [`basePath` サポート](/docs/api-reference/next.config.js/basepath.md)を利用する際は、ヘッダーに `basePath: false` を追加しない限り、各 `source` に対して自動的に `basePath` がプレフィックスとして付与されます:
 
 ```js
 module.exports = {
