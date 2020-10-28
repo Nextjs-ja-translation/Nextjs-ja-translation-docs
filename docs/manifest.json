@@ -321,7 +321,7 @@
               "path": "/docs/api-reference/next.config.js/trailing-slash.md"
             },
             {
-              "title": "React Strict Mode",
+              "title": "React Strict モード",
               "path": "/docs/api-reference/next.config.js/react-strict-mode.md"
             }
           ]

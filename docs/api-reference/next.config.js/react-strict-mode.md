@@ -1,12 +1,13 @@
 ---
-description: The complete Next.js runtime is now Strict Mode-compliant, learn how to opt-in
+description: すべての Next.js ランタイムは、Strict モードに準拠しました。オプトインの方法を学びましょう。
 ---
 
-# React Strict Mode
+# React Strict モード
 
-> **Suggested**: We strongly suggest you enable Strict Mode in your Next.js application to better prepare your application for the future of React.
+> **推奨**: これからの React に備えて、Next.js アプリケーションで Strict モードを有効にしておくことを強くお勧めします。
 
-The Next.js runtime is now Strict Mode-compliant. To opt-in to Strict Mode, configure the following option in your `next.config.js`:
+Next.js ランタイムは、現在 Strict モードに準拠しています。Strict モードを有効にするには、`next.config.js` で以下のオプションを設定してください :
+
 
 ```js
 // next.config.js
@@ -15,17 +16,15 @@ module.exports = {
 }
 ```
 
-<!-- textlint-disable ja-technical-writing/no-exclamation-question-mark -->
-If you or your team are not ready to use Strict Mode in your entire application, that's OK! You can incrementally migrate on a page-by-page basis [using `<React.StrictMode>`](https://reactjs.org/docs/strict-mode.html).
-<!-- textlint-enable ja-technical-writing/no-exclamation-question-mark -->
+あなたやチームが、アプリケーション全体で Strict モードを使用する準備ができていなくても問題ありません！[`<React.StrictMode>` を使用](https://reactjs.org/docs/strict-mode.html)して、ページ単位で段階的に移行できます 。
 
-React's Strict Mode is a development mode only feature for highlighting potential problems in an application. It helps to identify unsafe lifecycles, legacy API usage, and a number of other features.
+React の Strict モードは、アプリケーションの潜在的な問題を明らかにするための開発専用の機能です。安全ではないライフサイクルやレガシーな API の使用、その他多くの機能を特定するのに役立ちます。
 
-## Related
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js の紹介:</b>
+    <small>Next.js の設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
