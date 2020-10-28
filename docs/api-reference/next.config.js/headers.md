@@ -71,7 +71,7 @@ module.exports = {
 
 ## パスのマッチング
 
-以下の `/blog/:slug` は `/blog/hello-world` とマッチします (ネストされているパスはありません):
+パスのマッチングができます。例えば、`/blog/:slug` は `/blog/hello-world` とマッチします (ネストされているパスはありません):
 
 ```js
 module.exports = {
