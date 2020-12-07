@@ -1,10 +1,10 @@
 ---
-description: Extend the default webpack config added by Next.js.
+description: Next.js で追加されたデフォルトの webpack の設定を拡張します。
 ---
 
-# Custom Webpack Config
+# webpackの設定のカスタマイズ
 
-Some commonly asked for features are available as plugins:
+よく聞かれる機能には、プラグインとして利用できるものがあります:
 
 - [@zeit/next-sass](https://github.com/vercel/next-plugins/tree/master/packages/next-sass)
 - [@zeit/next-less](https://github.com/vercel/next-plugins/tree/master/packages/next-less)
@@ -13,40 +13,40 @@ Some commonly asked for features are available as plugins:
 - [@next/mdx](https://github.com/vercel/next.js/tree/canary/packages/next-mdx)
 - [@next/bundle-analyzer](https://github.com/vercel/next.js/tree/canary/packages/next-bundle-analyzer)
 
-In order to extend our usage of `webpack`, you can define a function that extends its config inside `next.config.js`, like so:
+`webpack` の使い方を拡張するために、このように `next.config.js` の中でその設定を拡張する関数を定義できます:
 
 ```js
 module.exports = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Note: we provide webpack above so you should not `require` it
-    // Perform customizations to webpack config
-    // Important: return the modified config
+    // 注意: 上記で webpack を提供しているので、それを `require` するべきではない
+    // webpack の設定のカスタマイズを実行する
+    // 重要: 変更された設定を返す
     config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
     return config;
   },
   webpackDevMiddleware: config => {
-    // Perform customizations to webpack dev middleware config
-    // Important: return the modified config
+    // webpack dev middleware の設定のカスタマイズを実行する
+    // 重要: 変更された設定を返す
     return config;
   }
 };
 ```
 
-> The `webpack` function is executed twice, once for the server and once for the client. This allows you to distinguish between client and server configuration using the `isServer` property.
+> `webpack` 関数は、サーバーとクライアントで2回実行されます。これにより、`isServer` プロパティを用いてクライアントとサーバの設定を区別することができます。
 
-The second argument to the `webpack` function is an object with the following properties:
+`webpack` 関数の第二引数は以下のプロパティを持つオブジェクトです:
 
-- `buildId`: `String` - The build id, used as a unique identifier between builds
-- `dev`: `Boolean` - Indicates if the compilation will be done in development
-- `isServer`: `Boolean` - It's `true` for server-side compilation, and `false` for client-side compilation
-- `defaultLoaders`: `Object` - Default loaders used internally by Next.js:
-  - `babel`: `Object` - Default `babel-loader` configuration
+- `buildId`: `String` - ビルド間の一意の識別子として使用されるビルド ID
+- `dev`: `Boolean` - コンパイルが開発中に行われるかどうかを示す
+- `isServer`: `Boolean` - サーバーサイドのコンパイルでは `true`、クライアントサイドのコンパイルでは `false`
+- `defaultLoaders`: `Object` - Next.js が内部で使用するデフォルトのローダー:
+  - `babel`: `Object` - デフォルトの `babel-loader` の設定
 
-Example usage of `defaultLoaders.babel`:
+`defaultLoaders.babel` の使い方の例:
 
 ```js
-// Example config for adding a loader that depends on babel-loader
-// This source was taken from the @next/mdx plugin source:
+// babel-loader に依存するローダーを追加するための設定例
+// このソースは @next/mdx プラグインのソースから取得された:
 // https://github.com/vercel/next.js/tree/canary/packages/next-mdx
 module.exports = {
   webpack: (config, options) => {
@@ -70,7 +70,7 @@ module.exports = {
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.jsの紹介:</b>
+    <small>Next.jsが使用する設定ファイルの詳細はこちら.</small>
   </a>
 </div>
