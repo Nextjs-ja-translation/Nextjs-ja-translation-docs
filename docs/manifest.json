@@ -301,10 +301,6 @@
               "path": "/docs/api-reference/next.config.js/cdn-support-with-asset-prefix.md"
             },
             {
-              "title": "ビルドターゲット",
-              "path": "/docs/api-reference/next.config.js/build-target.md"
-            },
-            {
               "title": "webpackの設定のカスタマイズ",
               "path": "/docs/api-reference/next.config.js/custom-webpack-config.md"
             },
