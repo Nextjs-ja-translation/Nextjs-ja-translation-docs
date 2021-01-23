@@ -94,6 +94,10 @@
           "path": "/docs/deployment.md"
         },
         {
+          "title": "Authentication",
+          "path": "/docs/authentication.md"
+        },
+        {
           "title": "Advanced Features",
           "routes": [
             {
@@ -186,6 +190,10 @@
               "path": "/docs/advanced-features/codemods.md"
             },
             {
+              "title": "Source Maps",
+              "path": "/docs/advanced-features/source-maps.md"
+            },
+            {
               "title": "Internationalized Routing",
               "path": "/docs/advanced-features/i18n-routing.md"
             }
@@ -199,8 +207,20 @@
           "title": "Migrating to Next.js",
           "routes": [
             {
+              "title": "Incrementally Adopting Next.js",
+              "path": "/docs/migrating/incremental-adoption.md"
+            },
+            {
               "title": "Migrating from Gatsby",
               "path": "/docs/migrating/from-gatsby.md"
+            },
+            {
+              "title": "Migrating from Create React App",
+              "path": "/docs/migrating/from-create-react-app.md"
+            },
+            {
+              "title": "Migrating from React Router",
+              "path": "/docs/migrating/from-react-router"
             }
           ]
         },
@@ -279,10 +299,6 @@
             {
               "title": "アセットプレフィックスによる CDN サポート",
               "path": "/docs/api-reference/next.config.js/cdn-support-with-asset-prefix.md"
-            },
-            {
-              "title": "ビルドターゲット",
-              "path": "/docs/api-reference/next.config.js/build-target.md"
             },
             {
               "title": "webpackの設定のカスタマイズ",
