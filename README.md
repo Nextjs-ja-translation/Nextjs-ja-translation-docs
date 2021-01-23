@@ -12,6 +12,11 @@ Next.js のドキュメントを翻訳する非公式プロジェクトです。
 
 [本家公式ドキュメント](https://nextjs.org/docs/getting-started)
 
+## 本家ドキュメントへの追従方針
+- 本家で新規作成されたファイルは追加する
+- 未翻訳のファイルが本家で更新されていたら更新する
+- 翻訳の有無関わらず本家で削除されたファイルは削除する
+- // #TODO: 翻訳済ファイルの追従方針を決める
 ## 翻訳手順
 
 翻訳の状況は、[翻訳の概要と進捗状況](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/issues/3)の issues を確認してください。
