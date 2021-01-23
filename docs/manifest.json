@@ -289,7 +289,7 @@
               "path": "/docs/api-reference/next.config.js/redirects.md"
             },
             {
-              "title": "Custom Headers",
+              "title": "独自のヘッダー",
               "path": "/docs/api-reference/next.config.js/headers.md"
             },
             {

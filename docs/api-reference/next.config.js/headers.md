@@ -1,14 +1,14 @@
 ---
-description: Add custom HTTP headers to your Next.js app.
+description: Next.js アプリに独自の HTTP ヘッダーを追加します。
 ---
 
-# Headers
+# ヘッダー
 
-> This feature was introduced in [Next.js 9.5](https://nextjs.org/blog/next-9-5) and up. If you’re using older versions of Next.js, please upgrade before trying it out.
+> この機能は [Next.js 9.5](https://nextjs.org/blog/next-9-5) で導入されました。古いバージョンの Next.js をお使いの場合は、アップグレードしてお試しください。
 
-Headers allow you to set custom HTTP headers for an incoming request path.
+ヘッダーでは、受け取るリクエストパスに対して独自の HTTP ヘッダーを設定できます。
 
-To set custom HTTP headers you can use the `headers` key in `next.config.js`:
+独自の HTTP ヘッダーを設定するためには、 `next.config.js` の `headers` キーを使用します:
 
 ```js
 module.exports = {
@@ -32,14 +32,15 @@ module.exports = {
 }
 ```
 
-`headers` is an async function that expects an array to be returned holding objects with `source` and `headers` properties:
+`headers` は非同期関数であり、 `source` と `headers` プロパティを持つオブジェクトが格納された配列を返します:
 
-- `source` is the incoming request path pattern.
-- `headers` is an array of header objects with the `key` and `value` properties.
+- `source` は受け取るリクエストパスのパターンです。
+- `headers` は `key` と `value` プロパティを持つヘッダーオブジェクトの配列です。
 
-## Header Overriding Behavior
+## ヘッダー上書き時の振る舞い
 
-If two headers match the same path and set the same header key, the last header key will override the first. Using the below headers, the path `/hello` will result in the header `x-hello` being `world` due to the last header value set being `world`.
+2 つのヘッダーが同じパスにマッチし、同じヘッダーキーが設定されていた場合、最後のヘッダーキーが最初のヘッダーキーを上書きします。以下のヘッダーを使うと、パス `/hello` は最後のヘッダーの値が `world` であるため、ヘッダー `x-hello` の値は `world` となります。
+
 
 ```js
 module.exports = {
@@ -68,9 +69,9 @@ module.exports = {
 }
 ```
 
-## Path Matching
+## パスのマッチング
 
-Path matches are allowed, for example `/blog/:slug` will match `/blog/hello-world` (no nested paths):
+パスのマッチングができます。例えば、`/blog/:slug` は `/blog/hello-world` とマッチします (ネストされているパスはありません):
 
 ```js
 module.exports = {
@@ -81,10 +82,10 @@ module.exports = {
         headers: [
           {
             key: 'x-slug',
-            value: ':slug', // Matched parameters can be used in the value
+            value: ':slug', // マッチしたパラメータを値として使用できます
           },
           {
-            key: 'x-slug-:slug', // Matched parameters can be used in the key
+            key: 'x-slug-:slug', // マッチしたパラメータをキーとして使用できます
             value: 'my other custom header value',
           },
         ],
@@ -94,9 +95,10 @@ module.exports = {
 }
 ```
 
-### Wildcard Path Matching
+### ワイルドカードを用いたパスのマッチング
 
-To match a wildcard path you can use `*` after a parameter, for example `/blog/:slug*` will match `/blog/a/b/c/d/hello-world`:
+
+ワイルドカードを使ってパスとマッチさせるには、パラメータの後に `*` を使います。例えば、 `/blog/:slug*` は `/blog/a/b/c/d/hello-world` とマッチします:
 
 ```js
 module.exports = {
@@ -107,10 +109,10 @@ module.exports = {
         headers: [
           {
             key: 'x-slug',
-            value: ':slug*', // Matched parameters can be used in the value
+            value: ':slug*', // マッチしたパラメータを値として使用できます
           },
           {
-            key: 'x-slug-:slug*', // Matched parameters can be used in the key
+            key: 'x-slug-:slug*', // マッチしたパラメータをキーとして使用できます
             value: 'my other custom header value',
           },
         ],
@@ -120,13 +122,13 @@ module.exports = {
 }
 ```
 
-### Regex Path Matching
+### 正規表現を用いたパスのマッチング
 
-To match a regex path you can wrap the regex in parenthesis after a parameter, for example `/blog/:slug(\\d{1,})` will match `/blog/123` but not `/blog/abc`:
+パラメータの後に括弧で正規表現を囲むことで、正規表現を用いてパスとマッチさせられます。例えば `/blog/:slug(\d{1,})` は `/blog/123` とマッチしますが、`/blog/abc` とはマッチしません:
 
 ```js
 module.exports = {
-  async rewrites() {
+  async headers() {
     return [
       {
         source: '/blog/:post(\\d{1,})',
@@ -142,18 +144,17 @@ module.exports = {
 }
 ```
 
-### Headers with basePath support
+### basePath をサポートしたヘッダー
 
-When leveraging [`basePath` support](/docs/api-reference/next.config.js/basepath.md) with headers each `source` is automatically prefixed with the `basePath` unless you add `basePath: false` to the header:
+ヘッダーで [`basePath` サポート](/docs/api-reference/next.config.js/basepath.md)を利用する際は、ヘッダーに `basePath: false` を追加しない限り、各 `source` に対して自動的に `basePath` がプレフィックスとして付与されます:
 
 ```js
 module.exports = {
   basePath: '/docs',
-
   async headers() {
     return [
       {
-        source: '/with-basePath', // becomes /docs/with-basePath
+        source: '/with-basePath', // これは /docs/with-basePath になります
         headers: [
           {
             key: 'x-hello',
@@ -162,7 +163,7 @@ module.exports = {
         ],
       },
       {
-        source: '/without-basePath', // is not modified since basePath: false is set
+        source: '/without-basePath', // basePath: false が設定されているため、変更されません
         headers: [
           {
             key: 'x-hello',
