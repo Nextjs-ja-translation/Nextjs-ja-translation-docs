@@ -1,14 +1,14 @@
 ---
-description: Configure Next.js pages to resolve with or without a trailing slash.
+description: 末尾スラッシュの有無で Next.js のページを解決できるように設定します。
 ---
 
-# Trailing Slash
+# 末尾のスラッシュ
 
-> This feature was introduced in [Next.js 9.5](https://nextjs.org/blog/next-9-5) and up. If you’re using older versions of Next.js, please upgrade before trying it out.
+> この機能は [Next.js 9.5](https://nextjs.org/blog/next-9-5) で導入されました。古いバージョンの Next.js をお使いの場合は、アップグレードしてお試しください。
 
-By default Next.js will redirect urls with trailing slashes to their counterpart without a trailing slash. For example `/about/` will redirect to `/about`. You can configure this behavior to act the opposite way, where urls without trailing slashes are redirected to their counterparts with trailing slashes.
+Next.js では、末尾にスラッシュが付いている URL から、末尾にスラッシュが付いていない URL にデフォルトでリダイレクトします。例えば、`/about/` は `/about` にリダイレクトされます。この動作を逆に設定し、URL の末尾にスラッシュがない場合は、末尾にスラッシュがある URL にリダイレクトさせることもできます。
 
-Open `next.config.js` and add the `trailingSlash` config:
+`next.config.js` を開き、`trailingSlash` の設定を追加してください:
 
 ```js
 module.exports = {
@@ -16,13 +16,14 @@ module.exports = {
 }
 ```
 
-With this option set, urls like `/about` will redirect to `/about/`.
+このオプションの設定を追加すると、`/about` のような URL は `/about/` へリダイレクトされるようなります。
 
-## Related
+
+## 関連事項
 
 <div class="card">
   <a href="/docs/api-reference/next.config.js/introduction.md">
-    <b>Introduction to next.config.js:</b>
-    <small>Learn more about the configuration file used by Next.js.</small>
+    <b>next.config.js の紹介:</b>
+    <small>Next.js の設定ファイルについて詳しく学びましょう。</small>
   </a>
 </div>
