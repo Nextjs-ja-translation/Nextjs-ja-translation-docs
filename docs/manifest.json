@@ -345,7 +345,7 @@
               "path": "/docs/api-reference/next.config.js/exportPathMap.md"
             },
             {
-              "title": "Trailing Slash",
+              "title": "末尾のスラッシュ",
               "path": "/docs/api-reference/next.config.js/trailing-slash.md"
             },
             {
