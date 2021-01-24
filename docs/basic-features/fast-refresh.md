@@ -1,3 +1,5 @@
+<!-- textlint-disable -->
+ <!-- 翻訳時には ↑ を削除してください -->
 ---
 description:
   Next.js' Fast Refresh is a new hot reloading experience that gives you
@@ -21,7 +23,6 @@ state**.
 
 ## How It Works
 
-<!-- textlint-disable ja-technical-writing/max-comma -->
 - If you edit a file that **only exports React component(s)**, Fast Refresh will
   update the code only for that file, and re-render your component. You can edit
   anything in that file, including styles, rendering logic, event handlers, or
@@ -38,7 +39,6 @@ state**.
   that case, consider migrating the constant to a separate file and importing it
   into both files. This will re-enable Fast Refresh to work. Other cases can
   usually be solved in a similar way.
-<!-- textlint-enable ja-technical-writing/max-comma -->
 
 ## Error Resilience
 
@@ -77,8 +77,9 @@ local state being reset on every edit to a file:
 - The file you're editing might have _other_ exports in addition to a React
   component.
 - Sometimes, a file would export the result of calling higher-order component
-  like `higherOrderComponent(WrappedComponent)`. If the returned component is a
+  like `HOC(WrappedComponent)`. If the returned component is a
   class, state will be reset.
+- Anonymous arrow functions like `export default () => <div />;` cause Fast Refresh to not preserve local component state. For large codebases you can use our [`name-default-component` codemod](/docs/advanced-features/codemods.md#name-default-component).
 
 As more of your codebase moves to function components and Hooks, you can expect
 state to be preserved in more cases.
@@ -107,12 +108,10 @@ Hooks with dependencies—such as `useEffect`, `useMemo`, and `useCallback`—wi
 _always_ update during Fast Refresh. Their list of dependencies will be ignored
 while Fast Refresh is happening.
 
-<!-- textlint-disable ja-technical-writing/no-exclamation-question-mark -->
 For example, when you edit `useMemo(() => x * 2, [x])` to
 `useMemo(() => x * 10, [x])`, it will re-run even though `x` (the dependency)
 has not changed. If React didn't do that, your edit wouldn't reflect on the
 screen!
-<!-- textlint-enable ja-technical-writing/no-exclamation-question-mark -->
 
 Sometimes, this can lead to unexpected results. For example, even a `useEffect`
 with an empty array of dependencies would still re-run once during Fast Refresh.
