@@ -220,7 +220,7 @@
             },
             {
               "title": "Migrating from React Router",
-              "path": "/docs/migrating/from-react-router"
+              "path": "/docs/migrating/from-react-router.md"
             }
           ]
         },
