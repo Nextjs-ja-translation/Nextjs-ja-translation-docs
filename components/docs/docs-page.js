@@ -2,7 +2,7 @@ import { memo, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getSlug, removeFromLast, addTagToSlug } from '../../lib/docs/utils';
-import { GITHUB_URL, REPO_NAME } from '../../lib/github/constants';
+import { GITHUB_URL, ORGANIZATION_NAME, REPOSITORY_NAME, DEFAULT_BRANCH } from '../../lib/github/constants';
 import addLinkListener from '../../lib/add-link-listener';
 import Notification from './notification';
 import FooterFeedback from '../footer-feedback';
@@ -19,7 +19,7 @@ function DocsPage({ route, html, prevRoute, nextRoute }) {
   const { query } = useRouter();
   const { tag, slug } = getSlug(query);
   const href = '/docs/[...slug]';
-  const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/canary${route.path}`;
+  const editUrl = `${GITHUB_URL}/${ORGANIZATION_NAME}/${REPOSITORY_NAME}/edit/${DEFAULT_BRANCH}${route.path}`;
 
   useEffect(() => {
     const listeners = [];
