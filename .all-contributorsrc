@@ -344,6 +344,24 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "5t111111",
+      "name": "Hirofumi Wakasugi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/333180?v=4",
+      "profile": "https://fiveteesixone.lackland.io",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "numb86",
+      "name": "numb86",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16703337?v=4",
+      "profile": "https://numb86.net/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
