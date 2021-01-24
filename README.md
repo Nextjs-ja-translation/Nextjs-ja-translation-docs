@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-37-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-38-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -138,6 +138,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
   <tr>
     <td align="center"><a href="https://kirohi.now.sh"><img src="https://avatars1.githubusercontent.com/u/38400669?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Hiroki.Ihoriya</b></sub></a><br /><a href="#translation-ia17011" title="Translation">🌍</a></td>
     <td align="center"><a href="https://fiveteesixone.lackland.io"><img src="https://avatars.githubusercontent.com/u/333180?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Hirofumi Wakasugi</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/pulls?q=is%3Apr+reviewed-by%3A5t111111" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://numb86.net/"><img src="https://avatars.githubusercontent.com/u/16703337?v=4?s=100" width="100px;" alt=""/><br /><sub><b>numb86</b></sub></a><br /><a href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/issues?q=author%3Anumb86" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
