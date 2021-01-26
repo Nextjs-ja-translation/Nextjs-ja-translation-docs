@@ -11,7 +11,7 @@ description: Next.js は Cloudinary や Imgix などのようなサードパー�
   </ul>
 </details>
 
-バージョン**10.0.0**から、Next.js はビルトインの画像コンポーネントと自動的な画像最適化があります。
+バージョン **10.0.0** から、Next.js はビルトインの画像コンポーネントと自動的な画像最適化があります。
 
 Next.js の画像コンポーネント, [`next/image`](/docs/api-reference/next/image.md) はモダン Web 用に進化した HTML `<img>` 要素の拡張です。
 
