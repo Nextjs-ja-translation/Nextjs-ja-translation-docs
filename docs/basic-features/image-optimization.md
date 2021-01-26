@@ -1,33 +1,33 @@
 ---
-description: Next.js supports built-in image optimization, as well as third party loaders for Imgix, Cloudinary, and more! Learn more here.
+description: Next.js は Cloudinary や Imgix などのようなサードパーティのローダーと同様に、画像最適化をビルトインでサポートしています。ここではそれについて詳しく学びましょう。
 ---
 
-# Image Component and Image Optimization
+# 画像コンポーネントと画像最適化
 
 <details open>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/image-component">Image Component</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/image-component">画像コンポーネント</a></li>
   </ul>
 </details>
 
-Since version **10.0.0**, Next.js has a built-in Image Component and Automatic Image Optimization.
+バージョン**10.0.0**から、Next.js はビルトインの画像コンポーネントと自動的な画像最適化があります。
 
-The Next.js Image Component, [`next/image`](/docs/api-reference/next/image.md), is an extension of the HTML `<img>` element, evolved for the modern web.
+Next.js の画像コンポーネント, [`next/image`](/docs/api-reference/next/image.md) はモダン Web 用に進化した HTML `<img>` 要素の拡張です。
 
-The Automatic Image Optimization allows for resizing, optimizing, and serving images in modern formats like [WebP](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) when the browser supports it. This avoids shipping large images to devices with a smaller viewport. It also allows Next.js to automatically adopt future image formats and serve them to browsers that support those formats.
+自動的な画像最適化により、ブラウザがサポートしている場合、 [WebP](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) のようなモダンな形式で画像のサイズ変更、最適化及び提供が可能です。これはビューポートがより小さいデバイスに大きな画像を送信することを避けます。また、 Next.js が将来の画像形式を採用し、それらをサポートするブラウザへ提供できるようにします。
 
-Automatic Image Optimization works with any image source. Even if the image is hosted by an external data source, like a CMS, it can still be optimized.
+自動的な画像最適化は、どんな画像ソースに対しても機能します。画像が CMS などの外部データソースにホストされている場合でも、最適化できます。
 
-Instead of optimizing images at build time, Next.js optimizes images on-demand, as users request them. Unlike static site generators and static-only solutions, your build times aren't increased, whether shipping 10 images or 10 million images.
+ビルド時に画像を最適化する代わりに、 Next.js はユーザーのリクエストに応じてオンデマンドで画像を最適化します。静的サイトジェネレーターや静的のみのソリューションと異なり、 10 枚の画像を公開する場合でも 1,000 万枚の画像を公開する場合でも、ビルド時間は増加しません。
 
-Images are lazy loaded by default. That means your page speed isn't penalized for images outside the viewport. Images load as they are scrolled into viewport.
+画像はデフォルトで遅延読み込みされます。つまりビューポート外の画像に対してページ速度が低下することはありません。画像はビューポートにスクロールされると読み込まれます。
 
-Images are always rendered in such a way as to avoid [Cumulative Layout Shift](https://web.dev/cls/), a [Core Web Vital](https://web.dev/vitals/) that Google is going to [use in search ranking](https://webmasters.googleblog.com/2020/05/evaluating-page-experience.html).
+画像は常に Google が[検索ランキングで使用](https://webmasters.googleblog.com/2020/05/evaluating-page-experience.html)する [Core Web Vital](https://web.dev/vitals/) である [Cumulative Layout Shift](https://web.dev/cls/) を回避するようにレンダリングされます。
 
-## Image Component
+## 画像コンポーネント
 
-To add an image to your application, import the [`next/image`](/docs/api-reference/next/image.md) component:
+アプリケーションに画像を追加するには、 [`next/image`](/docs/api-reference/next/image.md) コンポーネントをインポートします:
 
 ```jsx
 import Image from 'next/image'
@@ -50,16 +50,15 @@ function Home() {
 export default Home
 ```
 
-[View all properties](/docs/api-reference/next/image.md) available to the `next/image` component.
+`next/image` コンポーネントで使用可能なすべてのプロパティを[表示します](/docs/api-reference/next/image.md)。
 
-## Configuration
+## 設定
 
-In addition to [using properties](/docs/api-reference/next/image.md) available to the `next/image` component, you can optionally configure Image Optimization for more advanced use cases via `next.config.js`.
+`next/image` コンポーネントに使用可能な[プロパティを使う](/docs/api-reference/next/image.md)ことに加えて、オプションで `next.config.js` を介してより高度なユースケース用に画像最適化を設定できます。
 
-### Domains
+### ドメイン
 
-To enable Image Optimization for images hosted on an external website, use an absolute url for the Image `src` and specify which
-`domains` are allowed to be optimized. This is needed to ensure that external urls can't be abused. When `loader` is set to an external image service, this option is ignored.
+外部にホストされた画像を最適化するには、画像の `src` に絶対 URL を使用し、最適化できる `domains` を指定します。これは外部の　URL を悪用されないために必要です。 `loader` が外部の画像サービスに設定されている場合、このオプションは無視されます。
 
 ```js
 module.exports = {
@@ -69,9 +68,9 @@ module.exports = {
 }
 ```
 
-### Loader
+### ローダー
 
-If you want to use a cloud provider to optimize images instead of using the Next.js' built-in Image Optimization, you can configure the loader and path prefix. This allows you to use relative urls for the Image `src` and automatically generate the correct absolute url for your provider.
+もし Next.js のビルトイン画像最適化を使う代わりにクラウドプロバイダーを使用して画像を最適化したい場合、ローダーとプリフィックスを設定できます。これにより画像の `src` に相対 URL を使用し、プロバイダーの正しい絶対 URL を自動的に生成できます。
 
 ```js
 module.exports = {
@@ -82,37 +81,37 @@ module.exports = {
 }
 ```
 
-The following Image Optimization cloud providers are included:
+次の画像最適化クラウドプロバイダーが含まれます:
 
-- [Vercel](https://vercel.com): Works automatically when you deploy on Vercel, no configuration necessary. [Learn more](https://vercel.com/docs/next.js/image-optimization)
+- [Vercel](https://vercel.com): Vercel にデプロイすると自動的に機能し、設定は必要ありません。[詳しく学ぶ](https://vercel.com/docs/next.js/image-optimization)
 - [Imgix](https://www.imgix.com): `loader: 'imgix'`
 - [Cloudinary](https://cloudinary.com): `loader: 'cloudinary'`
 - [Akamai](https://www.akamai.com): `loader: 'akamai'`
-- Default: Works automatically with `next dev`, `next start`, or a custom server
+- Default: `next dev`, `next start`, もしくはカスタムサーバーで自動的に機能します。
 
-If you need a different provider, you can use the [`loader`](/docs/api-reference/next/image.md#loader) prop with `next/image`.
+もし異なるプロバイダーが必要な場合、 `next/image` の [`loader`](/docs/api-reference/next/image.md#loader) プロパティを使用できます。
 
-## Caching
+## キャッシュ
 
-The following describes the caching algorithm for the default [loader](#loader). For all other loaders, please refer to your cloud provider's documentation.
+次にデフォルトの [ローダー](#loader) のキャッシュアルゴリズムについて説明します。他の全てのローダーについては、クラウドプロバイダーのドキュメントを参照してください。
 
-Images are optimized dynamically upon request and stored in the `<distDir>/cache/images` directory. The optimized image file will be served for subsequent requests until the expiration is reached. When a request is made that matches a cached but expired file, the cached file is deleted before generating a new optimized image and caching the new file.
+画像はリクエストに対して動的に最適化され `<distDir>/cache/images`  ディレクトリに保存されます。最適化された画像ファイルは、有効期限に達するまで、後続のリクエストに対して提供されます。キャッシュされているが期限切れのファイルと一致するリクエストが生成されたとき、キャッシュファイルは削除されてから、新しい最適化された画像を生成され、新しいファイルがキャッシュされます。
 
-The expiration (or rather Max Age) is defined by the upstream server's `Cache-Control` header.
+有効期限（または最大経過時間）は、アップストリームサーバーの `Cache-Control` ヘッダーによって定義されます。
 
-If `s-maxage` is found in `Cache-Control`, it is used. If no `s-maxage` is found, then `max-age` is used. If no `max-age` is found, then 60 seconds is used.
+`s-maxage` が `Cache-Control` に見つかった場合、それを使用します。 `s-maxage` が見つからない場合、 `max-age` を使用します。 `max-age` が見つからない場合、 60 秒を使用します。
 
-You can configure [`deviceSizes`](#device-sizes) and [`imageSizes`](#device-sizes) to reduce the total number of possible generated images.
+[`deviceSizes`](#device-sizes) と [`imageSizes`](#device-sizes) を設定して、生成され得る画像の総数を減らすことができます。
 
 ## Advanced
 
-The following configuration is for advanced use cases and is usually not necessary. If you choose to configure the properties below, you will override any changes to the Next.js defaults in future updates.
+次の設定は高度なユースケース向けであり、通常は必要ありません。以下のプロパティを設定することを選択した場合、今後の Next.js のデフォルトへの変更を上書きします。
 
-### Device Sizes
+### デバイスサイズ
 
-In some cases, where you know the expected device widths from the users of your website, you can specify a list of device width breakpoints using the `deviceSizes` property. These widths are used when the [`next/image`](/docs/api-reference/next/image.md) component uses `layout="responsive"` or `layout="fill"` so that the correct image is served for the device visiting your website.
+Web サイトのユーザーから予想されるデバイス幅が分かっている場合、 `deviceSizes` プロパティを使用してデバイス幅のブレークポイントのリストを指定できます。これらの幅は [`next/image`](/docs/api-reference/next/image.md) コンポーネントが `layout="responsive"` か `layout="fill"` を使用している場合に使用され、 Web サイトにアクセスするデバイスへ適切な画像が提供されます。
 
-If no configuration is provided, the default below is used.
+設定がないときは、以下のデフォルトが使用されます。
 
 ```js
 module.exports = {
@@ -122,11 +121,11 @@ module.exports = {
 }
 ```
 
-### Image Sizes
+### 画像サイズ
 
-You can specify a list of image widths using the `imageSizes` property. These widths should be different (usually smaller) than the widths defined in `deviceSizes` because the arrays will be concatenated. These widths are used when the [`next/image`](/docs/api-reference/next/image.md) component uses `layout="fixed"` or `layout="intrinsic"`.
+`imageSizes` プロパティを使用して、画像の幅のリストを指定できます。これらの幅は、配列で連結されるため、 `deviceSizes` で定義された幅とは異なる（通常はより小さい）必要があります。これらの幅は、 [`next/image`](/docs/api-reference/next/image.md) コンポーネントが `layout="fixed"` か `layout="intrinsic"` を使用するときに使われます。
 
-If no configuration is provided, the default below is used.
+設定がないときは、以下のデフォルトが使用されます。
 
 ```js
 module.exports = {
@@ -136,13 +135,13 @@ module.exports = {
 }
 ```
 
-## Related
+## 関連事項
 
-For more information on what to do next, we recommend the following sections:
+次にやるべきこととして、以下のセクションをお勧めします:
 
 <div class="card">
   <a href="/docs/api-reference/next/image.md">
     <b>next/image</b>
-    <small>See all available properties for the Image component</small>
+    <small>画像コンポーネントで使用可能な全てのプロパティを見る</small>
   </a>
 </div>
