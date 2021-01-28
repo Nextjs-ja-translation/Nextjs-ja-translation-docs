@@ -26,7 +26,7 @@ Next.js は[ページという概念](/docs/basic-features/pages.md)に基づい
 
 ### 動的なルートのセグメント
 
-動的なセグメントにマッチさせたければブラケット記法を使うことができます。名前をつけたパラメーターとのマッチが可能です。
+動的なセグメントにマッチさせたければブラケット記法を使うことができます。名前をつけたパラメータとのマッチが可能です。
 
 - `pages/blog/[slug].js` → `/blog/:slug` (`/blog/hello-world`)
 - `pages/[username]/settings.js` → `/:username/settings` (`/foo/settings`)
