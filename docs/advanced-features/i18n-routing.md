@@ -1,3 +1,7 @@
+---
+description: Next.js には国際化されたルーティングと言語検出のビルトインサポートがあります。詳細はこちらをご覧ください。
+---
+
 # 国際化されたルーティング
 
 <details>
@@ -7,7 +11,7 @@
   </ul>
 </details>
 
-Next.js は `v10.0.0` から国際化（[i18n](https://en.wikipedia.org/wiki/Internationalization_and_localization#Naming)）ルーティングを組み込んでいます。ロケールの一覧やデフォルトのロケール、特定ドメインのロケールを指定すると、Next.js がルーティングを自動的に処理してくれます。
+Next.js には `v10.0.0` から国際化（[i18n](https://en.wikipedia.org/wiki/Internationalization_and_localization#Naming)）ルーティングのビルトインサポートがあります。ロケールの一覧やデフォルトのロケール、特定ドメインのロケールを指定すると、Next.js がルーティングを自動的に処理してくれます。
 
 i18n ルーティングは、ルートとロケールの解析を効率化することで、`react-intl`, `react-i18next`, `lingui`, `rosetta` やその他の既存 i18n ライブラリによる実装を補完することを目的としています。
 
@@ -20,8 +24,8 @@ i18n ルーティングは、ルートとロケールの解析を効率化する
 一般的にロケール識別子は、ダッシュ区切りの言語、地域、スクリプトで構成されます: `language-region-script`。地域とスクリプトは任意項目です。例としては、以下のようになります:
 
 - `en-US` - アメリカで話されている英語
-- `nl-NL` - オランダで話されているオランダ語。
-- `nl` - 地域指定のないオランダ語。
+- `nl-NL` - オランダで話されているオランダ語
+- `nl` - 地域指定のないオランダ語
 
 ```js
 // next.config.js
