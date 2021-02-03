@@ -4,7 +4,7 @@ description: Next.js はデフォルトで TypeScript のエラーを報告し�
 
 # TypeScript のエラーを無視する
 
-あなたのプロジェクトに TypeScript エラーが存在するとき、Next.js は **プロダクションビルド** (`next build`) に失敗します。
+あなたのプロジェクトに TypeScript エラーが存在するとき、Next.js は **本番のビルド** (`next build`) に失敗します。
 
 アプリケーションにエラーがある場合でも Next.js で危険なプロダクションコードを生成したいのであれば、組み込みの型チェック機能を無効にできます。
 

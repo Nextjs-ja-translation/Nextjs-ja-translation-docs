@@ -138,6 +138,8 @@ Next.jsでは`export`された[React コンポーネント](https://reactjs.org/
 | Import           | インポート                 |
 | Export           | エクスポート               |
 | warnings         | 警告                       |
+| parameter        | パラメータ                 |
+| production build | 本番のビルド               |
 | introduce to xx  | xx の紹介                  |
 | learn more about | について詳しく学びましょう |
 | xx documentation | xx のドキュメント          |

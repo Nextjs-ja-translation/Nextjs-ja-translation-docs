@@ -57,3 +57,11 @@ rules:
   - expected: サーバーサイド
     pattern:
       - サーバサイド
+
+  - expected: 本番のビルド
+    pattern:
+      - プロダクションビルド
+
+  - expected: パラメータ
+    pattern:
+      - パラメーター
