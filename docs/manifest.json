@@ -309,10 +309,6 @@
               "path": "/docs/api-reference/next.config.js/compression.md"
             },
             {
-              "title": "静的最適化インジケータ",
-              "path": "/docs/api-reference/next.config.js/static-optimization-indicator.md"
-            },
-            {
               "title": "ランタイム設定",
               "path": "/docs/api-reference/next.config.js/runtime-configuration.md"
             },
