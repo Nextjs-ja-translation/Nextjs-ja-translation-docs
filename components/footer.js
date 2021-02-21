@@ -121,6 +121,18 @@ export default withPure(() => (
                 Join our slack !!
               </a>
             </p>
+            <p>
+              <a
+                href="https://vercel.com/?utm_source=Nextjs-ja-translation&utm_campaign=oss"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  src="/static/svg/powered-by-vercel.svg"
+                  alt="Vercel社様によるスポンサーシップ"
+                />
+              </a>
+            </p>
           </div>
         </div>
         <div className="copyright f6">
