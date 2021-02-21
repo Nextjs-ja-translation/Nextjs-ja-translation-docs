@@ -15,7 +15,7 @@ description: Next.js は Cloudinary や Imgix などのようなサードパー�
 
 Next.js の画像コンポーネント, [`next/image`](/docs/api-reference/next/image.md) はモダン Web 用に進化した HTML `<img>` 要素の拡張です。
 
-自動的な画像最適化により、ブラウザがサポートしている場合、 [WebP](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) のようなモダンな形式で画像のサイズ変更、最適化及び提供が可能です。これはビューポートがより小さいデバイスに大きな画像を送信することを避けます。また、 Next.js が将来の画像形式を採用し、それらをサポートするブラウザへ提供できるようにします。
+リサイズや最適化、ブラウザがサポートしている場合においての [Webp](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) のようなモダンな形式での画像の配信が可能です。これはビューポートがより小さいデバイスに大きな画像を送信することを避けます。また、 Next.js が将来の画像形式を採用し、それらをサポートするブラウザへ提供できるようにします。
 
 自動的な画像最適化は、どんな画像ソースに対しても機能します。画像が CMS などの外部データソースにホストされている場合でも、最適化できます。
 
