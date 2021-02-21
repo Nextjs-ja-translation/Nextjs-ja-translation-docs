@@ -146,3 +146,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+[![](./public/svg/../static/svg/powered-by-vercel.svg)](https://vercel.com/?utm_source=Nextjs-ja-translation&utm_campaign=oss)
+
+Vercel 社様のスポンサーシップにより、このプロジェクトはデプロイされており運営されています。
