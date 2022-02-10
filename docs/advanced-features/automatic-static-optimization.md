@@ -35,8 +35,6 @@ description: Next.js は可能であれば静的な HTML へとアプリケー�
 .next/server/static/${BUILD_ID}/about.js
 ```
 
-開発中は `pages/about.js` が最適化されているかどうかを内部の[静的最適化インディケーター](/docs/api-reference/next.config.js/static-optimization-indicator.md)によって知ることができます。
-
 ## 注意事項
 
 - `getInitialProps` を用いた[カスタム `App` ](/docs/advanced-features/custom-app.md)の場合、[静的生成](/docs/basic-features/data-fetching.md#getstaticprops-static-generation)なしのページではこの最適化はオフになります。
