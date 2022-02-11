@@ -7,7 +7,6 @@ description: カスタムサーバーを使用してプログラム上で Next.j
 <details>
   <summary><b>Examples</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/custom-server">Basic custom server</a></li>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/custom-server-express">Express integration</a></li>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/custom-server-hapi">Hapi integration</a></li>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/custom-server-koa">Koa integration</a></li>
@@ -15,7 +14,9 @@ description: カスタムサーバーを使用してプログラム上で Next.j
   </ul>
 </details>
 
-通常、next サーバーは `next start` で起動します。しかしながら、カスタムしたルーティングパターンを使用するために、100％ プログラム上での起動が可能です。
+Next.js は `next start` で起動される独自のサーバーをデフォルトで含んでいます。もし既存のバックエンドがある場合でも、それを Next.js において利用し続けられます(これはカスタムサーバーではありません)。カスタム Next.js サーバーはカスタムされたサーバーパターンを利用するために 100% プログラムで制御してサーバーを起動することを可能にします。ほとんどの場合必要ではありませんが、完全なカスタマイズのために利用可能です。
+
+> 注意: カスタムサーバーは Vercel へとデプロイすることができません。
 
 > カスタムサーバーの使用を決定する前に、Next.js の統合ルーターがアプリの要件を満たせない場合にのみ使用すべきことを気に留めてください。カスタムサーバーでは、**サーバーレス関数**や **[Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md).** などの重要なパフォーマンス最適化が削除されます。
 
@@ -23,33 +24,42 @@ description: カスタムサーバーを使用してプログラム上で Next.j
 
 ```js
 // server.js
-const { createServer } = require('http');
-const { parse } = require('url');
-const next = require('next');
+const { createServer } = require('http')
+const { parse } = require('url')
+const next = require('next')
 
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
-const handle = app.getRequestHandler();
+const dev = process.env.NODE_ENV !== 'production'
+const hostname = 'localhost'
+const port = 3000
+// ミドルウェアを利用する場合、 `hostname` と `port` を以下のように提供する必要があります。
+const app = next({ dev, hostname, port })
+const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
-  createServer((req, res) => {
-    // `url.parse` の2番目の引数として必ず `true` を渡してください。
-    // これは、URLのクエリ部分を解析するように指示します。
-    const parsedUrl = parse(req.url, true);
-    const { pathname, query } = parsedUrl;
+  createServer(async (req, res) => {
+    try {
+      // `url.parse` の2番目の引数として必ず `true` を渡してください。
+      // これは、URLのクエリ部分を解析するように指示します。
+      const parsedUrl = parse(req.url, true)
+      const { pathname, query } = parsedUrl
 
-    if (pathname === '/a') {
-      app.render(req, res, '/a', query);
-    } else if (pathname === '/b') {
-      app.render(req, res, '/b', query);
-    } else {
-      handle(req, res, parsedUrl);
+      if (pathname === '/a') {
+        await app.render(req, res, '/a', query)
+      } else if (pathname === '/b') {
+        await app.render(req, res, '/b', query)
+      } else {
+        await handle(req, res, parsedUrl)
+      }
+    } catch (err) {
+      console.error('Error occurred handling', req.url, err)
+      res.statusCode = 500
+      res.end('internal server error')
     }
-  }).listen(3000, err => {
-    if (err) throw err;
-    console.log('> Ready on http://localhost:3000');
-  });
-});
+  }).listen(port, (err) => {
+    if (err) throw err
+    console.log(`> Ready on http://${hostname}:${port}`)
+  })
+})
 ```
 
 > `server.js` は babel や webpack を経由しません。このファイルに必要な構文とソースが、現在実行中の node バージョンと互換性があることを確認してください。
