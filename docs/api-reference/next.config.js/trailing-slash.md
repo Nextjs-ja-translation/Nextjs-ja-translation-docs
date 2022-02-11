@@ -4,7 +4,14 @@ description: 末尾スラッシュの有無で Next.js のページを解決で�
 
 # 末尾のスラッシュ
 
-> この機能は [Next.js 9.5](https://nextjs.org/blog/next-9-5) で導入されました。古いバージョンの Next.js をお使いの場合は、アップグレードしてお試しください。
+<details>
+  <summary><b>Version History</b></summary>
+
+| Version  | Changes               |
+| -------- | --------------------- |
+| `v9.5.0` | Trailing Slash added. |
+
+</details>
 
 Next.js では、末尾にスラッシュが付いている URL から、末尾にスラッシュが付いていない URL にデフォルトでリダイレクトします。例えば、`/about/` は `/about` にリダイレクトされます。この動作を逆に設定し、URL の末尾にスラッシュがない場合は、末尾にスラッシュがある URL にリダイレクトさせることもできます。
 
