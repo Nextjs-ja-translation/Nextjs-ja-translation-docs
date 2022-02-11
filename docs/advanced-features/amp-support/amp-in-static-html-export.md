@@ -27,7 +27,7 @@ Next.js は、HTML ページに AMP ページへのリンクを自動的に挿�
 <link rel="canonical" href="/about" />
 ```
 
-[`exportTrailingSlash`](/docs/api-reference/next.config.js/exportPathMap.md#0cf7d6666b394c5d8d08a16a933e86ea) を有効にすると、 `pages/about.js` は以下のようにエクスポートされます:
+[`trailingSlash`](/docs/api-reference/next.config.js/trailingSlash.md) を有効にすると、 `pages/about.js` は以下のようにエクスポートされます:
 
 - `out/about/index.html` - HTML ページ
 - `out/about.amp/index.html` - AMP ページ

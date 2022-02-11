@@ -4,7 +4,7 @@ description: AMPコミュニティのコンポーネントを追加して、よ�
 
 # AMPコンポーネントの追加
 
-AMPコミュニティは、よりインタラクティブなAMPページを作成するのに役立つ [たくさんのコンポーネント](https://amp.dev/documentation/components/) を提供しています。 Next.js はページで使用されるすべてのコンポーネントを自動的にインポートするので、AMPコンポーネントのスクリプトを手動でインポートする必要はありません:
+AMP コミュニティは、よりインタラクティブな AMP ページを作成するのに役立つ [たくさんのコンポーネント](https://amp.dev/documentation/components/) を提供しています。 Next.js はページで使用されるすべてのコンポーネントを自動的にインポートするので、AMP コンポーネントのスクリプトを手動でインポートする必要はありません:
 
 ```jsx
 export const config = { amp: true };
@@ -49,7 +49,12 @@ function MyAmpPage() {
       </Head>
 
       <p>Some time: {date.toJSON()}</p>
-      <amp-timeago width="0" height="15" datetime={date.toJSON()} layout="responsive">
+      <amp-timeago
+        width="0"
+        height="15"
+        datetime={date.toJSON()}
+        layout="responsive"
+      >
         .
       </amp-timeago>
     </div>
