@@ -22,11 +22,11 @@
               "path": "/docs/basic-features/built-in-css-support.md"
             },
             {
-              "title": "Image Optimization",
+              "title": "画像最適化",
               "path": "/docs/basic-features/image-optimization.md"
             },
             {
-              "title": "Fast Refresh",
+              "title": "高速更新",
               "path": "/docs/basic-features/fast-refresh.md"
             },
             {
@@ -194,7 +194,7 @@
               "path": "/docs/advanced-features/source-maps.md"
             },
             {
-              "title": "Internationalized Routing",
+              "title": "国際化されたルーティング",
               "path": "/docs/advanced-features/i18n-routing.md"
             }
           ]
