@@ -36,13 +36,13 @@
     "intersection-observer": "^0.5.0",
     "md5": "2.2.1",
     "mdast-util-to-string": "1.0.7",
-    "next": "9.4.2-canary.5",
+    "next": "12.0.10",
     "node-fetch": "2.6.0",
     "nprogress": "0.2.0",
     "polished": "^2.0.3",
-    "react": "16.12.0",
+    "react": "17.0.2",
     "react-autosuggest": "9.4.3",
-    "react-dom": "16.12.0",
+    "react-dom": "17.0.2",
     "react-instantsearch-dom": "6.0.0",
     "react-tweet-embed": "1.2.2",
     "react-virtualized": "9.21.2",
@@ -82,7 +82,7 @@
     "rss": "1.2.2",
     "textlint-filter-rule-comments": "1.2.2",
     "textlint-rule-preset-ja-spacing": "2.0.1",
-    "typescript": "3.8.3"
+    "typescript": "4.5.5"
   },
   "license": "MIT"
 }
