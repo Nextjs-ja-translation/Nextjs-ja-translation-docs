@@ -45,22 +45,24 @@ function Navbar() {
         </div>
 
         <div className="links">
-          <Link href="/">
-            <a className="logo">
-              <NextLogo />
-            </a>
-          </Link>
+          <div className="wrapper">
+            <Link href="/">
+              <a className="logo">
+                <NextLogo />
+              </a>
+            </Link>
 
-          <Link href="/docs/[...slug]" as="/docs/getting-started">
-            <a
-              className={cn('mute', {
-                selected: route.startsWith('/docs')
-              })}
-              title="Documentation"
-            >
-              Docs
-            </a>
-          </Link>
+            <Link href="/docs/[...slug]" as="/docs/getting-started">
+              <a
+                className={cn('link mute', {
+                  selected: route.startsWith('/docs')
+                })}
+                title="Documentation"
+              >
+                Docs
+              </a>
+            </Link>
+          </div>
 
           <a
             href="https://github.com/vercel/next.js"
@@ -89,6 +91,15 @@ function Navbar() {
           align-items: center;
           justify-content: space-between;
           z-index: 1;
+        }
+
+        .wrapper {
+          display: flex;
+          align-items: center;
+        }
+
+        .link {
+          margin-left: 2rem;
         }
 
         .links a {
@@ -152,6 +163,10 @@ function Navbar() {
 
           nav .links a {
             font-size: 14px;
+          }
+
+          .link {
+            margin-left: 0;
           }
 
           .mobile-top {
