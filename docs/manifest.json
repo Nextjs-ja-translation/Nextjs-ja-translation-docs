@@ -196,6 +196,10 @@
             {
               "title": "国際化されたルーティング",
               "path": "/docs/advanced-features/i18n-routing.md"
+            },
+            {
+              "title": "React 18",
+              "path": "/docs/advanced-features/react-18.md"
             }
           ]
         },
