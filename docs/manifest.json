@@ -196,6 +196,10 @@
             {
               "title": "国際化されたルーティング",
               "path": "/docs/advanced-features/i18n-routing.md"
+            },
+            {
+              "title": "Output File Tracing",
+              "path": "/docs/advanced-features/output-file-tracing.md"
             }
           ]
         },
