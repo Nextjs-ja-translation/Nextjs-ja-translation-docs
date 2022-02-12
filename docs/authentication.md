@@ -48,7 +48,7 @@ const Profile = () => {
 export default Profile
 ```
 
-この例を実際に動かして試せるものが[こちら](https://iron-session-example.vercel.app/)にあります。[`with-iron-session`](https://github.com/vercel/next.js/tree/canary/examples/with-iron-session) を見て、これがどのように動作しているかを確認してみてください。
+[実際に動作する例](https://iron-session-example.vercel.app/)でこれを確認できます。[`with-iron-session`](https://github.com/vercel/next.js/tree/canary/examples/with-iron-session) を見て、これがどのように動作しているかを確認してみてください。
 
 ### サーバーレンダリングされるページの認証
 
