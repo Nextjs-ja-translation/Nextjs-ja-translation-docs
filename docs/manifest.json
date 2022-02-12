@@ -196,6 +196,10 @@
             {
               "title": "国際化されたルーティング",
               "path": "/docs/advanced-features/i18n-routing.md"
+            },
+            {
+              "title": "Security Headers",
+              "path": "/docs/advanced-features/security-headers.md"
             }
           ]
         },
