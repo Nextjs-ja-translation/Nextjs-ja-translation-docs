@@ -4,9 +4,18 @@ description: 特定のモジュール読み込みパスをコンパイル時に�
 
 # 絶対パスによるインポートとモジュールパスエイリアス
 
-Next.js では `tsconfig.json` や `jsconfig.json` の `"paths"` と `"baseUrl"` オプションに自動的に対応します。
+<details>
+<summary><b>例</b></summary>
+<ul>
+<li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-absolute-imports">絶対パスによるインポート</a></li>
+</ul>
+</details>
+
+Next.js では [Next.js 9.4](https://nextjs.org/blog/next-9-4) 以降のオプションで、 `tsconfig.json` や `jsconfig.json` の `"paths"` と `"baseUrl"` に自動的に対応します。
 
 > 注意：TypeScriptを使っている場合は `jsconfig.json` を利用できません
+
+> 注意：`tsconfig.json` / `jsconfig.json` を変更した場合、開発サーバーを再起動する必要があります。
 
 これらのオプションによって、モジュール読み込みパスのエイリアスを設定できます。よくあるパターンとしては、特定のディレクトリパスへエイリアスを設定し、そこに存在するモジュールを相対パスではなく絶対パスでインポートするような使い方です。
 
