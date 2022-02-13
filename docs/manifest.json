@@ -269,6 +269,10 @@
           "path": "/docs/api-reference/next/amp.md"
         },
         {
+          "title": "Edge Runtime",
+          "path": "/docs/api-reference/edge-runtime.md"
+        },
+        {
           "title": "Data Fetching",
           "routes": [
             {
