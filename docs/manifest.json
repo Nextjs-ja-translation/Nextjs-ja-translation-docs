@@ -200,6 +200,10 @@
             {
               "title": "Output File Tracing",
               "path": "/docs/advanced-features/output-file-tracing.md"
+            },
+            { 
+              "title": "React 18",
+              "path": "/docs/advanced-features/react-18.md"
             }
           ]
         },
@@ -259,6 +263,10 @@
         {
           "title": "next/amp",
           "path": "/docs/api-reference/next/amp.md"
+        },
+        {
+          "title": "Edge Runtime",
+          "path": "/docs/api-reference/edge-runtime.md"
         },
         {
           "title": "Data Fetching",
