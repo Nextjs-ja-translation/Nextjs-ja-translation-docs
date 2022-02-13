@@ -23,6 +23,9 @@
     "ja-technical-writing/ja-no-mixed-period": {
       "allowPeriodMarks": [":"],
     },
+    "ja-technical-writing/max-comma": {
+      "max": 5
+    },
     "ja-technical-writing/sentence-length": false, //100文字数制限の無効化
     "prh": {
       "rulePaths" :[
