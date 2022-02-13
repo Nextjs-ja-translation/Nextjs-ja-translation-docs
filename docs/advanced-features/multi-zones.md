@@ -3,7 +3,7 @@
 <details open>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary">マルチゾーン</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-zones">マルチゾーン</a></li>
   </ul>
 </details>
 
