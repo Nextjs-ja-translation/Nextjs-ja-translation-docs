@@ -4,24 +4,12 @@ description: getInitialProps を使い、ページでサーバーサイドレン
 
 # getInitialProps
 
->**推奨: [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) または [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering)**
->
-> Next.js 9.3以降を使用している場合は、 `getInitialProps` ではなく、 `getStaticProps` または `getServerSideProps` を使用することをお勧めします。
->
-> これらの新しいデータ取得メソッドを使用することで、静的生成とサーバーサイドレンダリングを細かく選択できるようになります。
-> [Pages](/docs/basic-features/pages.md) と[データ取得](/docs/basic-features/data-fetching.md)のドキュメントの詳細については、こちらをご覧ください:
-
-<details>
-  <summary><b>例</b></summary>
-  <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/data-fetch">Data fetch</a></li>
-  </ul>
-</details>
+**推奨: [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) または [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering)**
 
   `getInitialProps` は、ページ内の[サーバーサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering
 )を可能にし、初期データを追加出来るようになります。つまり、既にデータが追加されているページをサーバーから送信するということです。これは特に [SEO](https://ja.wikipedia.org/wiki/%E6%A4%9C%E7%B4%A2%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E6%9C%80%E9%81%A9%E5%8C%96) 対策に有効です。
 
-> `getInitialProps` は [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) を無効化します。
+ `getInitialProps` は [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) を無効化します。
 
 `getInitialProps` は、任意のページに[`静的メソッド`](https://ja.javascript.info/static-properties-methods)として追加できる[`非同期`](https://vercel.com/blog/async-and-await) 関数です。次の例を見てみましょう:
 
@@ -63,8 +51,7 @@ export default Page;
 
 `getInitialProps` から返されるデータは、 [`JSON.stringify`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) が行うのと同じように、サーバーレンダリング時にシリアライズされます。 `getInitialProps` から返されるオブジェクトがプレーンなオブジェクトで `Date` 、 `Map` 、 `Set` を使用していないことを確認してください。
 
-最初のページのロードでは、 `getInitialProps` はサーバー上でのみ実行されます。
-`getInitialProps` は、 [`next/link`](/docs/api-reference/next/link.md) コンポーネントを介して、または [`next/router`](/docs/api-reference/next/router.md) を使用して別のルートへ移動するときにクライアント上で実行されます。
+最初のページのロードでは、 `getInitialProps` はサーバー上でのみ実行されます。`getInitialProps` は、 [`next/link`](/docs/api-reference/next/link.md) コンポーネントを介して、または [`next/router`](/docs/api-reference/next/router.md) を使用して別のルートへ移動するときにクライアント上で実行されます。しかしもし `getInitialProps` がカスタムの `_app.js` の中で使われていて遷移先のページが `getServerSideProps` を実装している場合、 `getInitialProps` はサーバー上で実行されます。
 
 ## Context オブジェクト
 
@@ -87,20 +74,22 @@ export default Page;
 もし TypeScript を使っているならば、関数コンポーネントに `NextPage` 型を使用できます:
 
 ```jsx
-import { NextPage } from 'next';
+import { NextPage } from 'next'
 
 interface Props {
   userAgent?: string;
 }
 
-const Page: NextPage<Props> = ({ userAgent }) => <main>Your user agent: {userAgent}</main>;
+const Page: NextPage<Props> = ({ userAgent }) => (
+  <main>Your user agent: {userAgent}</main>
+)
 
 Page.getInitialProps = async ({ req }) => {
-  const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-  return { userAgent };
-};
+  const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
+  return { userAgent }
+}
 
-export default Page;
+export default Page
 ```
 
 `React.Component` には、 `NextPageContext` を使用できます:
@@ -131,22 +120,8 @@ export default class Page extends React.Component<Props> {
 次にやるべきこととして、以下のセクションを読むことをお勧めします:
 
 <div class="card">
-  <a href="/docs/basic-features/data-fetching.md">
+  <a href="/docs/basic-features/data-fetching/overview.md">
     <b>データ取得:</b>
     <small>Next.js のデータ取得について詳しく学びましょう。</small>
-  </a>
-</div>
-
-<div class="card">
-  <a href="/docs/basic-features/pages.md">
-    <b>Pages:</b>
-    <small>Next.js の pages について詳しく学びましょう。</small>
-  </a>
-</div>
-
-<div class="card">
-  <a href="/docs/advanced-features/automatic-static-optimization.md">
-    <b>Automatic Static Optimization:</b>
-    <small>Next.js の Automatic Static Optimization について詳しく学びましょう。</small>
   </a>
 </div>
