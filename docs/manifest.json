@@ -341,6 +341,10 @@
               "path": "/docs/api-reference/next.config.js/disabling-etag-generation.md"
             },
             {
+              "title": "Disabling HTTP Keep-Alive",
+              "path": "/docs/api-reference/next.config.js/disabling-http-keep-alive.md"
+            },
+            {
               "title": "カスタムビルドディレクトリの設定",
               "path": "/docs/api-reference/next.config.js/setting-a-custom-build-directory.md"
             },
