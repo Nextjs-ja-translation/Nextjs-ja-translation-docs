@@ -37,7 +37,7 @@
     "md5": "2.2.1",
     "mdast-util-to-string": "1.0.7",
     "next": "12.0.10",
-    "node-fetch": "2.6.0",
+    "node-fetch": "2.6.7",
     "nprogress": "0.2.0",
     "polished": "^2.0.3",
     "react": "17.0.2",
@@ -81,6 +81,7 @@
     "pretty-quick": "2.0.1",
     "rss": "1.2.2",
     "textlint-filter-rule-comments": "1.2.2",
+    "textlint-rule-max-comma": "2.0.2",
     "textlint-rule-preset-ja-spacing": "2.0.1",
     "typescript": "4.5.5"
   },
