@@ -1,14 +1,14 @@
 ---
-description: In development mode, pages include an indicator to let you know if your new code it's being compiled. You can opt-out of it here.
+description: 開発モードでは、新しいコードがコンパイルされているかどうかを知らせるインジケーターが表示されます。インジケーターを表示しないようにすることもできます。
 ---
 
-# Build indicator
+# ビルドインジケーター
 
-When you edit your code, and Next.js is compiling the application, a compilation indicator appears in the bottom right corner of the page.
+コードを編集して、Next.js がアプリケーションをコンパイルしているとき、ページの右下にコンパイル状態を示すインジケーターが表示されます。
 
-> **Note:** This indicator is only present in development mode and will not appear when building and running the app in production mode.
+> **備考:** このインジケーターは開発モードでのみ表示され、本番モードでアプリをビルドして実行する際には表示されません。
 
-In some cases this indicator can be misplaced on your page, for example, when conflicting with a chat launcher. To change its position, open `next.config.js` and set the `buildActivityPosition` in the `devIndicators` object to `bottom-right` (default), `bottom-left`, `top-right` or `top-left`:
+インジケーターの位置がチャットランチャーと被る場合など、ページ上で誤った位置に表示されることがあります。位置を変更するには、`next.config.js` ファイルを開き、`devIndicators`プロパティの `buildActivityPosition` 設定を `bottom-right`（デフォルト）、 `bottom-left`、`top-right`、または `top-left` に変更します:
 
 ```js
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
 }
 ```
 
-In some cases this indicator might not be useful for you. To remove it, open `next.config.js` and disable the `buildActivity` config in `devIndicators` object:
+場合によって、インジケーターが不要となることがあります。インジケーターを無効にするには `next.config.js` ファイルを開き、 `devIndicators` プロパティの `buildActivity` 設定を無効にします:
 
 ```js
 module.exports = {
