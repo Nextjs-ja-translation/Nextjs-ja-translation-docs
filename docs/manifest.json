@@ -209,7 +209,7 @@
               "title": "Security Headers",
               "path": "/docs/advanced-features/security-headers.md"
             },
-            { 
+            {
               "title": "React 18",
               "path": "/docs/advanced-features/react-18.md"
             }
@@ -353,6 +353,10 @@
               "path": "/docs/api-reference/next.config.js/configuring-onDemandEntries.md"
             },
             {
+              "title": "Ignoring ESLint",
+              "path": "/docs/api-reference/next.config.js/ignoring-eslint.md"
+            },
+            {
               "title": "TypeScriptのエラーを無視する",
               "path": "/docs/api-reference/next.config.js/ignoring-typescript-errors.md"
             },
@@ -367,6 +371,10 @@
             {
               "title": "React Strict モード",
               "path": "/docs/api-reference/next.config.js/react-strict-mode.md"
+            },
+            {
+              "title": "ビルドインジケーター",
+              "path": "/docs/api-reference/next.config.js/build-indicator.md"
             }
           ]
         }
