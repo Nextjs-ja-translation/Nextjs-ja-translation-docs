@@ -40,7 +40,7 @@ module.exports = {
 }
 ```
 
-Note: `exportPathMap` の `query` フィールドは [自動的かつ静的に最適化されたページ](/docs/advanced-features/automatic-static-optimization) や [`getStaticProps` を伴うページ](/docs/basic-features/data-fetching/get-static-props.md) では利用できません。これらのページはビルド時に HTML ファイルとしてレンダリングされて、`next export`　の時には追加のクエリーの情報をページに提供できないためです。
+注意: `exportPathMap` の `query` フィールドは [自動的かつ静的に最適化されたページ](/docs/advanced-features/automatic-static-optimization) や [`getStaticProps` を伴うページ](/docs/basic-features/data-fetching/get-static-props.md) では利用できません。これらのページはビルド時に HTML ファイルとしてレンダリングされて、`next export`　の時には追加のクエリーの情報をページに提供できないためです。
 
 ページは HTML ファイルとしてエクスポートされ、例えば、 `/about` は `/about.html` になります。
 
