@@ -8,7 +8,7 @@ description: 開発モードでは、新しいコードがコンパイルされ�
 
 > **備考:** このインジケーターは開発モードでのみ表示され、本番モードでアプリをビルドして実行する際には表示されません。
 
-インジケーターの位置がチャットランチャーと被る場合など、ページ上で誤った位置に表示されることがあります。位置を変更するには、`next.config.js` ファイルを開き、`devIndicators`プロパティの `buildActivityPosition` 設定を `bottom-right`（デフォルト）、 `bottom-left`、`top-right`、または `top-left` に変更します:
+インジケーターの位置がチャットランチャーと被る場合など、ページ上で誤った位置に表示されることがあります。位置を変更するには、`next.config.js` ファイルを開き、 `devIndicators` オブジェクトの `buildActivityPosition` 設定を `bottom-right`（デフォルト）、 `bottom-left`、`top-right`、または `top-left` に変更します:
 
 ```js
 module.exports = {
