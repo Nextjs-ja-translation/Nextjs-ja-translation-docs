@@ -1,5 +1,5 @@
 ---
-description: next export を使うとき、HTMLファイルとしてエクスポートされるページのカスタマイズをします。
+description: `next export` を使うとき、HTMLファイルとしてエクスポートされるページのカスタマイズをします。
 ---
 
 # exportPathMap
@@ -13,6 +13,8 @@ description: next export を使うとき、HTMLファイルとしてエクスポ
   </ul>
 </details>
 
+`exportPathMap` によってエクスポート時に利用される HTTP リクエストのパスとページの宛先をマッピングを指定できます。 `exportPathMap` で定められたパスは [`next dev`](/docs/api-reference/cli.md#development)　を利用する際にも利用可能です。
+
 以下のページを含むアプリのカスタム `exportPathMap` を作る例から始めましょう:
 
 - `pages/index.js`
@@ -23,17 +25,22 @@ description: next export を使うとき、HTMLファイルとしてエクスポ
 
 ```js
 module.exports = {
-  exportPathMap: async function (defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
     return {
       '/': { page: '/' },
       '/about': { page: '/about' },
       '/p/hello-nextjs': { page: '/post', query: { title: 'hello-nextjs' } },
       '/p/learn-nextjs': { page: '/post', query: { title: 'learn-nextjs' } },
-      '/p/deploy-nextjs': { page: '/post', query: { title: 'deploy-nextjs' } }
-    };
-  }
-};
+      '/p/deploy-nextjs': { page: '/post', query: { title: 'deploy-nextjs' } },
+    }
+  },
+}
 ```
+
+注意: `exportPathMap` の `query` フィールドは [自動的かつ静的に最適化されたページ](/docs/advanced-features/automatic-static-optimization) や [`getStaticProps` を伴うページ](/docs/basic-features/data-fetching/get-static-props.md) では利用できません。これらのページはビルド時に HTML ファイルとしてレンダリングされて、`next export`　の時には追加のクエリーの情報をページに提供できないためです。
 
 ページは HTML ファイルとしてエクスポートされ、例えば、 `/about` は `/about.html` になります。
 
@@ -41,7 +48,7 @@ module.exports = {
 
 - `dev` - 開発中に `exportPathMap` が呼ばれているとき `true` になります。`next export` 実行中のとき `false` になります。開発時 `exportPathMap` はルートの定義に利用されます。
 - `dir` - プロジェクトディレクトリへの絶対パス
-- `outDir` - `out/` ディレクトリへの絶対パス ( `-o` で設定可能)。`dev` が `true` のとき、 `outDir` の値は `null` になります。
+- `outDir` - `out/` ディレクトリへの絶対パス ( [`-o` で設定可能]((#customizing-the-output-directory)))。`dev` が `true` のとき、 `outDir` の値は `null` になります。
 - `distDir` - `.next/` ディレクトリへの絶対パス ([`distDir`](/docs/api-reference/next.config.js/setting-a-custom-build-directory.md)設定で設定可能)
 - `buildId` - ビルド ID を生成します
 
@@ -56,11 +63,11 @@ module.exports = {
 
 `index.html` ファイルとしてページをエクスポートするために Next.js を設定できます。末尾にスラッシュを要求し、 `/about` が `/about/index.html` になることで、 `/about/` を経由してルーティング可能になります。これは Next.js 9 より前のデフォルトの動作でした。
 
-末尾にスラッシュを追加するように切り替えるには、 `next.config.js` を開いて、 `exportTrailingSlash` 設定を有効にします:
+末尾にスラッシュを追加するように切り替えるには、 `next.config.js` を開いて、 `trailingSlash` 設定を有効にします:
 
 ```js
 module.exports = {
-  exportTrailingSlash: true
+  trailingSlash: true
 };
 ```
 
