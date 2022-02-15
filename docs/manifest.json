@@ -209,7 +209,7 @@
               "title": "Security Headers",
               "path": "/docs/advanced-features/security-headers.md"
             },
-            { 
+            {
               "title": "React 18",
               "path": "/docs/advanced-features/react-18.md"
             }
@@ -367,6 +367,10 @@
             {
               "title": "React Strict モード",
               "path": "/docs/api-reference/next.config.js/react-strict-mode.md"
+            },
+            {
+              "title": "ビルドインジケーター",
+              "path": "/docs/api-reference/next.config.js/build-indicator.md"
             }
           ]
         }
