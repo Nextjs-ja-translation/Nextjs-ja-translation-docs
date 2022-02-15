@@ -281,7 +281,19 @@
           "routes": [
             {
               "title": "getInitialProps",
-              "path": "/docs/api-reference/data-fetching/getInitialProps.md"
+              "path": "/docs/api-reference/data-fetching/get-initial-props.md"
+            },
+            {
+              "title": "getServerSideProps",
+              "path": "/docs/api-reference/data-fetching/get-server-side-props.md"
+            },
+            {
+              "title": "getStaticPaths",
+              "path": "/docs/api-reference/data-fetching/get-static-paths.md"
+            },
+            {
+              "title": "getStaticProps",
+              "path": "/docs/api-reference/data-fetching/get-static-props.md"
             }
           ]
         },
