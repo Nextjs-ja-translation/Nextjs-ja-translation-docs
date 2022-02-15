@@ -4,12 +4,17 @@ description: Next.js で追加されたデフォルトの webpack の設定を�
 
 # webpackの設定のカスタマイズ
 
+アプリケーションの webpack の設定をカスタムし続ける前に、 Next.js があなたのユースケースをまだサポートしていないことを確認してください:
+
+- [CSS imports](/docs/basic-features/built-in-css-support.md#adding-a-global-stylesheet)
+- [CSS modules](/docs/basic-features/built-in-css-support.md#adding-component-level-css)
+- [Sass/SCSS imports](/docs/basic-features/built-in-css-support.md#sass-support)
+- [Sass/SCSS modules](/docs/basic-features/built-in-css-support.md#sass-support)
+- [preact](https://github.com/vercel/next.js/tree/canary/examples/using-preact)
+- [babelの設定のカスタム](/docs/advanced-features/customizing-babel-config.md)
+
 よく聞かれる機能には、プラグインとして利用できるものがあります:
 
-- [@zeit/next-sass](https://github.com/vercel/next-plugins/tree/master/packages/next-sass)
-- [@zeit/next-less](https://github.com/vercel/next-plugins/tree/master/packages/next-less)
-- [@zeit/next-stylus](https://github.com/vercel/next-plugins/tree/master/packages/next-stylus)
-- [@zeit/next-preact](https://github.com/vercel/next-plugins/tree/master/packages/next-preact)
 - [@next/mdx](https://github.com/vercel/next.js/tree/canary/packages/next-mdx)
 - [@next/bundle-analyzer](https://github.com/vercel/next.js/tree/canary/packages/next-bundle-analyzer)
 
@@ -18,18 +23,10 @@ description: Next.js で追加されたデフォルトの webpack の設定を�
 ```js
 module.exports = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // 注意: 上記で webpack を提供しているので、それを `require` するべきではない
-    // webpack の設定のカスタマイズを実行する
     // 重要: 変更された設定を返す
-    config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
-    return config;
+    return config
   },
-  webpackDevMiddleware: config => {
-    // webpack dev middleware の設定のカスタマイズを実行する
-    // 重要: 変更された設定を返す
-    return config;
-  }
-};
+}
 ```
 
 > `webpack` 関数は、サーバーとクライアントで2回実行されます。これにより、`isServer` プロパティを用いてクライアントとサーバの設定を区別することができます。
