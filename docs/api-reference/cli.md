@@ -48,7 +48,7 @@ NODE_OPTIONS='--inspect' next
 
 最初のロードは、緑色か黄色、あるいは赤色のいずれかで表示されます。緑色を目指すことは、パフォーマンスの高いアプリケーションを開発することに繋がります。
 
- `--profile` を `next build` で指定して本番のビルドでのプロファイリングを react で有効にできます。これには [Next.js 9.5](https://nextjs.org/blog/next-9-5) 以降が必要です:
+ `--profile` を `next build` で指定して本番のビルドでのプロファイリングを React で有効にできます。これには [Next.js 9.5](https://nextjs.org/blog/next-9-5) 以降が必要です:
 
 ```bash
 next build --profile
