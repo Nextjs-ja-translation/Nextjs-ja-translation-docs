@@ -8,7 +8,7 @@ description: Next.js のアップグレード方法を学びます。
 
 ### Node.jsの最小バージョン
 
-Node.js の最小バージョンは 12.0.0 から 12.22.0 に変更されました。
+Node.js の最小バージョンは 12.0.0 から、ES モジュールのネイティブサポートを備えた最初の Node.js のバージョンとなる 12.22.0 に引き上げられました。
 
 ### Reactの最新版へのアップグレード
 
@@ -18,7 +18,7 @@ Node.js の最小バージョンは 12.0.0 から 12.22.0 に変更されまし�
 npm install react@latest react-dom@latest
 ```
 
-yarn を使用する場合:
+`yarn` を使用する場合:
 
 ```
 yarn add react@latest react-dom@latest
@@ -58,7 +58,7 @@ SWC を採用するのに役立つ変換を優先するため、[フィードバ
 
 ### SWCによるTerserの最小化の置き換え
 
-`next.config.js`に以下のフラグを追加することで Terser を SWC に置き換えて、JavaScript の minify を最大 7 倍高速化出来ます。:
+`next.config.js`に以下のフラグを追加することで Terser を SWC に置き換えて、JavaScript の minify を最大 7 倍高速化出来ます:
 
 ```js
 module.exports = {
@@ -81,7 +81,8 @@ Rust ベースのコンパイラの上に、styled-jsx Babel 変換に使用さ�
 `next/image`は `<div>` の代わりに `<span>` で囲われた `<img>` をレンダーするようになりました。
 
 span を対象とした特定の CSS、たとえば `.container span` を使用している場合、Next.js 12 にアップグレードすると `<Image>` コンポーネント内のラップ要素に正しくマッチしない場合があります。
-これはセレクタを `.container span.item` のような特定のクラスに制限することや、関連事項するコンポーネントを `<span className="item" />` のような className で更新することで避けることができます。
+これはセレクタを `.container span.item` のような特定のクラスに制限することで避けることが可能です。
+また、より好ましいやり方として `<Image>` コンポーネントをラップする新しい `<div className="wrapper">` を追加して `.container .wrapper` のようにする方法もあります。
 
 `className` プロパティは変更されず、その下の `<img>` 要素に渡されます。
 
@@ -200,20 +201,20 @@ module.exports = {
 }
 ```
 
-### `pages/_app.js` から `super.componentDidCatch()` の削除
+### `pages/_app.js` からの `super.componentDidCatch()` の削除
 
 `next/app` コンポーネントの `componentDidCatch` は、Next.js 9 からは不要かつ非推奨となり、Next.js 11 で削除されました。
 
 もし `pages/_app.js` にカスタムメソッド `componentDidCatch` がある場合は、不要になったので `super.componentDidCatch` を削除できます。
 
-### `pages/_app.js` から `Container` の削除
+### `pages/_app.js` からの `Container` の削除
 
 このエクスポートは Next.js 9 以降、不要かつ非推奨となり開発中に警告が表示されて機能しなくなりました。Next.js 11 で削除されました。
 
 もし `pages/_app.js` が `next/app` から `Container` をインポートしている場合は、 `Container` を削除してください。
 詳しくは、[ドキュメント](https://nextjs.org/docs/messages/app-container-deprecated)を参照してください。
 
-### ページコンポーネントから `props.url` の使用を削除しました
+### ページコンポーネントからの `props.url` の使用の削除
 
 このプロパティは Next.js 4 から非推奨となり、開発中に警告が表示されるようになりました。
 `getStaticProps` / `getServerSideProps` の導入により、これらのメソッドはすでに `props.url` の利用を禁止しています。
@@ -221,22 +222,21 @@ Next.js 11 でこれは完全に削除されました。
 
 詳しくは、[ドキュメント](https://nextjs.org/docs/messages/url-deprecated)をご覧ください。
 
-### `next/image` の `unsized` プロパティを削除する
+### `next/image` の `unsized` プロパティの削除
 
 Next.js 10.0.1 で `next/image` の `unsized` プロパティは非推奨になりました。
 代わりに `layout="fill"` を使用できます。Next.js 11 では `unsized` が削除されました。
 
-### `next/dynamic` の `modules` プロパティを削除する
+### `next/dynamic` の `modules` プロパティの削除
 
 Next.js 9.5 からは `next/dynamic` の `modules` と `render` オプションは非推奨となり、非推奨であることを示す警告が表示されるようになりました。
-これは `next/dynamic` を `React.lazy` と近い API 仕様にするための措置です。
-Next.js 11 では、 `modules` と `render` オプションは削除されました。
+これは `next/dynamic` を `React.lazy` と近い API 仕様にするための措置です。 Next.js 11 では、 `modules` と `render` オプションは削除されました。
 
 このオプションは Next.js 8 以降ドキュメントに記載されていないため、アプリケーションがこのオプションを使用している可能性は低いでしょう。
 
 もしアプリケーションが `modules` と `render` を使用している場合は、[ドキュメント](https://nextjs.org/docs/messages/next-dynamic-modules) を参照するとよいでしょう。
 
-### `Head.rewind`が削除されました
+### `Head.rewind`の削除
 
 `Head.rewind`は Next.js 9.5 から機能しなくなり、Next.js 11 で削除されました。
 `Head.rewind`の使用は安全に削除できます。
@@ -275,8 +275,7 @@ useEffect(() => {
 
   router.events.on('routeChangeStart', handleRouteChange)
 
-  // If the component is unmounted, unsubscribe
-  // from the event with the `off` method:
+  // コンポーネントがアンマウントされた場合、`off`メソッドでイベントの配信を停止します:
   return () => {
     router.events.off('routeChangeStart', handleRouteChange)
   }
