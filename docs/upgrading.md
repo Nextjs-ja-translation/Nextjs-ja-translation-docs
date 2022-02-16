@@ -43,7 +43,7 @@ yarn add next@12
 Next.js は、JavaScript/TypeScript のコンパイルに Rust ベースのコンパイラ[SWC](https://swc.rs/)を使用するようになりました。
 この新しいコンパイラは、個別のファイルをコンパイルする際に Babel より最大 17 倍、Fast Refresh では最大 5 倍高速になります。
 
-Next.js は、[カスタムBabel設定](https://nextjs.org/docs/advanced-features/customizing-babel-config)を持つアプリケーションとの完全な後方互換性を提供します。
+Next.js は、[カスタムBabel設定](/docs/advanced-features/customizing-babel-config)を持つアプリケーションとの完全な後方互換性を提供します。
 Next.js がデフォルトで処理する styled-jsx や、`getStaticProps` / `getStaticPaths` / `getServerSideProps`のツリーシェイクなどの変換は、すべて Rust に移植されました。
 
 アプリケーションが Babel の設定をカスタマイズしている場合、Next.js は自動的に JavaScript/Typescript のコンパイルに SWC を使わず、Next.js 11 と同じように Babel を使うようにフォールバックされます。
@@ -86,11 +86,11 @@ span を対象とした特定の CSS、たとえば `.container span` を使用�
 
 `className` プロパティは変更されず、その下の `<img>` 要素に渡されます。
 
-詳しくは[ドキュメント](https://nextjs.org/docs/basic-features/image-optimization#styling)をご覧ください。
+詳しくは[ドキュメント](docs/basic-features/image-optimization#styling)をご覧ください。
 
 ### Next.jsのHMRの接続がWebSocketに
 
-これまで Next.js は、HMR イベントを受信するために[server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)接続を使用していましたが、Next.js 12 では WebSocket を使用するようになりました。
+これまで Next.js は、HMR イベントを受信するために[server-sent events](https://developer.mozilla.org/ja/docs/Web/API/Server-sent_events)接続を使用していましたが、Next.js 12 では WebSocket を使用するようになりました。
 
 Next.js の開発サーバーへのリクエストをプロキシする場合、アップグレードリクエストが正しく処理されるようにする必要のある場合があります。
 たとえば、`nginx` では、次のような設定を追加する必要があります。
@@ -118,9 +118,9 @@ app.all('/_next/webpack-hmr', (req, res) => {
 
 すでに webpack 5 を使用している場合は、このセクションをスキップできます。
 
-Next.js 11 はコンパイルのデフォルトとして、webpack 5 を採用しました。[webpack 5 upgrading documentation](https://nextjs.org/docs/messages/webpack5) でお伝えしているように、Next.js 12 では webpack 4 のサポートは終了しています。
+Next.js 11 はコンパイルのデフォルトとして、webpack 5 を採用しました。[webpack 5 upgrading documentation](/docs/messages/webpack5) でお伝えしているように、Next.js 12 では webpack 4 のサポートは終了しています。
 
-もしあなたのアプリケーションがまだオプトアウトフラグを使って webpack 4 を使っているなら、[webpack 5 upgrading documentation](https://nextjs.org/docs/messages/webpack5) にリンクするエラーが表示されるようになりました。
+もしあなたのアプリケーションがまだオプトアウトフラグを使って webpack 4 を使っているなら、[webpack 5 upgrading documentation](/docs/messages/webpack5) にリンクするエラーが表示されるようになりました。
 
 ### `target` オプションが非推奨になりました
 
@@ -130,7 +130,7 @@ Next.js 11 はコンパイルのデフォルトとして、webpack 5 を採用�
 
 Next.js は `next build` の間、各ページとその依存関係を自動的にトレースし、アプリケーションの製品版をデプロイするために必要なすべてのファイルを決定します。
 
-現在、`target` オプションを `serverless` に設定して使用している場合は、[新しい出力の活用方法に関するドキュメント](https://nextjs.org/docs/advanced-features/output-file-tracing) をお読みください。
+現在、`target` オプションを `serverless` に設定して使用している場合は、[新しい出力の活用方法に関するドキュメント](/docs/advanced-features/output-file-tracing) をお読みください。
 
 ## バージョン10から11へのアップグレード
 
@@ -167,7 +167,7 @@ yarn add next@11
 ### Webpack 5
 
 Webpack 5 は、すべての Next.js アプリケーションのデフォルトになりました。
-webpack のカスタム設定をしていない場合、アプリケーションはすでに webpack 5 を使用しています。webpack のカスタム設定をしている場合は、[Next.js webpack 5 documentation](https://nextjs.org/docs/messages/webpack5) を参照して、アップグレードのガイダンスを得ることができます。
+webpack のカスタム設定をしていない場合、アプリケーションはすでに webpack 5 を使用しています。webpack のカスタム設定をしている場合は、[Next.js webpack 5 documentation](/docs/messages/webpack5) を参照して、アップグレードのガイダンスを得ることができます。
 
 ### `distDir`がデフォルトで破棄されるようになりました
 
@@ -212,7 +212,7 @@ module.exports = {
 このエクスポートは Next.js 9 以降、不要かつ非推奨となり開発中に警告が表示されて機能しなくなりました。Next.js 11 で削除されました。
 
 もし `pages/_app.js` が `next/app` から `Container` をインポートしている場合は、 `Container` を削除してください。
-詳しくは、[ドキュメント](https://nextjs.org/docs/messages/app-container-deprecated)を参照してください。
+詳しくは、[ドキュメント](/docs/messages/app-container-deprecated)を参照してください。
 
 ### ページコンポーネントからの `props.url` の使用の削除
 
@@ -220,7 +220,7 @@ module.exports = {
 `getStaticProps` / `getServerSideProps` の導入により、これらのメソッドはすでに `props.url` の利用を禁止しています。
 Next.js 11 でこれは完全に削除されました。
 
-詳しくは、[ドキュメント](https://nextjs.org/docs/messages/url-deprecated)をご覧ください。
+詳しくは、[ドキュメント](/docs/messages/url-deprecated)をご覧ください。
 
 ### `next/image` の `unsized` プロパティの削除
 
@@ -234,7 +234,7 @@ Next.js 9.5 からは `next/dynamic` の `modules` と `render` オプション�
 
 このオプションは Next.js 8 以降ドキュメントに記載されていないため、アプリケーションがこのオプションを使用している可能性は低いでしょう。
 
-もしアプリケーションが `modules` と `render` を使用している場合は、[ドキュメント](https://nextjs.org/docs/messages/next-dynamic-modules) を参照するとよいでしょう。
+もしアプリケーションが `modules` と `render` を使用している場合は、[ドキュメント](/docs/messages/next-dynamic-modules) を参照するとよいでしょう。
 
 ### `Head.rewind`の削除
 
@@ -310,15 +310,15 @@ yarn add next@10
 
 #### Vercel へのプロダクションデプロイ
 
-動的なルーティングのために、 `now.json` ファイル内に `routes` を設定していた場合、Next.js 9 の新しい[動的なルーティング機能](https://nextjs.org/docs/routing/dynamic-routes) を利用することで、これらのルールを削除できます。
+動的なルーティングのために、 `now.json` ファイル内に `routes` を設定していた場合、Next.js 9 の新しい[動的なルーティング機能](/docs/routing/dynamic-routes) を利用することで、これらのルールを削除できます。
 
 Next.js 9 の動的なルーティングは **[Vercel](https://vercel.com/now) 上では自動的に設定されている**ため、 `now.json` のカスタマイズは必要ありません。
 
-詳細は [こちらの動的なルーティング](https://nextjs.org/docs/routing/dynamic-routes) を読んでください。
+詳細は [こちらの動的なルーティング](/docs/routing/dynamic-routes) を読んでください。
 
 #### 自分のカスタム <App>(`pages/_app.js`) のチェック
 
-[カスタム `<App>`](https://nextjs.org/docs#custom-app) の例をコピーしていたなら、`getInitialProps` を削除できます。
+[カスタム `<App>`](/docs#custom-app) の例をコピーしていたなら、`getInitialProps` を削除できます。
 
 `pages/_app.js` から `getInitialProps` の削除(可能であれば)は、新しい Next.js の機能を利用するために重要です！
 
