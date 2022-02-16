@@ -313,7 +313,7 @@ yarn add next@10
 
 動的なルーティングのために、 `now.json` ファイル内に `routes` を設定していた場合、Next.js 9 の新しい[動的なルーティング機能](https://nextjs.org/docs/routing/dynamic-routes) を利用することで、これらのルールを削除できます。
 
-Next.js 9 の動的なルーティングは **[Now](https://vercel.com/now) 上では自動的に設定されている**ため、 `now.json` のカスタマイズは必要ありません。
+Next.js 9 の動的なルーティングは **[Vercel](https://vercel.com/now) 上では自動的に設定されている**ため、 `now.json` のカスタマイズは必要ありません。
 
 詳細は [こちらの動的なルーティング](https://nextjs.org/docs/routing/dynamic-routes) を読んでください。
 
