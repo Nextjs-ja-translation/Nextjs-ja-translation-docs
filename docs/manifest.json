@@ -281,7 +281,19 @@
           "routes": [
             {
               "title": "getInitialProps",
-              "path": "/docs/api-reference/data-fetching/getInitialProps.md"
+              "path": "/docs/api-reference/data-fetching/get-initial-props.md"
+            },
+            {
+              "title": "getServerSideProps",
+              "path": "/docs/api-reference/data-fetching/get-server-side-props.md"
+            },
+            {
+              "title": "getStaticPaths",
+              "path": "/docs/api-reference/data-fetching/get-static-paths.md"
+            },
+            {
+              "title": "getStaticProps",
+              "path": "/docs/api-reference/data-fetching/get-static-props.md"
             }
           ]
         },
@@ -341,6 +353,10 @@
               "path": "/docs/api-reference/next.config.js/disabling-etag-generation.md"
             },
             {
+              "title": "Disabling HTTP Keep-Alive",
+              "path": "/docs/api-reference/next.config.js/disabling-http-keep-alive.md"
+            },
+            {
               "title": "カスタムビルドディレクトリの設定",
               "path": "/docs/api-reference/next.config.js/setting-a-custom-build-directory.md"
             },
@@ -351,6 +367,10 @@
             {
               "title": "onDemandEntries の設定",
               "path": "/docs/api-reference/next.config.js/configuring-onDemandEntries.md"
+            },
+            {
+              "title": "Ignoring ESLint",
+              "path": "/docs/api-reference/next.config.js/ignoring-eslint.md"
             },
             {
               "title": "TypeScriptのエラーを無視する",
