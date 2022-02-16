@@ -4,59 +4,61 @@ description: Next.js のアップグレード方法を学びます。
 
 # アップグレードガイド
 
-## Upgrading from 11 to 12
+## 11から12へのアップグレード
 
-### Minimum Node.js version
+### Node.jsの最小バージョン
 
-The minimum Node.js version has been bumped from 12.0.0 to 12.22.0 which is the first version of Node.js with native ES Modules support.
+Node.js の最小バージョンは 12.0.0 から 12.22.0 に変更されました。
 
-### Upgrade React version to latest
+### Reactの最新版へのアップグレード
 
-To upgrade you can run the following command:
+アップグレードするには、以下のコマンドを実行します。
 
 ```
 npm install react@latest react-dom@latest
 ```
 
-Or using `yarn`:
+yarn を使用する場合:
 
 ```
 yarn add react@latest react-dom@latest
 ```
 
-### Upgrade Next.js version to 12
+### Next.jsのバージョンを12にアップグレードする
 
-To upgrade you can run the following command in the terminal:
+バージョンアップするには、ターミナルで以下のコマンドを実行します:
 
 ```
 npm install next@12
 ```
 
-or
+または:
 
 ```
 yarn add next@12
 ```
 
-### SWC replacing Babel
+### Babelに代わるSWC
 
-Next.js now uses Rust-based compiler [SWC](https://swc.rs/) to compile JavaScript/TypeScript. This new compiler is up to 17x faster than Babel when compiling individual files and up to 5x faster Fast Refresh.
+Next.js は、JavaScript/TypeScript のコンパイルに Rust ベースのコンパイラ[SWC](https://swc.rs/)を使用するようになりました。
+この新しいコンパイラは、個別のファイルをコンパイルする際に Babel より最大 17 倍、Fast Refresh では最大 5 倍高速になります。
 
-Next.js provides full backwards compatibility with applications that have [custom Babel configuration](https://nextjs.org/docs/advanced-features/customizing-babel-config). All transformations that Next.js handles by default like styled-jsx and tree-shaking of `getStaticProps` / `getStaticPaths` / `getServerSideProps` have been ported to Rust.
+Next.js は、[カスタムBabel設定](https://nextjs.org/docs/advanced-features/customizing-babel-config)を持つアプリケーションとの完全な後方互換性を提供します。
+Next.js がデフォルトで処理する styled-jsx や、`getStaticProps` / `getStaticPaths` / `getServerSideProps`のツリーシェイクなどの変換は、すべて Rust に移植されました。
 
-When an application has a custom Babel configuration, Next.js will automatically opt-out of using SWC for compiling JavaScript/Typescript and will fall back to using Babel in the same way that it was used in Next.js 11.
+アプリケーションが Babel の設定をカスタマイズしている場合、Next.js は自動的に JavaScript/Typescript のコンパイルに SWC を使わず、Next.js 11 と同じように Babel を使うようにフォールバックされます。
 
-Many of the integrations with external libraries that currently require custom Babel transformations will be ported to Rust-based SWC transforms in the near future. These include but are not limited to:
+現在、カスタム Babel 変換を必要とする外部ライブラリとの統合の多くは、近い将来で Rust ベースの SWC 変換に移植される予定です。これには以下が含まれますが、これらに限定されるものではありません:
 
 - Styled Components
 - Emotion
 - Relay
 
-In order to prioritize transforms that will help you adopt SWC, please provide your `.babelrc` on [the feedback thread](https://github.com/vercel/next.js/discussions/30174).
+SWC を採用するのに役立つ変換を優先するため、[フィードバックスレッド](https://github.com/vercel/next.js/discussions/30174)で `.babelrc` を提供してください。
 
-### SWC replacing Terser for minification
+### SWCによるTerserの最小化の置き換え
 
-You can opt-in to replacing Terser with SWC for minifying JavaScript up to 7x faster using a flag in `next.config.js`:
+`next.config.js`に以下のフラグを追加することで Terser を SWC に置き換えて、JavaScript の minify を最大 7 倍高速化出来ます。:
 
 ```js
 module.exports = {
@@ -64,31 +66,33 @@ module.exports = {
 }
 ```
 
-Minification using SWC is an opt-in flag to ensure it can be tested against more real-world Next.js applications before it becomes the default in Next.js 12.1. If you have feedback about minification, please leave it on [the feedback thread](https://github.com/vercel/next.js/discussions/30237).
+SWC による最小化は、Next.js 12.1 でデフォルトになる前により多くの実際の Next.js アプリケーションでテストできるようオプトインのフラグになっています。
+最小化についてのフィードバックがあれば、[フィードバックスレッド](https://github.com/vercel/next.js/discussions/30237)に残してください。
 
-### Improvements to styled-jsx CSS parsing
+### styled-jsx のCSS解析の改善
 
-On top of the Rust-based compiler we've implemented a new CSS parser based on the CSS parser that was used for the styled-jsx Babel transform. This new parser has improved handling of CSS and now errors when invalid CSS is used that would previously slip through and cause unexpected behavior.
+Rust ベースのコンパイラの上に、styled-jsx Babel 変換に使用された CSS パーサをベースにした新しい CSS パーサを実装しました。
+この新しいパーサーは CSS の取り扱いを改善し、以前はすり抜けて予期せぬ動作を引き起こしていた無効な CSS が使用された場合にエラーを発生させるようになりました。
 
-Because of this change invalid CSS will throw an error during development and `next build`. This change only affects styled-jsx usage.
+この変更により、開発中および `next build` の際に無効な CSS がエラーを投げるようになります。この変更は、styled-jsx の使用にのみ影響します。
 
-### `next/image` changed wrapping element
+### `next/image`のラップ要素が変更されました
 
-`next/image` now renders the `<img>` inside a `<span>` instead of `<div>`.
+`next/image`は `<div>` の代わりに `<span>` で囲われた `<img>` をレンダーするようになりました。
 
-If your application has specific CSS targeting span, for example `.container span`, upgrading to Next.js 12 might incorrectly match the wrapping element inside the `<Image>` component. You can avoid this by restricting the selector to a specific class such as `.container span.item` and updating the relevant component with that className, such as `<span className="item" />`.
+span を対象とした特定の CSS、たとえば `.container span` を使用している場合、Next.js 12 にアップグレードすると `<Image>` コンポーネント内のラップ要素に正しくマッチしない場合があります。
+これはセレクタを `.container span.item` のような特定のクラスに制限することや、関連事項するコンポーネントを `<span className="item" />` のような className で更新することで避けることができます。
 
-If your application has specific CSS targeting the `next/image` `<div>` tag, for example `.container div`, it may not match anymore. You can update the selector `.container span`, or preferably, add a new `<div className="wrapper">` wrapping the `<Image>` component and target that instead such as `.container .wrapper`.
+`className` プロパティは変更されず、その下の `<img>` 要素に渡されます。
 
-The `className` prop is unchanged and will still be passed to the underlying `<img>` element.
+詳しくは[ドキュメント](https://nextjs.org/docs/basic-features/image-optimization#styling)をご覧ください。
 
-See the [documentation](https://nextjs.org/docs/basic-features/image-optimization#styling) for more info.
+### Next.jsのHMRの接続がWebSocketに
 
-### Next.js' HMR connection now uses a WebSocket
+これまで Next.js は、HMR イベントを受信するために[server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)接続を使用していましたが、Next.js 12 では WebSocket を使用するようになりました。
 
-Previously, Next.js used a [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) connection to receive HMR events. Next.js 12 now uses a WebSocket connection.
-
-In some cases when proxying requests to the Next.js dev server, you will need to ensure the upgrade request is handled correctly. For example, in `nginx` you would need to add the following configuration:
+Next.js の開発サーバーへのリクエストをプロキシする場合、アップグレードリクエストが正しく処理されるようにする必要のある場合があります。
+たとえば、`nginx` では、次のような設定を追加する必要があります。
 
 ```nginx
 location /_next/webpack-hmr {
@@ -99,7 +103,9 @@ location /_next/webpack-hmr {
 }
 ```
 
-For custom servers, such as `express`, you may need to use `app.all` to ensure the request is passed correctly, for example:
+`express` などのカスタムサーバーの場合、リクエストが正しく渡されるように `app.all` を使用する必要のある場合があります。
+
+例:
 
 ```js
 app.all('/_next/webpack-hmr', (req, res) => {
@@ -107,51 +113,51 @@ app.all('/_next/webpack-hmr', (req, res) => {
 })
 ```
 
-### Webpack 4 support has been removed
+### Webpack 4 のサポートを終了しました
 
-If you are already using webpack 5 you can skip this section.
+すでに webpack 5 を使用している場合は、このセクションをスキップできます。
 
-Next.js has adopted webpack 5 as the default for compilation in Next.js 11. As communicated in the [webpack 5 upgrading documentation](https://nextjs.org/docs/messages/webpack5) Next.js 12 removes support for webpack 4.
+Next.js 11 はコンパイルのデフォルトとして、webpack 5 を採用しました。[webpack 5 upgrading documentation](https://nextjs.org/docs/messages/webpack5) でお伝えしているように、Next.js 12 では webpack 4 のサポートは終了しています。
 
-If your application is still using webpack 4 using the opt-out flag you will now see an error linking to the [webpack 5 upgrading documentation](https://nextjs.org/docs/messages/webpack5).
+もしあなたのアプリケーションがまだオプトアウトフラグを使って webpack 4 を使っているなら、[webpack 5 upgrading documentation](https://nextjs.org/docs/messages/webpack5) にリンクするエラーが表示されるようになりました。
 
-### `target` option deprecated
+### `target` オプションが非推奨になりました
 
-If you do not have `target` in `next.config.js` you can skip this section.
+もし `next.config.js` に `target` がない場合は、このセクションを読み飛ばして構いません。
 
-The target option has been deprecated in favor of built-in support for tracing what dependencies are needed to run a page.
+ページを実行するために必要な依存関係をトレースするための組み込みサポートを採用したため、target オプションは非推奨となりました。
 
-During `next build`, Next.js will automatically trace each page and its dependencies to determine all of the files that are needed for deploying a production version of your application.
+Next.js は `next build` の間、各ページとその依存関係を自動的にトレースし、アプリケーションの製品版をデプロイするために必要なすべてのファイルを決定します。
 
-If you are currently using the `target` option set to `serverless` please read the [documentation on how to leverage the new output](https://nextjs.org/docs/advanced-features/output-file-tracing).
+現在、`target` オプションを `serverless` に設定して使用している場合は、[新しい出力の活用方法に関するドキュメント](https://nextjs.org/docs/advanced-features/output-file-tracing) をお読みください。
 
-## Upgrading from version 10 to 11
+## バージョン10から11へのアップグレード
 
-### Upgrade React version to latest
+### Reactのバージョンを最新にアップグレードする
 
-Most applications already use the latest version of React, with Next.js 11 the minimum React version has been updated to 17.0.2.
+Next.js 11 では、React の最小バージョンが 17.0.2 に更新され、すでにほとんどのアプリケーションで最新バージョンの React が使用されています。
 
-To upgrade you can run the following command:
+アップグレードするには、以下のコマンドを実行します:
 
 ```
 npm install react@latest react-dom@latest
 ```
 
-Or using `yarn`:
+`yarn`の場合:
 
 ```
 yarn add react@latest react-dom@latest
 ```
 
-### Upgrade Next.js version to 11
+### Next.jsのバージョンを11にアップグレード
 
-To upgrade you can run the following command in the terminal:
+アップグレードするには、ターミナルで次のコマンドを実行します:
 
 ```
 npm install next@11
 ```
 
-or
+または:
 
 ```
 yarn add next@11
@@ -159,27 +165,32 @@ yarn add next@11
 
 ### Webpack 5
 
-Webpack 5 is now the default for all Next.js applications. If you did not have custom webpack configuration your application is already using webpack 5. If you do have custom webpack configuration you can refer to the [Next.js webpack 5 documentation](https://nextjs.org/docs/messages/webpack5) for upgrading guidance.
+Webpack 5 は、すべての Next.js アプリケーションのデフォルトになりました。
+webpack のカスタム設定をしていない場合、アプリケーションはすでに webpack 5 を使用しています。webpack のカスタム設定をしている場合は、[Next.js webpack 5 documentation](https://nextjs.org/docs/messages/webpack5) を参照して、アップグレードのガイダンスを得ることができます。
 
-### Cleaning the `distDir` is now a default
+### `distDir`がデフォルトで破棄されるようになりました
 
-The build output directory (defaults to `.next`) is now cleared by default except for the Next.js caches. You can refer to [the cleaning `distDir` RFC](https://github.com/vercel/next.js/discussions/6009) for more information.
+ビルド出力ディレクトリ（デフォルト: `.next`）は Next.js のキャッシュを除いて、デフォルトでクリアされるようになりました。
+詳細は、[the cleaning `distDir` RFC](https://github.com/vercel/next.js/discussions/6009) を参照してください。
 
-If your application was relying on this behavior previously you can disable the new default behavior by adding the `cleanDistDir: false` flag in `next.config.js`.
+もしアプリケーションが以前からこの動作に依存していた場合は、 `next.config.js` に `cleanDistDir: false` フラグを追加して、新しいデフォルトの動作を無効にできます。
 
-### `PORT` is now supported for `next dev` and `next start`
+### `PORT` が `next dev` と `next start`でサポートされるようになりました
 
-Next.js 11 supports the `PORT` environment variable to set the port the application has to run on. Using `-p`/`--port` is still recommended but if you were prohibited from using `-p` in any way you can now use `PORT` as an alternative:
+Next.js 11 では、アプリケーションが動作するポートを設定するための環境変数 `PORT` がサポートされています。
+`p`/`--port` を使用することが推奨されますが、もし `-p` を使用することが禁止されている場合は `PORT` を代替手段として使用できるようになりました。
 
-Example:
+例:
 
 ```
 PORT=4000 next start
 ```
 
-### `next.config.js` customization to import images
+### 画像を取り込むための `next.config.js` カスタマイズ
 
-Next.js 11 supports static image imports with `next/image`. This new feature relies on being able to process image imports. If you previously added the `next-images` or `next-optimized-images` packages you can either move to the new built-in support using `next/image` or disable the feature:
+Next.js 11 は `next/image` による静的画像のインポートをサポートしています。
+この新機能は、イメージのインポートを処理できることに依存しています。
+もし以前に `next-images` や `next-optimized-images` パッケージを追加していた場合は、 `next/image` を使って新しい組み込みサポートに移行するか、この機能を無効にするかのどちらかを選択できます:
 
 ```js
 module.exports = {
@@ -189,45 +200,53 @@ module.exports = {
 }
 ```
 
-### Remove `super.componentDidCatch()` from `pages/_app.js`
+### `pages/_app.js` から `super.componentDidCatch()` の削除
 
-The `next/app` component's `componentDidCatch` has been deprecated since Next.js 9 as it's no longer needed and has since been a no-op, in Next.js 11 it has been removed.
+`next/app` コンポーネントの `componentDidCatch` は、Next.js 9 からは不要かつ非推奨となり、Next.js 11 で削除されました。
 
-If your `pages/_app.js` has a custom `componentDidCatch` method you can remove `super.componentDidCatch` as it is no longer needed.
+もし `pages/_app.js` にカスタムメソッド `componentDidCatch` がある場合は、不要になったので `super.componentDidCatch` を削除できます。
 
-### Remove `Container` from `pages/_app.js`
+### `pages/_app.js` から `Container` の削除
 
-This export has been deprecated since Next.js 9 as it's no longer needed and has since been a no-op with a warning during development. In Next.js 11 it has been removed.
+このエクスポートは Next.js 9 以降、不要かつ非推奨となり開発中に警告が表示されて機能しなくなりました。Next.js 11 で削除されました。
 
-If your `pages/_app.js` imports `Container` from `next/app` you can remove `Container` as it has been removed. Learn more in [the documentation](https://nextjs.org/docs/messages/app-container-deprecated).
+もし `pages/_app.js` が `next/app` から `Container` をインポートしている場合は、 `Container` を削除してください。
+詳しくは、[ドキュメント](https://nextjs.org/docs/messages/app-container-deprecated)を参照してください。
 
-### Remove `props.url` usage from page components
+### ページコンポーネントから `props.url` の使用を削除しました
 
-This property has been deprecated since Next.js 4 and has since shown a warning during development. With the introduction of `getStaticProps` / `getServerSideProps` these methods already disallowed usage of `props.url`. In Next.js 11 it has been removed completely.
+このプロパティは Next.js 4 から非推奨となり、開発中に警告が表示されるようになりました。
+`getStaticProps` / `getServerSideProps` の導入により、これらのメソッドはすでに `props.url` の利用を禁止しています。
+Next.js 11 でこれは完全に削除されました。
 
-You can learn more in [the documentation](https://nextjs.org/docs/messages/url-deprecated).
+詳しくは、[ドキュメント](https://nextjs.org/docs/messages/url-deprecated)をご覧ください。
 
-### Remove `unsized` property on `next/image`
+### `next/image` の `unsized` プロパティを削除する
 
-The `unsized` property on `next/image` was deprecated in Next.js 10.0.1. You can use `layout="fill"` instead. In Next.js 11 `unsized` was removed.
+Next.js 10.0.1 で `next/image` の `unsized` プロパティは非推奨になりました。
+代わりに `layout="fill"` を使用できます。Next.js 11 では `unsized` が削除されました。
 
-### Remove `modules` property on `next/dynamic`
+### `next/dynamic` の `modules` プロパティを削除する
 
-The `modules` and `render` option for `next/dynamic` have been deprecated since Next.js 9.5 showing a warning that it has been deprecated. This was done in order to make `next/dynamic` close to `React.lazy` in API surface. In Next.js 11 the `modules` and `render` options have been removed.
+Next.js 9.5 からは `next/dynamic` の `modules` と `render` オプションは非推奨となり、非推奨であることを示す警告が表示されるようになりました。
+これは `next/dynamic` を `React.lazy` と近い API 仕様にするための措置です。
+Next.js 11 では、 `modules` と `render` オプションは削除されました。
 
-This option hasn't been mentioned in the documentation since Next.js 8 so it's less likely that your application is using it.
+このオプションは Next.js 8 以降ドキュメントに記載されていないため、アプリケーションがこのオプションを使用している可能性は低いでしょう。
 
-If your application does use `modules` and `render` you can refer to [the documentation](https://nextjs.org/docs/messages/next-dynamic-modules).
+もしアプリケーションが `modules` と `render` を使用している場合は、[ドキュメント](https://nextjs.org/docs/messages/next-dynamic-modules) を参照するとよいでしょう。
 
-### Remove `Head.rewind`
+### `Head.rewind`が削除されました
 
-`Head.rewind` has been a no-op since Next.js 9.5, in Next.js 11 it was removed. You can safely remove your usage of `Head.rewind`.
+`Head.rewind`は Next.js 9.5 から機能しなくなり、Next.js 11 で削除されました。
+`Head.rewind`の使用は安全に削除できます。
 
-### Moment.js locales excluded by default
+### Moment.js の locales がデフォルトで除外されました
 
-Moment.js includes translations for a lot of locales by default. Next.js now automatically excludes these locales by default to optimize bundle size for applications using Moment.js.
+Moment.js はデフォルトで多くのロケールに対する翻訳を含んでいます。
+Next.js は、Moment.js を使用するアプリケーションのバンドルサイズを最適化するために、デフォルトでこれらのロケールを自動的に除外するようになりました。
 
-To load a specific locale use this snippet:
+特定のロケールを読み込むには、次のスニペットを使用します:
 
 ```js
 import moment from 'moment'
@@ -236,11 +255,13 @@ import 'moment/locale/ja'
 moment.locale('ja')
 ```
 
-You can opt-out of this new default by adding `excludeDefaultMomentLocales: false` to `next.config.js` if you do not want the new behavior, do note it's highly recommended to not disable this new optimization as it significantly reduces the size of Moment.js.
+この新しいデフォルトの動作が必要ない場合は、`next.config.js`に `excludeDefaultMomentLocales: false` を追加することで無効にできます。
+この新しい最適化は Moment.js のサイズを大幅に縮小するため、無効にしないことを強く推奨します。
 
-### Update usage of `router.events`
+### `router.events` の使い方が更新されました
 
-In case you're accessing `router.events` during rendering, in Next.js 11 `router.events` is no longer provided during pre-rendering. Ensure you're accessing `router.events` in `useEffect`:
+レンダリング中に `router.events` へアクセスしている場合、Next.js 11 では `router.events` はプリレンダリング中には提供されなくなりました。
+`UseEffect` で `router.events` にアクセスしていることを確認してください。
 
 ```js
 useEffect(() => {
@@ -262,23 +283,23 @@ useEffect(() => {
 }, [router])
 ```
 
-If your application uses `router.router.events` which was an internal property that was not public please make sure to use `router.events` as well.
+もしアプリケーションが `router.router.events` を使用していて、それが public でない内部プロパティである場合は `router.events` を使用するようにしてください。
 
-## React 16 to 17
+## React 16 から 17 へ
 
-React 17 introduced a new [JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) that brings a long-time Next.js feature to the wider React ecosystem: Not having to `import React from 'react'` when using JSX. When using React 17 Next.js will automatically use the new transform. This transform does not make the `React` variable global, which was an unintended side-effect of the previous Next.js implementation. A [codemod is available](/docs/advanced-features/codemods.md#add-missing-react-import) to automatically fix cases where you accidentally used `React` without importing it.
+React 17 は新しい[JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)を導入し、長い間 Next.js にあった機能をより広い React エコシステムにもたらしました。JSX を使うときに `import React from 'react'` する必要がないことです。React 17 を使うとき、Next.js は自動的にこの新しいトランスフォームを使います。このトランスフォームでは、以前の Next.js の実装で意図しなかった副作用である、変数 `React` をグローバル化することはありません。`React` をインポートせずに誤って使ってしまった場合に自動的に修正する [codemod is available](/docs/advanced-features/codemods.md#add-missing-react-import) が用意されています。
 
-## Upgrading from version 9 to 10
+## バージョン9から10へのアップグレード
 
-There were no breaking changes between version 9 and 10.
+バージョン 9 と 10 の間には、破壊的変更はありません。
 
-To upgrade run the following command:
+アップグレードするには、次のコマンドを実行します:
 
 ```
 npm install next@10
 ```
 
-Or using `yarn`:
+`yarn`を使う場合:
 
 ```
 yarn add next@10
