@@ -4,13 +4,13 @@ description: Next.js のアップグレード方法を学びます。
 
 # アップグレードガイド
 
-## 11から12へのアップグレード
+## 11 から 12 へのアップグレード
 
-### Node.jsの最小バージョン
+### Node.js の最小バージョン
 
 Node.js の最小バージョンは 12.0.0 から、ES モジュールのネイティブサポートを備えた最初の Node.js のバージョンとなる 12.22.0 に引き上げられました。
 
-### Reactの最新版へのアップグレード
+### React の最新版へのアップグレード
 
 アップグレードするには、以下のコマンドを実行します。
 
@@ -24,7 +24,7 @@ npm install react@latest react-dom@latest
 yarn add react@latest react-dom@latest
 ```
 
-### Next.jsのバージョンを12にアップグレードする
+### Next.js のバージョンを 12 にアップグレードする
 
 バージョンアップするには、ターミナルで以下のコマンドを実行します:
 
@@ -38,13 +38,13 @@ npm install next@12
 yarn add next@12
 ```
 
-### Babelに代わるSWC
+### Babel に代わる SWC
 
 Next.js は、JavaScript/TypeScript のコンパイルに Rust ベースのコンパイラ[SWC](https://swc.rs/)を使用するようになりました。
 この新しいコンパイラは、個別のファイルをコンパイルする際に Babel より最大 17 倍、Fast Refresh では最大 5 倍高速になります。
 
 Next.js は、[カスタムBabel設定](/docs/advanced-features/customizing-babel-config)を持つアプリケーションとの完全な後方互換性を提供します。
-Next.js がデフォルトで処理する styled-jsx や、`getStaticProps` / `getStaticPaths` / `getServerSideProps`のツリーシェイクなどの変換は、すべて Rust に移植されました。
+Next.js がデフォルトで処理する styled-jsx や、`getStaticProps` / `getStaticPaths` / `getServerSideProps` のツリーシェイクなどの変換は、すべて Rust に移植されました。
 
 アプリケーションが Babel の設定をカスタマイズしている場合、Next.js は自動的に JavaScript/Typescript のコンパイルに SWC を使わず、Next.js 11 と同じように Babel を使うようにフォールバックされます。
 
@@ -56,9 +56,9 @@ Next.js がデフォルトで処理する styled-jsx や、`getStaticProps` / `g
 
 SWC を採用するのに役立つ変換を優先するため、[フィードバックスレッド](https://github.com/vercel/next.js/discussions/30174)で `.babelrc` を提供してください。
 
-### SWCによるTerserの最小化の置き換え
+### SWC による Terser の最小化の置き換え
 
-`next.config.js`に以下のフラグを追加することで Terser を SWC に置き換えて、JavaScript の minify を最大 7 倍高速化出来ます:
+`next.config.js` に以下のフラグを追加することで Terser を SWC に置き換えて、 JavaScript の minify を最大 7 倍高速化出来ます:
 
 ```js
 module.exports = {
@@ -69,14 +69,14 @@ module.exports = {
 SWC による最小化は、Next.js 12.1 でデフォルトになる前により多くの実際の Next.js アプリケーションでテストできるようオプトインのフラグになっています。
 最小化についてのフィードバックがあれば、[フィードバックスレッド](https://github.com/vercel/next.js/discussions/30237)に残してください。
 
-### styled-jsx のCSS解析の改善
+### styled-jsx の CSS 解析の改善
 
 Rust ベースのコンパイラの上に、styled-jsx Babel 変換に使用された CSS パーサをベースにした新しい CSS パーサを実装しました。
 この新しいパーサーは CSS の取り扱いを改善し、以前はすり抜けて予期せぬ動作を引き起こしていた無効な CSS が使用された場合にエラーを発生させるようになりました。
 
 この変更により、開発中および `next build` の際に無効な CSS がエラーを投げるようになります。この変更は、styled-jsx の使用にのみ影響します。
 
-### `next/image`のラップ要素が変更されました
+### `next/image` のラップ要素が変更されました
 
 `next/image`は `<div>` の代わりに `<span>` で囲われた `<img>` をレンダーするようになりました。
 
@@ -88,7 +88,7 @@ span を対象とした特定の CSS、たとえば `.container span` を使用�
 
 詳しくは[ドキュメント](docs/basic-features/image-optimization#styling)をご覧ください。
 
-### Next.jsのHMRの接続がWebSocketに
+### Next.js の HMR の接続が WebSocket に
 
 これまで Next.js は、HMR イベントを受信するために[server-sent events](https://developer.mozilla.org/ja/docs/Web/API/Server-sent_events)接続を使用していましたが、Next.js 12 では WebSocket を使用するようになりました。
 
@@ -132,9 +132,9 @@ Next.js は `next build` の間、各ページとその依存関係を自動的�
 
 現在、`target` オプションを `serverless` に設定して使用している場合は、[新しい出力の活用方法に関するドキュメント](/docs/advanced-features/output-file-tracing) をお読みください。
 
-## バージョン10から11へのアップグレード
+## バージョン 10 から 11 へのアップグレード
 
-### Reactのバージョンを最新にアップグレードする
+### React のバージョンを最新にアップグレードする
 
 Next.js 11 では、React の最小バージョンが 17.0.2 に更新され、すでにほとんどのアプリケーションで最新バージョンの React が使用されています。
 
@@ -144,13 +144,13 @@ Next.js 11 では、React の最小バージョンが 17.0.2 に更新され、�
 npm install react@latest react-dom@latest
 ```
 
-`yarn`の場合:
+`yarn` の場合:
 
 ```
 yarn add react@latest react-dom@latest
 ```
 
-### Next.jsのバージョンを11にアップグレード
+### Next.js のバージョンを 11 にアップグレード
 
 アップグレードするには、ターミナルで次のコマンドを実行します:
 
@@ -169,14 +169,14 @@ yarn add next@11
 Webpack 5 は、すべての Next.js アプリケーションのデフォルトになりました。
 webpack のカスタム設定をしていない場合、アプリケーションはすでに webpack 5 を使用しています。webpack のカスタム設定をしている場合は、[Next.js webpack 5 documentation](/docs/messages/webpack5) を参照して、アップグレードのガイダンスを得ることができます。
 
-### `distDir`がデフォルトで破棄されるようになりました
+### `distDir` がデフォルトで破棄されるようになりました
 
 ビルド出力ディレクトリ（デフォルト: `.next`）は Next.js のキャッシュを除いて、デフォルトでクリアされるようになりました。
 詳細は、[the cleaning `distDir` RFC](https://github.com/vercel/next.js/discussions/6009) を参照してください。
 
 もしアプリケーションが以前からこの動作に依存していた場合は、 `next.config.js` に `cleanDistDir: false` フラグを追加して、新しいデフォルトの動作を無効にできます。
 
-### `PORT` が `next dev` と `next start`でサポートされるようになりました
+### `PORT` が `next dev` と `next start` でサポートされるようになりました
 
 Next.js 11 では、アプリケーションが動作するポートを設定するための環境変数 `PORT` がサポートされています。
 `p`/`--port` を使用することが推奨されますが、もし `-p` を使用することが禁止されている場合は `PORT` を代替手段として使用できるようになりました。
@@ -288,7 +288,7 @@ useEffect(() => {
 
 React 17 は新しい[JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)を導入し、長い間 Next.js にあった機能をより広い React エコシステムにもたらしました。JSX を使うときに `import React from 'react'` する必要がないことです。React 17 を使うとき、Next.js は自動的にこの新しいトランスフォームを使います。このトランスフォームでは、以前の Next.js の実装で意図しなかった副作用である、変数 `React` をグローバル化することはありません。`React` をインポートせずに誤って使ってしまった場合に自動的に修正する [codemod is available](/docs/advanced-features/codemods.md#add-missing-react-import) が用意されています。
 
-## バージョン9から10へのアップグレード
+## バージョン 9 から 10 へのアップグレード
 
 バージョン 9 と 10 の間には、破壊的変更はありません。
 
@@ -298,7 +298,7 @@ React 17 は新しい[JSX Transform](https://reactjs.org/blog/2020/09/22/introdu
 npm install next@10
 ```
 
-`yarn`を使う場合:
+`yarn` を使う場合:
 
 ```
 yarn add next@10
