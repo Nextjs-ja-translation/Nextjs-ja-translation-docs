@@ -12,7 +12,7 @@ Node.js の最小バージョンは 12.0.0 から、ES モジュールのネイ�
 
 ### React の最新版へのアップグレード
 
-アップグレードするには、以下のコマンドを実行します。
+アップグレードするには、以下のコマンドを実行します:
 
 ```
 npm install react@latest react-dom@latest
@@ -40,8 +40,7 @@ yarn add next@12
 
 ### Babel に代わる SWC
 
-Next.js は、JavaScript/TypeScript のコンパイルに Rust ベースのコンパイラ[SWC](https://swc.rs/)を使用するようになりました。
-この新しいコンパイラは、個別のファイルをコンパイルする際に Babel より最大 17 倍、Fast Refresh では最大 5 倍高速になります。
+Next.js は、JavaScript/TypeScript のコンパイルに Rust ベースのコンパイラ[SWC](https://swc.rs/)を使用するようになりました。この新しいコンパイラは、個別のファイルをコンパイルする際に Babel より最大 17 倍、Fast Refresh では最大 5 倍高速になります。
 
 Next.js は、[カスタムBabel設定](/docs/advanced-features/customizing-babel-config)を持つアプリケーションとの完全な後方互換性を提供します。
 Next.js がデフォルトで処理する styled-jsx や、`getStaticProps` / `getStaticPaths` / `getServerSideProps` のツリーシェイクなどの変換は、すべて Rust に移植されました。
@@ -66,13 +65,11 @@ module.exports = {
 }
 ```
 
-SWC による最小化は、Next.js 12.1 でデフォルトになる前により多くの実際の Next.js アプリケーションでテストできるようオプトインのフラグになっています。
-最小化についてのフィードバックがあれば、[フィードバックスレッド](https://github.com/vercel/next.js/discussions/30237)に残してください。
+SWC による最小化は、Next.js 12.1 でデフォルトになる前により多くの実際の Next.js アプリケーションでテストできるようオプトインのフラグになっています。 最小化についてのフィードバックがあれば、[フィードバックスレッド](https://github.com/vercel/next.js/discussions/30237)に残してください。
 
 ### styled-jsx の CSS 解析の改善
 
-Rust ベースのコンパイラの上に、styled-jsx Babel 変換に使用された CSS パーサをベースにした新しい CSS パーサを実装しました。
-この新しいパーサーは CSS の取り扱いを改善し、以前はすり抜けて予期せぬ動作を引き起こしていた無効な CSS が使用された場合にエラーを発生させるようになりました。
+Rust ベースのコンパイラの上に、styled-jsx Babel 変換に使用された CSS パーサをベースにした新しい CSS パーサを実装しました。 この新しいパーサーは CSS の取り扱いを改善し、以前はすり抜けて予期せぬ動作を引き起こしていた無効な CSS が使用された場合にエラーを発生させるようになりました。
 
 この変更により、開発中および `next build` の際に無効な CSS がエラーを投げるようになります。この変更は、styled-jsx の使用にのみ影響します。
 
@@ -80,8 +77,7 @@ Rust ベースのコンパイラの上に、styled-jsx Babel 変換に使用さ�
 
 `next/image`は `<div>` の代わりに `<span>` で囲われた `<img>` をレンダーするようになりました。
 
-span を対象とした特定の CSS、たとえば `.container span` を使用している場合、Next.js 12 にアップグレードすると `<Image>` コンポーネント内のラップ要素に正しくマッチしない場合があります。
-これはセレクタを `.container span.item` のような特定のクラスに制限することで避けることが可能です。
+span を対象とした特定の CSS、たとえば `.container span` を使用している場合、Next.js 12 にアップグレードすると `<Image>` コンポーネント内のラップ要素に正しくマッチしない場合があります。これはセレクタを `.container span.item` のような特定のクラスに制限することで避けることが可能です。
 また、より好ましいやり方として `<Image>` コンポーネントをラップする新しい `<div className="wrapper">` を追加して `.container .wrapper` のようにする方法もあります。
 
 `className` プロパティは変更されず、その下の `<img>` 要素に渡されます。
@@ -92,8 +88,7 @@ span を対象とした特定の CSS、たとえば `.container span` を使用�
 
 これまで Next.js は、HMR イベントを受信するために[server-sent events](https://developer.mozilla.org/ja/docs/Web/API/Server-sent_events)接続を使用していましたが、Next.js 12 では WebSocket を使用するようになりました。
 
-Next.js の開発サーバーへのリクエストをプロキシする場合、アップグレードリクエストが正しく処理されるようにする必要のある場合があります。
-たとえば、`nginx` では、次のような設定を追加する必要があります。
+Next.js の開発サーバーへのリクエストをプロキシする場合、アップグレードリクエストが正しく処理されるようにする必要のある場合があります。 たとえば、`nginx` では、次のような設定を追加する必要があります。
 
 ```nginx
 location /_next/webpack-hmr {
@@ -171,8 +166,7 @@ webpack のカスタム設定をしていない場合、アプリケーション
 
 ### `distDir` がデフォルトで破棄されるようになりました
 
-ビルド出力ディレクトリ（デフォルト: `.next`）は Next.js のキャッシュを除いて、デフォルトでクリアされるようになりました。
-詳細は、[the cleaning `distDir` RFC](https://github.com/vercel/next.js/discussions/6009) を参照してください。
+ビルド出力ディレクトリ（デフォルト: `.next`）は Next.js のキャッシュを除いて、デフォルトでクリアされるようになりました。 詳細は、[the cleaning `distDir` RFC](https://github.com/vercel/next.js/discussions/6009) を参照してください。
 
 もしアプリケーションが以前からこの動作に依存していた場合は、 `next.config.js` に `cleanDistDir: false` フラグを追加して、新しいデフォルトの動作を無効にできます。
 
@@ -189,9 +183,7 @@ PORT=4000 next start
 
 ### 画像を取り込むための `next.config.js` カスタマイズ
 
-Next.js 11 は `next/image` による静的画像のインポートをサポートしています。
-この新機能は、イメージのインポートを処理できることに依存しています。
-もし以前に `next-images` や `next-optimized-images` パッケージを追加していた場合は、 `next/image` を使って新しい組み込みサポートに移行するか、この機能を無効にするかのどちらかを選択できます:
+Next.js 11 は `next/image` による静的画像のインポートをサポートしています。 この新機能は、イメージのインポートを処理できることに依存しています。 もし以前に `next-images` や `next-optimized-images` パッケージを追加していた場合は、 `next/image` を使って新しい組み込みサポートに移行するか、この機能を無効にするかのどちらかを選択できます:
 
 ```js
 module.exports = {
