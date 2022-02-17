@@ -19,7 +19,7 @@ export default Avatar
 ```
 > 備考: `next/image` は Next.js 10 以降が必要です。
 
-このフォルダは、`robots.txt`、`favicon.ico`、Google Site Verification、その他の静的ファイル(`.html` を含む)にも役立ちます！
+このフォルダは、`robots.txt`、`favicon.ico`、Google Site Verification、その他の静的ファイル(`.html` を含む)にも有効です！
 
 > **備考**: `public` ディレクトリを他の名前にしないでください。名前を変更することはできず、静的アセットを配信できる唯一のディレクトリです。
 
