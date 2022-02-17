@@ -389,6 +389,10 @@
               "path": "/docs/api-reference/next.config.js/react-strict-mode.md"
             },
             {
+              "title": "URL Imports",
+              "path": "/docs/api-reference/next.config.js/url-imports.md"
+            },
+            {
               "title": "ビルドインジケーター",
               "path": "/docs/api-reference/next.config.js/build-indicator.md"
             }
