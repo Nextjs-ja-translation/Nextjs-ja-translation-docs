@@ -8,7 +8,7 @@ description: Next.js のアップグレード方法を学びます。
 
 ### Node.js の最小バージョン
 
-Node.js の最小バージョンは 12.0.0 から、ES モジュールのネイティブサポートを備えた最初の Node.js のバージョンとなる 12.22.0 に引き上げられました。
+Node.js の最小バージョンは 12.0.0 から、ES Modules のネイティブサポートを備えた最初の Node.js のバージョンとなる 12.22.0 に引き上げられました。
 
 ### React の最新版へのアップグレード
 
@@ -43,7 +43,7 @@ yarn add next@12
 Next.js は、JavaScript/TypeScript のコンパイルに Rust ベースのコンパイラ[SWC](https://swc.rs/)を使用するようになりました。この新しいコンパイラは、個別のファイルをコンパイルする際に Babel より最大 17 倍、Fast Refresh では最大 5 倍高速になります。
 
 Next.js は、[カスタムBabel設定](/docs/advanced-features/customizing-babel-config)を持つアプリケーションとの完全な後方互換性を提供します。
-Next.js がデフォルトで処理する styled-jsx や、`getStaticProps` / `getStaticPaths` / `getServerSideProps` のツリーシェイクなどの変換は、すべて Rust に移植されました。
+Next.js がデフォルトで処理する styled-jsx や、`getStaticProps` / `getStaticPaths` / `getServerSideProps` のツリーシェイキングなどの変換は、すべて Rust に移植されました。
 
 アプリケーションが Babel の設定をカスタマイズしている場合、Next.js は自動的に JavaScript/Typescript のコンパイルに SWC を使わず、Next.js 11 と同じように Babel を使うようにフォールバックされます。
 
@@ -53,7 +53,7 @@ Next.js がデフォルトで処理する styled-jsx や、`getStaticProps` / `g
 - Emotion
 - Relay
 
-SWC を採用するのに役立つ変換を優先するため、[フィードバックスレッド](https://github.com/vercel/next.js/discussions/30174)で `.babelrc` を提供してください。
+SWC を採用しやすくするためにはどの変換を優先的に対応すべきかを判断するため、ぜひ[フィードバックスレッド](https://github.com/vercel/next.js/discussions/30174)で `.babelrc` を提供してください。
 
 ### SWC による Terser の最小化の置き換え
 
@@ -69,7 +69,7 @@ SWC による最小化は、Next.js 12.1 でデフォルトになる前により
 
 ### styled-jsx の CSS 解析の改善
 
-Rust ベースのコンパイラの上に、styled-jsx Babel 変換に使用された CSS パーサをベースにした新しい CSS パーサを実装しました。 この新しいパーサーは CSS の取り扱いを改善し、以前はすり抜けて予期せぬ動作を引き起こしていた無効な CSS が使用された場合にエラーを発生させるようになりました。
+Rust ベースのコンパイラの上に、styled-jsx の Babel による変換に使用された CSS パーサをベースにした新しい CSS パーサを実装しました。 この新しいパーサーは CSS の取り扱いを改善し、以前はすり抜けて予期せぬ動作を引き起こしていた無効な CSS が使用された場合にエラーを発生させるようになりました。
 
 この変更により、開発中および `next build` の際に無効な CSS がエラーを投げるようになります。この変更は、styled-jsx の使用にのみ影響します。
 
@@ -77,8 +77,9 @@ Rust ベースのコンパイラの上に、styled-jsx Babel 変換に使用さ�
 
 `next/image`は `<div>` の代わりに `<span>` で囲われた `<img>` をレンダーするようになりました。
 
-span を対象とした特定の CSS、たとえば `.container span` を使用している場合、Next.js 12 にアップグレードすると `<Image>` コンポーネント内のラップ要素に正しくマッチしない場合があります。これはセレクタを `.container span.item` のような特定のクラスに制限することで避けることが可能です。
-また、より好ましいやり方として `<Image>` コンポーネントをラップする新しい `<div className="wrapper">` を追加して `.container .wrapper` のようにする方法もあります。
+`.container span` など span を対象とした特定の CSS を使用している場合、Next.js 12 にアップグレードすると `<Image>` コンポーネント内のラップ要素に正しくマッチしない場合があります。これを避けるには、セレクタを `.container span.item` などの特定のクラスに制限し関連事項するコンポーネントを `<span className="item" />` のように、その `className` で更新する必要があります。
+
+もしあなたのアプリケーションが、`next/image` `<div>` タグをターゲットとする特定の CSS、例えば `.container div` を使用している場合、マッチしなくなる可能性があります。セレクタの `.container span` を更新するか、できれば `<Image>` コンポーネントをラップする新しい `<div className="wrapper">` を追加し、代わりに `.container .wrapper` のようにそれをターゲットにできます。
 
 `className` プロパティは変更されず、その下の `<img>` 要素に渡されます。
 
@@ -88,7 +89,7 @@ span を対象とした特定の CSS、たとえば `.container span` を使用�
 
 これまで Next.js は、HMR イベントを受信するために[server-sent events](https://developer.mozilla.org/ja/docs/Web/API/Server-sent_events)接続を使用していましたが、Next.js 12 では WebSocket を使用するようになりました。
 
-Next.js の開発サーバーへのリクエストをプロキシする場合、アップグレードリクエストが正しく処理されるようにする必要のある場合があります。 たとえば、`nginx` では、次のような設定を追加する必要があります。
+Next.js の開発サーバーへのリクエストをプロキシしている場合、アップグレードのリクエストが正しく処理されるようにしなければならないことがあります。たとえば、`nginx` では、次のような設定を追加する必要があります。
 
 ```nginx
 location /_next/webpack-hmr {
@@ -99,7 +100,7 @@ location /_next/webpack-hmr {
 }
 ```
 
-`express` などのカスタムサーバーの場合、リクエストが正しく渡されるように `app.all` を使用する必要のある場合があります。
+`express` などのカスタムサーバーの場合、リクエストが正しく渡されるように `app.all` を使用しなければならないことがあります。
 
 例:
 
