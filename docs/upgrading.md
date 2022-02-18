@@ -184,7 +184,7 @@ PORT=4000 next start
 
 ### 画像を取り込むための `next.config.js` カスタマイズ
 
-Next.js 11 は `next/image` による静的画像のインポートをサポートしています。 この新機能は、イメージのインポートを処理できることに依存しています。 もし以前に `next-images` や `next-optimized-images` パッケージを追加していた場合は、 `next/image` を使って新しい組み込みサポートに移行するか、この機能を無効にするかのどちらかを選択できます:
+Next.js 11 は `next/image` による静的画像のインポートをサポートしています。 この新機能は、画像のインポートを処理できることに依存しています。 もし以前に `next-images` や `next-optimized-images` パッケージを追加していた場合は、 `next/image` を使って新しい組み込みサポートに移行するか、この機能を無効にするかのどちらかを選択できます:
 
 ```js
 module.exports = {
@@ -196,7 +196,7 @@ module.exports = {
 
 ### `pages/_app.js` からの `super.componentDidCatch()` の削除
 
-`next/app` コンポーネントの `componentDidCatch` は、Next.js 9 からは不要かつ非推奨となり、Next.js 11 で削除されました。
+`next/app` コンポーネントの `componentDidCatch` は、Next.js 9 からは不要で機能しないようになったため非推奨となっており、Next.js 11 で削除されました。
 
 もし `pages/_app.js` にカスタムメソッド `componentDidCatch` がある場合は、不要になったので `super.componentDidCatch` を削除できます。
 
@@ -303,9 +303,9 @@ yarn add next@10
 
 #### Vercel へのプロダクションデプロイ
 
-動的なルーティングのために、 `now.json` ファイル内に `routes` を設定していた場合、Next.js 9 の新しい[動的なルーティング機能](/docs/routing/dynamic-routes) を利用することで、これらのルールを削除できます。
+動的なルーティングのために、 `vercel.json` ファイル内に `routes` を設定していた場合、Next.js 9 の新しい[動的なルーティング機能](/docs/routing/dynamic-routes) を利用することで、これらのルールを削除できます。
 
-Next.js 9 の動的なルーティングは **[Vercel](https://vercel.com/now) 上では自動的に設定されている**ため、 `now.json` のカスタマイズは必要ありません。
+Next.js 9 の動的なルーティングは **[Vercel](https://vercel.com/now) 上では自動的に設定されている**ため、 `vercel.json` のカスタマイズは必要ありません。
 
 詳細は [こちらの動的なルーティング](/docs/routing/dynamic-routes) を読んでください。
 
