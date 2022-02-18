@@ -40,9 +40,9 @@ yarn add next@12
 
 ### Babel に代わる SWC
 
-Next.js は、JavaScript/TypeScript のコンパイルに Rust ベースのコンパイラ[SWC](https://swc.rs/)を使用するようになりました。この新しいコンパイラは、個別のファイルをコンパイルする際に Babel より最大 17 倍、Fast Refresh では最大 5 倍高速になります。
+Next.js は、JavaScript/TypeScript のコンパイルに Rust ベースのコンパイラ [SWC](https://swc.rs/)を使用するようになりました。この新しいコンパイラは、個別のファイルをコンパイルする際に Babel より最大 17 倍、Fast Refresh では最大 5 倍高速になります。
 
-Next.js は、[カスタムBabel設定](/docs/advanced-features/customizing-babel-config)を持つアプリケーションとの完全な後方互換性を提供します。
+Next.js は、[カスタム Babel 設定](/docs/advanced-features/customizing-babel-config)を持つアプリケーションとの完全な後方互換性を提供します。
 Next.js がデフォルトで処理する styled-jsx や、`getStaticProps` / `getStaticPaths` / `getServerSideProps` のツリーシェイキングなどの変換は、すべて Rust に移植されました。
 
 アプリケーションが Babel の設定をカスタマイズしている場合、Next.js は自動的に JavaScript/Typescript のコンパイルに SWC を使わず、Next.js 11 と同じように Babel を使うようにフォールバックされます。
@@ -87,7 +87,7 @@ Rust ベースのコンパイラの上に、styled-jsx の Babel による変換
 
 ### Next.js の HMR の接続が WebSocket に
 
-これまで Next.js は、HMR イベントを受信するために[server-sent events](https://developer.mozilla.org/ja/docs/Web/API/Server-sent_events)接続を使用していましたが、Next.js 12 では WebSocket を使用するようになりました。
+これまで Next.js は、HMR イベントを受信するために [server-sent events](https://developer.mozilla.org/ja/docs/Web/API/Server-sent_events) 接続を使用していましたが、Next.js 12 では WebSocket を使用するようになりました。
 
 Next.js の開発サーバーへのリクエストをプロキシしている場合、アップグレードのリクエストが正しく処理されるようにしなければならないことがあります。たとえば、`nginx` では、次のような設定を追加する必要があります。
 
@@ -204,7 +204,7 @@ module.exports = {
 
 このエクスポートは Next.js 9 以降、不要かつ非推奨となり開発中に警告が表示されて機能しなくなりました。Next.js 11 で削除されました。
 
-もし `pages/_app.js` が `next/app` から `Container` をインポートしている場合は、 `Container` を削除してください。
+もし `pages/_app.js` が `next/app` から `Container` をインポートしている場合は、`Container` を削除してください。
 詳しくは、[ドキュメント](/docs/messages/app-container-deprecated)を参照してください。
 
 ### ページコンポーネントからの `props.url` の使用の削除
@@ -279,7 +279,7 @@ useEffect(() => {
 
 ## React 16 から 17 へ
 
-React 17 は新しい[JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)を導入し、長い間 Next.js にあった機能をより広い React エコシステムにもたらしました。JSX を使うときに `import React from 'react'` する必要がないことです。React 17 を使うとき、Next.js は自動的にこの新しいトランスフォームを使います。このトランスフォームでは、以前の Next.js の実装で意図しなかった副作用である、変数 `React` をグローバル化することはありません。`React` をインポートせずに誤って使ってしまった場合に自動的に修正する [codemod is available](/docs/advanced-features/codemods.md#add-missing-react-import) が用意されています。
+React 17 は新しい [JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) を導入し、長い間 Next.js にあった機能をより広い React エコシステムにもたらしました。JSX を使うときに `import React from 'react'` する必要がないことです。React 17 を使うとき、Next.js は自動的にこの新しいトランスフォームを使います。このトランスフォームでは、以前の Next.js の実装で意図しなかった副作用である、変数 `React` をグローバル化することはありません。`React` をインポートせずに誤って使ってしまった場合に自動的に修正する [codemod is available](/docs/advanced-features/codemods.md#add-missing-react-import) が用意されています。
 
 ## バージョン 9 から 10 へのアップグレード
 
