@@ -16,10 +16,10 @@ export default function Container({
   ...props
 }) {
   return (
-    <div {...props}>
+    <div {...props} className="container">
       <style jsx>
         {`
-      {
+      .container {
         width: 100%;
         margin: 0 auto;
         padding: ${padding ? '6.25rem' : '0'} ${wide ? '0' : '1rem'};
@@ -45,7 +45,7 @@ export default function Container({
         }
         ${divider ? `border-top: 1px solid rgba(0,0,0,0.1);` : ''}
       }
-      :after {
+      .container:after {
         // BFC
         content: '';
         display: table;

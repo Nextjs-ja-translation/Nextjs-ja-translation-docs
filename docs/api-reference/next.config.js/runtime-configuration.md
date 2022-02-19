@@ -4,9 +4,7 @@ description: クライアント側とサーバー側のランタイム設定を 
 
 # ランタイム設定
 
-> 一般的には、 [環境変数](/docs/api-reference/next.config.js/environment-variables.md) を使用して設定を行うのがいいでしょう。なぜなら、ランタイム設定はレンダリング / 初期化時の余計な処理につながり、また [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) と互換性がないからです。
-
-> ランタイム設定は [`serverless` target](/docs/api-reference/next.config.js/build-target.md#serverless-target) のときは利用できません。
+> 一般的には、 [環境変数](/docs/basic-features/next.config.js/environment-variables.md) を使用して設定を行うのがいいでしょう。なぜなら、ランタイム設定はレンダリング / 初期化時の余計な処理につながり、また [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) と互換性がないからです。
 
 ランタイム設定を追加するためには、`next.config.js` に `publicRuntimeConfig` と `serverRuntimeConfig` を記述してください:
 
@@ -34,6 +32,7 @@ module.exports = {
 
 ```jsx
 import getConfig from 'next/config';
+import Image from 'next/image'
 
 // serverRuntimeConfig と publicRuntimeConfig だけを保持している
 const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
@@ -45,7 +44,11 @@ console.log(publicRuntimeConfig.staticFolder);
 function MyImage() {
   return (
     <div>
-      <img src={`${publicRuntimeConfig.staticFolder}/logo.png`} alt="logo" />
+      <Image
+        src={`${publicRuntimeConfig.staticFolder}/logo.png`}
+        alt="logo"
+        layout="fill"
+      />
     </div>
   );
 }
