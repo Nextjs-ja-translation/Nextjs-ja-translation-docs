@@ -371,6 +371,24 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "progriro",
+      "name": "shinya fukimbara",
+      "avatar_url": "https://avatars.githubusercontent.com/u/51112816?v=4",
+      "profile": "https://github.com/progriro",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "yodakaEngineer",
+      "name": "yodaka",
+      "avatar_url": "https://avatars.githubusercontent.com/u/44350989?v=4",
+      "profile": "https://www.yodaka-star.com/profile",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
