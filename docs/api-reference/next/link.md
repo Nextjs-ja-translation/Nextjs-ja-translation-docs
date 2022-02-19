@@ -65,7 +65,7 @@ export default Home
 
 ## ルーティングに動的なセグメントが含まれる場合
 
-Next.js 9.5.3 以降では（古いバージョンについては[過去のドキュメント](https://nextjs.org/docs/tag/v9.5.2/api-reference/next/link#dynamic-routes)をご確認ください）、何もせずとも[動的ルーティング](/docs/routing/dynamic-routes.md)（[すべてのルートを受け取る](/docs/routing/dynamic-routes.md#catch-all-routes)場合を含めて）へのリンクを設定できます。しかし、[補間](/docs/routing/introduction.md#linking-to-dynamic-paths) や [URL オブジェクト](#with-url-object)を用いてリンクを生成することが非常に一般的で便利な状況も存在します。
+Next.js 9.5.3 以降では（古いバージョンについては[過去のドキュメント](https://nextjs.org/docs/tag/v9.5.2/api-reference/next/link#dynamic-routes)をご確認ください）、何もせずとも[動的ルーティング](/docs/routing/dynamic-routes.md)（[すべてのルートを受け取る](/docs/routing/dynamic-routes.md#catch-all-routes)場合を含めて）へのリンクを設定できます。しかし、[文字列補間](/docs/routing/introduction.md#linking-to-dynamic-paths) や [URL オブジェクト](#with-url-object)を用いてリンクを生成することが非常に一般的で便利な状況も存在します。
 
 たとえば、 `pages/blog/[slug].js` という動的ルーティングは以下のリンクにマッチします:
 
