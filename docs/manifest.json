@@ -273,6 +273,10 @@
           "path": "/docs/api-reference/next/amp.md"
         },
         {
+          "title": "next/server",
+          "path": "/docs/api-reference/next/server.md"
+        },
+        {
           "title": "Edge Runtime",
           "path": "/docs/api-reference/edge-runtime.md"
         },
