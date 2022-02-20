@@ -432,7 +432,7 @@ module.exports = {
 }
 ```
 
-### Dangerously Allow SVG
+### 危険な SVG の許可
 
 デフォルトの [ローダー](#loader) はいくつかの理由で SVG 画像を最適化しません。まず最初の理由として、SVG はベクトル形式であるため、サイズを変更しても劣化しません。次に、SVG は HTML/CSS と同じ特徴を多く持っており、適切な [コンテンツセキュリティポリシー (CSP) ヘッダー](/docs/advanced-features/security-headers.md) が無いと脆弱性につながる可能性があります。
 
