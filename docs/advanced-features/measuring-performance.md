@@ -1,12 +1,17 @@
 ---
-description: Next.js の組み込みパフォーマンスリレー機能を使用してページのパフォーマンスを測定および追跡する
+description: Next.js の分析を使用してページのパフォーマンスを測定および追跡する
 ---
 
 # パフォーマンス測定
 
-Next.js には、さまざまな指標を用いてページのパフォーマンスを分析および測定できるリレー機能が組み込まれています。
+[Next.js の分析](https://nextjs.org/analytics)には、さまざまな指標を用いてページのパフォーマンスを分析および測定できるリレー機能が組み込まれています。
 
-サポートされている指標を測定するには、[カスタム `App`](/docs/advanced-features/custom-app.md) コンポーネントを作成し、関数 `reportWebVitals` を定義します:
+You can start collecting your [Real Experience Score](https://vercel.com/docs/analytics#metrics) with zero-configuration on [Vercel deployments](https://vercel.com/docs/analytics). There's also support for Analytics if you're [self-hosting](https://vercel.com/docs/analytics#self-hosted).
+The rest of this documentation describes the built-in relayer Next.js Analytics uses.
+
+## Build Your Own
+
+最初に、サポートされている指標を測定するには、[カスタム `App`](/docs/advanced-features/custom-app.md) コンポーネントを作成し、関数 `reportWebVitals` を定義します:
 
 ```js
 // pages/_app.js
@@ -28,8 +33,8 @@ export default MyApp;
 
 - `id`: 現在のページ読み込みにおける指標の一意な識別子
 - `name`: 指標の名前
-- `startTime`: パフォーマンスエントリの最初に記録されたタイムスタンプ (該当する場合)
-- `value`: パフォーマンスエントリの値または時間
+- `startTime`: First recorded timestamp of the performance entry in [milliseconds](https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp) (if applicable)
+- `value`: Value, or duration in [milliseconds](https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp), of the performance entry
 - `label`: 指標のタイプ (`web-vital` または `custom`)
 
 追跡される指標には 2 つのタイプがあります。
@@ -150,15 +155,35 @@ export function reportWebVitals(metric) {
 >
 > ```js
 > export function reportWebVitals({ id, name, label, value }) {
->   ga('send', 'event', {
->     eventCategory: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
->     eventAction: name,
->     eventValue: Math.round(name === 'CLS' ? value * 1000 : value), // valueは整数のみ
+>   // Use `window.gtag` if you initialized Google Analytics as this example:
+>   // https://github.com/vercel/next.js/blob/canary/examples/with-google-analytics/pages/_app.js
+>   window.gtag('event', name, {
+>     event_category:
+>       label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+>     value: Math.round(name === 'CLS' ? value * 1000 : value), // valueは整数のみ
 >     eventLabel: id, // 現在のページで固有のIDを
 >     nonInteraction: true // 直帰率のデータへの影響を回避する。
->   });
+>   })
 > }
 > ```
 >
-> Googleアナリティクスに結果を送信する方法の詳細は、[こちら](https://github.com/GoogleChrome/web-vitals#send-the-results-to-google-analytics) をご覧ください。
+> [Google Anaytics に結果を送信](https://github.com/GoogleChrome/web-vitals#send-the-results-to-google-analytics)についてはこちらをご覧ください。
+## TypeScript
 
+If you are using TypeScript, you can use the built-in type `NextWebVitalsMetric`:
+
+```ts
+// pages/_app.tsx
+
+import type { AppProps, NextWebVitalsMetric } from 'next/app'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
+
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+  console.log(metric)
+}
+
+export default MyApp
+```
