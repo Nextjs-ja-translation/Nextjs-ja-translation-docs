@@ -1,5 +1,5 @@
 ---
-description: クライアント側のナビゲーションは、Link コンポーネントの代わりに Router API を使用することができます。このページで学んでいきましょう。
+description: クライアント側のナビゲーションは、Link コンポーネントの代わりに Next.js の Router を使用することができます。このページで学んでいきましょう。
 ---
 
 # Imperatively
@@ -11,20 +11,20 @@ description: クライアント側のナビゲーションは、Link コンポ�
   </ul>
 </details>
 
-[`next/link`](/docs/api-reference/next/link.md) は必要なルーティングをほとんどカバーできるはずですが、 使用せずにクライアントサイドのナビゲーションを行うこともできます。詳しくは [Router API ドキュメント](/docs/api-reference/next/router.md#router-api)を参照してください。
+[`next/link`](/docs/api-reference/next/link.md) は必要なルーティングをほとんどカバーできるはずですが、 使用せずにクライアントサイドのナビゲーションを行うこともできます。詳しくは [`next/router` のドキュメント](/docs/api-reference/next/router.md#router-api)を参照してください。
 
-以下の例が Router API の基本的な使用方法です:
+以下の例が `useRouter` を使った基本的なページ遷移の方法です:
 
 ```jsx
-import Router from 'next/router';
+import { useRouter } from 'next/router'
 
-function ReadMore() {
+export default function ReadMore() {
+  const router = useRouter()
+
   return (
-    <div>
-      Click <span onClick={() => Router.push('/about')}>here</span> to read more
-    </div>
-  );
+    <button onClick={() => router.push('/about')}>
+      Click here to read more
+    </button>
+  )
 }
-
-export default ReadMore;
 ```
