@@ -18,7 +18,12 @@
             },
             {
               "title": "データ取得",
-              "path": "/docs/basic-features/data-fetching.md"
+              "routes": [
+                {
+                  "title": "getServerSideProps",
+                  "path": "/docs/basic-features/data-fetching/get-server-side-props.md"
+                }
+              ]
             },
             {
               "title": "CSS のビルトインサポート",
