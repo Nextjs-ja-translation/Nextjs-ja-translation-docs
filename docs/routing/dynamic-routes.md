@@ -54,7 +54,37 @@ export default Post;
 { "pid": "abc", "comment": "a-comment" }
 ```
 
-動的ルーティングへのクライアント側のナビゲーションは [`next/link`](/docs/api-reference/next/link.md#dynamic-routes) で処理できます。
+動的ルーティングへのクライアント側のナビゲーションは [`next/link`](/docs/api-reference/next/link.md) で処理します。上記で使用したルートへのリンクを持たせたい場合、以下のようになります:
+
+```jsx
+import Link from 'next/link'
+
+function Home() {
+  return (
+    <ul>
+      <li>
+        <Link href="/post/abc">
+          <a>Go to pages/post/[pid].js</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/post/abc?foo=bar">
+          <a>Also goes to pages/post/[pid].js</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/post/abc/a-comment">
+          <a>Go to pages/post/[pid]/[comment].js</a>
+        </Link>
+      </li>
+    </ul>
+  )
+}
+
+export default Home
+```
+
+Read our docs for [Linking between pages](/docs/routing/introduction.md#linking-between-pages) to learn more.
 
 ### すべてのルートを受け取る
 
@@ -83,8 +113,6 @@ export default Post;
 { "slug": ["a", "b"] }
 ```
 
-> すべてのルートを受け取る良い例はNext.jsのdocsです。 [pages/docs/[...slug].js](https://github.com/vercel/next-site/blob/master/pages/docs/%5B...slug%5D.js) という1つのページが、現在見ているdocsをすべて処理しています。
-
 ### オプショナルにすべてのルートを受け取る
 
 すべてのルートをキャッチすることは、`[[...slug]]` のようにパラメータを二重括弧内に含めることでオプショナルにできます。
@@ -108,3 +136,21 @@ export default Post;
 - [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)によって静的に最適化されたページはルートパラメータが指定されていない状態でハイドレートされます。つまり、`query` は `{}` のように空オブジェクトになります。
 
   ハイドレート後に Next.js はアプリケーションの更新をトリガーにして、 `query` オブジェクトにルートパラメータを提供します。
+
+## Related
+
+For more information on what to do next, we recommend the following sections:
+
+<div class="card">
+  <a href="/docs/api-reference/next/link.md">
+    <b>next/link:</b>
+    <small>Enable client-side transitions with next/link.</small>
+  </a>
+</div>
+
+<div class="card">
+  <a href="/docs/routing/introduction.md">
+    <b>Routing:</b>
+    <small>Learn more about routing in Next.js.</small>
+  </a>
+</div>
