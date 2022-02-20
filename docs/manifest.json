@@ -4,7 +4,10 @@
       "title": "Documentation",
       "heading": true,
       "routes": [
-        { "title": "はじめに", "path": "/docs/getting-started.md" },
+        {
+          "title": "はじめに",
+          "path": "/docs/getting-started.md"
+        },
         {
           "title": "Basic Features",
           "open": true,
@@ -90,12 +93,25 @@
           ]
         },
         {
+          "title": "Middleware",
+          "path": "/docs/middleware.md"
+        },
+        {
           "title": "Deployment",
           "path": "/docs/deployment.md"
         },
         {
           "title": "Authentication",
           "path": "/docs/authentication.md"
+        },
+        {
+          "title": "Guides",
+          "routes": [
+            {
+              "title": "Building Forms",
+              "path": "/docs/guides/building-forms.md"
+            }
+          ]
         },
         {
           "title": "Advanced Features",
@@ -240,14 +256,20 @@
             }
           ]
         },
-        { "title": "よくある質問", "path": "/docs/faq.md" }
+        {
+          "title": "よくある質問",
+          "path": "/docs/faq.md"
+        }
       ]
     },
     {
       "title": "API Reference",
       "heading": true,
       "routes": [
-        { "title": "CLI", "path": "/docs/api-reference/cli.md" },
+        {
+          "title": "CLI",
+          "path": "/docs/api-reference/cli.md"
+        },
         {
           "title": "Create Next App",
           "path": "/docs/api-reference/create-next-app.md"
