@@ -11,7 +11,7 @@ description: ページ内のAMPを有効にし、 Next.js がページに AMP �
   </ul>
 </details>
 
-> AMP サポートは Next.js の高度な機能の 1 つです。詳細については、[こちら](/docs/advanced-features/amp-support/introduction.md)をご覧ください。
+> AMP サポートは Next.js の高度な機能の 1 つです。[AMP についての詳細](/docs/advanced-features/amp-support/introduction.md)をご覧になれます。
 
 AMP を有効にするには、次の設定をページに追加します:
 
