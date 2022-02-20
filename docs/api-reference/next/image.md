@@ -127,7 +127,7 @@ const MyImage = (props) => {
 
 `layout="intrinsic"` または `layout="fixed"` を使用している場合、上限幅はすでに制限されているため、`sizes` は必要ありません。
 
-[もっと詳しく知る](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-sizes)
+[もっと詳しく知る](https://developer.mozilla.org/ja/docs/Web/HTML/Element/img#attr-sizes)
 
 ### quality
 
@@ -140,7 +140,7 @@ true の場合、画像は優先度が高く [preload](https://web.dev/preload-r
 
 [Largest Contentful Paint (LCP)](https://nextjs.org/learn/seo/web-performance/lcp) 要素として検出された画像には `priority` プロパティを使用する必要があります。異なる画像は異なるビューポートサイズの LCP 要素である可能性があるため、複数の優先度のある画像を使用することが適切な場合もあります。
 
-画像が折り目の上に表示されている場合にのみ使用してください。デフォルトは `false` です。
+画像が above the fold 内に表示されている場合にのみ使用してください。デフォルトは `false` です。
 
 ### placeholder
 
@@ -164,14 +164,14 @@ placeholder は画像の読み込み中に使用します。可能な値は `blu
 
 ### objectFit
 
-`layout = "fill"` を使用するときに、画像が親コンテナにどう収まるかを定義します。
+`layout="fill"` を使用するときに、画像が親コンテナにどう収まるかを定義します。
 
-この値は、`src` イメージの [object-fit CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) に渡されます。
+この値は、`src` イメージの [object-fit CSS property](https://developer.mozilla.org/ja/docs/Web/CSS/object-fit) に渡されます。
 
 ### objectPosition
 
-`layout = "fill"` を使用するときに、画像が親要素内にどう配置されるかを定義します。
-この値は、[object-position CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position) に渡され、画像に適用されます。
+`layout="fill"` を使用するときに、画像が親要素内にどう配置されるかを定義します。
+この値は、[object-position CSS property](https://developer.mozilla.org/ja/docs/Web/CSS/object-position) に渡され、画像に適用されます。
 
 ### onLoadingComplete
 
@@ -196,11 +196,11 @@ placeholder は画像の読み込み中に使用します。可能な値は `blu
 
 `eager` の場合、即座に画像を読み込みます。
 
-[もっと詳しく知る](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-loading)
+[もっと詳しく知る](https://developer.mozilla.org/ja/docs/Web/HTML/Element/img#attr-loading)
 
 ### blurDataURL
 
-`src` 画像の正常読み込み前にプレースホルダー画像として使用される [Data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)です。
+`src` 画像の正常読み込み前にプレースホルダー画像として使用される [Data URL](https://developer.mozilla.org/ja/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)です。
 [`placeholder="blur"`](#placeholder) と組み合わせた場合にのみ有効になります。
 
 base64 でエンコードされた画像である必要があります。拡大してぼやけるので、非常に小さい画像 (10px 以下) をお勧めします。
@@ -224,10 +224,10 @@ base64 でエンコードされた画像である必要があります。拡大�
 
 ### lazyRoot
 
-React [Ref](https://reactjs.org/docs/refs-and-the-dom.html) はスクロール可能な親要素を指します。
+React [Ref](https://ja.reactjs.org/docs/refs-and-the-dom.html) はスクロール可能な親要素を指します。
 デフォルトは `null` (ドキュメントビューポート) です。
 
-Ref は、基礎となる DOM 要素に [Ref を転送する](https://reactjs.org/docs/forwarding-refs.html) DOM 要素または React コンポーネントを指している必要があります。
+Ref は、基礎となる DOM 要素に [Ref を転送する](https://ja.reactjs.org/docs/forwarding-refs.html) DOM 要素または React コンポーネントを指している必要があります。
 
 **DOM 要素を指している例**
 
@@ -298,7 +298,7 @@ module.exports = {
 
 ### ローダー構成
 
-Next.js に組み込まれている Image Optimization API を使用する代わりに、クラウドプロバイダーを使用して画像を最適化する場合は、`next.config.js` ファイルで `loader` と `path` プレフィックスを構成できます。これにより、Image [`src`](#src) に相対 URL を使用し、プロバイダーの正しい絶対 URL を自動的に生成できます。
+Next.js に組み込まれている Image Optimization API を使用する代わりに、クラウドプロバイダーを使用して画像を最適化する場合は、`next.config.js` ファイルで `loader` と `path` プレフィックスを設定できます。これにより、Image [`src`](#src) に相対 URL を使用し、プロバイダーの正しい絶対 URL を自動的に生成できます。
 
 ```js
 module.exports = {
@@ -398,13 +398,13 @@ module.exports = {
 
 有効期限 (または最大経過時間) は、[`minimumCacheTTL`](#最小のキャッシュ存続時間) 構成またはアップストリームサーバーの `Cache-Control` ヘッダーのいずれか大きい方によって定義されます。具体的には、`Cache-Control` ヘッダーの `max-age` 値が使用されます。 `s-maxage` と `max-age` の両方が見つかった場合は、`s-maxage` が優先されます。
 
-- アップストリームイメージに `Cache-Control` ヘッダーが含まれていない場合、または値が非常に低い場合に、キャッシュ期間を長くするように [`minimumCacheTTL`](#最小のキャッシュ存続時間) を構成できます。
+- アップストリームイメージに `Cache-Control` ヘッダーが含まれていない場合、または値が非常に低い場合に、キャッシュ期間を長くするように [`minimumCacheTTL`](#最小のキャッシュ存続時間) を設定できます。
 - [`deviceSizes`](#デバイスの大きさ) と [`imageSizes`](#デバイスの大きさ) を構成して、生成される可能性のある画像の総数を減らすことができます。
-- 単一の画像形式を優先して複数の形式を無効にするように [形式](/docs/basic-features/image-optimization.md#acceptable-formats) を構成できます。
+- 単一の画像形式を優先して複数の形式を無効にするように [形式](/docs/basic-features/image-optimization.md#acceptable-formats) を設定できます。
 
 ### 最小のキャッシュ存続時間
 
-キャッシュされた最適化画像の存続時間 (TTL) を秒単位で構成できます。多くの場合 [静的画像のインポート](/docs/basic-features/image-optimization.md#local-images) の利用をお勧めします。これにより、ファイルの内容が自動的にハッシュ化され、`immutable` に設定された `Cache-Control` ヘッダーを使用して画像が永久にキャッシュされます。
+キャッシュされた最適化画像の存続時間 (TTL) を秒単位で設定できます。多くの場合 [静的画像のインポート](/docs/basic-features/image-optimization.md#local-images) の利用をお勧めします。これにより、ファイルの内容が自動的にハッシュ化され、`immutable` に設定された `Cache-Control` ヘッダーを使用して画像が永久にキャッシュされます。
 
 ```js
 module.exports = {
@@ -414,7 +414,7 @@ module.exports = {
 }
 ```
 
-ブラウザの `Cache-Control` ヘッダーを追加する必要がある場合 (非推奨) 、アップストリームイメージに [`headers`](/docs/api-reference/next.config.js/headers) を構成できます。 `/some-asset.jpg` は `/_next/image` 自体ではありません。
+ブラウザの `Cache-Control` ヘッダーを追加する必要がある場合 (非推奨) 、アップストリームイメージに [`headers`](/docs/api-reference/next.config.js/headers) を設定できます。 `/some-asset.jpg` は `/_next/image` 自体ではありません。
 
 ### 静的インポートの無効化
 
@@ -428,6 +428,21 @@ module.exports = {
 module.exports = {
   images: {
     disableStaticImages: true,
+  },
+}
+```
+
+### Dangerously Allow SVG
+
+デフォルトの [ローダー](#loader) はいくつかの理由で SVG 画像を最適化しません。まず最初の理由として、SVG はベクトル形式であるため、サイズを変更しても劣化しません。次に、SVG は HTML/CSS と同じ特徴を多く持っており、適切な [コンテンツセキュリティポリシー (CSP) ヘッダー](/docs/advanced-features/security-headers.md) が無いと脆弱性につながる可能性があります。
+
+デフォルトの画像最適化 API で SVG 画像を提供する必要がある場合、`next.config.js` で `dangerouslyAllowSVG` と `contentSecurityPolicy` を設定できます:
+
+```js
+module.exports = {
+  images: {
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 }
 ```
