@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-42-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-43-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -143,6 +143,9 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
     <td align="center"><a href="https://github.com/progriro"><img src="https://avatars.githubusercontent.com/u/51112816?v=4?s=100" width="100px;" alt=""/><br /><sub><b>shinya fukimbara</b></sub></a><br /><a href="#translation-progriro" title="Translation">🌍</a></td>
     <td align="center"><a href="https://www.yodaka-star.com/profile"><img src="https://avatars.githubusercontent.com/u/44350989?v=4?s=100" width="100px;" alt=""/><br /><sub><b>yodaka</b></sub></a><br /><a href="#translation-yodakaEngineer" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/Kazuhiro-Mimaki"><img src="https://avatars.githubusercontent.com/u/62820515?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kazuhiro-Mimaki</b></sub></a><br /><a href="#translation-Kazuhiro-Mimaki" title="Translation">🌍</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://piyopanman.com"><img src="https://avatars.githubusercontent.com/u/66374097?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Piyopanman</b></sub></a><br /><a href="#translation-Piyopanman" title="Translation">🌍</a></td>
   </tr>
 </table>
 
