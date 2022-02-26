@@ -16,10 +16,8 @@ API のルーティングは[動的ルーティング](/docs/routing/dynamic-rou
 例えば、API ルート `pages/api/post/[pid].js` に以下のコードがあるとします:
 
 ```js
-export default (req, res) => {
-  const {
-    query: { pid }
-  } = req;
+export default handler(req, res) {
+  const { pid } = req.query
 
   res.end(`Post: ${pid}`);
 };
@@ -31,7 +29,7 @@ export default (req, res) => {
 
 ごく一般的な RESTful パターンは、次のようなルートを設定します:
 
-- `GET api/posts/` - 投稿の一覧を取得します。おそらくページネーションがあります。
+- `GET api/posts` - 投稿の一覧を取得します。おそらくページネーションがあります。
 - `GET api/posts/12345` - 投稿 ID 12345 を取得します。
 
 これは 2 つの方法でモデル化できます:
@@ -44,7 +42,7 @@ export default (req, res) => {
   - `/api/posts/index.js`
   - `/api/posts/[postId].js`
 
-どちらも同等です。3 つ目のオプションとして `/api/posts/[postId].js` のみを使うことは正しくありません。なぜなら、どんな状況でも動的ルーティング（すべてのルートのキャッチを含む-下記を参照）には `未定義` な状態はなく、`GET api/posts/` は `/api/posts/[postId].js` に一致しないためです。
+どちらも同等です。3 つ目のオプションとして `/api/posts/[postId].js` のみを使うことは正しくありません。なぜなら、どんな状況でも動的ルーティング（すべてのルートのキャッチを含む-下記を参照）には `未定義` な状態はなく、`GET api/posts` は `/api/posts/[postId].js` に一致しないためです。
 
 ### すべてのAPIルートをキャッチ
 
@@ -69,7 +67,7 @@ export default (req, res) => {
 `pages/api/post/[...slug].js` の API ルートは、次のようになります:
 
 ```js
-export default (req, res) => {
+export default function handler(req, res) {
   const {
     query: { slug }
   } = req;
