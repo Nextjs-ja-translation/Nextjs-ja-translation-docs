@@ -20,6 +20,10 @@
               "title": "データ取得",
               "routes": [
                 {
+                  "title": "getServerSideProps",
+                  "path": "/docs/basic-features/data-fetching/get-server-side-props.md"
+                },
+                {
                   "title": "Client side",
                   "path": "/docs/basic-features/data-fetching/client-side.md"
                 }
