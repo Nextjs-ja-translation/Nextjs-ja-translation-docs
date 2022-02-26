@@ -1,41 +1,41 @@
 ---
-description: Learn how to set up Next.js with three commonly used testing tools — Cypress, Playwright, Jest, and React Testing Library.
+description: よく使われる3つのテストツール、Cypress、Playwright、Jest、React Testing Library を使った Next.js のセットアップ方法をご紹介します。
 ---
 
-# Testing
+# テスト
 
 <details open>
-  <summary><b>Examples</b></summary>
+  <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-cypress">Next.js with Cypress</a></li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-playwright">Next.js with Playwright</a></li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-jest">Next.js with Jest and React Testing Library</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-cypress">Next.js と Cypress</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-playwright">Next.js と Playwright</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-jest">Next.js と Jest ・ React Testing Library</a></li>
   </ul>
 </details>
 
-Learn how to set up Next.js with commonly used testing tools: [Cypress](https://nextjs.org/docs/testing#cypress), [Playwright](https://nextjs.org/docs/testing#playwright), and [Jest with React Testing Library](https://nextjs.org/docs/testing#jest-and-react-testing-library).
+Next.js と、[Cypress](https://nextjs.org/docs/testing#cypress) 、[Playwright](https://nextjs.org/docs/testing#playwright) 、[Jest・React Testing Library](https://nextjs.org/docs/testing#jest-and-react-testing-library) といったよく利用されているテストツールとのセットアップ方法について学んでいきましょう。
 
 ## Cypress
 
-Cypress is a test runner used for **End-to-End (E2E)** and **Integration Testing**.
+Cypress は、**End-to-End(E2E)** テストやインテグレーションテストで使用されるテストツールです。
 
-### Quickstart
+### クイックスタート
 
-You can use `create-next-app` with the [with-cypress example](https://github.com/vercel/next.js/tree/canary/examples/with-cypress) to quickly get started.
+`create-next-app` を使って [with-cypress example](https://github.com/vercel/next.js/tree/canary/examples/with-cypress) のテンプレートを利用することですぐに始めることができます。
 
 ```bash
 npx create-next-app@latest --example with-cypress with-cypress-app
 ```
 
-### Manual setup
+### 手動でのセットアップ
 
-To get started with Cypress, install the `cypress` package:
+Cypress を利用するために `cypress` パッケージをインストールします:
 
 ```bash
 npm install --save-dev cypress
 ```
 
-Add Cypress to the `package.json` scripts field:
+`package.json` の scripts に Cypress の記述を追加します:
 
 ```json
 "scripts": {
@@ -46,17 +46,17 @@ Add Cypress to the `package.json` scripts field:
 }
 ```
 
-Run Cypress for the first time to generate examples that use their recommended folder structure:
+Cypress を初回起動して Cypress の推奨のフォルダ構造を使ったテンプレートを生成します:
 
 ```bash
 npm run cypress
 ```
 
-You can look through the generated examples and the [Writing Your First Test](https://docs.cypress.io/guides/getting-started/writing-your-first-test) section of the Cypress Documentation to help you get familiar with Cypress.
+生成された例や Cypress のドキュメント [Writing Your First Test](https://docs.cypress.io/guides/getting-started/writing-your-first-test) の章を読むことで Cypress をより深く理解できるでしょう。
 
-### Creating your first Cypress integration test
+### Cypress を使った最初のインテグレーションテストの作成
 
-Assuming the following two Next.js pages:
+Next.js で作られた 2 つのページを想定します:
 
 ```jsx
 // pages/index.js
@@ -84,41 +84,41 @@ export default function About() {
 }
 ```
 
-Add a test to check your navigation is working correctly:
+ページ遷移が正しく動作していることを確認するためのテストを追加します:
 
 ```jsx
 // cypress/integration/app.spec.js
 
 describe('Navigation', () => {
   it('should navigate to the about page', () => {
-    // Start from the index page
+    // インデックスページからテストを開始
     cy.visit('http://localhost:3000/')
 
-    // Find a link with an href attribute containing "about" and click it
+    // href 属性に "about" が含まれるリンクを探し、クリックする
     cy.get('a[href*="about"]').click()
 
-    // The new url should include "/about"
+    // 遷移した新しい url に "about" が含まれていることを確認
     cy.url().should('include', '/about')
 
-    // The new page should contain an h1 with "About page"
+    // 遷移した新しいページには "About page" と書かれた h1 要素が含まれていることを確認
     cy.get('h1').contains('About Page')
   })
 })
 ```
 
-You can use `cy.visit("/")` instead of `cy.visit("http://localhost:3000/")` if you add `"baseUrl": "http://localhost:3000"` to the `cypress.json` configuration file.
+設定ファイル `cypress.json` に `"baseUrl": "http://localhost:3000"` を追加することで `cy.visit("http://localhost:3000/")` ではなく `cy.visit("/")` と書くこともできます。
 
-### Running your Cypress tests
+### Cypress のテストを実行する
 
-Since Cypress is testing a real Next.js application, it requires the Next.js server to be running prior to starting Cypress. We recommend running your tests against your production code to more closely resemble how your application will behave.
+Cypress は Next.js アプリケーションの動作をテストするため、Cypress を実行する前には Next.js サーバーを起動する必要があります。本来のアプリケーションの動作に近づけるため、本番用のコードに対してテストを実行することをお勧めします。
 
-Run `npm run build` and `npm run start`, then run `npm run cypress` in another terminal window to start Cypress.
+`npm run build`、`npm run start`を実行し、別のターミナルで `npm run cypress` を実行して Cypress を起動します。
 
-> **Note:** Alternatively, you can install the `start-server-and-test` package and add it to the `package.json` scripts field: `"test": "start-server-and-test start http://localhost:3000 cypress"` to start the Next.js production server in conjunction with Cypress. Remember to rebuild your application after new changes.
+> **備考:** または、`start-server-and-test` パッケージをインストールし、`package.json` の scripts に追加してください: `"test":"start-server-and-test start http://localhost:3000 cypress"` とすると、Next.js の本番サーバーが Cypress と連動して起動します。新しい変更があった場合は、アプリケーションの再構築を忘れないようにしてください。
 
-### Getting ready for Continuous Integration (CI)
+### 継続的インテグレーションへの準備 (CI)
 
-You will have noticed that running Cypress so far has opened an interactive browser which is not ideal for CI environments. You can also run Cypress headlessly using the `cypress run` command:
+Cypress を実行すると、CI 環境には向いていない管理画面が起動することにお気づきでしょう。`cypress run` コマンドを使えば、ヘッドレスモードで Cypress を実行できます:
 
 ```json
 // package.json
@@ -132,7 +132,7 @@ You will have noticed that running Cypress so far has opened an interactive brow
 }
 ```
 
-You can learn more about Cypress and Continuous Integration from these resources:
+Cypress と継続的インテグレーションについては、以下のドキュメントから学ぶことができます:
 
 - [Cypress Continuous Integration Docs](https://docs.cypress.io/guides/continuous-integration/introduction)
 - [Cypress GitHub Actions Guide](https://on.cypress.io/github-actions)
@@ -140,27 +140,27 @@ You can learn more about Cypress and Continuous Integration from these resources
 
 ## Playwright
 
-Playwright is a testing framework that lets you automate Chromium, Firefox, and WebKit with a single API. You can use it to write **End-to-End (E2E)** and **Integration** tests across all platforms.
+Playwright は、Chromium 、Firefox や WebKit を 1 つの API で自動化できるテストフレームワークです。すべてのプラットフォームで、**End-to-End (E2E)** テストと**統合**テストを記述するために利用できます。
 
-### Quickstart
+### クイックスタート
 
-The fastest way to get started, is to use `create-next-app` with the [with-playwright example](https://github.com/vercel/next.js/tree/canary/examples/with-playwright). This will create a Next.js project complete with Playwright all set up.
+一番手軽なのは、`create-next-app` で [with-playwright example](https://github.com/vercel/next.js/tree/canary/examples/with-playwright)を使ってみることです。この例を利用することで Playwright がセットアップされた Next.js プロジェクトが作成されます。
 
 ```bash
 npx create-next-app@latest --example with-playwright with-playwright-app
 ```
 
-### Manual setup
+### 手動でのセットアップ
 
-You can also use `npm init playwright` to add Playwright to an existing `NPM` project.
+`npm init playwright` を使用して、既存の `NPM` プロジェクトに Playwright を追加できます。
 
-To manually get started with Playwright, install the `@playwright/test` package:
+Playwright を手動でのセットアップで使い始めるには、`@playwright/test` パッケージをインストールします:
 
 ```bash
 npm install --save-dev @playwright/test
 ```
 
-Add Playwright to the `package.json` scripts field:
+`package.json` の scripts に Playwright を追加します:
 
 ```json
 "scripts": {
@@ -171,9 +171,9 @@ Add Playwright to the `package.json` scripts field:
 }
 ```
 
-### Creating your first Playwright end-to-end test
+### Playwright を使った最初の end-to-end テストの作成
 
-Assuming the following two Next.js pages:
+Next.js で作られた 2 つのページを想定します:
 
 ```jsx
 // pages/index.js
@@ -201,7 +201,7 @@ export default function About() {
 }
 ```
 
-Add a test to verify that your navigation is working correctly:
+ページ遷移が正しく動作していることを確認するためのテストを追加します:
 
 ```jsx
 // e2e/example.spec.ts
@@ -209,103 +209,105 @@ Add a test to verify that your navigation is working correctly:
 import { test, expect } from '@playwright/test'
 
 test('should navigate to the about page', async ({ page }) => {
-  // Start from the index page (the baseURL is set via the webServer in the playwright.config.ts)
+  // インデックスページからテストを開始 （ baseURL は playwright.config.ts の webServer を通じて設定される）
   await page.goto('http://localhost:3000/')
-  // Find an element with the text 'About Page' and click on it
+  // 'About Page' が含まれている要素を見つけてクリック
   await page.click('text=About Page')
-  // The new url should be "/about" (baseURL is used there)
+  // 新しい URL は "/about"になる（ baseURL はここで利用される）
   await expect(page).toHaveURL('http://localhost:3000/about')
-  // The new page should contain an h1 with "About Page"
+  // 新しく遷移したページの h1 要素には "About Page" が含まれる
   await expect(page.locator('h1')).toContainText('About Page')
 })
 ```
 
-You can use `page.goto("/")` instead of `page.goto("http://localhost:3000/")`, if you add [`"baseURL": "http://localhost:3000"`](https://playwright.dev/docs/api/class-testoptions#test-options-base-url) to the `playwright.config.ts` configuration file.
+設定ファイル `playwright.config.ts` に [`"baseUrl": "http://localhost:3000"`](https://playwright.dev/docs/api/class-testoptions#test-options-base-url) を追加することで `page.goto("http://localhost:3000/")` ではなく `page.goto("/")` と書くこともできます。
 
-### Running your Playwright tests
+### Playwright のテストを実行する
 
-Since Playwright is testing a real Next.js application, it requires the Next.js server to be running prior to starting Playwright. It is recommended to run your tests against your production code to more closely resemble how your application will behave.
+Playwright は Next.js アプリケーションの動作をテストするため、Playwright を実行する前には Next.js サーバーを起動する必要があります。本来のアプリケーションの動作に近づけるため、本番用のコードに対してテストを実行することをお勧めします。
 
-Run `npm run build` and `npm run start`, then run `npm run test:e2e` in another terminal window to run the Playwright tests.
+`npm run build`、`npm run start`を実行し、別のターミナルで `npm run test:e2e` を実行して Playwright を起動します。
 
-> **Note:** Alternatively, you can use the [`webServer`](https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests) feature to let Playwright start the development server and wait until it's fully available.
+> **備考:** また、[`webServer`](https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests) を使って Playwright に開発サーバーを起動させ、アプリケーションが利用可能になるまで待機させることも可能です。
 
-### Running Playwright on Continuous Integration (CI)
+### Playwright で継続的インテグレーション（CI)を実行する
 
-Playwright will by default run your tests in the [headed mode](https://playwright.dev/docs/ci). To install all the Playwright dependencies, run `npx playwright install-deps`.
+Playwright はデフォルトで [headed mode](https://playwright.dev/docs/ci#running-headed) でテストを実行します。Playwright の依存関係をすべてインストールするには、`npx playwright install-deps` を実行します。
 
-You can learn more about Playwright and Continuous Integration from these resources:
+Playwright と継続的インテグレーションについては、以下のドキュメントから学ぶことができます:
 
 - [Getting started with Playwright](https://playwright.dev/docs/intro)
 - [Use a development server](https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests)
 - [Playwright on your CI provider](https://playwright.dev/docs/ci)
 
-## Jest and React Testing Library
+## Jest と React Testing Library
 
-Jest and React Testing Library are frequently used together for **Unit Testing**. There are three ways you can start using Jest within your Next.js application:
+Jest と React Testing Library は、**ユニットテスト**を行うために、よく一緒に使われます。Jest を Next.js のアプリケーションで使い始めるには、3 つの方法があります:
 
-1. Using one of our [quickstart examples](https://nextjs.org/docs/testing#quickstart-2)
-2. With the [Next.js Rust Compiler](https://nextjs.org/docs/testing#setting-up-jest-with-the-rust-compiler)
-3. With [Babel](https://nextjs.org/docs/testing#setting-up-jest-with-babel)
+1. [quickstart examples](https://nextjs.org/docs/testing#quickstart-2) のテンプレートを利用する
+2. [Next.js Rust Compiler](https://nextjs.org/docs/testing#setting-up-jest-with-the-rust-compiler) を利用する
+3. [Babel](https://nextjs.org/docs/testing#setting-up-jest-with-babel) を利用する
 
-The following sections will go through how you can set up Jest with each of these options:
+以下の章では、これらの各方法を利用した Jest を設定する方法について説明します:
 
-### Quickstart
+### クイックスタート
 
 You can use `create-next-app` with the [with-jest](https://github.com/vercel/next.js/tree/canary/examples/with-jest) example to quickly get started with Jest and React Testing Library:
+
+`create-next-app` で `with-jest` のテンプレートを利用すると、Jest と React Testing Library をすぐに使い始めることができます:
 
 ```bash
 npx create-next-app@latest --example with-jest with-jest-app
 ```
 
-### Setting up Jest (with the Rust Compiler)
+### Jest を設定する (Rust コンパイラを利用)
 
-Since the release of [Next.js 12](https://nextjs.org/blog/next-12), Next.js now has built-in configuration for Jest.
+[Next.js 12](https://nextjs.org/blog/next-12) から、Next.js に Jest 用の設定が組み込まれるようになりました。
 
-To set up Jest, install `jest` , `@testing-library/react`, `@testing-library/jest-dom`:
+Jest を利用するには、`jest`、`@testing-library/react`、`@testing-library/jest-dom` をインストールします:
 
 ```bash
 npm install --save-dev jest @testing-library/react @testing-library/jest-dom
 ```
 
-Create a `jest.config.js` file in your project's root directory and add the following:
+`jest.config.js` ファイルをプロジェクトのルートディレクトリに作成し、以下を追加します:
 
 ```jsx
 // jest.config.js
 const nextJest = require('next/jest')
 
 const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+  // テスト環境の next.config.js と .env ファイルを読み込むために、Next.js アプリケーションへのパスを記載する
   dir: './',
 })
 
-// Add any custom config to be passed to Jest
+// Jest に渡すカスタム設定を追加する
 const customJestConfig = {
-  // Add more setup options before each test is run
+  // 各テストの実行前に渡すオプションを追加
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
+  // TypeScript の設定で baseUrl をルートディレクトリに設定している場合、alias を動作させるためには以下のようにする必要があります
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
 }
 
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+// createJestConfig は、非同期で next/jest が Next.js の設定を読み込めるようにするため、下記のようにエクスポートします
 module.exports = createJestConfig(customJestConfig)
 ```
 
-Under the hood, `next/jest` is automatically configuring Jest for you, including:
+裏側では、next/jest が自動的に以下のような Jest の設定をしています:
 
-- Setting up `transform` using [SWC](https://nextjs.org/docs/advanced-features/compiler)
-- Auto mocking stylesheets (`.css`, `.module.css`, and their scss variants) and image imports
-- Loading `.env` (and all variants) into `process.env`
-- Ignoring `node_modules` from test resolving and transforms
-- Ignoring `.next` from test resolving
-- Loading `next.config.js` for flags that enable SWC transforms
+- [SWC](https://nextjs.org/docs/advanced-features/compiler) を利用した `transform` の設定
+- スタイルシート（`.css`、`.module.css` や scss 関連事項）と画像の自動モック化
+- `.env`（とその関連事項）を `process.env` に読み込む
+- テスト環境や依存関係から `node_modules` を除外する
+- テストの依存関係から `.next` を除外する
+- SWC での変換を有効化するフラグを `next.config.js` から読み込む
 
-### Setting up Jest (with Babel)
+### Jest を設定する (Babel を利用)
 
-If you opt-out of the [Rust Compiler](https://nextjs.org/docs/advanced-features/compiler), you will need to manually configure Jest and install `babel-jest` and `identity-obj-proxy` in addition to the packages above.
+[Rust Compiler](https://nextjs.org/docs/advanced-features/compiler) を使わない場合、Jest を手動で設定し、上記のパッケージに加えて、`babel-jest` と `identity-obj-proxy` をインストールする必要があります。
 
-Here are the recommended options to configure Jest for Next.js:
+Jest for Next.js を設定するための推奨オプションは以下のとおりです:
 
 ```jsx
 // jest.config.js
@@ -316,26 +318,26 @@ module.exports = {
     '!**/node_modules/**',
   ],
   moduleNameMapper: {
-    // Handle CSS imports (with CSS modules)
+    // CSS インポートの処理 (CSS modules を利用)
     // https://jestjs.io/docs/webpack#mocking-css-modules
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
 
-    // Handle CSS imports (without CSS modules)
+    // CSS インポートの処理 (CSS modules を利用しない場合)
     '^.+\\.(css|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
 
-    // Handle image imports
+    // 画像インポートの処理
     // https://jestjs.io/docs/webpack#handling-static-assets
     '^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i': `<rootDir>/__mocks__/fileMock.js`,
 
-    // Handle module aliases
+    // モジュールのエイリアスの処理
     '^@/components/(.*)$': '<rootDir>/components/$1',
   },
-  // Add more setup options before each test is run
+  // 各テストの実行前に渡すオプションを追加
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   testEnvironment: 'jsdom',
   transform: {
-    // Use babel-jest to transpile tests with the next/babel preset
+    // next/babel プリセットでテストをトランスパイルするために babel-jest を使用します
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
   },
@@ -346,11 +348,11 @@ module.exports = {
 }
 ```
 
-You can learn more about each configuration option in the [Jest docs](https://jestjs.io/docs/configuration).
+各設定オプションの詳細については、[Jest Docs](https://jestjs.io/docs/configuration)を参照してください。
 
-**Handling stylesheets and image imports**
+**スタイルシートと画像のインポートの処理**
 
-Stylesheets and images aren't used in the tests but importing them may cause errors, so they will need to be mocked. Create the mock files referenced in the configuration above - `fileMock.js` and `styleMock.js` - inside a `__mocks__` directory:
+スタイルシートと画像はテストでは使用しませんが、インポートした際にエラーの発生する可能性があるため、モックを作成する必要があります。上記の設定で参照したモックファイルである `fileMock.js` と `styleMock.js` を `__mocks__` ディレクトリ内に作成します:
 
 ```js
 // __mocks__/fileMock.js
@@ -367,29 +369,29 @@ module.exports = {
 module.exports = {}
 ```
 
-For more information on handling static assets, please refer to the [Jest Docs](https://jestjs.io/docs/webpack#handling-static-assets).
+より詳しい静的なファイルの扱いについては、[Jest Docs](https://jestjs.io/docs/configuration)を参照してください。
 
-**Optional: Extend Jest with custom matchers**
+**参考: カスタムマッチャーによる Jest の拡張**
 
-`@testing-library/jest-dom` includes a set of convenient [custom matchers](https://github.com/testing-library/jest-dom#custom-matchers) such as `.toBeInTheDocument()` making it easier to write tests. You can import the custom matchers for every test by adding the following option to the Jest configuration file:
+`@testing-library/jest-dom` には `.toBeInTheDocument()` のような便利な[カスタムマッチャー](https://github.com/testing-library/jest-dom#custom-matchers)が含まれており、テストを簡単に書くことができます。Jest の設定ファイルに以下のオプションを追加することで、すべてのテストにカスタムマッチャーをインポートできます:
 
 ```js
 // jest.config.js
 setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
 ```
 
-Then, inside `jest.setup.js`, add the following import:
+そして、`jest.setup.js` の中に、以下のインポートを追加してください:
 
 ```jsx
 // jest.setup.js
 import '@testing-library/jest-dom/extend-expect'
 ```
 
-If you need to add more setup options before each test, it's common to add them to the `jest.setup.js` file above.
+各テストの前にさらに設定オプションを追加する必要がある場合は、上記の `jest.setup.js` ファイルに追加するのが一般的です。
 
-**Optional: Absolute Imports and Module Path Aliases**
+**参考: 絶対パスでのインポートとエイリアスを利用したモジュールインポート**
 
-If your project is using [Module Path Aliases](https://nextjs.org/docs/advanced-features/module-path-aliases), you will need to configure Jest to resolve the imports by matching the paths option in the `jsconfig.json` file with the `moduleNameMapper` option in the `jest.config.js` file. For example:
+プロジェクトで[エイリアスを利用したモジュールインポート](https://nextjs.org/docs/advanced-features/module-path-aliases)を使用している場合、`jsconfig.json` ファイルの paths オプションと `jest.config.js` ファイルの `moduleNameMapper` オプションをマッチさせて、インポートを解決するように Jest を構成する必要があります。例えば:
 
 ```json
 // tsconfig.json or jsconfig.json
@@ -410,11 +412,11 @@ moduleNameMapper: {
 }
 ```
 
-### Creating your tests:
+### テストの作成:
 
-**Add a test script to package.json**
+**test script を package.json に追加する**
 
-Add the Jest executable in watch mode to the `package.json` scripts:
+watch モードの Jest コマンドを `package.json` の scripts に追加します:
 
 ```jsx
 "scripts": {
@@ -425,13 +427,13 @@ Add the Jest executable in watch mode to the `package.json` scripts:
 }
 ```
 
-`jest --watch` will re-run tests when a file is changed. For more Jest CLI options, please refer to the [Jest Docs](https://jestjs.io/docs/cli#reference).
+`jest --watch` は、ファイルが変更されたときにテストを再実行します。その他の Jest CLI のオプションについては、[Jest Docs](https://jestjs.io/docs/cli#reference) を参照してください。
 
-**Create your first tests**
+**最初のテストを作成する**
 
-Your project is now ready to run tests. Follow Jests convention by adding tests to the `__tests__` folder in your project's root directory.
+これで、あなたのプロジェクトにテストを実行する準備が整いました。Jest の規約に従って、プロジェクトのルートディレクトリにある `__tests__` ディレクトリへテストを追加してください。
 
-For example, we can add a test to check if the `<Home />` component successfully renders a heading:
+例えば、`<Home />` コンポーネントが見出しの要素を正常にレンダリングするかどうかをチェックするテストを追加できます:
 
 ```jsx
 // __tests__/index.test.jsx
@@ -452,7 +454,7 @@ describe('Home', () => {
 })
 ```
 
-Optionally, add a [snapshot test](https://jestjs.io/docs/snapshot-testing) to keep track of any unexpected changes to your `<Home />` component:
+追加で、`<Home />` コンポーネントへの予期せぬ変更を記録するために、[スナップショットテスト](https://jestjs.io/docs/snapshot-testing)を追加します:
 
 ```jsx
 // __tests__/snapshot.js
@@ -466,31 +468,31 @@ it('renders homepage unchanged', () => {
 })
 ```
 
-> **Note**: Test files should not be included inside the pages directory because any files inside the pages directory are considered routes.
+> **備考**: pages ディレクトリの中にあるファイルはすべてルートとみなされるため、pages ディレクトリの中にテストファイルを入れてはいけません。
 
-**Running your test suite**
+**テスト環境の実行**
 
-Run `npm run test` to run your test suite. After your tests pass or fail, you will notice a list of interactive Jest commands that will be helpful as you add more tests.
+`npm run test` を実行して、テストを実行します。テストが成功または失敗した後、より多くのテストを実行する際に役立つ Jest コマンドのリストが表示されることに気づくでしょう。
 
-For further reading, you may find these resources helpful:
+さらに詳しい情報は、以下の資料が参考になります:
 
 - [Jest Docs](https://jestjs.io/docs/getting-started)
 - [React Testing Library Docs](https://testing-library.com/docs/react-testing-library/intro/)
-- [Testing Playground](https://testing-playground.com/) - use good testing practices to match elements.
+- [Testing Playground](https://testing-playground.com/) - 要素を一致させるテストを練習するのに役に立ちます
 
-## Community Packages and Examples
+## コミュニティが提供する例とテンプレート
 
-The Next.js community has created packages and articles you may find helpful:
+Next.js コミュニティでは、参考になるパッケージや記事を用意しています:
 
 - [next-page-tester](https://github.com/toomuchdesign/next-page-tester) for DOM Integration Testing.
 - [next-router-mock](https://github.com/scottrippey/next-router-mock) for Storybook.
 - [Test Preview Vercel Deploys with Cypress](https://glebbahmutov.com/blog/develop-preview-test/) by Gleb Bahmutov.
 
-For more information on what to read next, we recommend:
+より多くの情報を得るため次に読むべきものとして、以下をお勧めします:
 
 <div class="card">
   <a href="/docs/basic-features/environment-variables#test-environment-variables.md">
-    <b>Test Environment Variables</b>
-    <small>Learn more about the test environment variables.</small>
+    <b>テスト環境変数</b>
+    <small>テスト環境変数について詳しく説明します。</small>
   </a>
 </div>
