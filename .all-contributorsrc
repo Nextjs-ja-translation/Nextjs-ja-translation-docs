@@ -380,6 +380,33 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "yodakaEngineer",
+      "name": "yodaka",
+      "avatar_url": "https://avatars.githubusercontent.com/u/44350989?v=4",
+      "profile": "https://www.yodaka-star.com/profile",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "Kazuhiro-Mimaki",
+      "name": "Kazuhiro-Mimaki",
+      "avatar_url": "https://avatars.githubusercontent.com/u/62820515?v=4",
+      "profile": "https://github.com/Kazuhiro-Mimaki",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "Piyopanman",
+      "name": "Piyopanman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/66374097?v=4",
+      "profile": "http://piyopanman.com",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,

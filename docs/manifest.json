@@ -4,7 +4,10 @@
       "title": "Documentation",
       "heading": true,
       "routes": [
-        { "title": "はじめに", "path": "/docs/getting-started.md" },
+        {
+          "title": "はじめに",
+          "path": "/docs/getting-started.md"
+        },
         {
           "title": "Basic Features",
           "open": true,
@@ -90,12 +93,29 @@
           ]
         },
         {
+          "title": "Middleware",
+          "path": "/docs/middleware.md"
+        },
+        {
+          "title": "Going to Production",
+          "path": "/docs/going-to-production.md"
+        },
+        {
           "title": "Deployment",
           "path": "/docs/deployment.md"
         },
         {
           "title": "Authentication",
           "path": "/docs/authentication.md"
+        },
+        {
+          "title": "Guides",
+          "routes": [
+            {
+              "title": "Building Forms",
+              "path": "/docs/guides/building-forms.md"
+            }
+          ]
         },
         {
           "title": "Advanced Features",
@@ -186,7 +206,7 @@
               "path": "/docs/advanced-features/measuring-performance.md"
             },
             {
-              "title": "Debugging",
+              "title": "デバッグ",
               "path": "/docs/advanced-features/debugging.md"
             },
             {
@@ -240,15 +260,23 @@
             }
           ]
         },
-        { "title": "よくある質問", "path": "/docs/faq.md" },
-        { "title": "テスト", "path": "/docs/testing.md"}
+        {
+          "title": "よくある質問",
+          "path": "/docs/faq.md"
+        },
+        { "title": "テスト",
+          "path": "/docs/testing.md"
+        }
       ]
     },
     {
       "title": "API Reference",
       "heading": true,
       "routes": [
-        { "title": "CLI", "path": "/docs/api-reference/cli.md" },
+        {
+          "title": "CLI",
+          "path": "/docs/api-reference/cli.md"
+        },
         {
           "title": "Create Next App",
           "path": "/docs/api-reference/create-next-app.md"
@@ -388,6 +416,10 @@
             {
               "title": "React Strict モード",
               "path": "/docs/api-reference/next.config.js/react-strict-mode.md"
+            },
+            {
+              "title": "URL Imports",
+              "path": "/docs/api-reference/next.config.js/url-imports.md"
             },
             {
               "title": "ビルドインジケーター",
