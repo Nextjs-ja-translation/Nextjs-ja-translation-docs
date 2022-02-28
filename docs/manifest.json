@@ -18,7 +18,16 @@
             },
             {
               "title": "データ取得",
-              "path": "/docs/basic-features/data-fetching.md"
+              "routes": [
+                {
+                  "title": "getServerSideProps",
+                  "path": "/docs/basic-features/data-fetching/get-server-side-props.md"
+                },
+                {
+                  "title": "Client side",
+                  "path": "/docs/basic-features/data-fetching/client-side.md"
+                }
+              ]
             },
             {
               "title": "CSS のビルトインサポート",
@@ -206,7 +215,7 @@
               "path": "/docs/advanced-features/measuring-performance.md"
             },
             {
-              "title": "Debugging",
+              "title": "デバッグ",
               "path": "/docs/advanced-features/debugging.md"
             },
             {
