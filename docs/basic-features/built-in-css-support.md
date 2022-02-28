@@ -4,6 +4,14 @@ description: Next.js は、グローバル CSS もしくは CSS Modules の読�
 
 # CSS のビルトインサポート
 
+<details open>
+  <summary><b>Examples</b></summary>
+  <ul>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/basic-css">Basic CSS Example</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss">With Tailwind CSS</a></li>
+  </ul>
+</details>
+
 Next.js では、 JavaScript ファイルから CSS をインポートできます。
 これは、 Next.js が JavaScript の [`import`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/import) の概念を拡張することで実現しています。
 
@@ -22,7 +30,7 @@ body {
 }
 ```
 
-もし、まだ作成していない場合は、 [`pages/_app.js`](/docs/advanced-features/custom-app) を作成してください。
+もし、まだ作成していない場合は、 [`pages/_app.js`](/docs/advanced-features/custom-app.md) を作成してください。
 そして、 `styles.css` を [`import`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/import) してみましょう。
 
 ```jsx
@@ -35,12 +43,54 @@ export default function MyApp({ Component, pageProps }) {
 ```
 
 このスタイルシート (`styles.css`) は、アプリケーション内におけるすべての pages および components に適用されます。
-スタイルシートのグローバルな性質のため、そして競合を回避するため、 **[`pages/_app.js`](/docs/advanced-features/custom-app) 内にのみインポートできます**。
+スタイルシートのグローバルな性質のため、そして競合を回避するため、 **[`pages/_app.js`](/docs/advanced-features/custom-app.md) 内にのみインポートできます**。
 
 開発環境では、スタイルシートをこのように表現することで、スタイルを編集している最中にホットリロードできます。
 つまり、アプリケーションの状態を維持できるということです。
 
 本番環境では、すべての CSS ファイルは、単一の minify された `.css` ファイルへと自動的に統合されます。
+
+### Import styles from `node_modules`
+
+Since Next.js **9.5.4**, importing a CSS file from `node_modules` is permitted anywhere in your application.
+
+For global stylesheets, like `bootstrap` or `nprogress`, you should import the file inside `pages/_app.js`.
+For example:
+
+```jsx
+// pages/_app.js
+import 'bootstrap/dist/css/bootstrap.css'
+export default function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+```
+
+For importing CSS required by a third party component, you can do so in your component. For example:
+
+```tsx
+// components/ExampleDialog.js
+import { useState } from 'react'
+import { Dialog } from '@reach/dialog'
+import VisuallyHidden from '@reach/visually-hidden'
+import '@reach/dialog/styles.css'
+function ExampleDialog(props) {
+  const [showDialog, setShowDialog] = useState(false)
+  const open = () => setShowDialog(true)
+  const close = () => setShowDialog(false)
+  return (
+    <div>
+      <button onClick={open}>Open Dialog</button>
+      <Dialog isOpen={showDialog} onDismiss={close}>
+        <button className="close-button" onClick={close}>
+          <VisuallyHidden>Close</VisuallyHidden>
+          <span aria-hidden>×</span>
+        </button>
+        <p>Hello there. I am a dialog</p>
+      </Dialog>
+    </div>
+  )
+}
+```
 
 ## コンポーネントレベル CSS の追加
 
@@ -104,6 +154,13 @@ npm install sass
 
 Sass サポートには、前節で詳説した CSS ビルトインサポートと同様の恩恵と制限があります。
 
+> **Note**: Sass supports [two different syntaxes](https://sass-lang.com/documentation/syntax), each with their own extension.
+> The `.scss` extension requires you use the [SCSS syntax](https://sass-lang.com/documentation/syntax#scss),
+> while the `.sass` extension requires you use the [Indented Syntax ("Sass")](https://sass-lang.com/documentation/syntax#the-indented-syntax).
+>
+> If you're not sure which to choose, start with the `.scss` extension which is a superset of CSS, and doesn't require you learn the
+> Indented Syntax ("Sass").
+
 ### Sass 設定のカスタマイズ
 
 もし、Sass コンパイラーの設定をしたい場合、`next.config.js` 内の `sassOptions` を利用できます。
@@ -120,32 +177,47 @@ module.exports = {
 };
 ```
 
-## Less や Stylus のサポート
+### Sass Variables
 
-`.less` や `.styl` といったファイルのインポートには、次のプラグインを利用できます:
+Next.js supports Sass variables exported from CSS Module files.
 
-- [@zeit/next-less](https://github.com/vercel/next-plugins/tree/master/packages/next-less)
-- [@zeit/next-stylus](https://github.com/vercel/next-plugins/tree/master/packages/next-stylus)
+For example, using the exported `primaryColor` Sass variable:
 
-less プラグインを利用する場合、 必ず less の依存関係を追加することを忘れないでください。
-さもなくば、次のようなエラーが起こります:
+```scss
+/* variables.module.scss */
+$primary-color: #64FF00
+:export {
+  primaryColor: $primary-color
+}
+```
 
-```bash
-Error: Cannot find module 'less'
+```js
+// pages/_app.js
+import variables from '../styles/variables.module.scss'
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <Layout color={variables.primaryColor}>
+      <Component {...pageProps} />
+    </Layout>
+  )
+}
 ```
 
 ## CSS-in-JS
 
 <details>
-  <summary><b>利用できる CSS-in-JS の例</b></summary>
+  <summary><b>Examples</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/basic-css">Styled JSX</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-styled-jsx">Styled JSX</a></li>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-styled-components">Styled Components</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-emotion">Emotion</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-linaria">Linaria</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss-emotion">Tailwind CSS + Emotion</a></li>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-styletron">Styletron</a></li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-glamor">Glamor</a></li>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-cxs">Cxs</a></li>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-aphrodite">Aphrodite</a></li>
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-fela">Fela</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-stitches">Stitches</a></li>
   </ul>
 </details>
 
