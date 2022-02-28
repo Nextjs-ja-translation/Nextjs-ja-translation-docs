@@ -23,9 +23,7 @@ API ルートは Next.js で**API**を構築する方法を提供しています
 
 ```js
 export default function handler(req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify({ name: 'John Doe' });
+  res.status(200).json({ name: 'John Doe' })
 };
 ```
 
@@ -54,10 +52,10 @@ API エンドポイントを取得するには、このセクションの最初�
 
 ## 使い道
 
-新規プロジェクトの場合、API Routes によって API 全体を一から構築することができます。既存の API がある場合、API Route を経由して API コールを転送する必要はありません。API Routes の他の使い道としては以下のようなものがあります:
+新規プロジェクトの場合、API Routes によって API 全体を一から構築できます。既存の API がある場合、API Route を経由して API コールを転送する必要はありません。API Routes の他の使い道としては以下のようなものがあります:
 
-- 外部サービスのURLを隠蔽する (`https://company.com/secret-url`　の代わりの `/api/secret`)
-- 外部サービスにセキュアにアクセスするために[環境変数](/docs/basic-features/environment-variables.md)をサーバー上で用いる
+- 外部サービスの URL を隠蔽する (`https://company.com/secret-url`　の代わりの `/api/secret`)
+- 外部サービスへセキュアにアクセスするため、[環境変数](/docs/basic-features/environment-variables.md)をサーバー上で用いる
 
 ## 関連事項
 
