@@ -17,7 +17,7 @@ description: Next.jsはAPIルートをサポートしており、Next.jsアプ�
 
 API ルートは Next.js で**API**を構築する方法を提供しています。
 
-`pages/api`フォルダ内にあるすべてのファイルは `/api/*` にマッピングされ、`page`の代わりに API エンドポイントとして扱われます。
+`pages/api`フォルダ内にあるすべてのファイルは `/api/*` にマッピングされ、`page`の代わりに API エンドポイントとして扱われます。API ルートを使用しても、クライアントサイドのバンドルサイズが大きくなることはありません。これらはサーバーサイドのみのバンドルです。
 
 例えば、以下の API ルート `pages/api/user.js` は `json` レスポンスを `200` ステータスコードとともに返します:
 
@@ -56,6 +56,11 @@ API エンドポイントを取得するには、このセクションの最初�
 
 - 外部サービスの URL を隠蔽する (`https://company.com/secret-url`　の代わりの `/api/secret`)
 - 外部サービスへセキュアにアクセスするため、[環境変数](/docs/basic-features/environment-variables.md)をサーバー上で用いる
+
+## Caveats
+
+- API ルートは[CORSヘッダーを指定しません](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)。つまり、標準では**同一オリジンのみ**となります。[CORS ミドルウェア](/docs/api-routes/api-middlewares.md#connectexpress-middleware-support)でリクエストハンドラをラップすることで挙動をカスタマイズできます。
+- API ルートは [`next export`](/docs/advanced-features/static-html-export.md) と併用できません。
 
 ## 関連事項
 
