@@ -276,6 +276,9 @@
         {
           "title": "よくある質問",
           "path": "/docs/faq.md"
+        },
+        { "title": "テスト",
+          "path": "/docs/testing.md"
         }
       ]
     },
