@@ -110,11 +110,11 @@ describe('Navigation', () => {
 
 ### Cypress のテストを実行する
 
-Cypress は Next.js アプリケーションの動作をテストするため、Cypress を実行する前には Next.js サーバーを起動する必要があります。本来のアプリケーションの動作に近づけるため、本番用のコードに対してテストを実行することをお勧めします。
+Cypress は Next.js アプリケーションの実際の動作をテストするため、Cypress を実行する前には Next.js サーバーを起動する必要があります。本来のアプリケーションの動作に近づけるため、本番用のコードに対してテストを実行することをお勧めします。
 
-`npm run build`、`npm run start`を実行し、別のターミナルで `npm run cypress` を実行して Cypress を起動します。
+`npm run build`、`npm run start`を実行し、別のターミナルウィンドウで `npm run cypress` を実行して Cypress を起動します。
 
-> **備考:** または、`start-server-and-test` パッケージをインストールし、`package.json` の scripts に追加してください: `"test":"start-server-and-test start http://localhost:3000 cypress"` とすると、Next.js の本番サーバーが Cypress と連動して起動します。新しい変更があった場合は、アプリケーションの再構築を忘れないようにしてください。
+> **備考:** または、`start-server-and-test` パッケージをインストールし、`package.json` の scripts に追加することもできます: `"test":"start-server-and-test start http://localhost:3000 cypress"` とすると、Next.js の本番サーバーが Cypress と連動して起動します。新しい変更があった場合は、アプリケーションの再構築を忘れないようにしてください。
 
 ### 継続的インテグレーションへの準備 (CI)
 
@@ -224,9 +224,9 @@ test('should navigate to the about page', async ({ page }) => {
 
 ### Playwright のテストを実行する
 
-Playwright は Next.js アプリケーションの動作をテストするため、Playwright を実行する前には Next.js サーバーを起動する必要があります。本来のアプリケーションの動作に近づけるため、本番用のコードに対してテストを実行することをお勧めします。
+Playwright は Next.js アプリケーションの実際の動作をテストするため、Playwright を実行する前には Next.js サーバーを起動する必要があります。本来のアプリケーションの動作に近づけるため、本番用のコードに対してテストを実行することをお勧めします。
 
-`npm run build`、`npm run start`を実行し、別のターミナルで `npm run test:e2e` を実行して Playwright を起動します。
+`npm run build`、`npm run start`を実行し、別のターミナルウィンドウで `npm run test:e2e` を実行して Playwright を起動します。
 
 > **備考:** また、[`webServer`](https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests) を使って Playwright に開発サーバーを起動させ、アプリケーションが利用可能になるまで待機させることも可能です。
 
