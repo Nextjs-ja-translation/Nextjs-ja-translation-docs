@@ -15,29 +15,27 @@ description: Next.jsはAPIルートをサポートしており、Next.jsアプ�
   </ul>
 </details>
 
-API ルートは Next.js で**API**を構築する簡単な方法を提供しています。
+API ルートは Next.js で**API**を構築する方法を提供しています。
 
-`pages/api`フォルダ内にあるすべてのファイルは `/api/*` にマッピングされ、`page`の代わりに API エンドポイントとして扱われます。
+`pages/api`フォルダ内にあるすべてのファイルは `/api/*` にマッピングされ、`page`の代わりに API エンドポイントとして扱われます。API ルートを使用しても、クライアントサイドのバンドルサイズが大きくなることはありません。これらはサーバーサイドのみのバンドルです。
 
-例えば、以下の API ルート `pages/api/user.js` は `json` レスポンスを扱います:
+例えば、以下の API ルート `pages/api/user.js` は `json` レスポンスを `200` ステータスコードとともに返します:
 
 ```js
-export default (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify({ name: 'John Doe' }));
+export default function handler(req, res) => {
+  res.status(200).json({ name: 'John Doe' })
 };
 ```
 
 API ルートを使用するためには、関数(**リクエストハンドラ**)をデフォルトとしてエクスポートする必要があり、この関数は以下の 2 つのパラメータを受け取ります:
 
-- `req`: [http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage)のインスタンスと、[こちら](/docs/api-routes/api-middlewares.md)にある組み込みミドルウェア。
-- `res`: [http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse)のインスタンスと、[こちら](/docs/api-routes/response-helpers.md)にあるヘルパー関数。
+- `req`: [http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage)のインスタンスと、[組み込みミドルウェア](/docs/api-routes/api-middlewares.md)。
+- `res`: [http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse)のインスタンスと、[ヘルパー関数](/docs/api-routes/response-helpers.md)。
 
 API ルートで異なる HTTP メソッドを処理するには、次のようにリクエストハンドラの `req.method` を使うことができます:
 
 ```js
-export default (req, res) => {
+export default function handler(req, res) => {
   if (req.method === 'POST') {
     // POSTリクエストを処理します
   } else {
@@ -48,9 +46,21 @@ export default (req, res) => {
 
 API エンドポイントを取得するには、このセクションの最初にある例のどれかをご覧ください。
 
-> API ルートは[CORSヘッダーを指定しません](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)。つまり、標準では**同一オリジンのみ**となります。[cors ミドルウェア](/docs/api-routes/api-middlewares.md#connectexpress-middleware-support)でリクエストハンドラをラップすることで挙動をカスタマイズすることができます。
+> API ルートは[CORSヘッダーを指定しません](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)。つまり、標準では**同一オリジンのみ**となります。[CORS ミドルウェア](/docs/api-routes/api-middlewares.md#connectexpress-middleware-support)でリクエストハンドラをラップすることで挙動をカスタマイズすることができます。
 
 > API ルートを使用しても、クライアントサイドのバンドルサイズが大きくなることはありません。これらはサーバーサイドのみのバンドルです。
+
+## 使い道
+
+新規プロジェクトの場合、API ルートによって API 全体を一から構築できます。既存の API がある場合、API ルートを経由して API コールを転送する必要はありません。API ルートの他の使い道としては以下のようなものがあります:
+
+- 外部サービスの URL を隠蔽する (`https://company.com/secret-url`　の代わりの `/api/secret`)
+- 外部サービスへセキュアにアクセスするため、[環境変数](/docs/basic-features/environment-variables.md)をサーバー上で用いる
+
+## Caveats
+
+- API ルートは[CORSヘッダーを指定しません](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)。つまり、標準では**同一オリジンのみ**となります。[CORS ミドルウェア](/docs/api-routes/api-middlewares.md#connectexpress-middleware-support)でリクエストハンドラをラップすることで挙動をカスタマイズできます。
+- API ルートは [`next export`](/docs/advanced-features/static-html-export.md) と併用できません。
 
 ## 関連事項
 
