@@ -18,7 +18,20 @@
             },
             {
               "title": "データ取得",
-              "path": "/docs/basic-features/data-fetching.md"
+              "routes": [
+                {
+                  "title": "getServerSideProps",
+                  "path": "/docs/basic-features/data-fetching/get-server-side-props.md"
+                },
+                {
+                  "title": "getStaticPaths",
+                  "path": "/docs/basic-features/data-fetching/get-static-paths.md"
+                },
+                {
+                  "title": "Client side",
+                  "path": "/docs/basic-features/data-fetching/client-side.md"
+                }
+              ]
             },
             {
               "title": "CSS のビルトインサポート",
@@ -206,7 +219,7 @@
               "path": "/docs/advanced-features/measuring-performance.md"
             },
             {
-              "title": "Debugging",
+              "title": "デバッグ",
               "path": "/docs/advanced-features/debugging.md"
             },
             {
@@ -263,6 +276,9 @@
         {
           "title": "よくある質問",
           "path": "/docs/faq.md"
+        },
+        { "title": "テスト",
+          "path": "/docs/testing.md"
         }
       ]
     },
@@ -297,6 +313,10 @@
         {
           "title": "next/amp",
           "path": "/docs/api-reference/next/amp.md"
+        },
+        {
+          "title": "next/server",
+          "path": "/docs/api-reference/next/server.md"
         },
         {
           "title": "Edge Runtime",
