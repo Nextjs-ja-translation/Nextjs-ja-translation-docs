@@ -15,8 +15,6 @@ const campaignWords = [
 export default () => {
   const animationDuration = 1.8;
   const animationLength = animationDuration * campaignWords.length;
-  const endOfAnimation = 100 / campaignWords.length;
-  const animationOverlap = 0.1;
 
   return (
     <div className="slider-container">
@@ -66,16 +64,16 @@ export default () => {
             transform: translate3d(-50%, 25%, 0px);
             visibility: visible;
           }
-          ${1 - 1 * animationOverlap}% {
+          0.9% {
             opacity: 1;
             transform: translate3d(-50%, 75%, 0px);
           }
-          ${endOfAnimation}% {
+          9.09% {
             opacity: 1;
             transform: translate3d(-50%, 75%, 0px);
             visibility: visible;
           }
-          ${endOfAnimation + endOfAnimation * animationOverlap}% {
+          17.271% {
             opacity: 0;
             transform: translate3d(-50%, 135%, 0px);
             visibility: hidden;

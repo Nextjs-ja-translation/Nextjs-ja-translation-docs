@@ -13,7 +13,7 @@ description: Next.js には国際化されたルーティングと言語検出�
 
 Next.js には `v10.0.0` から国際化（[i18n](https://en.wikipedia.org/wiki/Internationalization_and_localization#Naming)）ルーティングのビルトインサポートがあります。ロケールの一覧やデフォルトのロケール、特定ドメインのロケールを指定すると、Next.js がルーティングを自動的に処理してくれます。
 
-i18n ルーティングは、ルートとロケールの解析を効率化することで、`react-intl`, `react-i18next`, `lingui`, `rosetta` やその他の既存 i18n ライブラリによる実装を補完することを目的としています。
+i18n ルーティングはルートとロケールの解析を効率化することで、[`react-intl`](https://formatjs.io/docs/getting-started/installation), [`react-i18next`](https://react.i18next.com/), [`lingui`](https://lingui.js.org/), [`rosetta`](https://github.com/lukeed/rosetta), [`next-intl`](https://github.com/amannn/next-intl) やその他の既存 i18n ライブラリによる実装を補完することを目的としています。
 
 ## はじめに
 
@@ -96,6 +96,8 @@ module.exports = {
 
     domains: [
       {
+         // Note: subdomains must be included in the domain value to be matched
+        // e.g. www.example.com should be used if that is the expected hostname
         domain: 'example.com',
         defaultLocale: 'en-US',
       },
@@ -117,9 +119,61 @@ module.exports = {
 例えば `pages/blog.js` の場合、以下のような URL が利用できます:
 
 - `example.com/blog`
+- `www.example.com/blog`
 - `example.fr/blog`
 - `example.nl/blog`
 - `example.nl/nl-BE/blog`
+
+### Prefixing the Default Locale
+
+With Next.js 12 and [Middleware](/docs/middleware.md), we can add a prefix to the default locale with a [workaround](https://github.com/vercel/next.js/discussions/18419).
+
+For example, here's a `next.config.js` file with support for a few languages. Note the `"default"` locale has been added intentionally.
+
+```js
+// next.config.js
+
+module.exports = {
+  i18n: {
+    locales: ['default', 'en', 'de', 'fr'],
+    defaultLocale: 'default',
+    localeDetection: false,
+  },
+  trailingSlash: true,
+}
+```
+
+Next, we can use [Middleware](/docs/middleware.md) to add custom routing rules:
+
+```js
+// pages/_middleware.ts
+
+import { NextRequest, NextResponse } from 'next/server'
+
+const PUBLIC_FILE = /\.(.*)$/
+
+const stripDefaultLocale = (str: string): string => {
+  const stripped = str.replace('/default', '')
+  return stripped
+}
+
+export function middleware(request: NextRequest) {
+  const shouldHandleLocale =
+    !PUBLIC_FILE.test(request.nextUrl.pathname) &&
+    !request.nextUrl.pathname.includes('/api/') &&
+    request.nextUrl.locale === 'default'
+
+  return shouldHandleLocale
+    ? NextResponse.redirect(
+        `/en${stripDefaultLocale(request.nextUrl.pathname)}${
+          request.nextUrl.search
+        }`
+      )
+    : undefined
+}
+```
+
+This [Middleware](/docs/middleware.md) skips adding the default prefix to [API Routes](/docs/api-routes/introduction.md) and [public](/docs/basic-features/static-file-serving.md) files like fonts or images. If a request is made to the default locale, we redirect to our prefix `/en`.
 
 ## ロケールの自動検出
 
@@ -157,7 +211,7 @@ module.exports = {
 - `locales` には、設定されたすべてのロケールが含まれます。
 - `defaultLocale` には、設定されたデフォルトのロケールが含まれます。
 
-`getStaticProps` や `getServerSideProps` でページを[プリレンダリング](/docs/basic-features/pages#static-generation-recommended)する場合、ロケール情報は関数へ渡される[コンテキスト](/docs/basic-features/data-fetching#getstaticprops-static-generation)に含まれます。
+`getStaticProps` や `getServerSideProps` でページを[プリレンダリング](/docs/basic-features/pages#static-generation-recommended)する場合、ロケール情報は関数へ渡される[コンテキスト](/docs/basic-features/data-fetching/get-static-props.md)に含まれます。
 
 `getStaticPaths` を利用する場合、設定されたロケールは関数のコンテキストパラメータ内の `locales` 下で、設定された defaultLocale は `defaultLocale` 下で提供されます。
 
@@ -199,6 +253,17 @@ export default function IndexPage(props) {
 }
 ```
 
+Note that to handle switching only the `locale` while preserving all routing information such as [dynamic route](/docs/routing/dynamic-routes.md) query values or hidden href query values, you can provide the `href` parameter as an object:
+
+```jsx
+import { useRouter } from 'next/router'
+const router = useRouter()
+const { pathname, asPath, query } = router
+// change just the locale and maintain all other route information including href's query
+router.push({ pathname, query }, asPath, { locale: nextLocale })
+```
+
+See [here](/docs/api-reference/next/router.md#with-url-object) for more information on the object structure for `router.push`.
 既にロケールを含む `href` を使用している場合は、ロケールプレフィックスの自動的な処理を適用しないようにできます。
 
 ```jsx
@@ -215,9 +280,9 @@ export default function IndexPage(props) {
 
 ## NEXT_LOCALE クッキーの活用
 
-Next.js は accept-language ヘッダーを `NEXT_LOCALE=the-locale` クッキーでオーバーライドすることをサポートしています。このクッキーは言語スイッチャーを使って設定でき、ユーザーがサイトに戻ってくると、クッキーで指定されたロケールを利用するようになります。
+Next.js は accept-language ヘッダーを `NEXT_LOCALE=the-locale` クッキーでオーバーライドすることをサポートしています。このクッキーは言語スイッチャーを使って設定でき、ユーザーがサイトに戻ってくると正しいロケール位置である `/` からリダイレクトするときにクッキーで指定されたロケールを利用するようになります。
 
-例えば、ユーザーはロケール `fr` を好む一方、`NEXT_LOCALE=en` クッキーが設定されている場合、クッキーが削除されるか期限切れになるまで `en` ロケールが代わりに使われます。
+例えば、ユーザーは accept-language ヘッダーにあるロケール `fr` を好む一方、`NEXT_LOCALE=en` クッキーが `/` を訪れたときに `en` ロケールが設定されている場合、クッキーが削除されるか期限切れになるまで `en` ロケールにリダイレクトされます。
 
 ## 検索エンジン最適化
 
@@ -228,6 +293,35 @@ Next.js はページの複数バージョンについて把握していないの
 ## 静的生成ではどのように動作しますか？
 
 > `next export` は Next.js ルーティングレイヤーを利用しないため、国際化されたルーティングは `next export` と統合されないことに注意してください。`next export` を使用しないハイブリッド Next.js アプリケーションは完全にサポートされています。
+
+### Dynamic Routes and `getStaticProps` Pages
+
+For pages using `getStaticProps` with [Dynamic Routes](/docs/routing/dynamic-routes.md), all locale variants of the page desired to be prerendered need to be returned from [`getStaticPaths`](/docs/basic-features/data-fetching/get-static-paths.md). Along with the `params` object returned for `paths`, you can also return a `locale` field specifying which locale you want to render. For example:
+
+```js
+// pages/blog/[slug].js
+export const getStaticPaths = ({ locales }) => {
+  return {
+    paths: [
+      // if no `locale` is provided only the defaultLocale will be generated
+      { params: { slug: 'post-1' }, locale: 'en-US' },
+      { params: { slug: 'post-1' }, locale: 'fr' },
+    ],
+    fallback: true,
+  }
+}
+```
+
+For [Automatically Statically Optimized](/docs/advanced-features/automatic-static-optimization.md) and non-dynamic `getStaticProps` pages, **a version of the page will be generated for each locale**. This is important to consider because it can increase build times depending on how many locales are configured inside `getStaticProps`.
+
+For example, if you have 50 locales configured with 10 non-dynamic pages using `getStaticProps`, this means `getStaticProps` will be called 500 times. 50 versions of the 10 pages will be generated during each build.
+
+To decrease the build time of dynamic pages with `getStaticProps`, use a [`fallback` mode](/docs/api-reference/data-fetching/get-static-paths#fallback-true). This allows you to return only the most popular paths and locales from `getStaticPaths` for prerendering during the build. Then, Next.js will build the remaining pages at runtime as they are requested.
+
+### Automatically Statically Optimized Pages
+
+For pages that are [automatically statically optimized](/docs/advanced-features/automatic-static-optimization.md), a version of the page will be generated for each locale.
+
 
 ### 自動的に静的最適化されたページ
 
@@ -260,19 +354,9 @@ export async function getStaticProps({ locale }) {
 }
 ```
 
-### 動的な getStaticProps ページ
+## Limits for the i18n config
 
-動的な `getStaticProps` ページの場合、 プリレンダリングしたいページのロケールバージョンを `getStaticPaths` で返す必要があります。`paths` として返される `params` オブジェクトに加えて、レンダリングしたいロケールを指定した `locale` フィールドを返すこともできます。例としては、以下のようになります:
+- `locales`: 100 total locales
+- `domains`: 100 total locale domain items
 
-```js
-// pages/blog/[slug].js
-export const getStaticPaths = ({ locales }) => {
-  return {
-    paths: [
-      { params: { slug: 'post-1' }, locale: 'en-US' },
-      { params: { slug: 'post-1' }, locale: 'fr' },
-    ],
-    fallback: true,
-  }
-}
-```
+> **Note:** These limits have been added initially to prevent potential [performance issues at build time](#dynamic-routes-and-getStaticProps-pages). You can workaround these limits with custom routing using [Middleware](/docs/middleware.md) in Next.js 12.
