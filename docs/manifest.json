@@ -46,6 +46,10 @@
               "path": "/docs/basic-features/image-optimization.md"
             },
             {
+              "title": "Font Optimization",
+              "path": "/docs/basic-features/font-optimization.md"
+            },
+            {
               "title": "高速更新",
               "path": "/docs/basic-features/fast-refresh.md"
             },
