@@ -64,6 +64,10 @@
             {
               "title": "サポートしているブラウザと機能",
               "path": "/docs/basic-features/supported-browsers-features.md"
+            },
+            {
+              "title": "Handling Scripts",
+              "path": "/docs/basic-features/script.md"
             }
           ]
         },
