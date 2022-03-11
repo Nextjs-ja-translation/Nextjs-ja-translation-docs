@@ -42,6 +42,10 @@
               "path": "/docs/basic-features/built-in-css-support.md"
             },
             {
+              "title": "Layouts",
+              "path": "/docs/basic-features/layouts.md"
+            },
+            {
               "title": "画像最適化",
               "path": "/docs/basic-features/image-optimization.md"
             },
