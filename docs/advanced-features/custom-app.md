@@ -34,14 +34,16 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 ```
 
-- `Component` prop はアクティブな `page` です。なので、ルート間で遷移するたびに `Component` は新しい `page` に変化します。そのため、`Component`に渡した prop はすべてその `page` で受け取ることができます。
+`Component` prop はアクティブな `page` です。なので、ルート間で遷移するたびに `Component` は新しい `page` に変化します。そのため、`Component`に渡した prop はすべてその `page` で受け取ることができます。
 
-- `pageProps`は[データ取得メソッド](/docs/basic-features/data-fetching.md)の 1 つによってプリロードされた初期 props を持つオブジェクトです。そうでなければ空のオブジェクトになります。
+`pageProps`は[データ取得メソッド](/docs/basic-features/data-fetching/overview.md)の 1 つによってプリロードされた初期 props を持つオブジェクトです。そうでなければ空のオブジェクトになります。
 
 ### 注意事項
 
 - もしアプリが起動していて、独自の `App` を追加しただけの場合は、開発サーバーを再起動する必要があります。もし、`pages/_app.js`が存在しなかったときのみ必要です。
-- あなたの `App` で独自の getInitialProps を追加した場合、[Static Generation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation)を行わないページで[Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)が無効になります。
+- あなたの `App` で独自の [getInitialProps](/docs/api-reference/data-fetching/get-initial-props.md) を追加した場合、[Static Generation](/docs/basic-features/data-fetching/get-static-props.md)を行わないページで[Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)が無効になります。
+- カスタム `App` で `getInitialProps` を追加する場合、`import App from "next/app"` を行い `getInitialProps` の中で `App.getInitialProps(appContext)` を実行して返されたオブジェクトを `getInitialProps` が返すオブジェクトへとマージする必要があります。
+- `App` コンポーネントは現在 [getStaticProps](/docs/basic-features/data-fetching/get-static-props.md) や [getServerSideProps](y/docs/basic-features/data-fetching/get-server-side-props.md) といった [Next.js のデータ取得メソッド](/docs/basic-features/data-fetching/overview.md) をサポートしていません。
 
 ### TypeScript
 

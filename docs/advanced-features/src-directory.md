@@ -11,7 +11,7 @@ Pages はルートの `pages` ディレクトリの代わりに `src/pages` 配�
 ## 注意事項
 
 - `src/pages` は、ルートディレクトリに `pages` がある場合は無視されます。
-- `next.config.js` や `tsconfig.json` のような設定ファイルはルートディレクトリに配置して下さい。これらは `src` に配置しても動作しません。[`public` ディレクトリ](/docs/basic-features/static-file-serving.md)についても同様です。
+- `next.config.js` や `tsconfig.json` のような設定ファイルは、環境変数と同様にルートディレクトリに配置して下さい。これらは `src` に配置しても動作しません。[`public` ディレクトリ](/docs/basic-features/static-file-serving.md)についても同様です。
 
 ## 関連事項
 
