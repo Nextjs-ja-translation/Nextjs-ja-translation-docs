@@ -3,7 +3,7 @@
 <!-- textlint-enable -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-43-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-44-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![reviewdog](https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs/workflows/reviewdog/badge.svg)
@@ -146,6 +146,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
   </tr>
   <tr>
     <td align="center"><a href="http://piyopanman.com"><img src="https://avatars.githubusercontent.com/u/66374097?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Piyopanman</b></sub></a><br /><a href="#translation-Piyopanman" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/TetsuyaNegishi"><img src="https://avatars.githubusercontent.com/u/8405585?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tetsuya Negishi</b></sub></a><br /><a href="#translation-TetsuyaNegishi" title="Translation">🌍</a></td>
   </tr>
 </table>
 
