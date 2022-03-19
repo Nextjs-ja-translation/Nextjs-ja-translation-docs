@@ -62,16 +62,28 @@
               "path": "/docs/basic-features/built-in-css-support.md"
             },
             {
+              "title": "Layouts",
+              "path": "/docs/basic-features/layouts.md"
+            },
+            {
               "title": "画像最適化",
               "path": "/docs/basic-features/image-optimization.md"
+            },
+            {
+              "title": "Font Optimization",
+              "path": "/docs/basic-features/font-optimization.md"
+            },
+            {
+              "title": "静的ファイルの配信",
+              "path": "/docs/basic-features/static-file-serving.md"
             },
             {
               "title": "高速更新",
               "path": "/docs/basic-features/fast-refresh.md"
             },
             {
-              "title": "静的ファイルの配信",
-              "path": "/docs/basic-features/static-file-serving.md"
+              "title": "ESLint",
+              "path": "/docs/basic-features/eslint.md"
             },
             {
               "title": "TypeScript",
