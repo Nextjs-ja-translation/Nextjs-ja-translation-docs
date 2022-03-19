@@ -66,6 +66,10 @@
               "path": "/docs/basic-features/image-optimization.md"
             },
             {
+              "title": "Font Optimization",
+              "path": "/docs/basic-features/font-optimization.md"
+            },
+            {
               "title": "静的ファイルの配信",
               "path": "/docs/basic-features/static-file-serving.md"
             },
