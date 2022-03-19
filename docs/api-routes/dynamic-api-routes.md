@@ -84,6 +84,8 @@ export default function handler(req, res) {
 
 例えば、`pages/api/post/[[...slug]].js` は `/api/post`、`/api/post/a`、`/api/post/a/b` などに一致します。
 
+`[...slug]` との主な違いは、パラメータを持たないルートもマッチすることです（上の例では `/api/post`）。
+
 `query` オブジェクトは次のようになります:
 
 ```json
