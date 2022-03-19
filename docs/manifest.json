@@ -20,6 +20,22 @@
               "title": "データ取得",
               "routes": [
                 {
+                  "path": "/docs/basic-features/data-fetching",
+                  "redirect": {
+                    "destination": "/docs/basic-features/data-fetching/overview"
+                  }
+                },
+                {
+                  "path": "/docs/basic-features/data-fetching/index",
+                  "redirect": {
+                    "destination": "/docs/basic-features/data-fetching/overview"
+                  }
+                },
+                {
+                  "title": "Overview",
+                  "path": "/docs/basic-features/data-fetching/overview.md"
+                },
+                {
                   "title": "getServerSideProps",
                   "path": "/docs/basic-features/data-fetching/get-server-side-props.md"
                 },
@@ -32,6 +48,10 @@
                   "path": "/docs/basic-features/data-fetching/get-static-props.md"
                 },
                 {
+                  "title": "Incremental Static Regeneration",
+                  "path": "/docs/basic-features/data-fetching/incremental-static-regeneration.md"
+                },
+                {
                   "title": "Client side",
                   "path": "/docs/basic-features/data-fetching/client-side.md"
                 }
@@ -42,16 +62,28 @@
               "path": "/docs/basic-features/built-in-css-support.md"
             },
             {
+              "title": "Layouts",
+              "path": "/docs/basic-features/layouts.md"
+            },
+            {
               "title": "画像最適化",
               "path": "/docs/basic-features/image-optimization.md"
+            },
+            {
+              "title": "Font Optimization",
+              "path": "/docs/basic-features/font-optimization.md"
+            },
+            {
+              "title": "静的ファイルの配信",
+              "path": "/docs/basic-features/static-file-serving.md"
             },
             {
               "title": "高速更新",
               "path": "/docs/basic-features/fast-refresh.md"
             },
             {
-              "title": "静的ファイルの配信",
-              "path": "/docs/basic-features/static-file-serving.md"
+              "title": "ESLint",
+              "path": "/docs/basic-features/eslint.md"
             },
             {
               "title": "TypeScript",
@@ -281,9 +313,7 @@
           "title": "よくある質問",
           "path": "/docs/faq.md"
         },
-        { "title": "テスト",
-          "path": "/docs/testing.md"
-        }
+        { "title": "テスト", "path": "/docs/testing.md" }
       ]
     },
     {
