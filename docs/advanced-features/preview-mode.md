@@ -9,22 +9,25 @@ description: Next.js には静的に生成されたページのためのプレ�
 <details open>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress">WordPress の例</a> (<a href="https://next-blog-wordpress.now.sh">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-datocms">DatoCMS の例 </a> (<a href="https://next-blog-datocms.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape">TakeShape の例 </a> (<a href="https://next-blog-takeshape.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-sanity">Sanity の例 </a> (<a href="https://next-blog-sanity.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prismic">Prismic の例 </a> (<a href="https://next-blog-prismic.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-contentful">Contentful の例 </a> (<a href="https://next-blog-contentful.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-strapi">Strapi の例 </a> (<a href="https://next-blog-strapi.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms">Agility CMS の例 </a> (<a href="https://next-blog-agilitycms.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic">Cosmic の例 </a> (<a href="https://next-blog-cosmic.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-buttercms">ButterCMS の例 </a> (<a href="https://next-blog-buttercms.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-storyblok">Storyblok の例 </a> (<a href="https://next-blog-storyblok.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-graphcms">GraphCMS の例</a> (<a href="https://next-blog-graphcms.now.sh/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress">WordPress の例</a> (<a href="https://next-blog-wordpress.vercel.app">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-datocms">DatoCMS の例 </a> (<a href="https://next-blog-datocms.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape">TakeShape の例 </a> (<a href="https://next-blog-takeshape.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-sanity">Sanity の例 </a> (<a href="https://next-blog-sanity.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prismic">Prismic の例 </a> (<a href="https://next-blog-prismic.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-contentful">Contentful の例 </a> (<a href="https://next-blog-contentful.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-strapi">Strapi の例 </a> (<a href="https://next-blog-strapi.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prepr">Prepr の例</a> (<a href="https://next-blog-prepr.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms">Agility CMS の例 </a> (<a href="https://next-blog-agilitycms.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic">Cosmic の例 </a> (<a href="https://next-blog-cosmic.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-buttercms">ButterCMS の例 </a> (<a href="https://next-blog-buttercms.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-storyblok">Storyblok の例 </a> (<a href="https://next-blog-storyblok.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-graphcms">GraphCMS の例</a> (<a href="https://next-blog-graphcms.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-kontent">Kontent の例</a> (<a href="https://next-blog-kontent.vercel.app//">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-umbraco-heartcore">Umbraco Heartcore の例</a> (<a href="https://next-blog-umbraco-heartcore.vercel.app/">デモ</a>)</li>
   </ul>
 </details>
 
-[ページのドキュメント](/docs/basic-features/pages.md)と[データ取得のドキュメント](/docs/basic-features/data-fetching.md)で、`getStaticProps` と `getStaticPaths` を使って、ビルド時にページをプリレンダリングする**静的生成**について説明しました。
+[ページのドキュメント](/docs/basic-features/pages.md)と[データ取得のドキュメント](/docs/basic-features/data-fetching/overview.md)で、`getStaticProps` と `getStaticPaths` を使って、ビルド時にページをプリレンダリングする**静的生成**について説明しました。
 
 静的生成はヘッドレス CMS からページにデータを取得するときに役立ちます。しかし、ヘッドレス CMS で下書きをしていて、すぐにページで**プレビュー**をしたいときには理想的ではありません。Next.js がビルド時ではなく**リクエスト時**にこれらのページをレンダリングし、公開されたコンテンツではなく下書きのコンテンツを取得するようにしたいでしょう。このような特定のケースにおいて、Next.js に静的生成をして欲しくない場合があります。
 
@@ -39,7 +42,7 @@ Next.js にはこの問題を解決するための**プレビューモード**�
 この API ルートでは、レスポンスオブジェクトから `setPreviewData` を呼び出す必要があります。 `setPreviewData` の引数はオブジェクトである必要があり、 `getStatciProps` (これについては後ほど詳しく説明します)によって使用することが出来ます。ここでは　`{}` を使用します。
 
 ```js
-export default (req, res) => {
+export default function handler(req, res) => {
   // ...
   res.setPreviewData({})
   // ...
@@ -54,7 +57,7 @@ export default (req, res) => {
 // ブラウザから手動でテストするための簡単なサンプルです。
 // もしこのファイルがpages/api/preview.jsに置かれているならば、
 // ブラウザで、 /api/preview を開いてください。
-export default (req, res) => {
+export default function handler(req, res) => {
   res.setPreviewData({})
   res.end('Preview mode enabled')
 }
@@ -174,13 +177,15 @@ https://<your-site>/api/preview?secret=<token>&slug=<path>
 手動でプレビューの Cookie を削除するには、 `clearPreviewData` を呼ぶ API ルートを作成し、この API ルートにアクセスします。
 
 ```js
-export default (req, res) => {
+export default function handler(req, res) => {
   // プレビューモードのCookieを削除します。
   // この関数は引数を受け取りません。
   res.clearPreviewData()
   // ...
 }
 ```
+
+> **注意:** `Link` コンポーネントを用いてこのルートを呼び出す場合には、`prefetch={false}` を渡して `clearPreviewData` がプリフェッチ中に実行されることを防ぐ必要があります。
 
 ### プレビューモードの期間を設定する
 
@@ -202,16 +207,30 @@ setPreviewData(data, {
 
 プレビューモードは `getServerSideProps` でも同様に機能します。 `preview` や `previewData` を含む `context` オブジェクトも利用可能です。
 
+### APIルートと動かす
+
+API ルートはリクエストオブジェクトの元にある `preview` と `previewData` へアクセスできます。例:
+
+```js
+export default function myApiRoute(req, res) {
+  const isPreview = req.preview
+  const previewData = req.previewData
+  // ...
+}
+```
+
 ### `next build` ごとに単一
 
 `next build` を実行するたびに、バイパス Cookie の値と暗号化された `previewData` の秘密鍵が変更されます。これにより、バイパス Cookie を推測出来ないようにします。
+
+> **注意:** HTTP においてプレビューモードをローカルでテストするには、あなたのブラウザでサードパーティのクッキーとローカルストレージへのアクセスを許可する必要があります。
 
 ## もっと詳しく知る
 
 次のページも役に立つでしょう。
 
 <div class="card">
-  <a href="/docs/basic-features/data-fetching.md">
+  <a href="/docs/basic-features/data-fetching/overview.md">
     <b>データ取得:</b>
     <small>Next.jsのデータ取得について詳しく学びましょう。</small>
   </a>
