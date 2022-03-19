@@ -10,27 +10,29 @@ Next.js は[ページという概念](/docs/basic-features/pages.md)に基づい
 
 `pages` ディレクトリ内のファイルは次の一般的なパターンで定義されます。
 
-### インデックスルート
+#### インデックスルート
 
 ルーターは `index` という名前のファイルをディレクトリのルートとしてルーティングします。
 
 - `pages/index.js` → `/`
 - `pages/blog/index.js` → `/blog`
 
-### ネストされたルート
+#### ネストされたルート
 
 ルーターはネストされたファイルもサポートします。ネストされたフォルダ構造を作ると、内部に置かれたファイルも同じようにルーティングされます。
 
 - `pages/blog/first-post.js` → `/blog/first-post`
 - `pages/dashboard/settings/username.js` → `/dashboard/settings/username`
 
-### 動的なルートのセグメント
+#### 動的なルートのセグメント
 
 動的なセグメントにマッチさせたければブラケット記法を使うことができます。名前をつけたパラメータとのマッチが可能です。
 
 - `pages/blog/[slug].js` → `/blog/:slug` (`/blog/hello-world`)
 - `pages/[username]/settings.js` → `/:username/settings` (`/foo/settings`)
 - `pages/post/[...all].js` → `/post/*` (`/post/2020/id/title`)
+
+> Check out the [Dynamic Routes documentation](/docs/routing/dynamic-routes.md) to learn more about how they work.
 
 ## ページ間をリンクする
 
@@ -39,7 +41,7 @@ Next.js のルーターは、シングルページアプリケーションのよ
 このクライアントサイドでのページ遷移のために、`Link` という React コンポーネントが提供されています。
 
 ```jsx
-import Link from 'next/link';
+import Link from 'next/link'
 
 function Home() {
   return (
@@ -54,53 +56,83 @@ function Home() {
           <a>About Us</a>
         </Link>
       </li>
-    </ul>
-  );
-}
-
-export default Home;
-```
-
-[動的なパスセグメント](/docs/routing/dynamic-routes.md)でリンクするとき、ルータがどの JavaScript ファイルを読む込むのかが分かるように、 `href` と `as` を渡す必要があります。
-
-- `href` - `pages` ディレクトリ中のページの名前です。例えば `/blog/[slug]` のようにします。
-- `as` - ブラウザに表示される URL です。以下の例では `/blog/hello-world` になります。
-
-```jsx
-import Link from 'next/link';
-
-function Home() {
-  return (
-    <ul>
       <li>
-        <Link href="/blog/[slug]" as="/blog/hello-world">
-          <a>To Hello World Blog post</a>
+        <Link href="/blog/hello-world">
+          <a>Blog Post</a>
         </Link>
       </li>
     </ul>
-  );
+  )
 }
 
-export default Home;
+export default Home
 ```
 
-`as` プロパティも動的に生成できます。プロパティとしてページに渡されたポストのリストを表示する時は次のようになります:
+The example above uses multiple links. Each one maps a path (`href`) to a known page:
+
+- `/` → `pages/index.js`
+- `/about` → `pages/about.js`
+- `/blog/hello-world` → `pages/blog/[slug].js`
+
+Any `<Link />` in the viewport (initially or through scroll) will be prefetched by default (including the corresponding data) for pages using [Static Generation](/docs/basic-features/data-fetching/get-static-props.md). The corresponding data for [server-rendered](/docs/basic-features/data-fetching/get-server-side-props.md) routes is _not_ prefetched.
+
+### Linking to dynamic paths
+
+You can also use interpolation to create the path, which comes in handy for [dynamic route segments](#dynamic-route-segments). For example, to show a list of posts which have been passed to the component as a prop:
 
 ```jsx
-function Home({ posts }) {
+import Link from 'next/link'
+
+function Posts({ posts }) {
   return (
     <ul>
-      {posts.map(post => (
+      {posts.map((post) => (
         <li key={post.id}>
-          <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
+          <Link href={`/blog/${encodeURIComponent(post.slug)}`}>
             <a>{post.title}</a>
           </Link>
         </li>
       ))}
     </ul>
-  );
+  )
 }
+
+export default Posts
 ```
+
+> [`encodeURIComponent`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) is used in the example to keep the path utf-8 compatible.
+
+Alternatively, using a URL Object:
+
+```jsx
+import Link from 'next/link'
+
+function Posts({ posts }) {
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>
+          <Link
+            href={{
+              pathname: '/blog/[slug]',
+              query: { slug: post.slug },
+            }}
+          >
+            <a>{post.title}</a>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export default Posts
+```
+
+Now, instead of using interpolation to create the path, we use a URL object in `href` where:
+
+- `pathname` is the name of the page in the `pages` directory. `/blog/[slug]` in this case.
+- `query` is an object with the dynamic segment. `slug` in this case.
 
 ## ルーターを React コンポーネント内で使う
 
