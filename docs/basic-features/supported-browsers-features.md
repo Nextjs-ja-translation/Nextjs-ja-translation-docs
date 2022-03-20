@@ -20,7 +20,7 @@ IE11 の互換性に必要な polyfills を透過的に注入しています。�
 
 ### サーバーサイド Polyfills
 
-クライアント側での `fetch()` に加えて、Next.js は Node.js 環境でも `fetch()` の polyfills を行います。 サーバー側のコード (例えば `getStaticProps`) では、`isomorphic-unfetch` や `node-fetch` などの polyfills を使わずに `fetch()` を使用できます。
+クライアント側での `fetch()` に加えて、Next.js は Node.js 環境でも `fetch()` の polyfills を行います。 サーバー側のコード (例えば `getStaticProps `/ ` getServerSideProps`) では、`isomorphic-unfetch` や `node-fetch` などの polyfills を使わずに `fetch()` を使用できます。
 
 ### カスタム Polyfills
 
