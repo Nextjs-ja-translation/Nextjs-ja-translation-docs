@@ -1,69 +1,72 @@
 ---
-description: Next.js アプリを Vercel やその他のホスティング方法を使って本番環境にデプロイします。
+description: Next.js アプリをマネージドやセルフホスティングで本番環境にデプロイする方法を学びます。
 ---
 
 # デプロイ
 
-## Vercel (推奨)
+Congratulations, you are ready to deploy your Next.js application to production. This document will show how to deploy either managed or self-hosted using the [Next.js Build API](#nextjs-build-api).
 
-Next.js を本番環境にデプロイする最も簡単な方法は、Next.js の開発者が提供する **[Vercel platform](https://vercel.com)** を利用することです。[Vercel](https://vercel.com) は、静的サイト・JAMstack なアーキテクチャでのデプロイや、サーバーレスファンクション機能をサポートするグローバル CDN を備えたオールインワンプラットフォームです。
+## Next.js Build API
 
-### はじめに
+`next build` generates an optimized version of your application for production. This standard output includes:
 
-はじめに、Next.js アプリを [GitHub](http://github.com/)、[GitLab](https://gitlab.com/)、[BitBucket](https://bitbucket.org/) など任意の Git プロバイダーにプッシュしてください。リポジトリはプライベートとパブリックのどちらでも構いません。
+- HTML files for pages using `getStaticProps` or [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md)
+- CSS files for global styles or for individually scoped styles
+- JavaScript for pre-rendering dynamic content from the Next.js server
+- JavaScript for interactivity on the client-side through React
 
-次に、以下の手順に従ってください:
+This output is generated inside the `.next` folder:
 
-1. [Vercel にサインアップしてください](https://vercel.com/signup)（クレジットカードの登録は不要です）。
-2. サインアップすると、[Import Project](https://vercel.com/import) ページに遷移します。「From Git Repository」からデプロイに使用する [GitHub](https://vercel.com/docs/v2/git-integrations/vercel-for-github)、[GitLab](https://vercel.com/docs/v2/git-integrations/vercel-for-gitlab) 、[BitBucket](https://vercel.com/docs/v2/git-integrations/vercel-for-bitbucket) などの Git プロバイダーを選択して設定をします（設定は各プロバイダーで次の手順で行います）。
-3. 設定が完了したら、「Import Project From ...」をクリックして Next.js アプリを Vercel にインポートします。アプリが Next.js を使用していることが自動検出され、ビルド設定が設定されます。何も変更する必要はありません。
-4. インポート後、Next.js アプリはデプロイされ、デプロイ用 URL が提供されます。「Visit」をクリックして、デプロイされたアプリを確認しましょう。
+- `.next/static/chunks/pages` – Each JavaScript file inside this folder relates to the route with the same name. For example, `.next/static/chunks/pages/about.js` would be the JavaScript file loaded when viewing the `/about` route in your application
+- `.next/static/media` – Statically imported images from `next/image` are hashed and copied here
+- `.next/static/css` – Global CSS files for all pages in your application
+- `.next/server/pages` – The HTML and JavaScript entry points prerendered from the server. The `.nft.json` files are created when [Output File Tracing](/docs/advanced-features/output-file-tracing.md) is enabled and contain all the file paths that depend on a given page.
+- `.next/server/chunks` – Shared JavaScript chunks used in multiple places throughout your application
+- `.next/cache` – Output for the build cache and cached images, responses, and pages from the Next.js server. Using a cache helps decrease build times and improve performance of loading images
 
-おめでとうございます！Next.js アプリのデプロイが完了しました。疑問点がある場合は、[Vercel documentation](https://vercel.com/docs) を参照してください。
+All JavaScript code inside `.next` has been **compiled** and browser bundles have been **minified** to help achieve the best performance and support [all modern browsers](/docs/basic-features/supported-browsers-features.md).
 
-> [カスタムサーバー](/docs/advanced-features/custom-server.md)を使用している場合は、代替手法への移行を強くお勧めします(例えば、[動的ルーティング](/docs/routing/dynamic-routes.md)を使用するなど)。移行できない場合は、[他のホスティング方法](#other-hosting-options)を検討してください。
+## Managed Next.js with Vercel
 
-### DPS: 開発（Develop）、プレビュー（Preview）、公開（Ship）
+[Vercel](https://vercel.com?utm_source=github.com&utm_medium=referral&utm_campaign=deployment) is the fastest way to deploy your Next.js application with zero configuration.
 
-ここでは、[Vercel](https://vercel.com)が推奨するワークフローについて説明します。[Vercel](https://vercel.com)では、いわゆる **DPS** ワークフローを支持しています。**DPS** とは、開発（**D**evelop）・プレビュー（**P**review）・公開（**S**hip）の頭字語です。
+When deploying to Vercel, the platform [automatically detects Next.js](https://vercel.com/solutions/nextjs?utm_source=github.com&utm_medium=referral&utm_campaign=deployment), runs `next build`, and optimizes the build output for you, including:
 
-- **開発（Develop）:** Next.js のコードを書きましょう。開発サーバーを稼働させておき、[React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh) を活用しましょう。
-- **プレビュー（Preview）:** GitHub / GitLab / BitBucket 上に変更をプッシュするたびに、自動的に一意の URL を持つ新しいデプロイを実施します。
-プルリクエストを開くと GitHub で見ることができますし、Vercel のプロジェクトページの「デプロイメントのプレビュー」で見ることもできます。[詳細はこちらをご覧ください](https://vercel.com/features/deployment-previews)。
-- **公開（Ship）:** 本番環境で公開する準備ができたら、プルリクエストをデフォルトのブランチ (例: `master`) にマージします。Vercel は自動的に本番環境へのデプロイを行います。
+- Persisting cached assets across deployments if unchanged
+- [Immutable deployments](https://vercel.com/features/previews) with a unique URL for every commit
+- [Pages](/docs/basic-features/pages.md) are automatically statically optimized, if possible
+- Assets (JavaScript, CSS, images, fonts) are compressed and served from a [Global Edge Network](https://vercel.com/features/infrastructure)
+- [API Routes](/docs/api-routes/introduction.md) are automatically optimized as isolated [Serverless Functions](https://vercel.com/features/infrastructure) that can scale infinitely
+- [Middleware](/docs/middleware.md) are automatically optimized as [Edge Functions](https://vercel.com/features/edge-functions) that have zero cold starts and boot instantly
 
-DPS ワークフローを使用することで、_コードレビュー_ に加えて、_デプロイ前のプレビュー_ を行うことができます。各デプロイはユニークな URL を生成し、それを共有したり、統合テストに使用したりできます。
+In addition, Vercel provides features like:
 
-### Next.js のための最適化
+- Automatic performance monitoring with [Next.js Analytics](https://vercel.com/analytics)
+- Automatic HTTPS and SSL certificates
+- Automatic CI/CD (through GitHub, GitLab, Bitbucket, etc.)
+- Support for [Environment Variables](https://vercel.com/docs/environment-variables)
+- Support for [Custom Domains](https://vercel.com/docs/custom-domains)
+- Support for [Image Optimization](/docs/basic-features/image-optimization.md) with `next/image`
+- Instant global deployments via `git push`
 
-[Vercel](https://vercel.com) は、Next.js のクリエイターが作ったもので、Next.js を最も手厚くサポートしています。
+[Deploy a Next.js application to Vercel](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/hello-world&project-name=hello-world&repository-name=hello-world&utm_source=github.com&utm_medium=referral&utm_campaign=deployment) for free to try it out.
 
-例えば、[ハイブリッドページ](/docs/basic-features/pages.md)については完全にサポートされています。
+## 独自のホスティング
 
-- 各ページについて[静的サイト生成](/docs/basic-features/pages.md#static-generation)または[サーバサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering)を使用できます。
-- [静的サイト生成](/docs/basic-features/pages.md#static-generation)により生成される各種アセット（JS、CSS、画像、フォントなど）を使用したページは、自動的に [Vercel Smart CDN](https://vercel.com/smart-cdn) から配信されます。
-- [サーバサイドレンダリング](/docs/basic-features/pages.md#server-side-rendering) と [APIルート](/docs/api-routes/introduction.md) を使用しているページは、独立したサーバレス関数へと自動的に変換してデプロイします。これにより、レンダリングと API リクエストを無限にスケールさせることができます。
-
-### カスタムドメイン、環境変数、自動HTTPS（SSL 化）など
-
-- **カスタムドメイン:** [Vercel](https://vercel.com) にデプロイする Next.js アプリはカスタムドメインを割り当て可能です。[こちらのドキュメントを参照してください](https://vercel.com/docs/v2/custom-domains)。
-- **環境変数:** Vercel では環境変数を設定できます。詳細は、[ここにあるドキュメント](https://vercel.com/docs/v2/build-step#using-environment-variables-and-secrets) を参照してください。Next.js アプリ内で[これらの環境変数](/docs/api-reference/next.config.js/environment-variables.md)を使用できます。
-- **自動 HTTPS（SSL 化）:** HTTPS はデフォルトで有効になっており（カスタムドメインを含む）、余分な設定は必要ありません。SSL 証明書は自動で更新されます。
-- **その他:** Vervel というプラットフォームをさらに知るために[ドキュメント](https://vercel.com/docs)をご覧ください。
-
-## その他のホスティング方法
+You can self-host Next.js with support for all features using Node.js or Docker. You can also do a Static HTML Export, which [has some limitations](/docs/advanced-features/static-html-export.md).
 
 ### Node.jsサーバー
 
 Next.js は Node.js に対応しているホスティング環境であれば、どこにでもデプロイできます。
-[カスタムサーバー](/docs/advanced-features/custom-server.md)を使用している場合はこのようなアプローチになります。
+例えば、 [AWS EC2](https://aws.amazon.com/ec2/) や [DigitalOcean Droplet](https://www.digitalocean.com/products/droplets/) などです。
+
 
 `package.json` に `"build"` と `"start"` のスクリプトが含まれていることを確認してください。
 
 ```json
 {
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   }
@@ -73,8 +76,34 @@ Next.js は Node.js に対応しているホスティング環境であれば、
 `next build` スクリプトは `.next` フォルダ内に本番用アプリケーションをビルドします。
 ビルド後に実行する `next start` により、静的に生成されたページとサーバーサイドでレンダリングされたページの[ハイブリッドページ](/docs/basic-features/pages.md) をサポートする Node.js サーバを起動します。
 
-### 静的 HTML の出力
+### Docker Image
 
-Next.js アプリを静的 HTML へと出力したい場合は、[ドキュメント](/docs/advanced-features/static-html-export.md)の指示に従ってください。デフォルトでは、`next export` によって `out` ディレクトリが生成され、 CDN や静的サイトホスティングサービスで配信できます。
+Next.js can be deployed to any hosting provider that supports [Docker](https://www.docker.com/) containers. You can use this approach when deploying to container orchestrators such as [Kubernetes](https://kubernetes.io/) or [HashiCorp Nomad](https://www.nomadproject.io/), or when running inside a single node in any cloud provider.
 
-> ご利用の Next.js アプリが完全に静的サイトの場合でも、[Vercel](https://vercel.com/) を使用することを強くお勧めします。[Vercel](https://vercel.com/) は、静的な Next.js アプリが非常に高速に動作するように最適化されています。`next export` は、Vercel では設定を一切行わずにデプロイしても動作します。
+1. [Install Docker](https://docs.docker.com/get-docker/) on your machine
+1. Clone the [with-docker](https://github.com/vercel/next.js/tree/canary/examples/with-docker) example
+1. Build your container: `docker build -t nextjs-docker .`
+1. Run your container: `docker run -p 3000:3000 nextjs-docker`
+
+### 静的 HTML のエクスポート
+
+Next.js アプリを静的 HTML へと出力したい場合は、[静的 HTML のエクスポート](/docs/advanced-features/static-html-export.md)の指示に従ってください。デフォルトでは、`next export` によって `out` ディレクトリが生成され、 CDN や静的サイトホスティングサービスで配信できます。
+
+## Automatic Updates
+
+When you deploy your Next.js application, you want to see the latest version without needing to reload.
+
+Next.js will automatically load the latest version of your application in the background when routing. For client-side navigations, `next/link` will temporarily function as a normal `<a>` tag.
+
+**Note:** If a new page (with an old version) has already been prefetched by `next/link`, Next.js will use the old version. Navigating to a page that has _not_ been prefetched (and is not cached at the CDN level) will load the latest version.
+
+## Related
+
+For more information on what to do next, we recommend the following sections:
+
+<div class="card">
+  <a href="/docs/going-to-production.md">
+    <b>Going to Production:</b>
+    <small>Ensure the best performance and user experience.</small>
+  </a>
+</div>
