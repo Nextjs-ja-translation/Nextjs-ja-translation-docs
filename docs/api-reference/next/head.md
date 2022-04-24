@@ -55,9 +55,11 @@ function IndexPage() {
 export default IndexPage;
 ```
 
-この場合、 2 番目の `<meta property="og:title" />` のみがレンダリングされます。`name` 属性が重複する `meta` タグは自動的に処理されます。
+この場合、 2 番目の `<meta property="og:title" />` のみがレンダリングされます。`key` 属性が重複する `meta` タグは自動的に処理されます。
 
 > コンポーネントがアンマウントされた際、 `head` の内容は削除されます。そのため、他のページで追加したものは考慮せず、各ページの `head` に必要なものを完全に定義できているか確認してください。
 
 `title` 、 `meta` やその他の要素（`script` など）は `Head` 要素の**直下**の子要素として含まれているか、
 `<React.Fragment>` や配列の単一階層にラップされている必要があります。そうでなければ、タグはクライアント側のナビゲーションで正しく取得されません。
+
+> `<script>` タグを `next/head` のなかで手動で作る代わりに[next/script](/docs/basic-features/script.md) をコンポーネントで利用することを勧めます。

@@ -21,22 +21,30 @@ description: Next.js は可能であれば静的な HTML へとアプリケー�
 
 プリレンダリング中は、この段階で使用できる `query` の情報がないため、 `query` は空オブジェクトになります。ハイドレーション後は、 `query` オブジェクト内のルートパラメータをアプリケーションに与えるように、 Next.js がアプリケーションを更新します。
 
-> **備考:** [動的なルーティング](/docs/routing/dynamic-routes.md)と共に [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) を用いたページに与えられたパラメータは、いつでも `query` オブジェクト内で使用可能です。
+ハイドレーションの後にクエリが更新され、さらにレンダリングが生じるケースは以下の通りです。
+
+- ページが [dynamic-route](/docs/routing/dynamic-routes.md) である場合
+- ページが URL にクエリの値を持っている場合
+- `next.config.js` で [Rewrites](/docs/api-reference/next.config.js/rewrites.md) が設定されている場合。これらは `query` として解析、提供されるべきパラメータを含み得るためです。
+
+クエリが全て更新され使用可能な状態になったかどうか判断するためには、[`next/router`](/docs/api-reference/next/router.md#router-object) に存在する `isReady` フィールドを利用できます。
+
+> **備考:** [動的なルーティング](/docs/routing/dynamic-routes.md)と共に [`getStaticProps`](/docs/basic-features/data-fetching/get-static-props.md) を用いたページに与えられたパラメータは、いつでも `query` オブジェクト内で使用可能です。****
 
 `next build` は静的最適化がされたページに対して `.html` ファイルを出力します。例えば、 `pages/about.js` のページに対するビルド結果は以下のようになります:
 
 ```bash
-.next/server/static/${BUILD_ID}/about.html
+.next/server/pages/about.html
 ```
 
 `getServerSideProps` をページに加えると、今度はビルド結果が以下のような JavaScript ファイルになります:
 
 ```bash
-.next/server/static/${BUILD_ID}/about.js
+.next/server/pages/about.js
 ```
 
 ## 注意事項
 
-- `getInitialProps` を用いた[カスタム `App` ](/docs/advanced-features/custom-app.md)の場合、[静的生成](/docs/basic-features/data-fetching.md#getstaticprops-static-generation)なしのページではこの最適化はオフになります。
+- `getInitialProps` を用いた[カスタム `App` ](/docs/advanced-features/custom-app.md)の場合、[静的生成](/docs/basic-features/data-fetching/get-static-props.md)なしのページではこの最適化はオフになります。
 
 - `getInitialProps` を用いた[カスタム `Document` ](/docs/advanced-features/custom-document.md)の場合は、ページがサーバーサイドでレンダリングされると仮定する前に `ctx.req` が定義されているかどうかを確認してください。`ctx.req` はプリレンダリングされるページでは `undefined` になります。

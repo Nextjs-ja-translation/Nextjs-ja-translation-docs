@@ -59,20 +59,22 @@ Next.js ではプリレンダリングに関して**静的生成(Static Generati
 <details open>
   <summary><b>サンプル</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress">WordPressの例</a> (<a href="https://next-blog-wordpress.now.sh">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/blog-starter">Markdownファイルを用いたブログの例</a> (<a href="https://next-blog-starter.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-datocms">DatoCMSを用いた例</a> (<a href="https://next-blog-datocms.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape">TakeShapeを用いた例</a> (<a href="https://next-blog-takeshape.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-sanity">Sanityを用いた例</a> (<a href="https://next-blog-sanity.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prismic">Prismicを用いた例</a> (<a href="https://next-blog-prismic.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-contentful">Contentfulを用いた例</a> (<a href="https://next-blog-contentful.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-strapi">Strapiを用いた例</a> (<a href="https://next-blog-strapi.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms">Agility CMSを用いた例</a> (<a href="https://next-blog-agilitycms.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic">Cosmicを用いた例</a> (<a href="https://next-blog-cosmic.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-buttercms">ButterCMSを用いた例</a> (<a href="https://next-blog-buttercms.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-storyblok">Storyblokを用いた例</a> (<a href="https://next-blog-storyblok.now.sh/">デモ</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-graphcms">GraphCMSを用いた例</a> (<a href="https://next-blog-graphcms.now.sh/">デモ</a>)</li>
-    <li><a href="https://static-tweet.now.sh/">ツイートの静的埋め込みのデモ</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress">WordPressの例</a> (<a href="https://next-blog-wordpress.vercel.app">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/blog-starter">Markdownファイルを用いたブログの例</a> (<a href="https://next-blog-starter.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-datocms">DatoCMSを用いた例</a> (<a href="https://next-blog-datocms.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape">TakeShapeを用いた例</a> (<a href="https://next-blog-takeshape.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-sanity">Sanityを用いた例</a> (<a href="https://next-blog-sanity.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prismic">Prismicを用いた例</a> (<a href="https://next-blog-prismic.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-contentful">Contentfulを用いた例</a> (<a href="https://next-blog-contentful.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-strapi">Strapiを用いた例</a> (<a href="https://next-blog-strapi.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prepr">Preprを用いたデモ</a> (<a href="https://next-blog-prepr.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms">Agility CMSを用いた例</a> (<a href="https://next-blog-agilitycms.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic">Cosmicを用いた例</a> (<a href="https://next-blog-cosmic.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-buttercms">ButterCMSを用いた例</a> (<a href="https://next-blog-buttercms.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-storyblok">Storyblokを用いた例</a> (<a href="https://next-blog-storyblok.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-graphcms">GraphCMSを用いた例</a> (<a href="https://next-blog-graphcms.vercel.app/">デモ</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-builder-io">Builder.ioを用いた例</a> (<a href="https://cms-builder-io.vercel.app/">デモ</a>)</li>
+    <li><a href="https://static-tweet.vercel.app/">ツイートの静的埋め込みのデモ</a></li>
   </ul>
 </details>
 
@@ -152,7 +154,7 @@ export async function getStaticProps() {
 export default Blog;
 ```
 
-`getStaticProps`の動作についてさらに知るためには、[データ取得のドキュメント](/docs/basic-features/data-fetching.md#getstaticprops-static-generation)をご覧ください。
+`getStaticProps`の動作についてさらに知るためには、[データ取得のドキュメント](/docs/basic-features/data-fetching/get-static-props.md)をご覧ください。
 
 #### シナリオ 2: ページのパス(path)が外部データに依存する場合
 
@@ -178,7 +180,9 @@ export async function getStaticPaths() {
   const posts = await res.json();
 
   // 記事にもとづいてプリレンダするパスを取得
-  const paths = posts.map(post => `/posts/${post.id}`);
+  const paths = posts.map((post) => ({
+    params: { id: post.id },
+  }))
 
   // 設定したパスのみ、ビルド時にプリレンダ
   // { fallback: false } は、他のルートが404になるという意味
@@ -212,7 +216,7 @@ export async function getStaticProps({ params }) {
 export default Post;
 ```
 
-`getStaticPaths`の動作についてさらに知りたい場合には、[データ取得のドキュメント](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation)をご覧ください。
+`getStaticPaths`の動作についてさらに知りたい場合には、[データ取得のドキュメント](/docs/basic-features/data-fetching/get-static-paths.md)をご覧ください。
 
 ### どのような場合に静的生成を行うべきか？
 
@@ -222,7 +226,7 @@ export default Post;
 静的生成は以下のような様々なページに対して行うことができます。
 
 - マーケティングのページ
-- ブログ記事
+- ブログ記事やポートフォリオ
 - e コマースの製品リスト
 - ヘルプやドキュメント
 
@@ -235,7 +239,7 @@ export default Post;
 このような場合には、以下の方法をとることができます。
 
 - **クライアントサイドレンダリング**と静的生成を併用する: ページの一部のプリレンダリングを一旦飛ばし、クライアント側の JavaScript を使って残りを表示させます。
-このアプローチについてさらに知るためには、[データ取得のドキュメント](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side)をご覧ください。
+このアプローチについてさらに知るためには、[データ取得のドキュメント](/docs/basic-features/data-fetching/client-side.md)をご覧ください。
 - **サーバーサイドレンダリング**を用いる: Next.js がそれぞれのリクエストに対してプリレンダリングします。
 CDN によるキャッシュができないので表示が遅くなりますが、常に最新の情報が表示されます。このアプローチについてこれから説明します。
 
@@ -270,7 +274,7 @@ export default Page;
 
 見ての通り、`getServerSideProps`は `getStaticProps` とよく似ています。両者の違いは、`getServerSideProps`がビルド時ではなくリクエストの度に呼ばれることです。
 
-`getServerSideProps`の動作についてさらに知りたい場合には、[データ取得のドキュメント](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering)をご覧ください。
+`getServerSideProps`の動作についてさらに知りたい場合には、[データ取得のドキュメント](/docs/basic-features/data-fetching/get-server-side-props.md)をご覧ください。
 
 ## まとめ
 
@@ -287,7 +291,7 @@ Next.js のプリレンダリングの方法として、以下の 2 つについ
 以下のセクションを次に読むことをお勧めします。
 
 <div class="card">
-  <a href="/docs/basic-features/data-fetching.md">
+  <a href="/docs/basic-features/data-fetching/overview.md">
     <b>データの取得:</b>
     <small>Next.jsのデータ取得について学びましょう。</small>
   </a>
