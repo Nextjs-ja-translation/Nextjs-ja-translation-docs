@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { getSlug, removeFromLast, addTagToSlug } from '../../lib/docs/utils';
 import { GITHUB_URL, ORGANIZATION_NAME, REPOSITORY_NAME, DEFAULT_BRANCH } from '../../lib/github/constants';
 import addLinkListener from '../../lib/add-link-listener';
-import Notification from './notification';
 import FooterFeedback from '../footer-feedback';
 import Button from '../button';
 import ArrowIcon from '../arrow-icon';
@@ -17,7 +16,7 @@ function areEqual(prevProps, props) {
 
 function DocsPage({ route, html, prevRoute, nextRoute }) {
   const { query } = useRouter();
-  const { tag, slug } = getSlug(query);
+  const { tag, slug } = query.slug ? getSlug(query) : { tag: '', slug: '' };
   const href = '/docs/[...slug]';
   const editUrl = `${GITHUB_URL}/${ORGANIZATION_NAME}/${REPOSITORY_NAME}/edit/${DEFAULT_BRANCH}${route.path}`;
 

@@ -28,7 +28,7 @@ function getCategoryPath(routes) {
 
 function SidebarRoutes({ isMobile, routes: currentRoutes, level = 1 }) {
   const { query } = useRouter();
-  const { tag, slug } = getSlug(query);
+  const { tag, slug } = query.slug ? getSlug(query) : { slug: '', tag: '' };
 
   return currentRoutes.map(({ path, title, routes, heading, open }) => {
     if (routes) {
@@ -94,7 +94,7 @@ const Docs = ({ routes, route: _route, data, html }) => {
   }
 
   const title = route && `${data.title || route.title} | Next.js`;
-  const { tag } = getSlug(query);
+  const { tag } = query.slug ? getSlug(query) : {};
 
   return (
     <FeedbackContext.Provider value={{ label: 'next-docs' }}>
@@ -181,7 +181,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { slug } = getSlug(params);
+  const { slug } = params.slug ? getSlug(params) : { slug: "" };
   const manifest = await fetchDocsManifest().catch(error => {
     // If a manifest wasn't found for a custom tag, show a 404 instead
     if (error.status === 404) return;
@@ -191,13 +191,14 @@ export async function getStaticProps({ params }) {
 
   if (!route) return { props: {} };
 
-  if (route.redirect && route.redirect.description) {
-    return {
-      redirect: {
-        permanent: true,
-        destination: route.redirect.destination
-      }
-    }
+  if (route.redirect && route.redirect.destination) {
+    route.path = `${route.redirect.destination}.md`
+    // return {
+    //   redirect: {
+    //     permanent: true,
+    //     destination: route.redirect.destination
+    //   }
+    // }
   }
 
   const md = process.env.isProd
