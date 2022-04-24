@@ -235,7 +235,7 @@ Next.js はビルド時に `pages/posts/[id].js` でページコンポーネン�
 各 `params` の値はページ名で使われたパラメータと一致しなければならないことに注意してください。
 
 - ページ名が `pages/posts/[postId]/[commentId]` であれば、`params`は `postId` と `commentId` を含まなければなりません。
--`pages/[...slug] のように`ページ名が catch-all ルートを使用していれば、`params`は `slug` という配列を含まなければなりません。たとえば、この配列が `['foo', 'bar']` であれば、 Next.js は静的に `/foo/bar` というページを生成します。
+- `pages/[...slug] のように`ページ名が catch-all ルートを使用していれば、`params`は `slug` という配列を含まなければなりません。たとえば、この配列が `['foo', 'bar']` であれば、 Next.js は静的に `/foo/bar` というページを生成します。
 
 #### `fallback`キー（必須）
 
