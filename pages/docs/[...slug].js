@@ -191,6 +191,15 @@ export async function getStaticProps({ params }) {
 
   if (!route) return { props: {} };
 
+  if (route.redirect && route.redirect.description) {
+    return {
+      redirect: {
+        permanent: true,
+        destination: route.redirect.destination
+      }
+    }
+  }
+
   const md = process.env.isProd
     ? await getRawFileFromRepo(route.path)
     : await getRawFileFromLocalProject(route.path);
