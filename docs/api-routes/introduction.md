@@ -22,7 +22,7 @@ API ルートは Next.js で**API**を構築する方法を提供しています
 例えば、以下の API ルート `pages/api/user.js` は `json` レスポンスを `200` ステータスコードとともに返します:
 
 ```js
-export default function handler(req, res) => {
+export default function handler(req, res) {
   res.status(200).json({ name: 'John Doe' })
 };
 ```
@@ -35,7 +35,7 @@ API ルートを使用するためには、関数(**リクエストハンドラ*
 API ルートで異なる HTTP メソッドを処理するには、次のようにリクエストハンドラの `req.method` を使うことができます:
 
 ```js
-export default function handler(req, res) => {
+export default function handler(req, res) {
   if (req.method === 'POST') {
     // POSTリクエストを処理します
   } else {
